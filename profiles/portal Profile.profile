@@ -50,6 +50,10 @@
         <application>standard__Work</application>
         <default>false</default>
         <visible>false</visible>
+    </applicationVisibilities><applicationVisibilities>
+        <application>hed__HEDA</application>
+        <default>false</default>
+        <visible>false</visible>
     </applicationVisibilities><fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountSource</field>
@@ -958,6 +962,30 @@
         <default>false</default>
         <recordType>Transfer_Credits__c.Transfer_Credits</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>false</default>
+        <recordType>hed__Course_Enrollment__c.Banner_Course_Connection</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>false</default>
+        <recordType>hed__Course_Enrollment__c.LWC_Course_Connection</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>false</default>
+        <recordType>hed__Course_Offering__c.Banner_Course_Offering</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>false</default>
+        <recordType>hed__Course_Offering__c.LWC_Course_Offering</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>false</default>
+        <recordType>hed__Course__c.Banner_Course</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>false</default>
+        <recordType>hed__Course__c.LWC_Course</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities><tabVisibilities>
         <tab>Application_Timeslot_Booked__c</tab>
         <visibility>Hidden</visibility>
@@ -1056,6 +1084,36 @@
         <visibility>Hidden</visibility>
     </tabVisibilities><tabVisibilities>
         <tab>Workshop__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Address__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Affiliation__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Course_Enrollment__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Course_Offering__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Course__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__HEDA_Settings</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Program_Enrollment__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Relationship__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Term__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Trigger_Handler__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities><userPermissions>
         <enabled>true</enabled>

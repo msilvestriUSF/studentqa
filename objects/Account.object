@@ -608,6 +608,32 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>LongTextArea</type>
         <visibleLines>5</visibleLines>
+    </fields><fields>
+        <fullName>hed__Current_Address__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The current Address that the Account's billing fields are filled with.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The current Address that the Account's billing fields are filled with.</inlineHelpText>
+        <label>Current Address</label>
+        <referenceTo>hed__Address__c</referenceTo>
+        <relationshipLabel>Accounts (Current Address)</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>hed__Primary_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>_SYSTEM: One2OneContact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Account</relationshipLabel>
+        <relationshipName>Organizations</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
     </fields><compactLayoutAssignment>hed__HEDA_Account_Compact_Layout</compactLayoutAssignment><compactLayouts>
         <fullName>hed__HEDA_Account_Compact_Layout</fullName>
         <fields>Name</fields>

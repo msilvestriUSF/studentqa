@@ -238,6 +238,186 @@
     </classAccesses><classAccesses>
         <apexClass>WrapperClass</apexClass>
         <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__ACCT_CannotDelete_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__ACCT_CannotDelete_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__ACCT_IndividualAccounts_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__ACCT_IndividualAccounts_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__ADDR_Account_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__ADDR_Addresses_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__ADDR_Contact_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__ADDR_Seasonal_BATCH</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__ADDR_Seasonal_SCHED</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__AFFL_AccChange_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__AFFL_AccRecordType_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__AFFL_AccRecordType_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__AFFL_ContactAccChange_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__AFFL_ContactChange_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__AFFL_MultiRecordTypeMapper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__AFFL_MultiRecordType_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__AFFL_MultiRecordType_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__CENR_AcademicProgram_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__CENR_AcademicProgram_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__COFF_Affiliation_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__COFF_Affiliation_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__CON_CannotDelete_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__CON_CannotDelete_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__CON_DoNotContact_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__CON_DoNotContact_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__CON_Preferred_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__CON_Preferred_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__CON_PrimaryAffls_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__CON_PrimaryAffls_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__ERR_Handler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__ERR_Handler_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__ERR_Notifier</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__PREN_Affiliation_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__PREN_Affiliation_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__REL_Relationships_Cm_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__REL_Relationships_Con_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__REL_Relationships_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__REL_Relationships_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__REL_Utils</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__STG_InstallScript</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__STG_InstallScript_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__TDTM_DefaultConfig</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__TDTM_Filter</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__TDTM_Filter_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__TDTM_Runnable</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__TDTM_TriggerActionHelper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__TDTM_TriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__TDTM_TriggerScaffolds_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__TERM_CourseOff_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__TERM_CourseOff_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__THAN_Filter_TDTM</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__THAN_Filter_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__UTIL_CustomSettingsFacade</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__UTIL_CustomSettingsFacade_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__UTIL_Debug</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__UTIL_Describe</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__UTIL_Describe_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__UTIL_Namespace</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__UTIL_Namespace_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>hed__UTIL_UnitTestData_TEST</apexClass>
+        <enabled>true</enabled>
     </classAccesses><pageAccesses>
         <apexPage>AnswersHome</apexPage>
         <enabled>true</enabled>
@@ -388,6 +568,9 @@
     </pageAccesses><pageAccesses>
         <apexPage>UnderConstruction</apexPage>
         <enabled>true</enabled>
+    </pageAccesses><pageAccesses>
+        <apexPage>hed__STG_Settings</apexPage>
+        <enabled>true</enabled>
     </pageAccesses><applicationVisibilities>
         <application>Appointments</application>
         <default>false</default>
@@ -440,6 +623,10 @@
         <application>standard__Work</application>
         <default>false</default>
         <visible>false</visible>
+    </applicationVisibilities><applicationVisibilities>
+        <application>hed__HEDA</application>
+        <default>false</default>
+        <visible>true</visible>
     </applicationVisibilities><fieldPermissions>
         <editable>false</editable>
         <field>Account.Academic_Program_Type__c</field>
@@ -2484,6 +2671,202 @@
         <editable>true</editable>
         <field>Workshop__c.Type__c</field>
         <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>hed__Course_Enrollment__c.Active__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.Activity_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.Athlete__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.College__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.Course_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.Course_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.Course_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.Course_Offering_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.Course_Reference_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.Department__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>hed__Course_Enrollment__c.Eligible_to_Tutor__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>hed__Course_Enrollment__c.End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.External_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.Faculty__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.Grade_Change_Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.Letter_Grade__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>hed__Course_Enrollment__c.Received_Tutoring__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.SI_Hours__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.Schedule__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.Subject_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.Term__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.hed__Account__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.hed__Contact__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.hed__Course_Offering__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.hed__Grade__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Enrollment__c.hed__Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>hed__Course_Offering__c.Active__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>hed__Course_Offering__c.Course_Reference_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>hed__Course_Offering__c.Currently_Enrolled__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>hed__Course_Offering__c.External_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>hed__Course_Offering__c.Offering_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>hed__Course_Offering__c.PLTL__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Offering__c.Schedule__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>hed__Course_Offering__c.hed__Faculty__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>hed__Course_Offering__c.hed__Section_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Offering__c.tmpActive__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course_Offering__c.tmpCourseAccountName__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course__c.College__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course__c.Course_Long_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course__c.Course_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course__c.Credit_Maximum__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course__c.Credit_Minimum__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course__c.External_Course_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course__c.No_of_Sections__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course__c.Subject_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Course__c.Subject_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Program_Enrollment__c.Active__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>false</editable>
+        <field>hed__Term__c.Active__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>hed__Term__c.Term_Code__c</field>
+        <readable>true</readable>
     </fieldPermissions><layoutAssignments>
         <layout>AccountTeamMember-Account Team Member Layout</layout>
     </layoutAssignments><layoutAssignments>
@@ -2671,6 +3054,38 @@
         <layout>Workshop_Attendee__c-Workshop Attendee Layout</layout>
     </layoutAssignments><layoutAssignments>
         <layout>Workshop__c-LWC Workshop%2FTraining Layout</layout>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Address__c-USF Address Layout</layout>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course_Enrollment__c-LWC Course Connection</layout>
+        <recordType>hed__Course_Enrollment__c.LWC_Course_Connection</recordType>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course_Enrollment__c-USF Course Enrollment Layout</layout>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course_Enrollment__c-USF Course Enrollment Layout</layout>
+        <recordType>hed__Course_Enrollment__c.Banner_Course_Connection</recordType>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course_Offering__c-USF Course Offering Layout</layout>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course_Offering__c-USF Course Offering Layout</layout>
+        <recordType>hed__Course_Offering__c.Banner_Course_Offering</recordType>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course_Offering__c-USF Course Offering Layout</layout>
+        <recordType>hed__Course_Offering__c.LWC_Course_Offering</recordType>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course__c-USF Course Layout</layout>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course__c-USF Course Layout</layout>
+        <recordType>hed__Course__c.Banner_Course</recordType>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course__c-USF Course Layout</layout>
+        <recordType>hed__Course__c.LWC_Course</recordType>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Program_Enrollment__c-USF Program Enrollment Layout</layout>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Relationship__c-USF Relationship Layout</layout>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Term__c-USF Term Layout</layout>
     </layoutAssignments><objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
@@ -2751,6 +3166,38 @@
         <modifyAllRecords>false</modifyAllRecords>
         <object>Solution</object>
         <viewAllRecords>false</viewAllRecords>
+    </objectPermissions><objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>hed__Course_Enrollment__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions><objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>hed__Course_Offering__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions><objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>hed__Course__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions><objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>hed__Term__c</object>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions><recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Academic_Program</recordType>
@@ -2826,6 +3273,33 @@
     </recordTypeVisibilities><recordTypeVisibilities>
         <default>true</default>
         <recordType>Transfer_Credits__c.Transfer_Credits</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>hed__Course_Enrollment__c.Banner_Course_Connection</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>false</default>
+        <recordType>hed__Course_Enrollment__c.LWC_Course_Connection</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>hed__Course_Offering__c.Banner_Course_Offering</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>false</default>
+        <recordType>hed__Course_Offering__c.LWC_Course_Offering</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>hed__Course__c.Banner_Course</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>false</default>
+        <recordType>hed__Course__c.LWC_Course</recordType>
         <visible>true</visible>
     </recordTypeVisibilities><tabVisibilities>
         <tab>Application_Timeslot_Booked__c</tab>
@@ -2926,6 +3400,36 @@
     </tabVisibilities><tabVisibilities>
         <tab>Workshop__c</tab>
         <visibility>DefaultOff</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Address__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Affiliation__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Course_Enrollment__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Course_Offering__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Course__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__HEDA_Settings</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Program_Enrollment__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Relationship__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Term__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Trigger_Handler__c</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities><userPermissions>
         <enabled>true</enabled>
         <name>AssignTopics</name>

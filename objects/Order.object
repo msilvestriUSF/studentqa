@@ -56,20 +56,6 @@
     </fields><fields>
         <fullName>ActivatedDate</fullName>
         <trackHistory>false</trackHistory>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>BillToContactId</fullName>
-        
-        <type>Lookup</type>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>BillingAddress</fullName>
-        
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>CompanyAuthorizedById</fullName>
-        
-        <type>Lookup</type>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>CompanyAuthorizedDate</fullName>
-        
     </fields><fields>
         <fullName>ContractEndDate</fullName>
     </fields><fields>
@@ -78,34 +64,15 @@
         <type>Lookup</type>
     </fields><fields>
         <fullName>ContractName</fullName>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>CustomerAuthorizedById</fullName>
-        
-        <type>Lookup</type>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>CustomerAuthorizedDate</fullName>
-        
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>Description</fullName>
-        
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>EffectiveDate</fullName>
-        
     </fields><fields>
         <fullName>EndDate</fullName>
         <trackHistory>false</trackHistory>
     </fields><fields>
         <fullName>IsReductionOrder</fullName>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>Name</fullName>
-        
     </fields><fields>
         <fullName>OpportunityId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>OrderReferenceNumber</fullName>
-        
     </fields><fields>
         <fullName>OriginalOrderId</fullName>
         <type>Lookup</type>
@@ -113,27 +80,60 @@
         <fullName>OwnerId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>PoDate</fullName>
-        
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>PoNumber</fullName>
-        
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>ShipToContactId</fullName>
-        
-        <type>Lookup</type>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>ShippingAddress</fullName>
-        
     </fields><fields>
         <fullName>TotalAmount</fullName>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+    </fields><fields>
+        <fullName>BillToContactId</fullName>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>BillingAddress</fullName>
+        <trackHistory>true</trackHistory>
+    </fields><fields>
+        <fullName>CompanyAuthorizedById</fullName>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>CompanyAuthorizedDate</fullName>
+        <trackHistory>true</trackHistory>
+    </fields><fields>
+        <fullName>CustomerAuthorizedById</fullName>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>CustomerAuthorizedDate</fullName>
+        <trackHistory>true</trackHistory>
+    </fields><fields>
+        <fullName>Description</fullName>
+        <trackHistory>true</trackHistory>
+    </fields><fields>
+        <fullName>EffectiveDate</fullName>
+        <trackHistory>true</trackHistory>
+    </fields><fields>
+        <fullName>Name</fullName>
+        <trackHistory>true</trackHistory>
+    </fields><fields>
+        <fullName>OrderReferenceNumber</fullName>
+        <trackHistory>true</trackHistory>
+    </fields><fields>
+        <fullName>PoDate</fullName>
+        <trackHistory>true</trackHistory>
+    </fields><fields>
+        <fullName>PoNumber</fullName>
+        <trackHistory>true</trackHistory>
+    </fields><fields>
+        <fullName>ShipToContactId</fullName>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>ShippingAddress</fullName>
+        <trackHistory>true</trackHistory>
+    </fields><fields>
         <fullName>Type</fullName>
         <picklist>
             <sorted>false</sorted>
         </picklist>
-        
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields><compactLayoutAssignment>SYSTEM</compactLayoutAssignment><enableFeeds>false</enableFeeds><searchLayouts>
         <customTabListAdditionalFields>ORDERS.ORDER_NUMBER</customTabListAdditionalFields>

@@ -50,6 +50,10 @@
         <application>standard__Work</application>
         <default>false</default>
         <visible>false</visible>
+    </applicationVisibilities><applicationVisibilities>
+        <application>hed__HEDA</application>
+        <default>false</default>
+        <visible>false</visible>
     </applicationVisibilities><fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountSource</field>
@@ -820,6 +824,32 @@
         <layout>Workshop_Attendee__c-Workshop Attendee Layout</layout>
     </layoutAssignments><layoutAssignments>
         <layout>Workshop__c-Workshop Layout</layout>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course_Enrollment__c-LWC Course Connection</layout>
+        <recordType>hed__Course_Enrollment__c.LWC_Course_Connection</recordType>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course_Enrollment__c-USF Course Enrollment Layout</layout>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course_Enrollment__c-USF Course Enrollment Layout</layout>
+        <recordType>hed__Course_Enrollment__c.Banner_Course_Connection</recordType>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course_Offering__c-USF Course Offering Layout</layout>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course_Offering__c-USF Course Offering Layout</layout>
+        <recordType>hed__Course_Offering__c.Banner_Course_Offering</recordType>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course_Offering__c-USF Course Offering Layout</layout>
+        <recordType>hed__Course_Offering__c.LWC_Course_Offering</recordType>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course__c-USF Course Layout</layout>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course__c-USF Course Layout</layout>
+        <recordType>hed__Course__c.Banner_Course</recordType>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Course__c-USF Course Layout</layout>
+        <recordType>hed__Course__c.LWC_Course</recordType>
+    </layoutAssignments><layoutAssignments>
+        <layout>hed__Term__c-USF Term Layout</layout>
     </layoutAssignments><recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Academic_Program</recordType>
@@ -895,6 +925,30 @@
     </recordTypeVisibilities><recordTypeVisibilities>
         <default>false</default>
         <recordType>Transfer_Credits__c.Transfer_Credits</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>false</default>
+        <recordType>hed__Course_Enrollment__c.Banner_Course_Connection</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>false</default>
+        <recordType>hed__Course_Enrollment__c.LWC_Course_Connection</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>false</default>
+        <recordType>hed__Course_Offering__c.Banner_Course_Offering</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>false</default>
+        <recordType>hed__Course_Offering__c.LWC_Course_Offering</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>false</default>
+        <recordType>hed__Course__c.Banner_Course</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities><recordTypeVisibilities>
+        <default>false</default>
+        <recordType>hed__Course__c.LWC_Course</recordType>
         <visible>false</visible>
     </recordTypeVisibilities><tabVisibilities>
         <tab>Application_Timeslot_Booked__c</tab>
@@ -994,6 +1048,36 @@
         <visibility>Hidden</visibility>
     </tabVisibilities><tabVisibilities>
         <tab>Workshop__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Address__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Affiliation__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Course_Enrollment__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Course_Offering__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Course__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__HEDA_Settings</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Program_Enrollment__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Relationship__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Term__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>hed__Trigger_Handler__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities><userPermissions>
         <enabled>true</enabled>

@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields><fields>
+        <label><!-- Campus --></label>
+        <name>Campus__c</name>
+        <picklistValues>
+            <masterLabel>Hilltop</masterLabel>
+            <translation><!-- Hilltop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online Degree Program</masterLabel>
+            <translation><!-- Online Degree Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orange County</masterLabel>
+            <translation><!-- Orange County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pleasanton</masterLabel>
+            <translation><!-- Pleasanton --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sacramento</masterLabel>
+            <translation><!-- Sacramento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Francisco-Downtown</masterLabel>
+            <translation><!-- San Francisco-Downtown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Francisco-Presidio</masterLabel>
+            <translation><!-- San Francisco-Presidio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Jose</masterLabel>
+            <translation><!-- San Jose --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Santa Rosa</masterLabel>
+            <translation><!-- Santa Rosa --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Course Reference Number --></label>
+        <name>Course_Reference_Number__c</name>
+    </fields><fields>
+        <label><!-- Current Term --></label>
+        <name>Current_Term__c</name>
+    </fields><fields>
+        <label><!-- Currently Enrolled --></label>
+        <name>Currently_Enrolled__c</name>
+    </fields><fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields><fields>
+        <label><!-- LWC Tutor --></label>
+        <name>LWC_Tutor__c</name>
+    </fields><fields>
+        <label><!-- Level --></label>
+        <name>Level__c</name>
+        <picklistValues>
+            <masterLabel>Graduate</masterLabel>
+            <translation><!-- Graduate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Undergraduate</masterLabel>
+            <translation><!-- Undergraduate --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Offering Type --></label>
+        <name>Offering_Type__c</name>
+        <picklistValues>
+            <masterLabel>Fieldwork</masterLabel>
+            <translation><!-- Fieldwork --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Independent Study</masterLabel>
+            <translation><!-- Independent Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internship</masterLabel>
+            <translation><!-- Internship --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lab</masterLabel>
+            <translation><!-- Lab --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lecture</masterLabel>
+            <translation><!-- Lecture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online</masterLabel>
+            <translation><!-- Online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research</masterLabel>
+            <translation><!-- Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self-paced</masterLabel>
+            <translation><!-- Self-paced --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Seminar</masterLabel>
+            <translation><!-- Seminar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Studio</masterLabel>
+            <translation><!-- Studio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Virtual Campus</masterLabel>
+            <translation><!-- Virtual Campus --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- PLTL --></label>
+        <name>PLTL__c</name>
+    </fields><fields>
+        <label><!-- SI Session --></label>
+        <name>SI_Session__c</name>
+    </fields><fields>
+        <label><!-- Schedule --></label>
+        <name>Schedule__c</name>
+    </fields><fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>PLTL</masterLabel>
+            <translation><!-- PLTL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SI Session</masterLabel>
+            <translation><!-- SI Session --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tutoring</masterLabel>
+            <translation><!-- Tutoring --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Capacity --></label>
+        <name>hed__Capacity__c</name>
+    </fields><fields>
+        <label><!-- Course --></label>
+        <name>hed__Course__c</name>
+        <relationshipLabel><!-- Course Offerings --></relationshipLabel>
+    </fields><fields>
+        <label><!-- End Date --></label>
+        <name>hed__End_Date__c</name>
+    </fields><fields>
+        <label><!-- Primary Faculty --></label>
+        <name>hed__Faculty__c</name>
+        <relationshipLabel><!-- Course Offerings --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Section ID --></label>
+        <name>hed__Section_ID__c</name>
+    </fields><fields>
+        <label><!-- Start Date --></label>
+        <name>hed__Start_Date__c</name>
+    </fields><fields>
+        <label><!-- Term --></label>
+        <name>hed__Term__c</name>
+        <relationshipLabel><!-- Course Offerings --></relationshipLabel>
+    </fields><fields>
+        <label><!-- tmpActive --></label>
+        <name>tmpActive__c</name>
+    </fields><fields>
+        <label><!-- tmpCourseAccountName --></label>
+        <name>tmpCourseAccountName__c</name>
+    </fields><layouts>
+        <layout>USF Course Offering Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- LWC --></label>
+            <section>LWC</section>
+        </sections>
+    </layouts><recordTypes>
+        <label><!-- Banner Course Offering --></label>
+        <name>Banner_Course_Offering</name>
+    </recordTypes><recordTypes>
+        <label><!-- LWC Course Offering --></label>
+        <name>LWC_Course_Offering</name>
+    </recordTypes></CustomObjectTranslation>

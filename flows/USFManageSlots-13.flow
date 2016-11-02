@@ -742,6 +742,9 @@
                     <elementReference>formula_27_myRule_26_End_Time_c</elementReference>
                 </rightValue>
             </conditions>
+            <connector>
+                <targetReference>myRule_26_A1</targetReference>
+            </connector>
             <label>Does a Slot with a status of Consultant Check-in need notes and to be marked Completed 24 hours after slot end time</label>
         </rules>
     </decisions>
@@ -2128,6 +2131,74 @@
             <field>Center_Text__c</field>
             <value>
                 <elementReference>myVariable_current.Availability__r.Success_Center__r.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Counsellor_Availability__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[Counsellor_Availability__c]</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_26_A1</name>
+        <label>Update Slot Status to Missed by Consultant</label>
+        <locationX>2600</locationX>
+        <locationY>200</locationY>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Status</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Missed by Consultant</stringValue>
             </value>
         </inputAssignments>
         <object>Counsellor_Availability__c</object>

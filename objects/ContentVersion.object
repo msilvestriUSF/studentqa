@@ -13,12 +13,12 @@
         <fullName>OwnerId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>SharingOption</fullName>
-        
     </fields><fields>
         <fullName>TagCsv</fullName>
     </fields><fields>
         <fullName>Title</fullName>
         <trackHistory>false</trackHistory>
+    </fields><fields>
+        <fullName>SharingOption</fullName>
+        <trackHistory>true</trackHistory>
     </fields><compactLayoutAssignment>SYSTEM</compactLayoutAssignment><enableFeeds>false</enableFeeds></CustomObject>

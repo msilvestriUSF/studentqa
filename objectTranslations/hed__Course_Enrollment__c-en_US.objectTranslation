@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields><fields>
+        <label><!-- Activity Date --></label>
+        <name>Activity_Date__c</name>
+    </fields><fields>
+        <help><!-- System field, not needed for a page layout. --></help>
+        <label><!-- Athlete --></label>
+        <name>Athlete__c</name>
+    </fields><fields>
+        <label><!-- College --></label>
+        <name>College__c</name>
+    </fields><fields>
+        <label><!-- Course ID --></label>
+        <name>Course_ID__c</name>
+    </fields><fields>
+        <label><!-- Course Name --></label>
+        <name>Course_Name__c</name>
+    </fields><fields>
+        <label><!-- Course Number --></label>
+        <name>Course_Number__c</name>
+    </fields><fields>
+        <label><!-- Course Offering Name --></label>
+        <name>Course_Offering_Name__c</name>
+    </fields><fields>
+        <label><!-- Course Reference Number --></label>
+        <name>Course_Reference_Number__c</name>
+    </fields><fields>
+        <label><!-- Department --></label>
+        <name>Department__c</name>
+    </fields><fields>
+        <label><!-- Eligible to Tutor --></label>
+        <name>Eligible_to_Tutor__c</name>
+    </fields><fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields><fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields><fields>
+        <label><!-- Faculty --></label>
+        <name>Faculty__c</name>
+    </fields><fields>
+        <label><!-- Grade Change Reason --></label>
+        <name>Grade_Change_Reason__c</name>
+    </fields><fields>
+        <label><!-- Letter Grade --></label>
+        <name>Letter_Grade__c</name>
+    </fields><fields>
+        <label><!-- Received Tutoring --></label>
+        <name>Received_Tutoring__c</name>
+    </fields><fields>
+        <label><!-- SI Hours --></label>
+        <name>SI_Hours__c</name>
+    </fields><fields>
+        <label><!-- Schedule --></label>
+        <name>Schedule__c</name>
+    </fields><fields>
+        <label><!-- Subject Code --></label>
+        <name>Subject_Code__c</name>
+    </fields><fields>
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+    </fields><fields>
+        <help><!-- The Academic Program the student is enrolled in. --></help>
+        <label><!-- Contact&apos;s Academic Program --></label>
+        <name>hed__Account__c</name>
+        <relationshipLabel><!-- Course Connections --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Affiliation --></label>
+        <name>hed__Affiliation__c</name>
+        <relationshipLabel><!-- Course Connection --></relationshipLabel>
+    </fields><fields>
+        <help><!-- The student taking the course. --></help>
+        <label><!-- Contact --></label>
+        <name>hed__Contact__c</name>
+        <relationshipLabel><!-- Course Connections --></relationshipLabel>
+    </fields><fields>
+        <help><!-- The Course Offering the student is enrolled in. It&apos;s a Course offered at a specific Term. --></help>
+        <label><!-- Course Offering ID --></label>
+        <name>hed__Course_Offering__c</name>
+        <relationshipLabel><!-- Course Connection --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Credits Attempted --></label>
+        <name>hed__Credits_Attempted__c</name>
+    </fields><fields>
+        <label><!-- Credits Earned --></label>
+        <name>hed__Credits_Earned__c</name>
+    </fields><fields>
+        <label><!-- Grade --></label>
+        <name>hed__Grade__c</name>
+    </fields><fields>
+        <help><!-- Represents a Primary Course Connection. --></help>
+        <label><!-- Primary --></label>
+        <name>hed__Primary__c</name>
+    </fields><fields>
+        <help><!-- The Program Enrollment record number for the Program the student is enrolled in. Links a student with an Academic Program. --></help>
+        <label><!-- Program Enrollment ID --></label>
+        <name>hed__Program_Enrollment__c</name>
+        <relationshipLabel><!-- Course Connections --></relationshipLabel>
+    </fields><fields>
+        <help><!-- Represents the Status of the Course Connection.  Use Course Added for current course enrollment. --></help>
+        <label><!-- Status --></label>
+        <name>hed__Status__c</name>
+        <picklistValues>
+            <masterLabel>Audit</masterLabel>
+            <translation><!-- Audit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Course Added</masterLabel>
+            <translation><!-- Course Added --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Course Dropped</masterLabel>
+            <translation><!-- Course Dropped --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waitlisted</masterLabel>
+            <translation><!-- Waitlisted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawn from Course (W)</masterLabel>
+            <translation><!-- Withdrawn from Course (W) --></translation>
+        </picklistValues>
+    </fields><layouts>
+        <layout>LWC Course Connection</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- LWC --></label>
+            <section>LWC</section>
+        </sections>
+    </layouts><layouts>
+        <layout>USF Course Enrollment Layout</layout>
+        <sections>
+            <label><!-- Credits &amp; Grade --></label>
+            <section>Credits &amp; Grade</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- LWC --></label>
+            <section>LWC</section>
+        </sections>
+    </layouts><recordTypes>
+        <label><!-- Banner Course Connection --></label>
+        <name>Banner_Course_Connection</name>
+    </recordTypes><recordTypes>
+        <label><!-- LWC Course Connection --></label>
+        <name>LWC_Course_Connection</name>
+    </recordTypes></CustomObjectTranslation>

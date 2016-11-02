@@ -229,12 +229,6 @@
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>AssetId</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields><fields>
         <fullName>Attendance__c</fullName>
         <defaultValue>false</defaultValue>
@@ -301,21 +295,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>ContactId</fullName>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Contact.Student__c</field>
-                <operation>equals</operation>
-                <value>True</value>
-            </filterItems>
-            <isOptional>true</isOptional>
-        </lookupFilter>
-        <trackFeedHistory>false</trackFeedHistory>
-        
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields><fields>
         <fullName>ContactLastName__c</fullName>
         <externalId>false</externalId>
@@ -409,11 +388,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>Description</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        
-        <trackTrending>false</trackTrending>
     </fields><fields>
         <fullName>Estimated_Grade__c</fullName>
         <externalId>false</externalId>
@@ -560,43 +534,6 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>Origin</fullName>
-        <picklist>
-            <picklistValues>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Referral</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Visit - Drop in</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Visit - Scheduled Appointment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Portal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WebTrack</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields><fields>
         <fullName>Other__c</fullName>
         <externalId>false</externalId>
@@ -608,12 +545,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>OwnerId</fullName>
-        <trackFeedHistory>true</trackFeedHistory>
-        
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields><fields>
         <fullName>ParentId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -665,7 +596,434 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+    </fields><fields>
+        <fullName>Quality_of_Work__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Quality of Work</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Reason_Tutor_Request__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason Tutor Request</label>
+        <picklist>
+            <picklistValues>
+                <fullName>This course was not listed on my course list</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>There are no available appointments</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No available appointments fit my schedule</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Recommendations__c</fullName>
+        <description>This field holds the 'recommendation' values of Reasons Section on EAP Report Form page.</description>
+        <externalId>false</externalId>
+        <label>Recommendations</label>
+        <picklist>
+            <picklistValues>
+                <fullName>See Instructor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tutoring</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Supplemental Instruction</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Academic Counseling/Coaching</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Student Disability Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Improve Study Skills</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Writing Center</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consider Withdrawing from Course</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>See CASA Staff</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields><fields>
+        <fullName>Recommended_Classes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Classes Recommended to student by advisor</inlineHelpText>
+        <label>Recommended Classes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields><fields>
+        <fullName>Referred_By_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Referred By Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Referred_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Referred By</label>
+        <length>175</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Saturday_End__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_End_Time</globalPicklist>
+        <label>to</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Saturday_Start__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_Start_Time</globalPicklist>
+        <label>Saturday from</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>See_CASA_Staff__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>See CASA Staff</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>See_Instructor__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>See Instructor</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>SourceId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Student_Disability_Services__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Student Disability Services</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Study_Skills__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Study Skills</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Sunday_End__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_End_Time</globalPicklist>
+        <label>to</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Sunday_Start__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_Start_Time</globalPicklist>
+        <label>Sunday from</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Supplemental_Instruction__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Supplemental Instruction</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>SuppliedCompany</fullName>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>SuppliedEmail</fullName>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>SuppliedName</fullName>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>SuppliedPhone</fullName>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>Test_Grades__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Test Grades</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Thursday_End__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_End_Time</globalPicklist>
+        <label>to</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Thursday_Start__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_Start_Time</globalPicklist>
+        <label>Thursday from</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Tuesday_End__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_End_Time</globalPicklist>
+        <label>to</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Tuesday_Start__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_Start_Time</globalPicklist>
+        <label>Tuesday From</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Tutoring__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Tutoring</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Wednesday_End__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_End_Time</globalPicklist>
+        <label>to</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Wednesday_Start__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_Start_Time</globalPicklist>
+        <label>Wednesday from</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Work__c</fullName>
+        <description>This field holds the 'Work' values of Reasons Section on EAP Report Form page.</description>
+        <externalId>false</externalId>
+        <label>Work</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Quality of work</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Late Work</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lack of Study Skills</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Time Management Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Academic Foundation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lack of Motivation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Performing below a "C"</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields><fields>
+        <fullName>Writing_Center__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Writing Center</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>AssetId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>ContactId</fullName>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.Student__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Description</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>Origin</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Visit - Drop in</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Visit - Scheduled Appointment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Portal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WebTrack</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
         <fullName>Priority</fullName>
         <picklist>
             <picklistValues>
@@ -683,19 +1041,10 @@
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>true</trackFeedHistory>
-        
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields><fields>
-        <fullName>Quality_of_Work__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Quality of Work</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
         <fullName>Reason</fullName>
         <picklist>
             <picklistValues>
@@ -861,166 +1210,10 @@
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
-        
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields><fields>
-        <fullName>Reason_Tutor_Request__c</fullName>
-        <externalId>false</externalId>
-        <label>Reason Tutor Request</label>
-        <picklist>
-            <picklistValues>
-                <fullName>This course was not listed on my course list</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>There are no available appointments</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No available appointments fit my schedule</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields><fields>
-        <fullName>Recommendations__c</fullName>
-        <description>This field holds the 'recommendation' values of Reasons Section on EAP Report Form page.</description>
-        <externalId>false</externalId>
-        <label>Recommendations</label>
-        <picklist>
-            <picklistValues>
-                <fullName>See Instructor</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tutoring</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Supplemental Instruction</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Academic Counseling/Coaching</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Student Disability Services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Improve Study Skills</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Writing Center</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Consider Withdrawing from Course</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>See CASA Staff</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields><fields>
-        <fullName>Recommended_Classes__c</fullName>
-        <externalId>false</externalId>
-        <inlineHelpText>Classes Recommended to student by advisor</inlineHelpText>
-        <label>Recommended Classes</label>
-        <length>32768</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields><fields>
-        <fullName>Referred_By_Email__c</fullName>
-        <externalId>false</externalId>
-        <label>Referred By Email</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Email</type>
-        <unique>false</unique>
-    </fields><fields>
-        <fullName>Referred_By__c</fullName>
-        <externalId>false</externalId>
-        <label>Referred By</label>
-        <length>175</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields><fields>
-        <fullName>Saturday_End__c</fullName>
-        <externalId>false</externalId>
-        <globalPicklist>Available_End_Time</globalPicklist>
-        <label>to</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields><fields>
-        <fullName>Saturday_Start__c</fullName>
-        <externalId>false</externalId>
-        <globalPicklist>Available_Start_Time</globalPicklist>
-        <label>Saturday from</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields><fields>
-        <fullName>See_CASA_Staff__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>See CASA Staff</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields><fields>
-        <fullName>See_Instructor__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>See Instructor</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields><fields>
-        <fullName>SourceId</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
         <fullName>Status</fullName>
         <picklist>
             <picklistValues>
@@ -1046,132 +1239,15 @@
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
-        
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields><fields>
-        <fullName>Student_Disability_Services__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Student Disability Services</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields><fields>
-        <fullName>Study_Skills__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Study Skills</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
         <fullName>Subject</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
     </fields><fields>
-        <fullName>Sunday_End__c</fullName>
-        <externalId>false</externalId>
-        <globalPicklist>Available_End_Time</globalPicklist>
-        <label>to</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields><fields>
-        <fullName>Sunday_Start__c</fullName>
-        <externalId>false</externalId>
-        <globalPicklist>Available_Start_Time</globalPicklist>
-        <label>Sunday from</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields><fields>
-        <fullName>Supplemental_Instruction__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Supplemental Instruction</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields><fields>
-        <fullName>SuppliedCompany</fullName>
-        <trackTrending>false</trackTrending>
-    </fields><fields>
-        <fullName>SuppliedEmail</fullName>
-        <trackTrending>false</trackTrending>
-    </fields><fields>
-        <fullName>SuppliedName</fullName>
-        <trackTrending>false</trackTrending>
-    </fields><fields>
-        <fullName>SuppliedPhone</fullName>
-        <trackTrending>false</trackTrending>
-    </fields><fields>
-        <fullName>Test_Grades__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Test Grades</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields><fields>
-        <fullName>Thursday_End__c</fullName>
-        <externalId>false</externalId>
-        <globalPicklist>Available_End_Time</globalPicklist>
-        <label>to</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields><fields>
-        <fullName>Thursday_Start__c</fullName>
-        <externalId>false</externalId>
-        <globalPicklist>Available_Start_Time</globalPicklist>
-        <label>Thursday from</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields><fields>
-        <fullName>Tuesday_End__c</fullName>
-        <externalId>false</externalId>
-        <globalPicklist>Available_End_Time</globalPicklist>
-        <label>to</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields><fields>
-        <fullName>Tuesday_Start__c</fullName>
-        <externalId>false</externalId>
-        <globalPicklist>Available_Start_Time</globalPicklist>
-        <label>Tuesday From</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields><fields>
-        <fullName>Tutoring__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Tutoring</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
         <fullName>Type</fullName>
         <picklist>
             <picklistValues>
@@ -1189,86 +1265,10 @@
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
-        
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields><fields>
-        <fullName>Wednesday_End__c</fullName>
-        <externalId>false</externalId>
-        <globalPicklist>Available_End_Time</globalPicklist>
-        <label>to</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields><fields>
-        <fullName>Wednesday_Start__c</fullName>
-        <externalId>false</externalId>
-        <globalPicklist>Available_Start_Time</globalPicklist>
-        <label>Wednesday from</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields><fields>
-        <fullName>Work__c</fullName>
-        <description>This field holds the 'Work' values of Reasons Section on EAP Report Form page.</description>
-        <externalId>false</externalId>
-        <label>Work</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Quality of work</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Late Work</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lack of Study Skills</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Time Management Issues</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Academic Foundation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Personal Issues</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lack of Motivation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Performing below a "C"</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields><fields>
-        <fullName>Writing_Center__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Writing Center</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields><compactLayoutAssignment>SYSTEM</compactLayoutAssignment><enableFeeds>true</enableFeeds><recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory><searchLayouts>
+    </fields><compactLayoutAssignment>SYSTEM</compactLayoutAssignment><enableFeeds>true</enableFeeds><recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory><recordTypeTrackHistory>true</recordTypeTrackHistory><searchLayouts>
         <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
         <customTabListAdditionalFields>NAME</customTabListAdditionalFields>
