@@ -1,0 +1,13 @@
+Dear {!Referral__c.Referred_To__c}, 
+
+{!Referral__c.Student__c},{!Referral__c.CWID__c} met with {!Referral__c.Interaction_Staff__c} on {!Referral__c.Referral_Date__c} and has been referred to your office for additional resources. Your support is greatly appreciated. 
+
+Please let me know if you have any questions or concerns. 
+
+Thank you, 
+
+Center for Academic and Student Achievement (CASA) 
+University of San Francisco | UC 3rd Floor 
+2130 Fulton St., San Francisco, CA 94117-1080 
+T: 415.422.5050 | F: 415.422.2133 | Email: casa@usfca.edu 
+Office Hours: 9:00 AM - 5:00 PM

@@ -1,0 +1,529 @@
+<apex:page controller="USF_CourseConfigrator" sidebar="false" cache="false" docType="html-5.0" language="en-US" applyHTMLTag="true" standardStylesheets="false" showHeader="true" showChat="false">   
+ <html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Courses Available for Tutoring</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/> 
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+
+<apex:stylesheet value="{!$Resource.courseconfigurator}" />
+<apex:stylesheet value="{!$Resource.select2}" />
+
+
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+
+
+<apex:includeScript value="{!URLFOR($Resource.select2js)}" />
+
+ <apex:includeScript value="{!URLFOR($Resource.CourseConfiguratorjs)}" />
+ <script>
+ $(document).ready(function(){
+    console.log($);
+    $('.course-configurator-select-dropdown').select2();
+
+    $('body').on('change', '.list-left .course-group .course-group-checkbox,  .list-right .course-group .course-group-checkbox', function(){
+          var self = $(this);
+          toggleGroup(self);
+    });
+
+    $('.list-left .course-group  .list-group-item').click(function(){
+        var slectedGroup = $(this).closest('.course-group');
+        var selectedLists = $(this).closest('.list-group');
+        var parentLi = selectedLists.parent('.list-group-item');
+        var selectedGroupCheckBox = $(this).closest('.course-group').find('.course-group-link .course-group-checkbox');
+        var isSelected = $(this).find('.list-group-item-link-check').is(':checked');
+        if(isSelected){
+            $(this).addClass('active');
+            if(parentLi){
+                parentLi.addClass('active');
+            }
+        } else {
+            $(this).removeClass('active');
+        }
+    });
+
+    $('body').on('click', '.selected-courses .list-group-item', function(){
+        var isSelected = $(this).find('.list-group-item-link-check').is(':checked');
+        if(isSelected){
+            $(this).addClass('active');
+            $('.move-left').removeClass('disabled');
+        } else {
+            $(this).removeClass('active');
+        }
+    });
+
+    $('.course-selection').on('click', 'button', function() {
+        var $button = $(this), actives = '', selectedList = '';
+        if ($button.hasClass('move-left')) {
+            moveCoursesLeft($button);
+        } else if ($button.hasClass('move-right')) {
+            moveCoursesRight($button);
+        }
+    });
+
+    $('body').on('keyup', '.course-available__wrapper_search .course-available__wrapper_search_input, .selected-courses__wrapper_search input', function(event){
+        debugger;
+        var searchVal =  $.trim($(event.target).val()).toLowerCase();
+        //$('.list-group li').filter(function(index, item){
+        $(this).parent().next().find('div .list-group li').filter(function(index, item){
+            var labeltext = $(item).find('label').text().toLowerCase();
+            if(labeltext.indexOf(searchVal) < 0){
+                $(item).hide();
+            } else {
+                $(item).show();
+            }
+        });
+    });
+
+    function moveCoursesRight(button){
+        $('.list-right .course-group ul').empty();
+        $('.list-left .course-group>.list-group>.list-group-item').each(function(index, listItem){
+            var self = $(listItem);
+            var hasSelections = self.hasClass('active');
+            if(hasSelections){
+                var createListItem = $("<li class='list-group-item'>");
+                var hasChildList = self.children('.list-group').clone(false);
+                var groupTitle = self.children("*:not('.list-group')").clone(false);
+                var selectedList = hasChildList.find('li').filter(function(index, listItem){
+                    return $(listItem).hasClass('active');
+                });
+                hasChildList.empty();
+                hasChildList.append(selectedList);
+                createListItem.append(groupTitle);
+                createListItem.append(hasChildList);
+                if(hasChildList.children().length > 0){
+                    createListItem.appendTo('.list-right .course-group>ul');
+                }
+                resetCourses('list-right');
+                button.blur();
+            }
+        });
+    }
+
+    function selctedCourses(group, lists, groupCheckBox) {
+        var counter = 0;
+        $(lists).find('li').each(function(index, listItem){
+            if($(listItem).hasClass('active')) {
+                counter++;
+            }
+        });
+        if(counter > 0){
+            $(groupCheckBox).prop('checked', true);
+        } else {
+            $(groupCheckBox).prop('checked', false);
+        }
+    }
+    
+    function moveCoursesLeft(button){
+        var lists = $('.list-right .course-group>.list-group>.list-group-item');
+        lists.each(function(index, listItem){
+            var self = $(listItem);
+            var hasSelections = self.hasClass('active');
+            if(hasSelections){
+                var hasChildList = self.children('.list-group');
+                var subListLength = self.children('.list-group').children().length;
+                if(subListLength <= 1){
+                    self.remove();
+                }
+                hasChildList.find('li').each(function(index, listItem){
+                    var activeList = $(listItem).hasClass('active');
+                    if(activeList){
+                        $(listItem).remove();
+                    }
+                });
+            }
+        });
+
+    }
+
+    function resetCourses(list) {
+        $('.'+list).find('.course-group>.list-group>.list-group-item').each(function(index, listItem){
+              $(listItem).find('input[type="checkbox"]').prop('checked', false);
+              var hasChildList = $(listItem).children('.list-group');
+              hasChildList.find('li').each(function(index, subList){
+                  $(subList).find('input[type="checkbox"]').prop('checked', false);
+                  $(subList).removeClass('active');
+              });
+        });
+    }
+
+    function toggleGroup(target){
+        var isChecked = target.is(":checked");
+        if(isChecked){
+            target.closest('.list-group').find('li').each(function(index, listItem){
+                $(listItem).addClass('active');
+                $(listItem).find('input[type="checkbox"]').prop('checked', true);
+            });
+        } else {
+          target.closest('.list-group').find('li').each(function(index, listItem){
+              $(listItem).removeClass('active');
+              $(listItem).find('input[type="checkbox"]').prop('checked', false);
+          });
+        }
+    }
+ });
+ 
+
+ </script>
+<style>
+
+.container{
+max-width:935px;
+}
+
+.noSidebarCell{
+background:#eee !important
+}
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus{
+background: #fff;
+border-color: #fff;
+}
+.styleSelect {
+padding: 6px 0px;
+display: inline-block;
+margin-right: 30px;
+font-size: 14px;
+border:1px solid #E6E6E6;
+font-family: QuattrocentoSans;
+padding-left:10px;
+}
+.styleSelect option{
+color: #2A2A2A !important;
+font-family: QuattrocentoSans;
+}
+.mainHeading {
+font-size:18px;
+margin-top:40px;
+font-weight:500;
+}
+label {
+font-weight:normal;
+}
+.course-group > ul li{
+padding:0px !important;
+}
+.list-group-item {
+padding:0px !important;
+}
+.list-group-item-link-check {
+margin-left:-30px;
+}
+.course-group .course-group-link{
+font-size:14px;
+font-family: QuattrocentoSans-Bold;
+}
+
+.course-available__wrapper,
+.selected-courses__wrapper {
+margin-top:20px;
+}
+.selected-courses__wrapper_collection_list {
+    
+    margin: -4px 0;
+}
+.available-courses__wrapper_collection_list{
+margin-top:9px !important;
+}
+.course-configurator-select {
+        margin-bottom: 36px;
+}
+.course-available__wrapper_search_input,.selected-courses__wrapper_search >input {
+height:45px !important;
+margin-top:20px;
+}
+.course-available__wrapper_search,.selected-courses__wrapper_search{
+padding:0;
+border:none;
+}
+.course-available__wrapper_collection,.selected-courses__wrapper_collection{
+margin-top: 10px;
+border-top: 1px solid #ccc;
+padding:0;
+}
+.course-available__wrapper_collection {
+padding-top:10px;
+}
+.selected-courses__wrapper_search {
+border: none;
+}
+.selected-courses__wrapper_search input {
+padding-left:10px;
+}
+.container {
+max-width:936px;
+}
+ul li, ol li {
+margin-left: 0;
+}
+
+ul ul {
+margin-left:15px;
+font-family: QuattrocentoSans;
+font-size: 14px;
+color: #2A2A2A;
+}
+.course-available h4,.selected-courses h4{
+font-size: 14px;
+color: #2A2A2A;
+letter-spacing: 0px;
+font-family:QuattrocentoSans-Bold;
+}
+/*
+.course-selection_add_btn {
+background: #00543C !important;
+border-radius: 4px !important;
+color: #fff !important;
+font-size: 14px !important; 
+font-weight: normal !important;
+  }*/
+.course-selection {
+padding:0;
+}
+/*
+.course-selection_remove_btn {
+background:none !important;
+font-weight: normal !important;
+top: 214px;
+}
+.course-selection_remove_btn:hover{
+border:1px solid #999;
+color:#000;
+}*/
+.course-available__wrapper,.selected-courses__wrapper{
+background: #FFFFFF;
+box-shadow: 0px 2px 4px 0px rgba(145,145,147,0.20);
+}
+.course-available__wrapper span{
+float:right;
+position: absolute;
+    top: 38px;
+    right: 16px;
+    color: #999;
+}
+.selected-courses__wrapper_search span {
+float:right;
+position: absolute;
+    top: 38px;
+    right: 32px;
+    color: #999;
+}
+.course-configurator-save_btn {
+/*padding:9px 55px !important;
+background: #00543C !important;
+border-radius: 4px !important;
+color:#fff !important;*/
+    margin-bottom: 60px !important;
+}
+.right{
+font-size:10px;
+}
+.negativeRight {
+margin-left: -6px;
+font-size: 10px;
+}
+.left{
+font-size:10px;
+}
+.negativeLeft {
+margin-left: -6px;
+font-size: 10px;
+}
+.course-configurator-select {
+    margin-bottom: 36px;
+    margin-top: 30px;
+}
+</style>
+</head>
+<body>
+       
+       
+        <apex:form >
+            <apex:pageMessages id="pgId"/>
+            <div class="course-configurator container">
+           
+               <!--  <h3 class="row course-configurator-title">Course Configurator</h3> -->
+                <div class="row course-configurator-select">
+                    <!-- <select class="col-md-2 course-configurator-select-dropdown">
+        <option value="t1">Department 1</option>
+        <option value="t2">Department 2</option>
+      </select>
+      <select class="col-md-2 course-configurator-select-dropdown">
+        <option value="t1">Term 1</option>
+        <option value="t2">Term 2</option>
+      </select>-->
+                    
+                    <apex:selectlist id="TermsSearch" value="{!termId}" size="1" required="true" styleclass="styleSelect">
+                    
+                      <apex:selectOptions value="{!Terms}" />
+                        <apex:actionSupport action="{!populateCoursesBasedUponTerm}" event="onchange" rerender="coursesPanel" status="statusProcessing" />
+                    </apex:selectlist>
+
+                        <strong></strong>  <strong></strong>  <strong></strong> 
+
+                    <apex:selectlist id="Type" value="{!types}" size="1" required="true" styleclass="styleSelect">      
+                    
+                        <apex:selectOptions value="{!Type}" />     
+                        <apex:actionSupport action="{!populateCoursesBasedUponTerm}" event="onchange" rerender="coursesPanel" status="statusProcessing" />
+                    </apex:selectlist>
+                      
+
+                    <strong></strong>  <strong></strong>  <strong></strong> 
+                   
+                    <apex:selectlist id="Levels" value="{!Levels}" size="1" required="true" styleclass="styleSelect">      
+                    
+                        <apex:selectOptions value="{!Level}" />     
+                        <apex:actionSupport action="{!populateCoursesBasedUponTerm}" event="onchange" rerender="coursesPanel" status="statusProcessing" />
+                    </apex:selectlist>
+                    
+                    
+                       <strong></strong>  <strong></strong>  <strong></strong> 
+                   
+                     <apex:selectlist id="campusid" value="{!campusid}" size="1" required="true" styleclass="styleSelect" >
+                    
+                       <apex:selectOptions value="{!Campus}" />
+                        <apex:actionSupport action="{!populateCoursesBasedUponTerm}" event="onchange" rerender="coursesPanel" status="statusProcessing" />
+                    </apex:selectlist> 
+                    
+                    <strong></strong>  <strong></strong>  <strong></strong> 
+                   
+                    <apex:selectlist id="Te" value="{!offeredtype}" size="1" required="true" styleclass="styleSelect">
+                    
+                        <apex:selectOptions value="{!Mode}" />
+                        <apex:actionSupport action="{!populateCoursesBasedUponTerm}" event="onchange" rerender="coursesPanel" status="statusProcessing" />
+                    </apex:selectlist>    
+                    
+                </div>
+                <apex:outputPanel id="coursesPanel">
+                <div class="row course-configurator-container">
+                    <aside class="col-md-5 course-available">
+                        <h4> Courses Available</h4>
+                        <div class="col-md-12 col-sm-12 list-left course-available__wrapper">
+                            <div class="col-md-12 col-sm-12 course-available__wrapper_search">
+                              <!--  <input type="text" placeholder="Search" class="col-md-12 col-sm-12" /> -->
+                              <input type="text" placeholder="Search" class="col-md-12 col-sm-12 course-available__wrapper_search_input" />
+                              <span class="glyphicon glyphicon-search"></span>
+                            </div>
+                            <div class="col-md-12 col-sm-12 list-left course-available__wrapper_collection">
+                            <apex:repeat value="{!courseMap}" var="key">
+
+                                <div class="col-md-12 available-courses__wrapper_collection_list course-group">
+                                    <ul class="list-group">
+                                        
+                                            <li class="list-group-item">
+                                           
+                                            <label class="course-group-link">
+                                             <input type="checkbox" class="pull-left course-group-checkbox" /> &nbsp;
+                                                      <apex:outputText value="{!key}" />
+                                                </label>
+                                                 
+                                                <ul>
+                                                    <apex:repeat value="{!courseMap[key]}" var="coursekey">
+
+                                                        <li class="list-group-item">
+                                                            <label class="list-group-item-link-check">
+                                                                <!--<input type="checkbox" class="pull-left list-group-item-link-check" />-->
+                                                                <apex:inputCheckbox value="{!coursekey.selected}">
+
+                                                                </apex:inputCheckbox> &nbsp;
+                                                                <apex:outputText value="{!coursekey.courseOffering.hed__Course__r.hed__Course_ID__c}" />
+                                                               -<apex:outputText value="{!coursekey.courseOffering.hed__Course__r.Name}" />
+                                                               (<apex:outputText value="{!coursekey.courseOffering.hed__Section_ID__c}" />)
+                                                               
+                                                                                                                         
+                                                              </label>
+                                                        </li>
+
+                                                    </apex:repeat>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                </div>
+                               </apex:repeat>
+                                     
+                            </div>
+                        </div>
+                    </aside>
+                    <div class="col-md-2 course-selection">
+                        <!--<button class="col-md-10 btn btn-primary course-selection_add_btn move-right" id="addCourse">Add Selcted >></button>
+        <button class="col-md-10 btn btn-warning course-selection_remove_btn move-left disabled" id="removeCourse"> Remove Selected </button>-->
+                        <!-- <apex:commandButton action="{!addCourses}" styleClass="col-md-10 btn btn-primary course-selection_add_btn move-right" value="Add Selected >>" rerender="coursesPanel" status="statusProcessing"></apex:commandButton>
+                        <apex:commandButton action="{!removeCourses}" styleClass="col-md-10 btn btn-warning course-selection_remove_btn move-left" value="<< Remove Selected" rerender="coursesPanel" status="statusProcessing"></apex:commandButton> -->
+                        <button type="button" onclick="addCoursesAF();" class="col-md-10 btn btn-primary course-selection_add_btn move-right">Add Courses<span class="glyphicon glyphicon-menu-right right"></span><span class="glyphicon glyphicon-menu-right right negativeRight"></span></button>
+                        <button type="button" onclick="removeCoursesAF();" class="col-md-10 btn btn-warning course-selection_remove_btn move-left"><span class="glyphicon glyphicon-menu-left left"></span><span class="glyphicon glyphicon-menu-left negativeLeft"></span>Remove Courses</button>
+
+                    </div>
+                    <aside class="col-md-5  selected-courses">
+                        <h4> Courses Selected</h4>
+                        <div class="col-md-12 col-sm-12 selected-courses__wrapper">
+                            <div class="selected-courses__wrapper_search">
+                                <input type="text" placeholder="Search" class=""  style="width:100%"/>
+                                <span class="glyphicon glyphicon-search"></span>
+                            </div>
+                            <div class="col-md-12 col-sm-12 list-right selected-courses__wrapper_collection">
+                            <apex:repeat value="{!addedCourseMap}" var="key">
+
+                                <div class="col-md-12 col-sm-12 selected-courses__wrapper_collection_list">
+                                    <div class="course-group">
+                                        <ul class="list-group" style="box-shadow:none;">
+                                            
+                                                <li class="list-group-item">
+                                                    <label class="course-group-link">
+                                                        <input type="checkbox" class="pull-left course-group-checkbox" /> &nbsp;
+                                                        <apex:outputText value="{!key}" />
+                                                    </label>
+                                                    <ul>
+                                                        <apex:repeat value="{!addedCourseMap[key]}" var="coursekey">
+
+                                                            <li class="list-group-item">
+                                                                <label class="list-group-item-link-check">
+                                                                    <!--<input type="checkbox" class="pull-left list-group-item-link-check" />-->
+                                                                    <apex:inputCheckbox value="{!coursekey.selected}">
+
+                                                                    </apex:inputCheckbox> &nbsp;
+                                                                    <apex:outputText value="{!coursekey.courseOffering.hed__Course__r.hed__Course_ID__c}" />
+                                                                   - <apex:outputText value="{!coursekey.courseOffering.hed__Course__r.Name}" />
+                                                                   (<apex:outputText value="{!coursekey.courseOffering.hed__Section_ID__c}" />)
+                                                                </label>
+                                                            </li>
+
+                                                        </apex:repeat>
+                                                    </ul>
+                                                </li>
+
+                                            
+                                        </ul>
+                                    </div>
+                                    </div>
+                                    </apex:repeat>
+                                
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                </apex:outputPanel>
+                <div class="row course-configurator-save">
+                    <apex:commandButton action="{!saveCourses}" styleClass="btn btn-success course-configurator-save_btn" value="Save Courses" rerender="coursesPanel,pgId" status="statusProcessing"></apex:commandButton>
+                    
+                </div>
+            </div>
+            <apex:actionStatus id="statusProcessing">
+                <apex:facet name="start">
+                    <c:loadingStatus ></c:loadingStatus>
+                </apex:facet>
+            </apex:actionStatus>
+            <apex:actionFunction action="{!addCourses}" name="addCoursesAF" rerender="coursesPanel" status="statusProcessing"></apex:actionFunction>
+            <apex:actionFunction action="{!removeCourses}" name="removeCoursesAF" rerender="coursesPanel" status="statusProcessing"></apex:actionFunction>
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+             Include all compiled plugins (below), or include individual files as needed 
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+
+    </apex:form>
+    </body>
+    </html>
+</apex:page>

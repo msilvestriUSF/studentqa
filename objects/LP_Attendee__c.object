@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"><actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides><fields>
+        <fullName>Course_Enrollment__c</fullName>
+        <externalId>false</externalId>
+        <label>Course Enrollment</label>
+        <referenceTo>hed__Course_Enrollment__c</referenceTo>
+        <relationshipName>SI_Attendees</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields><fields>
+        <fullName>LP_Attendee_Hours__c</fullName>
+        <externalId>false</externalId>
+        <label>LP Attendee Hours</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>LP_Session_Hours__c</fullName>
+        <externalId>false</externalId>
+        <formula>Learning_Program__r.Duration__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>LP Session Hours</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Learning_Program__c</fullName>
+        <externalId>false</externalId>
+        <label>Learning Program</label>
+        <referenceTo>Learning_Program__c</referenceTo>
+        <relationshipLabel>Learning Program Attendees</relationshipLabel>
+        <relationshipName>Learning_Program_Attendees</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields><fields>
+        <fullName>Student__c</fullName>
+        <externalId>false</externalId>
+        <formula>Course_Enrollment__r.hed__Contact__r.Full_Name__c</formula>
+        <label>Student</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><allowInChatterGroups>true</allowInChatterGroups><compactLayoutAssignment>SYSTEM</compactLayoutAssignment><deploymentStatus>Deployed</deploymentStatus><enableActivities>true</enableActivities><enableBulkApi>true</enableBulkApi><enableFeeds>false</enableFeeds><enableHistory>true</enableHistory><enableReports>true</enableReports><enableSearch>true</enableSearch><enableSharing>true</enableSharing><enableStreamingApi>true</enableStreamingApi><label>Learning Program Attendee</label><nameField>
+        <displayFormat>LPA-{0000}</displayFormat>
+        <label>LP Attendee</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField><pluralLabel>Learning Program Attendees</pluralLabel><searchLayouts /><sharingModel>ControlledByParent</sharingModel><listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Student__c</columns>
+        <columns>Learning_Program__c</columns>
+        <columns>LP_Attendee_Hours__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews></CustomObject>

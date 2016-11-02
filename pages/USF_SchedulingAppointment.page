@@ -1,0 +1,1416 @@
+<apex:page showHeader="true" sidebar="false" standardStylesheets="false" cache="false" docType="html-5.0" language="en-US" applyHTMLTag="true" standardController="AppointmentContact__c" extensions="USF_SchedulingAppointmentController" tabStyle="Front_Desk_Dashboard__tab" >
+<script type="text/javascript">
+window.onload = init;
+function init() {
+   tables = document.getElementsByTagName('table');
+   for (i = 0; i < tables.length; i++) {
+   
+      table = tables[i];
+      if (table.className == 'makeRows' ) {
+         makeRows(table, 2);
+      }
+   }
+}
+
+function makeRows(table, columnCount) {
+   cells = table.rows[0].cells;
+   cellCount = cells.length;
+   rowCount = Math.ceil(cellCount / columnCount);
+   for (var j= 0; j < rowCount; j++) {
+      table.insertRow(0);
+   }
+   for (var k = 0; k < cellCount; k++) {
+      row = Math.floor(k / columnCount);
+      table.rows[row].appendChild(cells[k].cloneNode(true));
+   }
+   table.deleteRow(rowCount);
+ }
+ 
+function autocompleteCallback(data){
+    $('[id$="studentIdHidden"]').val(data);  
+    } 
+ 
+</script>
+
+<apex:form >  
+  <html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Book an appointment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Bootstrap Theme-->
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+
+
+<apex:includeScript value="{!URLFOR($Resource.MomentJs)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+<apex:includeScript value="{!URLFOR($Resource.DateTimePickerJS)}"/>
+<apex:includeScript value="{!URLFOR($Resource.UploadAttachments)}"/>
+<style type="text/css">
+    body{
+        padding: 0;
+        background: #F8F7F0;
+    }
+    h2{
+        color: #555;
+    }
+    .search-button{
+        background: white;
+        font-size: 18px;
+        padding: 10px 50px;             
+    }
+    .search-area{
+        padding: 15px;        
+        height: 15px;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        display: inline-block;
+        width: 65%;
+    }
+    .details-wrapper{
+        margin-top: 15px;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 4px 0px rgba(145,145,147,0.20);
+        border-radius: 5px;
+        padding: 16px 20px;
+    }
+    .details-container{
+        margin-top: 25px;        
+    }
+    .profile-container{        
+        margin: 0 0 40px 0;
+        border: 1px solid #E6E6E6;
+        border-radius: 4px;  
+    }
+    .profile-row{
+        margin: 20px 0;        
+    }
+    .profile-row div:first-child{
+        color: #00543C;
+        font-family: QuattrocentoSans-Bold;
+    }
+    .big-font{
+        font-size: 18px;
+    }
+    .slot-selected{
+        margin-bottom: 22px;
+    }
+
+    @media only screen and (min-device-width : 768px){ 
+    #tophead{
+    background: white;
+    }
+
+    ul.list-group{
+    border: 1px solid #18453b;
+    border-radius: 0px !important;
+    }
+    .bootstrap-datetimepicker-widget table thead tr:first-child th, .bootstrap-datetimepicker-widget table thead tr:first-child th:hover, .bootstrap-datetimepicker-widget table td span:hover{
+    background:none !important;
+    text-transform: uppercase;
+    }
+    .bootstrap-datetimepicker-widget table td span.active{
+    color:#18453b !important;   
+    background-color:white !important;
+    }
+    .list-group-item:last-child{
+    margin-bottom:0px !important;
+    }
+
+    li.list-group-item {
+    background-color: white;
+    }
+    .center-block {
+    margin-top: 0.5%;
+    margin-left:1%;
+    }
+    .picker-switch{
+    color:#18453b !important;
+    }
+    .page-header{
+    border-bottom:none !important;
+    margin: 10px 0 10px;
+    padding-bottom: 0px;
+    }
+    .dow{
+    color:#696D6F !important;
+    }
+
+    .bootstrap-datetimepicker-widget table td.day, .bootstrap-datetimepicker-widget table td.day.new, .datetimepicker-widget table td.active {
+    color: #18453b !important;
+    font-weight:bold !important;
+    padding: 3.5% 3.5%;
+    }
+
+    .bootstrap-datetimepicker-widget table td.day.old,.bootstrap-datetimepicker-widget table td.day.new{
+    color: #89A19C !important;
+    font-weight:bold !important;
+    }
+    li.picker-switch.accordion-toggle {
+    display: none;
+    }
+    .bootstrap-datetimepicker-widget table tr.hover{
+     background: none;       
+    }
+    .bootstrap-datetimepicker-widget table td.day:hover, .bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover{
+    color:white !important;
+    background-color: #308A76;
+    border-radius: 50%;
+
+    }
+    .bootstrap-datetimepicker-widget table td.today:before{
+    content:none !important;
+    }
+    #hd{
+    margin-left: -1.3%;
+    font-family:Arial;
+    font-size:20px;
+    color: #18453b;
+    }
+    #element2{
+    border-color: #2E7767;
+    font-size: 12px;
+    font-family: Arial;
+    font-style: Normal; 
+    border-radius: 0px !important; 
+
+    }
+    #ele1,#ele2,#ele3, #ele4, #ele5, #ele6,#ele7{
+    background-color:#18453b; 
+    border-color: #2E7767;
+    color: white;
+    font-family: Arial;
+    font-style: Normal; 
+    border-radius: 0px !important;  
+    border:none !important;
+    }
+    #inpt2,#inpt3{
+    color: black;
+    width: 93%;
+    border-left:none !important;
+    border-top:none !important;
+    border-right:none !important;
+    border-bottom:1px solid #2E7767 !important;
+    border-color: #18453b;
+    background: #FFFFE0;
+    font-size: 14px;
+    font-weight: bold;
+    }
+    #elementCASA,#elementLWC, #ele0{
+    font-family: Arial;
+    font-style: Normal;
+    color: #18453b; 
+    border-right: 1px solid #18453b;
+    border-top: 1px solid #18453b;
+    border-bottom: 1px solid #18453b;
+    border-radius: 0px !important;
+    }
+    
+    #regbuttn {
+        background: #fff;
+        color: grey;
+        float: right;
+        margin-right: 0px;
+        font-family: Arial;
+        border: 1px solid #999;
+    }   
+    .activeBtn {
+        background: #308A76 !important;
+        color: #fff !important;
+        border: 1px solid #308A76 !important;
+    }
+
+
+    #subbuttn{
+    background :#117864;
+    color: #76D7C4; 
+    font-family:Arial;
+    font-style: Normal;
+    margin-left: 38%;
+    margin-top: -10%;
+    }
+    #closeicon{
+    float: right; 
+    color: #18453b;     
+    }
+    #successicon{
+    color: #18453b;
+    font-size: 50px;
+    margin-left: 40%;
+    }
+    .vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    width: 100%;
+    }
+    #attch{
+    color: #76D7C4;
+    background: #18453b;
+    border: none;
+    height: 30px;
+    }
+    #showtime{
+    float:right !important; 
+    margin-top:-2.5% !important;
+    }
+
+    input:focus, input:active{
+    outline-color: #18453b  !important; 
+    background-color:none !important;
+    } 
+    #subbuttn:focus, #regbuttn:focus {
+    outline-color: #18453b  !important; 
+    }
+    #slotDetails, #appDetails{
+    padding: 0;
+    }
+    hr{
+    border: 1px solid #E6E6E6;
+    }    
+
+    .fileUpload{
+    position: relative;
+    overflow: hidden;
+    margin-top: -2px;
+    border: 1px solid #2E7767;
+    border-radius: 0px;
+    margin-left: 3%;
+    width: 60%;
+    }
+    .fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    }
+    } 
+
+    @media only screen and (min-device-width : 320px)and (max-device-width : 480px){
+    #tophead{
+    background: white;
+    }
+    .container{
+    padding:0 !important;
+    }
+    .list-group{
+    padding:0;
+    border-bottom: 1px solid #18453b;
+    border-radius: 0px !important;
+    }
+    .center-block {
+    margin-top: 1.5%;
+    }
+
+    .bootstrap-datetimepicker-widget table thead tr:first-child th, .bootstrap-datetimepicker-widget table thead tr:first-child th:hover, .bootstrap-datetimepicker-widget table td span:hover{
+    background:none !important;
+    text-transform: uppercase;
+    }
+    .bootstrap-datetimepicker-widget table td span.active{
+    color:#18453b !important;   
+    background-color:white !important;
+    }
+
+    li.list-group-item {
+    background-color: white;
+    }
+    .picker-switch{
+    color:#18453b !important;
+    }
+    .page-header{
+    border-bottom:none !important;
+    margin: 0.5% 0 0.5% !important;
+    padding-bottom: 0px;
+    text-align: center;
+    font-family:12px;
+    }
+    .dow{
+    color:#696D6F !important;
+    }
+
+    .bootstrap-datetimepicker-widget table td.day, .bootstrap-datetimepicker-widget table td.day.new, .datetimepicker-widget table td.active {
+    color: #18453b !important;
+    font-weight:bold !important;
+    padding: 3.5% 3.5%;
+    }
+
+    .bootstrap-datetimepicker-widget table td.day.old,.bootstrap-datetimepicker-widget table td.day.new{
+    color: #89A19C !important;
+    font-weight:bold !important;
+    }
+    li.picker-switch.accordion-toggle {
+    display: none;
+    }
+    .bootstrap-datetimepicker-widget table tr.hover{
+     background: none;       
+    }
+    .bootstrap-datetimepicker-widget table td.day:hover, .bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover{
+    color:white !important;
+    background-color: #308A76;
+    border-radius: 50%;
+
+    }
+    .bootstrap-datetimepicker-widget table td.today:before{
+    content:none !important;
+    }
+    #hd{
+    font-family:Arial;
+    font-size:15px;
+    color: #18453b;
+    }
+    #calLi{
+    border:none;
+    margin-top: -2%;
+    }
+    #element2{
+    background-color:#18453b; 
+    border-color: #2E7767;
+    color: white;
+    font-size: 12px;
+    font-family: Arial;
+    font-style: Normal; 
+    border-radius: 0px !important; 
+
+    }
+    #ele1,#ele2,#ele3, #ele4, #ele5, #ele6,#ele7{
+    background-color:#18453b; 
+    border-color: #2E7767;
+    color: white;
+    font-family: Arial;
+    font-style: Normal; 
+    border-radius: 0px !important;  
+    border:none !important;
+    }
+    #inpt2,#inpt3, #inpt4CASA, #inpt4LWC, #inpt6CASA, #inpt6LWC{
+    color: black;
+    width: 93%;
+    border-left:none !important;
+    border-top:none !important;
+    border-right:none !important;
+    border-bottom:1px solid #2E7767 !important;
+    border-color: #18453b;
+    background: #FFFFE0;
+    font-size: 14px;
+    font-weight: bold;
+    }
+    #elementLWC,#elementCASA, #ele0{
+    font-family: Arial;
+    font-style: Normal;
+    color: #18453b; 
+    border-left: none !important;
+    border-bottom: 1px solid #18453b; 
+    border-radius: 0px !important;
+    text-align: center;
+    border: none;
+    }
+
+    #regbuttn{
+    background :#117864;
+    color: #76D7C4; 
+    float: right;
+    margin-right: 0px;
+    font-family:Arial;
+    }
+
+    #subbuttn{
+    background :#117864;
+    color: #76D7C4; 
+    font-family:Arial;
+    font-style: Normal;
+    margin-left: 3%;
+    margin-top: -25%;
+    width: 93%;
+    }
+    #closeicon{
+    margin-right: 2%; 
+    float: right; 
+    color: #18453b;     
+    }
+    #successicon{
+    color: #18453b;
+    font-size: 50px;
+    margin-left: 40%;
+    }
+    .vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    width: 100%;
+    }
+    #attch{
+    color: #76D7C4;
+    background: #18453b;
+    border: none;
+    height: 30px;
+    }
+
+    input:focus, input:active{
+    outline-color: #18453b  !important; 
+    background-color:none !important;
+    } 
+    #subbuttn:focus, #regbuttn:focus {
+    outline-color: #18453b  !important; 
+    }
+    #slotDetails, #appDetails{
+    padding: 0;
+    margin-top: -10px;
+    }
+    hr{
+    border: 1px solid #18453b;
+    }
+    .modal-content{
+    border-radius: 0px !important;
+    margin-top: 25%;
+    margin-left: 25%;
+    width: 500px;
+    height: 200px;
+    }
+
+    .fileUpload{
+    position: relative;
+    overflow: hidden;
+    margin-top: -2px;
+    border: 1px solid #2E7767;
+    border-radius: 0px;
+    margin-left: 3%;
+    width: 93%;
+    }
+    .fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    }
+    }
+
+    .appointmentListWrap{
+    height:310px;
+    overflow:auto;
+    }
+
+    #apptDetails,#apptDetailsLWC {text-align: left;}
+
+    .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
+    font-weight: bold;
+    font-size: 20px;
+    border: 0;
+    border-bottom: 3px solid blue;
+    }
+
+    .nav>li>a{
+        font-size: 20px;
+        color: #999;
+    }
+
+    .nav-tabs>li{
+    width:50%;
+    }
+
+    .nav-tabs>li>a{
+    text-align:center;
+    padding:25px 15px;
+    }
+
+    .tabsWrap{
+        border: 1px solid #ececec;
+        float: left;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .tab-content{
+    padding:20px;
+    }
+
+
+    .underline{
+        border-bottom: 1px solid #999;
+        padding-bottom: 10px;
+    }
+
+    .uploadFileWrap{
+        border: 1px dashed #999;
+        margin-top: 17px;
+        padding: 30px 0;
+        text-align: center;
+        border-radius: 5px;
+        width: 100%;
+        margin-left: 3px;
+    }
+
+    .uploadFileWrap p {
+        margin: 0;
+        font-size: 22px;
+    }
+
+    .uploadFileWrap p:nth-child(2) {
+        font-size: 15px;
+    }
+
+    .uploadFileWrap span{
+        color:blue;
+        text-decoration:underline;
+        cursor:pointer;
+    }
+
+    .buttonWrap button,.buttonWrap input[type="submit"]{
+        background: white;
+        font-size: 18px;
+        padding: 10px 50px;
+        margin: 22px;
+    }
+
+    h4{
+        margin-top: 25px;
+    }
+
+    #learning p {
+        font-size: 22px;
+    }
+
+    .radio label {
+        font-size: 21px;
+        color: #999;
+    }
+
+    .radio input[type="radio"]{
+        margin-top: 8px;
+    }
+
+    #learning select.form-control {
+        /* padding: 15px; */
+        font-size: 18px;
+        height: 42px;
+        margin-top: 12px;
+    }
+
+    .courseContent p {
+        font-size: 15px !important;
+        padding: 10px 18px 0 18px;
+        margin: 0;
+    }
+    .loading-icon{
+      position: fixed;
+      z-index: 999;
+      background-color: #000 !important;
+      width:100%;
+      height:100%;
+      opacity:0.55;
+    }
+
+    .referFacultyWrap{
+        margin-top: 20px;
+    }
+    .fileName{
+        display:block;
+    }
+    .appointment-notes{
+        max-width: 80%;
+    }
+    .appointment-row.marginT {
+        margin-top: 45px;
+    }
+    .appointment-row{
+        margin: 25px 0;
+    }
+    .appointment-row-small{
+        margin: 15px 0;
+    }
+    .upload-but button{
+        padding: 0 35px;
+        border-radius: 0px;
+    }
+    .row-eq-height {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display:         flex;
+      align-items:center;
+    }
+    .coach{
+        margin-top:20px;
+    }    
+    .lookUpDetails{
+        max-height: 200px;
+        overflow: auto;
+        margin-top: 30px;
+    }
+    
+    table.makeRows{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    font-family: QuattrocentoSans;
+    font-size: 14px;
+    color: #2A2A2A;
+}
+
+table.makeRows tr td label{
+    /*margin-left: 10px;*/
+    font-weight: normal;
+}
+
+table.makeRows tr td {
+ width: 25%;
+ font-family: QuattrocentoSans;
+    font-size: 14px;
+    color: #2A2A2A;
+} 
+/*VD starts here*/
+body.sfdcBody{
+    font-size: 12px;   
+}
+.bodyDiv,.bodyClass{
+    font-size: 14px;   
+    font-family: Whitney-Book; 
+    color:#2a2a2a;
+    background: #F8F7F0;
+}
+.container {
+    max-width: 935px;
+}
+h2.headerClass{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: #00543C;
+}
+h2.headerClass a{
+    color: #00543C;
+}
+h2.headerClass span{    
+    font-family: Whitney-Black;
+    font-size: 20px;
+}
+h2.headerClass i.glyphicon{
+    font-size: 15px;    
+    cursor: pointer;
+}
+.btn-default {
+    font-family: QuattrocentoSans-Bold !important;
+    background: white !important;    
+    padding: 10px 38px !important;
+    margin: 0 15px !important;
+    background-color: #00543C !important;
+    color: #fff !important;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    border: none !important;
+    outline: none !important;
+    text-shadow:none !important;
+    box-shadow: none !important;
+}
+.btn-default:hover,.btn-default:focus{
+    background-color: #73973F !important;
+    color: #fff !important;    
+    border: none !important;
+    outline: none !important;
+    text-shadow:none !important;
+    box-shadow: none !important;
+}
+.btn-default:active{
+    background-color: #73973F !important;
+    color: #fff !important;    
+    border: none !important;
+    outline: none !important;
+    text-shadow:none !important;
+    box-shadow: none !important;
+}
+.last-button {
+    margin-right: 0;
+}
+.row-eq-height {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display:         flex;
+      align-items:center;
+}
+.detailsContainer{
+    background: #fff;
+    border-radius: 5px;
+    padding: 25px;
+}
+.title-text{
+    font-family: QuattrocentoSans-Bold;
+}
+.status {
+    font-family: Whitney-Semibold;
+    padding: 6px 16px;
+    text-transform: uppercase;    
+    font-size: 12px;
+}
+.details-text{
+    margin: 15px 0 20px 0;
+}
+.attachment{
+    margin-top: 35px;
+}
+.modal-footer{
+    border-top: none;
+    text-align: center;
+}
+.row-padding-top{
+    padding-top:10px;
+}
+.search-action{
+    vertical-align: middle;    
+}
+.profilePic{
+    margin: 20px 5px;
+}
+.slot-details .glyphicon{
+    margin-right: 20px;
+}
+.form-control{    
+    letter-spacing: 0;
+    font-family: Whitney-Book;
+    font-size: 14px;
+    color: #2A2A2A;
+    box-shadow: none;
+    border: 1px solid #919194;
+    border-radius: 0;
+}
+input[type='radio'],
+input[type='checkbox']{
+  /* Hide original inputs */
+  visibility: hidden;
+  position: absolute;
+}
+
+input[type='radio'] + label:before{
+  height:12px;
+  width:12px;
+  margin-right: 5px;
+  content: " ";
+  display:inline-block;
+  vertical-align: baseline;
+  border:2px solid #919194;
+}
+
+input[type=checkbox] + label:before{
+  height:12px;
+  width:12px;
+  margin-right: 5px;
+  /*content: "✔";*/
+  content: " ";
+  display:inline-block;
+  vertical-align: baseline;
+  border:1px solid #919194;
+} 
+
+input[type=radio]:checked + label:before{
+    background: #00543C;
+    background-clip: content-box;
+    border: 2px solid #00543C;
+    padding: 1px;
+}
+
+input[type=checkbox]:checked + label:before{
+    background: #00543C;
+    color: #00543C;
+    border: 1px solid #00543C;
+    padding: 1px;
+    background-image: url(/resource/USF_Checkbox); 
+    background-size: contain;
+}
+
+
+/* CUSTOM RADIO AND CHECKBOX STYLES */
+input[type=radio] + label:before{
+  border-radius:50%;
+}
+input[type=checkbox] + label:before{
+  border-radius:2px;
+}
+.radio label, .checkbox label{
+    padding-left: 0px;
+}
+.appointment-row .search-area{
+    width: 92.3%;
+}
+.marginB {
+    margin-bottom: 25px;
+}
+.marginTCancel{
+    margin-top: 317px;
+}
+.makeRows td, th {
+    padding: 0 0 20px 0;
+}
+.serach-wrap-res{
+    margin-top: 30px;
+}
+.serach-wrap{
+    margin-top: 30px;
+}
+.modal-title {
+    font-family: Whitney-Book;
+    color:#00543C;
+}
+.primaryBtnSec{
+    background: #5F7E32 !important;
+}
+
+.modal-footer{
+    text-align:center !important;
+    border:0 !important;
+}
+
+.modal-body, .modal-body p{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #2A2A2A !important;
+    letter-spacing: 0px !important;
+    line-height: 20px !important;
+}
+
+.modal-title{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #2A2A2A !important;
+} 
+
+.reasonformeeting{
+    resize:none;
+}
+.modal-title{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #00543C !important;
+}
+ul.dropdown-menu{
+    padding: 0;
+    border-radius: 0;
+}
+
+ul.dropdown-menu .divider{
+    margin: 0;
+}
+
+ul.dropdown-menu li{
+    margin: 0;
+}
+
+ul.dropdown-menu>li>a{
+    padding: 10px 15px;
+    font-size: 12px;
+    color: #2A2A2A;
+    font-family: QuattrocentoSans;
+}
+
+ul.dropdown-menu>li>a:hover{
+    background-color: #E6E6E6;
+    background-image: none;
+}
+.marginTC{
+    margin-top: 30px;
+}
+.btn-default:disabled{
+    background-color: #00543C !important;
+}
+.selectDD {
+    padding: 0px 0 0 15px;
+    font-size: 14px !important;
+    height: 36px !important;
+    line-height: 0;
+    letter-spacing: 0;
+    font-family: Whitney-Book;
+    font-size: 14px;
+    color: #2A2A2A;
+    box-shadow: none;
+    border: 1px solid #919194 ;
+    border-radius: 0;
+}
+.alert{
+    display: none;
+}
+.tooltip-error {
+    position: relative;
+    background: #FEE5E5;
+    border: none;
+    color: #D8000C;
+    box-shadow: none;
+    margin-top: 5px;
+}
+/*.tooltip-error:after {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(255, 186, 186, 0);
+    border-bottom-color: #FFBABA;
+    border-width: 14px;
+    margin-left: -40%;
+}*/
+.tooltip-error-up {
+    position: relative;
+    background: #FEE5E5;
+    border: none;
+    color: #D8000C;
+    box-shadow: none;
+}
+.tooltip-error-up:after {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(255, 186, 186, 0);
+    border-top-color: #FFBABA;
+    border-width: 14px;
+    margin-left: -40%;
+}
+</style>
+</head>
+
+<body class="bodyClass">
+    <section class="container">
+        <div class="row row-eq-height">
+            <div class="col-md-5">
+                <h2 class="headerClass">
+                    <i class="glyphicon glyphicon-chevron-left" onClick="backToDashboard();"></i>
+                    <apex:actionFunction action="/apex/USF_AvailabilityCalendar" name="backToDashboard"/>
+                   <span>Book an Appointment</span> 
+                </h2>
+            </div>             
+        </div>     
+        <div class="details-wrapper">
+            <div class="row">                
+                <div class="col-md-3">              
+                    <span><span class="title-text">Date:</span> &nbsp; {!slotDate}  </span>
+                </div>
+                <div class="col-md-3">              
+                    <span><span class="title-text">Time:</span> &nbsp;  {!slotTime} </span>
+                </div>
+                <div class="col-md-3">              
+                    <span><span class="title-text">Location:</span> &nbsp; {!selectedSlot.Location__c}</span>
+                </div>
+                <div class="col-md-3">              
+                    <span><span class="title-text">CASA Staff:</span> &nbsp; {!selectedSlot.Availability__r.Coach__r.name}</span>
+                </div>
+            </div>       
+            <div class="row row-eq-height serach-wrap">
+                <div class="col-md-12 search-action text-center">
+                    <!--<input type="text" id="cwidText" class="search-area form-control" placeholder="Enter student's CWID or full name" />-->                
+                    <!-- Auto Complete VF component -->
+                   <!-- <c:USF_AutoCompleteComponent objectname="Contact" input_id="cwidText" numberOfResultsToDisplay="10" wildcardBefore="false"/>  -->
+                   <apex:inputText id="auto11" required="false" value="{!selectedStudent}" html-placeholder="Enter student's CWID or full name" styleclass="search-area form-control">
+                    <!-- Auto Complete VF component -->
+                    <c:USF_AutoCompleteComponent objectname="Contact" input_id="{!$Component.auto11}" numberOfResultsToDisplay="10" wildcardBefore="false"/>
+                    </apex:inputText>
+                    <apex:commandButton value="Select" styleClass="btn btn-default" action="{!lookUpButtonAction}"/>
+
+                    <apex:outputPanel rendered="{! !showStudentDetails}">
+                        <div class="row text-center marginTCancel" >
+                            <button class="btn btn-default" type="button" id="canAppointment" onclick="cancelAppointment();">Cancel</button>                       
+                            <apex:actionFunction name="cancelAppointment" action="{!cancelAppointment}"/>                         
+                        </div>
+                    </apex:outputPanel>                                     
+                </div>                   
+            </div>      
+          
+            <apex:inputHidden id="studentIdHidden" value="{!selectedStudentId}"/>
+            <apex:outputPanel id="studentDetailsPanel" rendered="{!showStudentDetails}">
+            
+            <div class="details-container">
+                <div class="profile-container row">
+                    <div class="col-md-2">
+                        <!--<img src="" />-->
+                        <img src="{!$Label.USF_ImageURL}{!selStudentDetails[0].CWID__c}.JPG" class="img-circle profilePic" width="80px" height="80px"/>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="profile-row">
+                            <div>Full Name</div>
+                            <div class="big-font">{!selStudentDetails[0].name}</div>
+                        </div>
+                        <div class="profile-row">
+                            <div>Preferred Name</div>
+                            <div class="big-font">{!selStudentDetails[0].Preferred_Name__c}</div>
+                        </div>
+                        <div class="profile-row">
+                            <div>CWID</div>
+                            <div class="big-font">{!selStudentDetails[0].CWID__c}</div>
+                        </div>
+                        <div class="profile-row">
+                            <div>Email</div>
+                            <div class="big-font">{!selStudentDetails[0].email}</div>
+                        </div>                  
+                    </div>
+                    <div class="col-md-4">
+                        <div class="profile-row">
+                            <div>ASC</div>
+                            <div class="big-font">{!selStudentDetails[0].AcademicSuccessCoach__r.name}</div>
+                        </div>
+                        <div class="profile-row">
+                            <div>Phone</div>
+                            <div class="big-font">{!selStudentDetails[0].phone}</div>
+                        </div>
+                        <div class="profile-row">
+                            <div>Major</div>
+                            <div class="big-font">{!selStudentDetails[0].Major__c}</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--<div class="row">
+                    <div class="col-md-8 col-xs-12">
+                        <h3>ASC Availability calendar</h3>
+                    </div>
+                    <div class="col-md-3 col-xs-12">
+                        <select class="form-control coach">
+                            <option value="coach">Coach</option>
+                        </select>
+                    </div>
+                </div>           
+                <div class="col-xs-12 col-md-4" id="calnd">
+                    <div class="row">
+                        <ul class="list-group">
+                            <li class="list-group-item separator" id="calLi">
+                                <div style="overflow:hidden;">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="datetimepicker12">
+                                                <input type="hidden" value="dSelected" class="form-control" id="datepicker-data"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="slotDetails" class="col-xs-12 col-md-7" >
+                    <div class="list-group">
+                        <div id="elementCASA" class="list-group-item separator">
+                            <span style="font-size: 12px;">Appointment Times Available for </span><br/>
+                            <b><span id="slotdateconCASA" style="font-size: 14px;">4th August</span></b> 
+                            <b><span id="slotDateCASA" style="font-size: 14px;"> </span></b><br/>
+                            <span id="nosltmsgCASA" style="color:red;font-size: 12px;"></span>
+                        </div>
+                        <div id="element2" class="appointmentListWrap">
+                            <div id="element2" class="list-group-item separator">
+                                <div class="row row-eq-height">
+                                    <div class="col-md-6 col-xs-12">
+                                        <span style="font-size: 14px;"><b>9:00 - 11:00 AM</b></span>                                    
+                                    </div>
+                                    <div class="col-md-6 col-xs-12 text-right">
+                                        <button id="regbuttn" class="btn" onclick="activate(this)"> Select </button> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="element2" class="list-group-item separator">
+                                <div class="row row-eq-height">
+                                    <div class="col-md-6 col-xs-12">
+                                        <span style="font-size: 14px;"><b>9:00 - 11:00 AM</b></span>                                    
+                                    </div>
+                                    <div class="col-md-6 col-xs-12 text-right">
+                                        <button id="regbuttn" class="btn" onclick="activate(this)"> Select </button> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                  
+                    </div>
+                </div> -->
+
+                <!--<div class="slot-selected"><span class="title-text">Slot Selected</span></div> 
+                        <div class="row slot-details">
+                            <div class="col-xs-12 col-md-2">
+                                <div class="title-text">9:00 - 10:00AM</div>
+                                <!-- <div><a href="javascript:void(0);">Change</a></div> -->
+                         <!--   </div>
+                            <div class="col-xs-12 col-md-9">
+                                <div>
+                                    <span class="glyphicon glyphicon-map-marker" style="color: #00543C;"></span>
+                                    <span>3rd Floor Atrium &nbsp; | &nbsp; <span class="title-text">In Person</span></span>
+                                </div>
+                                <div style="font-size: 12px;">
+                                    <span class="glyphicon glyphicon-user" style="color: #FCBB30;"></span>
+                                    <span>Steve Williams</span>                                
+                                </div> 
+                            </div>
+                        </div>-->
+                
+                <div class="marginB">
+                    <span class="title-text">Appointment Details</span>
+                </div>
+                <div class="row marginB">
+                    <div class="col-md-6">                        
+                        <span class="title-text">Reason(s) for Meeting</span><span style="color:red;">*</span>
+                        <div class="alert alert-danger tooltip-error" id="reason-err"><span>Please select a valid reason!</span></div>
+                    </div>
+                    <div class="col-md-6">
+                        <span class="title-text">Referred By</span>
+                    </div>                
+                </div>                        
+                <div class="row">
+                    <div class="col-md-6">
+                        <apex:selectCheckboxes styleClass="makeRows" value="{!reasons}">
+                        <apex:selectOptions value="{!ReasonforPicklist}"/></apex:selectCheckboxes>
+                    </div>     
+                    <div class="col-xs-12 col-md-6">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                            <apex:selectList value="{!selectedReferredBy}" size="1" multiselect="false" styleClass="form-control selectDD selectChange">
+                                <apex:selectOptions value="{!ReferedByPicklist}"></apex:selectOptions>
+                            </apex:selectList>
+                               <!-- <select class="form-control">
+                                    <option value="Referrer">Referrer</option>
+                                </select>-->
+                                <!--<apex:inputField value="{!newAppointment.Referred_By__c}" styleClass="form-control"/>-->
+                                
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                               <!-- <input class="form-control" type="text" value="" placeholder="Referrer Name"/>-->
+                               <apex:inputfield value="{!newAppointment.Referrer_Name__c}" styleClass="form-control referrerName" html-placeholder="Referrer Name" style="resize:none;height: 35px;" />
+                            </div>
+                        </div>
+                        <div class="appointment-row marginT">                            
+                            <span>Preferred Phone Number</span><span style="color:red;">*</span>      
+                            <!--<input class="form-control" type="text" value=""/>  -->
+                            <apex:inputfield value="{!newAppointment.Preferred_Phone__c}" styleClass="form-control search-area" onkeypress="telephoneValidate();" id="preferTel" html-maxlength="10"/>
+                            <div class="alert alert-danger tooltip-error" id="phone-err"><span>Please enter a valid 10-digit phone number!</span></div>
+                        </div> 
+                        <div class="appointment-row ">
+                            <span>Additional Notes</span>     
+                            <!--<input class="form-control" type="text" value=""/>-->
+                           <apex:inputfield value="{!newAppointment.Notes__c}" styleClass="form-control reasonformeeting" html-rows="3"/>         
+                        </div>
+                                                     
+                    </div>         
+                    <!--<div class="col-xs-12 col-md-3">
+                        <div class="checkbox appointment-row">
+                            <label><input type="checkbox" value=""/>Academic Coaching</label>
+                        </div>
+                        <div class="checkbox appointment-row">
+                            <label><input type="checkbox" value=""/>Financial Concerns</label>
+                        </div>
+                        <div class="checkbox appointment-row">
+                            <label><input type="checkbox" value=""/>New Student Survey</label>
+                        </div>
+                        <div class="checkbox appointment-row">
+                            <label><input type="checkbox" value=""/>Leave of Absence / Withdrawal</label>
+                        </div>
+                        <div class="checkbox appointment-row">
+                            <label><input type="checkbox" value=""/>Major / Minor Exploration</label>
+                        </div>              
+                    </div>
+                    <div class="col-xs-12 col-md-3">
+                        <div class="checkbox appointment-row">
+                            <label><input type="checkbox" value=""/>Academic Probation</label>
+                        </div>
+                        <div class="checkbox appointment-row">
+                            <label><input type="checkbox" value=""/>Housing / Residence Hall</label>
+                        </div>
+                        <div class="checkbox appointment-row">
+                            <label><input type="checkbox" value=""/>Personal Concerns</label>
+                        </div>
+                        <div class="checkbox appointment-row">
+                            <label><input type="checkbox" value=""/>Registration Assistance</label>
+                        </div>
+                        <div class="checkbox appointment-row">
+                            <label><input type="checkbox" value=""/>Study Abroad</label>
+                        </div>  -->            
+                    </div>                
+               <!-- </div>
+                <!--<div class="row referFacultyWrap">
+                    <div class="col-xs-12 col-md-6">
+                        <label>Upload your documents/assignment</label>
+                        <div class="appointment-row-small">
+                            <span>Assignment.pdf</span>
+                            <span>X</span>
+                        </div>
+                    </div>                      
+                </div> 
+                <div class="upload-but">
+                    <button class="btn btn-default">Browse</button>
+                </div>  -->
+                <div class="row text-center marginTC">
+                    <button class="btn btn-default primaryBtnSec" type="button" id="bookAnAppointment" onclick="validate();">Book Appointment</button>   
+                    <button class="btn btn-default " type="button" id="canAppointment" onclick="cancelAppointment();">Cancel</button>
+                    
+                   
+                  <!-- <apex:commandButton value="Book an appointment" styleclass="btn btn-default" action="{!createAppointment}" oncomplete="$('#changeLocation').modal('show');" reRender="messageBox"  status="actStatusId" id="bookAnAppointment"/>-->      
+                </div>
+                <apex:actionFunction name="cancelAppointment" action="{!cancelAppointment}"/>
+                <apex:actionFunction name="createAppointment" action="{!createAppointment}" oncomplete="$('#changeLocation').modal('show');" reRender="messageBox"  status="actStatusId"/>
+
+            </div> </apex:outputPanel>
+        </div>   
+        
+                            <apex:actionStatus id="actStatusId" >
+                                    <apex:facet name="start" >
+                                    <!--  <img src="/img/loading.gif" />     -->
+                                    <c:loadingStatus />               
+                                    </apex:facet>
+                                </apex:actionStatus>
+        
+        
+        <div id="changeLocation" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <apex:outputPanel id="messageBox">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+        <h4 class="modal-title">Appointment Confirmation</h4>
+      </div>
+      
+      <div class="modal-body">
+       <apex:outputText value="{!message}"></apex:outputText> 
+      </div>
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>-->
+      <!--  <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>  -->
+      <apex:commandButton styleClass="btn btn-default" action="/apex/USF_FrontDeskStaffDashboard" value="Ok" rendered="{!!isException}" />
+      <apex:commandButton styleClass="btn btn-default" html-data-dismiss="modal" value="Ok" rendered="{!isException}" /> 
+      </div>
+    </div>
+</apex:outputPanel>
+  </div>
+</div>
+    </section>
+    <script type="text/javascript">
+        /*$('#datetimepicker12, #datetimepicker123').datetimepicker({
+            format: 'dddd MMMM D, YYYY',
+            inline: true
+        });
+        function activate (current) {
+            $(".activeBtn").removeClass("activeBtn");
+            $(current).addClass("activeBtn");
+        }*/
+        function selectStudent(id){
+
+        }
+        function showResultPage(){
+            if($(".search-area").val()){
+                $(".serach-wrap").first().removeClass("col-md-12 text-center").addClass("col-md-8");
+                //$(".serach-wrap").addClass("serach-wrap-res").removeClass("serach-wrap");
+            }
+        }
+
+        $(document).ready(function(){
+        $(".referrerName").attr("disabled","disabled");
+            $(".makeRows input[type='checkbox']").each(function(){
+                $(this).on("click",function(){
+                    if(checkBoxChecked() && chkTelephoneValidation()){
+                        $("#bookAnAppointment").removeAttr('disabled');
+                    }
+                });
+            });
+            if("{!showStudentDetails}" === "true"){
+                $(".col-md-12.search-action.text-center").addClass("col-md-8").removeClass("col-md-12");
+            }
+        });
+
+        $(document).on('change', ".makeRows input[type='checkbox']", function() {
+            //validate();
+            $("#reason-err").clearQueue().fadeOut("slow");
+        });//preferTel
+
+        $(document).on('change', "[id$='preferTel']", function() {
+            //validate();
+            //$("#phone-err").clearQueue().fadeOut("slow");
+        });
+
+        function rmeoveError(){
+            $("#phone-err").clearQueue().fadeOut("slow");
+        }
+
+        function validate(){
+            /*if(checkBoxChecked() && chkTelephoneValidation()){
+                    $("#bookAnAppointment").removeAttr('disabled');
+                }else{
+                    $("#bookAnAppointment").attr('disabled','disabled');
+                }*/
+                var isValid =true;
+                if(!checkBoxChecked()){
+                    $("#reason-err").fadeIn("slow").delay(5000).fadeOut("slow");     
+                    isValid = false;               
+                }
+                if(!chkTelephoneValidation()){
+                    $("#phone-err").fadeIn("slow").delay(5000).fadeOut("slow");     
+                    isValid = false;
+                }
+                if(isValid){
+                    createAppointment();
+                }
+        }        
+
+        function telephoneValidate(){
+            var e = event;
+            var self = event.target;
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {     
+                e.preventDefault();       
+                e.stopPropagation();    
+                return false;
+            }
+            rmeoveError();
+        }
+
+        function restrictToMax(){
+            var e = event;
+            var self = event.target;
+            if(self.value.length > 9){
+                self.value = self.value.substring(0,10);
+                e.preventDefault();       
+                e.stopPropagation();                
+                return false;
+            }
+        }
+
+        function chkTelephoneValidation(){
+            if($("input[name$=preferTel]").val() && $("input[name$=preferTel]").val().replace(/[^0-9\.]/g,'').length===10){
+                return true;
+            }
+            return false;
+        }
+
+        function checkBoxChecked(){
+            var len = $(".makeRows input[type='checkbox']:checked").length;
+            if(len > 0 ){
+                return true;
+            }
+            return false;
+        }
+        $(".selectChange").on("change",function(){
+        
+        if($('.selectChange').val()=="None"){
+        $(".referrerName").attr("disabled","disabled");
+        $(".referrerName").val("");
+        }
+        else {
+        $(".referrerName").removeAttr("disabled");
+        }
+        });
+        
+        $.fn.modal.prototype.constructor.Constructor.DEFAULTS.backdrop = 'static'; 
+        $.fn.modal.prototype.constructor.Constructor.DEFAULTS.keyboard = false; 
+        
+    </script>
+</body>
+
+</html>
+</apex:form>
+</apex:page>

@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"><actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides><fields>
+        <fullName>Attributes__c</fullName>
+        <description>Course attributes assigned by USF</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Course attributes assigned by USF</inlineHelpText>
+        <label>Attributes</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>External_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>External ID</label>
+        <length>14</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields><fields>
+        <fullName>Grade__c</fullName>
+        <description>Grade assigned to completed course by transferred institution</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Grade assigned to completed course by transferred institution</inlineHelpText>
+        <label>Grade</label>
+        <length>4</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Level__c</fullName>
+        <description>Academic level of course, Undergraduate or Graduate</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Academic level of course, Undergraduate or Graduate</inlineHelpText>
+        <label>Level</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Student__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Student Name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Student Name</inlineHelpText>
+        <label>Student</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Transfer Credits</relationshipLabel>
+        <relationshipName>Transfer_Credits</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>TR_Credit_Hours__c</fullName>
+        <description>Credit hours granted by transferred institution</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Credit hours granted by transferred institution</inlineHelpText>
+        <label>Transfer Credit Hours</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>TR_Credit_Points__c</fullName>
+        <description>Credit points assigned to completed course by transferred institution</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Credit points assigned to completed course by transferred institution</inlineHelpText>
+        <label>Transfer Credit Points</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>TR_Subject__c</fullName>
+        <description>Course subject from transferred institution</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Course subject from transferred institution</inlineHelpText>
+        <label>Transfer Subject</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Term__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Term</label>
+        <referenceTo>hed__Term__c</referenceTo>
+        <relationshipLabel>Transfer Credits</relationshipLabel>
+        <relationshipName>Transfer_Credits</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Transfer_Course_Number__c</fullName>
+        <description>Course number from transferred institution</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Course number from transferred institution</inlineHelpText>
+        <label>Transfer Course Number</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Transfer_Course__c</fullName>
+        <externalId>false</externalId>
+        <formula>TR_Subject__c &amp; " " &amp; Transfer_Course_Number__c</formula>
+        <label>Transfer Course</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Transfer_Title__c</fullName>
+        <description>Course title from transferred institution</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Course title from transferred institution</inlineHelpText>
+        <label>Transfer Title</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>USF_Course_Number__c</fullName>
+        <description>Course number assigned by USF</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Course number assigned by USF</inlineHelpText>
+        <label>USF Course Number</label>
+        <length>6</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>USF_Course__c</fullName>
+        <externalId>false</externalId>
+        <formula>USF_Subject__c &amp; " " &amp;   USF_Course_Number__c</formula>
+        <label>USF Course</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>USF_Credit_Hours__c</fullName>
+        <description>Course credit hours assigned by USF</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Course credit hours assigned by USF</inlineHelpText>
+        <label>USF Credit Hours</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>USF_Subject__c</fullName>
+        <description>Subject assigned by USF</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Subject assigned by USF</inlineHelpText>
+        <label>USF Subject</label>
+        <length>4</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>USF_Title__c</fullName>
+        <description>Course title assigned by USF</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Course title assigned by USF</inlineHelpText>
+        <label>USF Title</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><allowInChatterGroups>false</allowInChatterGroups><compactLayoutAssignment>SYSTEM</compactLayoutAssignment><deploymentStatus>Deployed</deploymentStatus><description>Object contains records of student credits transferred from an institution outside USF</description><enableActivities>true</enableActivities><enableBulkApi>true</enableBulkApi><enableFeeds>false</enableFeeds><enableHistory>false</enableHistory><enableReports>true</enableReports><enableSearch>true</enableSearch><enableSharing>true</enableSharing><enableStreamingApi>true</enableStreamingApi><label>Transfer Credit</label><nameField>
+        <label>Transfer Institution</label>
+        <type>Text</type>
+    </nameField><pluralLabel>Transfer Credits</pluralLabel><searchLayouts /><sharingModel>ReadWrite</sharingModel><listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>USF_Title__c</columns>
+        <columns>USF_Course__c</columns>
+        <columns>USF_Subject__c</columns>
+        <columns>USF_Course_Number__c</columns>
+        <columns>Transfer_Course__c</columns>
+        <columns>TR_Subject__c</columns>
+        <columns>Transfer_Course_Number__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews><recordTypes>
+        <fullName>Transfer_Credits</fullName>
+        <active>true</active>
+        <description>Transfer credits</description>
+        <label>Transfer Credits</label>
+    </recordTypes></CustomObject>

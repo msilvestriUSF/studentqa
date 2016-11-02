@@ -1,0 +1,31 @@
+<!--
+Component Name: USF_AutoCompleteComponent
+Description   : Takes value from VF page and do a search to system using JS remoting for auto complete
+-->
+<apex:component controller="USF_AutoCompleteController">
+<!-- Javascript required for remoting and auto complete -->
+<script>
+//Describing Global Variables so that they can be used in static resource
+var input_id = '{!input_id}';
+var objectName = '{!objectname}';
+var numberOfResults = '{!numberOfResultsToDisplay}';
+var wildCard = '{!wildcardBefore}';
+var input_id_lkid ='{!input_id}_lkid';
+var input_id_lkold = '{!input_id}_lkold';
+var input_id_mod = '{!input_id}_mod';
+var additionalFilter = '{!additionalFilter}';
+
+</script> 
+<apex:includeScript value="{!URLFOR($Resource.AutoComplete_jqueryUI, 'jquery.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.AutoComplete_jqueryUI, 'AutoComplete_Component.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.AutoComplete_jqueryUI, 'jquery.watermarkinput.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.AutoComplete_jqueryUI, 'jquery-ui.min.js')}"/>
+<apex:stylesheet value="{!URLFOR($Resource.AutoComplete_jqueryUI,'jquery-ui.css')}"/>
+<!-- List of Attributes to be passed -->
+<apex:attribute name="objectname" description="The object name you want to search in." type="String" required="true"/>
+<apex:attribute name="input_id" description="The ID for the Autocomplete List Textbox." type="String" required="true"/>
+<apex:attribute name="numberOfResultsToDisplay" description="The number of results to return for the autocomplete." type="String" default="10" />
+<apex:attribute name="wildcardBefore" description="If set to true it will look for the sequence throughout the name, if set to false it will only display results that start with the sequence" type="String" default="true"/>
+<apex:attribute name="additionalFilter" description="It can be either faculty,student or consultant. These values will be used to refine the search." type="String" default="false" />
+
+</apex:component>

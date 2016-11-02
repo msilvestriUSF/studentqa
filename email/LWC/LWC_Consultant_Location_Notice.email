@@ -1,0 +1,9 @@
+To {!AppointmentContact__c.Staff__c}, 
+
+Due to the high volume of tutoring appointments occurring during your scheduled appointment on {!AppointmentContact__c.Start_Date__c} at {!AppointmentContact__c.Start_Time__c} with {!AppointmentContact__c.00N2C000000KxDE} for the {!AppointmentContact__c.00N2C000000LAPD} course, you will need to host your session in an alternate location, like Gleeson Library. 
+
+If you have any questions call us at 415-422-6713. Thanks so much. 
+
+Have a wonderful day, 
+
+Learning & Writing Center

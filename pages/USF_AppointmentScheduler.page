@@ -1,0 +1,3657 @@
+<apex:page showHeader="false"  Controller="USF_AppointmentSchedulerController"  sidebar="false" standardStylesheets="false" cache="false" docType="html-5.0" language="en-US" applyHTMLTag="false">
+<apex:form id="scheduler">
+
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Appointment Scheduler</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Bootstrap Theme-->
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'flaticon.css')}" rel="stylesheet"/>
+
+<apex:includeScript value="{!URLFOR($Resource.MomentJs)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+<apex:includeScript value="{!URLFOR($Resource.DateTimePickerJS)}"/>
+<apex:includeScript value="{!URLFOR($Resource.UploadAttachments)}"/>
+
+
+<!--
+<apex:includeScript value="{!URLFOR($Resource.FirstAppoitment, 'js/firstappointmentform.js')}"/>    
+<apex:stylesheet value="{!URLFOR($Resource.FirstAppoitment, 'css/firstappointment.css')}"/>
+-->
+<style type="text/css">
+   /* @media only screen and (min-device-width: 768px) {
+        #tophead {
+            background: white;
+        }
+        .bootstrap-datetimepicker-widget table td span.active {
+            color: #18453b !important;
+            background-color: white !important;
+        }
+        .list-group-item:last-child {
+            margin-bottom: 0px !important;
+        }
+        li.list-group-item {
+            background-color: white;
+        }
+        .center-block {
+            margin-top: 0.5%;
+            margin-left: 1%;
+        }
+        .page-header {
+            border-bottom: none !important;
+            margin: 10px 0 10px;
+            padding-bottom: 0px;
+        }
+        .dow {
+            color: #696D6F !important;
+        }
+        li.picker-switch.accordion-toggle {
+            display: none;
+        }
+        .bootstrap-datetimepicker-widget table tr.hover {
+            background: none;
+        }
+        .bootstrap-datetimepicker-widget table td.today:before {
+            content: none !important;
+        }
+        #hd {
+            margin-left: -1.3%;
+            font-family: Arial;
+            font-size: 20px;
+            color: #18453b;
+        }
+        #ele1,
+        #ele2,
+        #ele3,
+        #ele4,
+        #ele5,
+        #ele6,
+        #ele7 {
+            background-color: #18453b;
+            border-color: #2E7767;
+            color: white;
+            font-family: Arial;
+            font-style: Normal;
+            border-radius: 0px !important;
+            border: none !important;
+        }
+        #inpt2,
+        #inpt3 {
+            color: black;
+            width: 93%;
+            border-left: none !important;
+            border-top: none !important;
+            border-right: none !important;
+            border-bottom: 1px solid #2E7767 !important;
+            border-color: #18453b;
+            background: #FFFFE0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        #regbuttn {
+            background: #fff;
+            color: grey;
+            float: right;
+            margin-right: 0px;
+            font-family: Arial;
+            border: 1px solid #999;
+        }
+        .regbuttnLWC {
+            background: #fff;
+            color: grey;
+            float: right;
+            margin-right: 0px;
+            font-family: Arial;
+            border: 1px solid #999;
+        }
+        .activeBtn {
+            display: none;
+        }
+        #subbuttn {
+            background: #117864;
+            color: #76D7C4;
+            font-family: Arial;
+            font-style: Normal;
+            margin-left: 38%;
+            margin-top: -10%;
+        }
+        #closeicon {
+            float: right;
+            color: #18453b;
+        }
+        #successicon {
+            color: #18453b;
+            font-size: 50px;
+            margin-left: 40%;
+        }
+        .vertical-alignment-helper {
+            display: table;
+            height: 100%;
+            width: 100%;
+        }
+        #attch {
+            color: #76D7C4;
+            background: #18453b;
+            border: none;
+            height: 30px;
+        }
+        #showtime {
+            float: right !important;
+            margin-top: -2.5% !important;
+        }
+        input:focus,
+        input:active {
+            outline-color: #18453b !important;
+            background-color: none !important;
+        }
+        #subbuttn:focus,
+        #regbuttn:focus,
+        .regbuttnLWC:focus {
+            outline-color: #18453b !important;
+        }
+        .modal-content {
+            border-radius: 0px !important;
+            margin-top: 25%;
+            margin-left: 25%;
+            width: 500px;
+            height: 200px;
+        }
+        .fileUpload {
+            position: relative;
+            overflow: hidden;
+            margin-top: -2px;
+            border: 1px solid #2E7767;
+            border-radius: 0px;
+            margin-left: 3%;
+            width: 60%;
+        }
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+    }*/
+    /*
+    @media only screen and (min-device-width: 320px)and (max-device-width: 480px) {
+        #tophead {
+            background: white;
+        }
+        .container {
+            padding: 0 !important;
+        }
+        .list-group {
+            padding: 0;
+            border-bottom: 1px solid #18453b;
+            border-radius: 0px !important;
+        }
+        .center-block {
+            margin-top: 1.5%;
+        }
+        .bootstrap-datetimepicker-widget table thead tr:first-child th,
+        .bootstrap-datetimepicker-widget table thead tr:first-child th:hover,
+        .bootstrap-datetimepicker-widget table td span:hover {
+            background: none !important;
+            text-transform: uppercase;
+        }
+        .bootstrap-datetimepicker-widget table td span.active {
+            color: #18453b !important;
+            background-color: white !important;
+        }
+        li.list-group-item {
+            background-color: white;
+        }
+        .picker-switch {
+            color: #18453b !important;
+        }
+        .page-header {
+            border-bottom: none !important;
+            margin: 0.5% 0 0.5% !important;
+            padding-bottom: 0px;
+            text-align: center;
+            font-family: 12px;
+        }
+        .dow {
+            color: #696D6F !important;
+        }
+        .bootstrap-datetimepicker-widget table td.day,
+        .bootstrap-datetimepicker-widget table td.day.new,
+        .datetimepicker-widget table td.active {
+            color: #18453b !important;
+            font-weight: bold !important;
+            padding: 3.5% 3.5%;
+        }
+        .bootstrap-datetimepicker-widget table td.day.old,
+        .bootstrap-datetimepicker-widget table td.day.new {
+            color: #89A19C !important;
+            font-weight: bold !important;
+        }
+        li.picker-switch.accordion-toggle {
+            display: none;
+        }
+        .bootstrap-datetimepicker-widget table tr.hover {
+            background: none;
+        }
+        .bootstrap-datetimepicker-widget table td.day:hover,
+        .bootstrap-datetimepicker-widget table td.active,
+        .bootstrap-datetimepicker-widget table td.active:hover {
+            color: white !important;
+            background-color: #308A76;
+            border-radius: 50%;
+        }
+        .bootstrap-datetimepicker-widget table td.today:before {
+            content: none !important;
+        }
+        #hd {
+            font-family: Arial;
+            font-size: 15px;
+            color: #18453b;
+        }
+        #calLi {
+            border: none;
+            margin-top: -2%;
+        }
+        #element2 {
+            background-color: #18453b;
+            border-color: #2E7767;
+            color: white;
+            font-size: 12px;
+            font-family: Arial;
+            font-style: Normal;
+            border-radius: 0px !important;
+        }
+        #ele1,
+        #ele2,
+        #ele3,
+        #ele4,
+        #ele5,
+        #ele6,
+        #ele7 {
+            background-color: #18453b;
+            border-color: #2E7767;
+            color: white;
+            font-family: Arial;
+            font-style: Normal;
+            border-radius: 0px !important;
+            border: none !important;
+        }
+        #inpt2,
+        #inpt3,
+        #inpt4CASA,
+        #inpt4LWC,
+        #inpt6CASA,
+        #inpt6LWC {
+            color: black;
+            width: 93%;
+            border-left: none !important;
+            border-top: none !important;
+            border-right: none !important;
+            border-bottom: 1px solid #2E7767 !important;
+            border-color: #18453b;
+            background: #FFFFE0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        #elementLWC,
+        #elementCASA,
+        #ele0 {
+            font-family: Arial;
+            font-style: Normal;
+            color: #18453b;
+            border-left: none !important;
+            border-bottom: 1px solid #18453b;
+            border-radius: 0px !important;
+            text-align: center;
+           border: none;
+        }
+        #regbuttn {
+            background: #117864;
+            color: #76D7C4;
+            float: right;
+            margin-right: 0px;
+            font-family: Arial;
+        }
+        .regbuttnLWC {
+            background: #117864;
+            color: #76D7C4;
+            float: right;
+            margin-right: 0px;
+            font-family: Arial;
+        }
+        #subbuttn {
+            background: #117864;
+            color: #76D7C4;
+            font-family: Arial;
+            font-style: Normal;
+            margin-left: 3%;
+            margin-top: -25%;
+            width: 93%;
+        }
+        #closeicon {
+            margin-right: 2%;
+            float: right;
+            color: #18453b;
+        }
+        #successicon {
+            color: #18453b;
+            font-size: 50px;
+            margin-left: 40%;
+        }
+        .vertical-alignment-helper {
+            display: table;
+            height: 100%;
+            width: 100%;
+        }
+        #attch {
+            color: #76D7C4;
+            background: #18453b;
+            border: none;
+            height: 30px;
+        }
+        input:focus,
+        input:active {
+            outline-color: #18453b !important;
+            background-color: none !important;
+        }
+        #subbuttn:focus,
+        #regbuttn:focus,
+        .regbuttnLWC:focus {
+            outline-color: #18453b !important;
+        }
+        #slotDetails,
+        #appDetails {
+            padding: 0;
+            margin-top: -10px;
+        }
+       hr {
+            border: 1px solid #18453b;
+        }
+        .modal-content {
+            border-radius: 0px !important;
+            margin-top: 25%;
+            margin-left: 25%;
+            width: 500px;
+            height: 200px;
+        }
+        .fileUpload {
+            position: relative;
+            overflow: hidden;
+            margin-top: -2px;
+            border: 1px solid #2E7767;
+            border-radius: 0px;
+            margin-left: 3%;
+            width: 93%;
+        }
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+    }
+    */
+    .appointmentListWrap {
+        height: 215px;
+        overflow-y: auto;
+        border: 1px solid #e6e6e6;
+        padding: 10px;
+        overflow-x: hidden;
+    }
+    #apptDetails,
+    #apptDetailsLWC {
+        text-align: left;
+    }
+    #AppointmentDiv .nav-tabs>li.active>a,
+    #AppointmentDiv .nav-tabs>li.active>a:hover,
+    #AppointmentDiv .nav-tabs>li.active>a:focus {
+        border: 0;
+        border-bottom: 6px solid #FCBB30;
+        color: #00543C;
+        0px;
+    }
+    
+    #AppointmentDiv .nav-tabs>li.active::after {
+            content: "";
+            position: absolute;
+            bottom: -11px;
+            left: 48%;
+            border-width: 12px 10px 0;
+            border-style: solid;
+            border-color: #FCBB30 transparent;
+            display: block;
+            width: 0;
+    }
+    #AppointmentDiv .nav>li>a {
+        font-size: 20px;
+        color: #999;
+    }
+    #AppointmentDiv .nav-tabs {
+        border: 0;
+    }
+    #AppointmentDiv .nav-tabs>li {
+        width: 50%;
+    }
+    #AppointmentDiv .nav-tabs>li>a {
+        text-align: center;
+        padding: 25px 15px;
+        font-family: Whitney-Bold;
+        font-size: 20px;
+        color: #919194;
+        letter-spacing: 0px;
+        border-bottom: 6px solid #e6e6e6;
+        margin-right: 0;
+    }
+    #AppointmentDiv .tabsWrap {
+        border: 1px solid #ececec;
+        float: left;
+        width: 100%;
+        background: #fff;
+    }
+    #AppointmentDiv .tab-content {
+        padding: 20px;
+    }
+    .underline {
+        border-bottom: 1px solid #999;
+        padding-bottom: 10px;
+    }
+    .uploadFileWrap {
+        border: 1px dashed #999;
+        margin-top: 17px;
+        padding: 30px 0;
+        text-align: center;
+        border-radius: 5px;
+        width: 100%;
+        margin-left: 3px;
+    }
+    .uploadFileWrap p {
+        margin: 0;
+        font-size: 22px;
+    }
+    .uploadFileWrap p:nth-child(2) {
+        font-size: 15px;
+    }
+    .uploadFileWrap span {
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    h4 {
+        margin-top: 25px;
+    }
+    .radio label {
+        font-size: 21px;
+        color: #999;
+    }
+    .dropdowns {
+        font-size: 21px;
+        color: #999;
+    }
+    .row.courseContent {
+        margin: 20px 0;
+    }
+    .loading-icon {
+        position: fixed;
+        z-index: 999;
+        background-color: #000 !important;
+        width: 100%;
+        height: 100%;
+        opacity: 0.55;
+    }
+    table.makeRows {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+    }
+    table.makeRows tr td label {
+        margin-left: 10px;
+        font-weight: normal;
+        font-family: Whitney-Book;
+        font-size: 14px;
+        color: #2A2A2A;
+    }
+    .phoneNoWrap {
+        margin-top: 20px;
+    }
+    body {
+        /*padding: 20px 6px;*/
+        background: #F8F7F0;
+    }
+    .underline {
+        border-bottom: 1px solid #999;
+        padding-bottom: 15px;
+    }
+    .info {
+        font-style: italic;
+    }
+    .formWrap {
+        border: 1px solid #ececec;
+        background: #fff;
+        padding: 20px;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 3px;
+    }
+    .radio label {
+        font-family: Whitney-Book;
+        font-size: 14px;
+        color: #2A2A2A;
+    }
+    /*.formWrap .row {
+        margin: 13px 0;
+    }*/
+    .topMargin {
+        margin-top: 30px;
+    }
+    .required:after {
+        content: " *";
+        color: red;
+    }
+    textarea {
+        height: 80px !important;
+        resize: none;
+    }
+    ul.bulletPoints li {
+        margin-bottom: 15px !important;
+        color: #FCBB30;
+        font-size: 20px;
+    }
+    input[type="checkbox"] {
+        margin-top: 5px;
+    }
+    .Writing,
+    .Speaking {
+        display: none;
+    }
+    .meetingWrap {
+        margin-top: 20px;
+    }
+    .content,
+    .courseContent p,
+    #elementLWC span,
+    #elementCASA span,
+    ul.bulletPoints li p,
+    table.languageTable tbody tr td label {
+        font-family: Whitney-Book;
+        font-size: 14px;
+        color: #2A2A2A;
+        line-height: 18px;
+        margin-bottom: 0;
+        font-weight: normal;
+    }
+    #nosltmsgLWC,
+    #nosltmsgCASA {
+        color: red !important;
+        display: block;
+    }
+    .courseContent p.subHeading,
+    label.subHeading,
+    .subHeading {
+        font-family: Whitney-Semibold;
+        font-size: 14px;
+        color: #2A2A2A;
+        letter-spacing: 0px;
+        padding-left: 0;
+        margin-bottom: 12px;
+    }
+    .selectDD {
+        padding: 0px 0 0 15px;
+        font-size: 14px !important;
+        height: 30px !important;
+        line-height: 0;
+        letter-spacing: 0;
+        font-family: Whitney-Book;
+        font-size: 14px;
+        color: #2A2A2A;
+        box-shadow: none;
+        border: 1px solid #e6e6e6;
+    }
+    .hLine {
+        border: 1px solid #e6e6e6;
+        margin-bottom: 0;
+    }
+    .heading {
+        font-family: Whitney-Black;
+        font-size: 22px;
+        color: #00543C;
+        margin: 10px 0 20px;
+    }
+    
+    h1.heading i.glyphicon{
+    font-size: 15px;    
+    cursor: pointer;
+    }
+    
+    
+    /*CALENDAR STYLES STARTS HERE*/
+    
+    ul.list-group {
+        border: 0;
+        box-shadow: none;
+    }
+    ul.list-group .list-group-item {
+        border: 0;
+        padding: 0;
+    }
+    #datetimepicker12,
+    #datetimepicker123 {
+        border: 1px solid #e6e6e6;
+    }
+    .datepicker-days table tr:first-child th {
+        background: #FCBB30;
+        color: #2a2a2a;
+        font-family: Whitney-Semibold;
+        font-size: 14px;
+        text-transform: uppercase;
+        border-radius: 0;
+        height: 40px;
+    }
+    .datepicker-days table tr:nth-child(2) th {
+        background: #fff;
+        color: #e6e6e6;
+        font-family: Whitney-Book;
+        font-size: 12px;
+        text-transform: uppercase;
+        border-bottom: 2px solid #e6e6e6;
+    }
+    .bootstrap-datetimepicker-widget table td.day:hover,
+    .bootstrap-datetimepicker-widget table td.active,
+    .bootstrap-datetimepicker-widget table td.active:hover {
+        color: #fff !important;
+        background-color: #00543C;
+        font-family: Whitney-Book;
+        font-size: 11px;
+    }
+    .bootstrap-datetimepicker-widget table td.day,
+    .bootstrap-datetimepicker-widget table td.day.new,
+    .datetimepicker-widget table td.active {
+        padding: 5px;
+        font-size: 11px;
+        color: #999;
+    }
+    td.day.active.today {
+        color: #fff;
+    }
+    .bootstrap-datetimepicker-widget table td.day.old,
+    .bootstrap-datetimepicker-widget table td.day.new {
+        color: #999!important;
+        font-family: Whitney-Book;
+        font-weight: bold !important;
+    }
+    .bootstrap-datetimepicker-widget table thead tr:first-child th:hover {
+        background-color: #FCBB30;
+    }
+    .glyph-icon:before {
+        font-size: 14px;
+        font-family: flaticon;
+        color: #00543C;
+        margin-left: 0;
+        padding-right: 10px !important;
+    }
+    .glyphicon-user:before {
+        padding-right: 10px;
+        color: #FCBB30;
+    }
+    .green,
+    .green:hover,
+    button.green,
+    button.green:hover,
+    button.green:focus,
+    button.green:active,
+    .btn-default:active:hover,
+    .btn-default.active:hover,
+    .open>.dropdown-toggle.btn-default:hover,
+    .btn-default:active:focus,
+    .btn-default.active:focus,
+    .open>.dropdown-toggle.btn-default:focus,
+    .btn-default:active.focus,
+    .btn-default.active.focus,
+    .open>.dropdown-toggle.btn-default.focus {
+        border: 2px solid #00543C;
+        background: #00543C;
+        font-family: Whitney-Semibold;
+        font-size: 14px;
+        color: #fff;
+        letter-spacing: 0px;
+        padding: 2px 20px;
+        text-shadow: none;
+        border-radius: 4px;
+    }
+    .slotTimesWrap {
+        padding: 10px 15px;
+        border-top: 1px solid #e6e6e6;
+        border-left: 1px solid #e6e6e6;
+        border-right: 1px solid #e6e6e6;
+    }
+    .slotDetailsWrap {
+        border-bottom: 1px solid #e6e6e6;
+        padding: 10px 15px;
+    }
+    .customInput {
+        background: #FFFFFF;
+        border: 1px solid #919194;
+        border-radius: 0;
+        box-shadow: none;
+        height: 45px;
+        font-family: Whitney-Book;
+        font-size: 14px;
+    }
+    label.marginB, .marginB  {
+        margin-bottom: 10px;
+    }
+    .primaryBtn,
+    .primaryBtn:hover, .primaryBtn:focus, .primaryBtn:active {
+        background: #00543C;
+        border-radius: 4px;
+        font-family: Whitney-Semibold;
+        font-size: 14px;
+        color: #FFFFFF !important;
+        letter-spacing: 0px;
+        padding: 12px 54px !important;
+        font-weight: normal;
+        text-shadow: none;
+        border: 1px solid #00543C;
+        margin-top: 20px;
+    }
+    
+    .primaryBtnSec, .primaryBtnSec:hover{
+        background:#5F7E32 !important;
+        margin-right: 10px;
+    }
+    input[type="file"] {
+        display: none;
+    }
+    span.filesList {
+        border: 1px solid #e6e6e6;
+        padding: 5px 30px;
+        border-radius: 30px;
+        font-family: Whitney-Semibold;
+        font-size: 14px;
+        display: inline-block;
+        margin-bottom: 10px;
+        margin-right: 5px;
+    }
+    .glyphicon-remove {
+        margin-left: 10px;
+        font-weight: normal;
+        color: red;
+        top: 2px;
+        left: 10px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    input[type='radio'],
+    input[type='checkbox'] {
+        /* Hide original inputs */
+        
+        visibility: hidden;
+        position: absolute;
+    }
+    input[type='radio'] + label:before {
+        height: 12px;
+        width: 12px;
+        margin-right: 15px;
+        content: " ";
+        display: inline-block;
+        vertical-align: baseline;
+        border: 2px solid #919194;
+    }
+    input[type=checkbox] + label:before {
+        height: 12px;
+        width: 12px;
+        margin-right: 5px;
+        /*content: "✔";*/
+        
+        content: " ";
+        display: inline-block;
+        vertical-align: baseline;
+        border: 2px solid #919194;
+    }
+    input[type=radio]:checked + label:before {
+        background: #00543C;
+        background-clip: content-box;
+        border: 2px solid #00543C;
+        padding: 1px;
+    }
+    .onSelectBold input[type=radio]:checked + label {
+        font-weight: BOLD;
+    }
+    input[type=checkbox]:checked + label:before {
+        background: #00543C;
+        color: #00543C;
+        border: 2px solid #00543C;
+        padding: 1px;
+        background-image: url(/resource/USF_Checkbox);
+        background-size: contain;
+    }
+    /* CUSTOM RADIO AND CHECKBOX STYLES */
+    
+    input[type=radio] + label:before {
+        border-radius: 50%;
+    }
+    input[type=checkbox] + label:before {
+        border-radius: 2px;
+    }
+    .radio label,
+    .checkbox label {
+        padding-left: 0px;
+    }
+    .marginSmall {
+        margin-left: 3.6%;
+    }
+    .alert-danger {
+        background: #F7E8E9;
+        border-radius: 5px;
+        font-family: Whitney-Medium;
+        font-size: 14px;
+        color: #DB0000;
+        letter-spacing: 0px;
+        display: none;
+    }
+    .glyphicon-exclamation-sign {
+        margin-right: 10px;
+    }
+    .glyphicon-ok-circle {
+        font-size: 25px;
+        color: #00543C;
+        margin-right: 7%;
+    }
+    .marginT {
+        margin-top: 20px;
+    }
+    table.languageTable tbody tr td {
+        width: 30%;
+    }
+    #NotifyContactsTable {
+        margin-top: 20px;
+    }
+    #NotifyContactsTable th {
+        /* font-weight: normal !important; */
+        
+        border-bottom: 0;
+        font-family: Que;
+        font-family: QuattrocentoSans-Bold;
+        font-size: 14px;
+        color: #2A2A2A;
+    }
+    #NotifyContactsTable td {
+        font-weight: normal !important;
+        border-top: 1px solid #919194;
+        font-family: QuattrocentoSans;
+        font-size: 14px;
+        color: #2A2A2A;
+    }
+    #NotifyContactsTable td a,
+    #NotifyContactsTable td a:hover,
+    #NotifyContactsTable td a:visited {
+        color: #2a2a2a;
+        font-size: 14px;
+        text-decoration: none;
+        font-family: QuattrocentoSans;
+        font-size: 14px;
+    }
+    #NotifyContactsTable tbody tr {
+        border: 1px solid #919194;
+        border-radius: 25px !important;
+    }
+    .marginTopSmall {
+        margin-top: 5px;
+    }
+    .makeRows tbody td {
+        padding-bottom: 15px !important;
+    }
+    .marginLargeB {
+        margin-bottom: 25px;
+    }
+    .customHeight {
+        height: 35px;
+    }
+    
+    .activeBtn {
+            display: none;
+    }
+    
+    .bootstrap-datetimepicker-widget table td.active.today:before {
+        border-bottom-color: transparent;
+    }
+    
+    .breakLargeContent{
+        float: left;
+        width: auto;
+    }
+    
+    .welcomeDesc{
+    padding: 10px;
+    background: #E5FAF8;
+    width: 100%;
+    }
+    
+    .redirectLink, .redirectLink:hover{
+        color: #337ab7;
+        text-decoration: underline;
+    }
+    
+    table#NotifyContactsTable td a.deleteRowMob {
+        display: none;
+    }
+    
+    ul.ui-autocomplete li a{
+        font-family: Whitney-Book;
+        font-size: 14px;
+        color: #2A2A2A;
+        letter-spacing: 0px;
+        line-height: 18px;
+    }
+    
+    ul.ui-autocomplete li a:hover{
+        background: #E6E6E6;
+        border:0;
+        border-radius: 0;
+    }
+    
+    .ui-widget-content{
+        background: #fff !important;
+    }
+    
+    
+    .ui-state-focus{
+        background: #E6E6E6 !important;
+        border: 0 !important;
+    }
+    
+    #inpt6CASA{
+        height: 75px !important;
+    }
+    
+    br{
+        display: none;
+    }
+    
+    #AppointmentDiv #LWC_Tab.active a {
+        padding: 26px 15px;
+    }
+    
+    #appointmentRequestBtnCASA{
+        margin-top: 20px;
+        margin-bottom: 10px
+    }
+    
+    #Tutorutee2 .row .radio{
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+    
+    #assisteDiv{
+        height: 150px !important;
+    }
+    
+    .removeMarginTop{
+        margin-top: 0;
+    }
+    
+    .statusSlot{
+        font-weight: bold;
+    }
+    
+    .dropIn{
+    background: #F8F7F0;
+    }
+    @media only screen and (max-width: 544px) {
+        .container {
+            max-width: 440px;
+        }
+        
+        .heading {
+            font-size: 20px;
+        }
+        
+        #AppointmentDiv .nav-tabs>li>a {
+            font-size: 18px;
+        }
+        
+        
+        #AppointmentDiv #CASA_Tab a{
+            padding: 2.8em !important;
+        }
+        
+        #calnd, #calnd1 {
+            padding-right: 15px !important;
+        }
+        #slotDetails {
+            padding-left: 15px !important;
+        }
+        
+        .makeRows td{
+            display:block;
+        }
+        
+        .welcomeDesc{
+            width: 100%;
+        }
+        
+        .Learning, .Writing{
+            margin-top: 15px;
+        }
+        
+        table#NotifyContactsTable,table#NotifyContactsTable thead, table#NotifyContactsTable tbody, table#NotifyContactsTable th, table#NotifyContactsTable td, table#NotifyContactsTable tr {
+            display: block;
+            width: 100% !important;
+            border-radius: 0 !important;
+        }
+    
+        /* Hide table headers (but not display: none;, for accessibility) */
+        table#NotifyContactsTable thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        
+        table.tableUSF tr { 
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+         }
+
+        table#NotifyContactsTable td {
+            /* Behave  like a "row" */
+            border: none;
+        }   
+        
+        table#NotifyContactsTable td:before {
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+        
+        table#NotifyContactsTable td:nth-of-type(1):before { content: "NAME:"; font-weight: bold; }
+        table#NotifyContactsTable td:nth-of-type(2):before { content: "EMAIL:"; font-weight: bold; }
+        
+        table#NotifyContactsTable td a.deleteRowMob {
+            display: inline;
+        }  
+        
+        table#NotifyContactsTable td:last-child{
+            display: none;
+        }       
+            
+        #NotifyContactsTable>tbody>tr>td, #NotifyContactsTable>tfoot>tr>td{
+            border:0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        
+        
+        .primaryBtnSec{
+            margin-right: 5px;
+        }
+        
+        
+        .primaryBtn, .primaryBtnSec{
+            padding:12px 35px;
+        }
+        
+        .primaryBtnMob{
+            padding: 12px 9px;
+        }
+        
+        
+        .removeMarginMob{
+            margin-top: 0;
+        }
+    }
+    
+    
+    @media only screen and (max-width: 768px) {
+        .container {
+            max-width: 708px;
+        }
+        
+        .heading {
+            font-size: 20px;
+        }
+        
+        #calnd, #calnd1 {
+            padding-right: 0;
+        }
+        #slotDetails {
+            padding-left: 0;
+        }
+        
+        .welcomeDesc{
+            width: 100%;
+        }
+        
+        #AppointmentDiv #CASA_Tab a{
+            padding: 1.98em;
+        }
+    }
+</style>
+</head>
+<body>
+<c:USF_Header />
+<section class="container">
+<apex:pagemessages />
+            <!-- Action status to display loading icon -->
+                                                   <apex:actionStatus id="status">
+                                                      <apex:facet name="start">
+                                                      <div class="loading-icon">
+                                                         <div class="slds-spinner--large" style="MARGIN-LEFT: 46%;
+                                                                                                margin-top: 16%;" id="loadingicon">                                              
+                                                            <img style="width:15%;height:15%;" src="/resource/SLDS0122/assets/images/spinners/slds_spinner_brand.gif" alt="Loading..." />
+                                                         </div>
+                                                         </div>
+                                                      </apex:facet>
+                                                   </apex:actionStatus>
+                                                   <!-- Close -->
+                                                   
+           <!-- Action function to rerender values on tab selection -->
+           <apex:actionFunction name="rerendertabs" rerender="center" action="{!userClickControl}"/>
+           <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">            
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Slot cannot be booked</h4>
+                  </div>
+                  <div class="modal-body">
+                   
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                  </div>
+                </div>
+            
+              </div>
+            </div>
+           <div id="AppointmentDiv" style="display:block;">
+
+            <h1 class="heading">
+              <i class="glyphicon glyphicon-chevron-left" onClick="window.open('/apex/USF_StudentDashboard','_self');"></i>
+              <!--  <apex:actionFunction action="/apex/USF_StudentDashboard" name="backToDashboard"/> -->
+                 Request an Appointment
+            </h1>
+           
+            <div class="tabsWrap">
+            <ul class="nav nav-tabs">
+                <li role="presentation" id="CASA_Tab" class="active"><a href="#CASA" aria-controls="CASA" role="tab" data-toggle="tab">CASA</a></li>
+                <li role="presentation" id="LWC_Tab"><a href="#learning" aria-controls="learning" role="tab" data-toggle="tab">Learning, Writing, and Speaking Centers</a></li>
+            </ul>
+            
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="CASA">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="alert alert-dangerCASA" role="alert">
+                              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                              <span class="sr-only">Error:</span>
+                                <span class="errMsg">You have exceeded your maximum strike limit, to book an appointment, please contact help desk for further assistance.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="pghead" class="page-header col-xs-12 col-md-12" style="display:none;">
+                            <p id="hd">
+                                {!programApplying}<br/>
+                                <apex:outputPanel id="errMsgURL" rendered="{!bool}">
+                                    {!ErrorMsgURL}
+                                </apex:outputPanel>
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <h3 class="subHeading">Available slots</h3>
+                        </div>
+                        <div class="col-xs-12 col-sm-5 col-md-4" id="calnd">
+                                <ul class="list-group">
+                                    <li class="list-group-item separator" id="calLi">
+                                        <div style="overflow:hidden;">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div id="datetimepicker12">
+                                                        <input type="hidden" value="dSelected" class="form-control" id="datepicker-data"/></div>
+                                                    <apex:actionRegion >
+                                                        <!--ARshad -->
+                                                        <!--<apex:actionFunction name="recInput"  action="{!getTodaysCA}" oncomplete="noslots('{!emptySlotsMessg}');" rerender="Location"> -->
+                                                        <apex:actionFunction name="recInputCASA"  action="{!getTodaysCA}" oncomplete="noslots('{!emptySlotsMessg}','{!leaveValidationError}','{!maxCASAApptError}');" rerender="Location, buttondivs">
+                                                            <apex:param name="dep" value="" assignTo="{!depart}"/>
+                                                            <apex:param name="date1" value="" assignTo="{!d}"/>
+                                                            <apex:param name="cOfferingId" value="" assignTo="{!courseOfferingId}" />
+                                                            <apex:param name="center" value="" assignTo="{!center}" />
+                                                            <apex:param name="specialty" value="" assignTo="{!specialty}" />
+                                                            <apex:param name="mLocation" value="" assignTo="{!meetingLocation}" />
+                                                        </apex:actionFunction>
+                                                    </apex:actionRegion>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                        </div>
+                        <!-- available dates section -->
+                        <div id="slotDetails" class="col-xs-12 col-sm-7 col-md-8" >
+                            <div class="list-group">
+                                <div id="elementCASA" class="list-group-item separator">
+                                    <span>Appointment Times Available for </span>
+                                    <span id="slotdateconCASA"> {!todayDateShow}</span>
+                                    <span id="slotDateCASA"> </span>
+                                    <span id="nosltmsgCASA"></span>
+                                </div>
+                                <div id="element2" class="appointmentListWrap">
+                                    <apex:outputPanel id="Location">
+                                    <apex:actionFunction name="validateCoachLeave"  action="{!verifyCASACoachLeave}" reRender="Location" oncomplete="appdetailsfun('{!slotElementId}','{!caSelectedId}','CASA','{!validationError}');">
+                                              <apex:param name="selectedSlotId" value="" assignTo="{!caSelectedId}"/>
+                                              <apex:param name="selectedApptType" value="" assignTo="{!caSelectedType}"/>
+                                              <apex:param name="slElementId" value="" assignTo="{!slotElementId}"/>
+                                                    </apex:actionFunction>
+                                                    <!--<apex:actionFunction name="validateLeave"  action="{!verifyCoachLeave}" reRender="Location">
+                                              <apex:param name="dateSelected" value="" assignTo="{!d}"/>
+                                              
+                                                    </apex:actionFunction>-->
+                                        <apex:repeat value="{!wrapperList}" var="wrp" >
+                                            <div id="element2" class="slotDetailsWrap {!if(wrp.disabled,'','dropIn')}">
+                                                <!--<button id="regbuttn" class="btn" onclick="appdetailsfun(this,'{!wrp.custAvailid}','CASA',''); return false"> Register </button> 
+                                                <span style="font-size: 14px;"><b> {!wrp.startdate} - {!wrp.enddate}</b></span><br/>
+                                                <span style="font-size: 12px;">Location: {!wrp.location}</span><br/>
+                                                <span style="font-size: 12px;">Coach: {!wrp.custName}</span><br/>
+                                                <span style="font-size: 12px;">Capacity: {!wrp.capacity}</span><br/>-->
+                                                
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                                        <span class="subHeading">{!wrp.startdate} - {!wrp.enddate}</span>
+                                                    </div>
+                                                    <div class="col-md-12 col-md-12 col-md-9 col-lg-9">
+                                                        <span class="glyph-icon flaticon-cursor content breakLargeContent">{!wrp.location} &nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="statusSlot">{!wrp.typeofAppoitment}</span>
+                                                        <apex:outputPanel rendered="{!wrp.disabled}">
+                                                            <button id="regbuttn{!wrp.custAvailid}" class="btn btn-default green pull-right" onclick="validateCoachLeave('{!wrp.custAvailid}','{!wrp.typeofInterview}','regbuttn{!wrp.custAvailid}');return false;"> Select</button>
+                                                        </apex:outputPanel>
+                                                        <span class="glyphicon glyphicon-ok-circle pull-right activeBtn"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-9 col-md-offset-3">
+                                                        <span class="glyphicon glyphicon-user "></span><span class="content">{!wrp.custName}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-9 col-md-offset-3">
+                                                        <span class="content">Capacity: {!wrp.capacity}</span>                                                                                          
+                                                    </div>                                                    
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                        </apex:repeat>
+                                    </apex:outputPanel>
+                                </div>
+                                <apex:actionRegion >    
+                                    <apex:actionFunction name="calistpass"  rerender="apId" >
+                                        <apex:param name="cid" value="" assignTo="{!caSelectedId}" />
+                                        <apex:param name="appTypeVal" value="" assignTo="{!appType}" />
+                                   </apex:actionFunction>
+                                </apex:actionRegion>
+                            </div>
+                        </div>
+                        
+                        <div id="appDetails" class="col-xs-12 col-md-7" style="display:none;">
+                            <apex:outputPanel id="apppanel">
+                                <div class="list-group">
+                                    <div id="ele0" class="list-group-item separator">
+                                        <span id="closeicon" class="glyphicon glyphicon-remove" aria-hidden="true" onclick="backslotdetails(); return false"></span>
+                                        <p style="font-size: 12px;"><b>Selected Appointment</b></p>
+                                        <hr/> 
+                                        <span id="intervtype" style="font-size: 12px;"> </span><br/>
+                                        <b><span id="showSlDatecon" style=" padding: 0px; color:#18453b;font-size: 14px;">{!todayDateShow}</span></b>
+                                        <b><output id="showSlDate" style=" padding: 0px; color:#18453b;font-size: 14px;"></output></b>
+                                        <span id="showtime" style="color:#399A90;font-size: 14px;"></span><br/>
+                                        <span id="errmsg1" style="color:red; display:none;"> </span>
+                                        <span id="resid" style="color:red;"> </span>
+                                    </div>
+                                    <div id="ele1" class="list-group-item separator">
+                                        <apex:outputPanel id="apId">
+                                            <p style="font-size: 12px;margin-left: 3%;margin-top: 1.5%;" > Appointment Type </p>
+                                            <output style="color:white;font-size: 14px;margin-left: 3%;width: 93%;border-bottom:1px solid #2E7767 !important;"> {!appType} </output> 
+                                            
+                                        </apex:outputPanel>
+                                    </div>
+                                    <!-- Commented by Dhruv as this is old fucntionality -->
+                              <!--      <div id="ele2" class="list-group-item separator">
+                                        <p style="font-size: 12px;margin-left: 3%;"> Full Name</p>
+                                        <input id="inpt2" type="text" placeholder="John Smith" style="margin-left: 3%;"> <br/></input>
+                                    </div>
+                                    <div id="ele3" class="list-group-item separator">
+                                        <p style="font-size: 12px;margin-left: 3%;"> Email Address</p>
+                                        <input id="inpt3" type="text" placeholder="JohnSmith@gmail.com" style="margin-left: 3%;"><br/></input>
+                                    </div>
+                                    <div id="ele4" class="list-group-item separator">
+                                        <p style="font-size: 12px; margin-left: 3%;"> Skype ID </p>
+                                        <input id="inpt4" type="text" placeholder="JohnSmith1234"  style="margin-left:3%;"><br/></input>
+                                    </div>
+                                    <div id="ele5" class="list-group-item separator">
+                                        <p style="font-size: 12px; margin-left: 3%;"> Attach Assignment Notes</p>
+                                        <div class="fileUpload btn" id="btnfile">
+                                            <span id="brwfile" style="color:#2E7767;">Browse files</span>
+                                            <input type="file" class="upload" id="attachmentFile" onchange="appendFile();"/>
+                                            <span id="fileNm" style="font-size: 14px; margin-left: 3%; color:white;"> </span>
+                                        </div>
+                                    </div>
+                                    <div id="ele6" class="list-group-item separator">
+                                        <p style="font-size: 12px;margin-left: 3%;"> Additional Comments</p>
+                                        <input id="inpt6" style="width: 93%;margin-left: 3%;" placeholder="Please enter any additional details regarding the appointment" type="text" > <br/></input>
+                                    </div>
+                                    <div id="ele7" class="list-group-item separator">
+                                        <br/><br/><br/>
+                                        <a id="scrollId" href="#"></a>
+                                        <button id="subbuttn1" class="btn" onclick="return false"> Submit Request </button>
+                                        <br/>
+                                    </div> -->
+                                </div>
+                            </apex:outputPanel>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <hr class="hLine"/>
+                        </div>                        
+                    </div>
+                    
+                    <div id="appointmentRegistrationCASA">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <h3 class="subHeading" id="apptDetails">Appointment Details</h3>
+                            </div>                            
+                        </div>
+                    
+                    
+                    
+                    <div class="row">
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <h4 class="subHeading required">Reason(s) for meeting</h4>
+                             <apex:actionRegion >
+                                <apex:actionFunction name="check" action="{!BookOrReject}" onComplete="backToDetail('{!result}','{!appType}','{!appConRecId}');" rerender="false" status="status">
+                                  <!-- By Dhruv as Email is not captured in new UI  <apex:param name="eValue" value="" assignTo="{!emailToVerify}" /> -->
+                                    <apex:param name="skValue" value="" assignTo="{!skypeId}" />
+                                 <!-- By Dhruv as Name is not captured in New UI   <apex:param name="namValue" value="" assignTo="{!fullName}" /> -->
+    
+                                    <apex:param name="commtValue" value="" assignTo="{!additionalComments}" />
+                                    <apex:param name="referrerpick" value="" assignTo="{!referrerpick}" />
+                                    <apex:param name="referrername" value="" assignTo="{!referrername}" />
+                                    <apex:param name="courseOfferingId" value="" assignTo="{!courseOfferingId}" />
+                                    <apex:param name="cspecialty" value="" assignTo="{!coachspecialty}" />      
+                                </apex:actionFunction> 
+                                <apex:selectCheckboxes id="test111" styleClass="makeRows" value="{!reasons}" >
+    
+                                        <apex:selectOptions value="{!ReasonforPicklist}"/>  
+               
+                                </apex:selectCheckboxes><br/>
+                            </apex:actionRegion>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <h4 class="subHeading removeMarginMob">Referred by</h4>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 marginLargeB">
+                           
+                            <select Id="ReferredPick" class="form-control customInput customHeight">
+                                <option Id="None">None</option>
+                                <option Id="Faculty">Faculty</option>
+                                <option Id="Staff">Staff</option>
+                                <option Id="Friend">Friend</option>
+                                <option Id="Parent / Guardian">Parent / Guardian</option>
+                              </select>
+                        </div>
+                        
+                         <div class="col-xs-12 col-sm-6 col-md-6 col-sm-6 marginLargeB">
+                            
+                           <input type="text" id="ReferrerName" class="form-control customInput customHeight" placeholder="Referrer Name"/>
+                         <span id="errmsgReferredName" style="color:red; display:none;"> </span>
+                        </div>
+                    </div>
+
+                            
+                            <div class="row">
+                            <span id="errmsgCASAPhone" style="color:red; display:none;"> </span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <label class="content marginB required">Preferred Phone number</label>
+                                    <input type="text" class="form-control customInput" Id="inpt4CASA" placeholder=" "/>
+                                </div>
+                            </div>
+                           <div class="row phoneNoWrap">
+                                <span id="errmsgCASA" style="color:red; display:none;"> </span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <label class="content marginB">Additional Notes</label>
+                                    <textarea id="inpt6CASA" class="form-control customInput" maxlength="255"></textarea>
+                                </div>
+                                 
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+                    
+                    
+                    <!--<div class="row">
+                        <hr class="hLine"/>
+                    </div>
+                    
+                    <div class="row">                        
+                        <div class="col-md-12">
+                            <h4 class="subHeading">Upload your documents/assignment</h4>
+                            <div class="fileName1"></div> 
+                            <label class="custom-file-upload green" for="file-upload1">Browse</label>
+                            <input type="file" name="file" class="file-uploaderCASA" multiple="true" accept=".pdf,.jpeg,.png,.docx,.doc" size="5" id="file-upload1"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <hr class="hLine"/>
+                    </div>
+                    -->
+                    
+                    
+                                   
+                    
+                     <div class="text-center buttonWrap" id="appointmentRequestBtnCASA">
+                        <button type="button" class="btn btn-default primaryBtn" id="subbuttnCASA">Request an Appointment</button>
+                    </div>
+            
+                    </div>
+                </div>
+                
+                <!--Learning Tab content starts here-->
+                <div role="tabpanel" class="tab-pane" id="learning">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="alert alert-danger" role="alert">
+                              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                              <span class="sr-only">Error:</span>
+                                <span class="errMsg">You have exceeded your maximum strike limit, to book an appointment, please contact help desk for further assistance.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="subHeading">Select a center for which you'd like to book an appointment</p>
+                    <apex:actionRegion >
+                     <!-- action fucntion for Onchange of Center values -->
+                        <apex:actionFunction name="onchangecenterAF" rerender="courseLabel,course,specialtyLabel,specialty,meetingLocation,learningMessage" action="{!setCoursesOnClick}" onComplete="onChangeCenter('{!center}','{!strikeValidationError}','{!welcomeMessage}');">
+                        <apex:param name="center" value="" assignTo="{!center}"/>
+                        </apex:actionFunction>
+                        
+                    
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="radio onSelectBold">
+                              <input type="radio" name="optradio" value="Learning" onchange="onchangecenterAF('Learning');" id="learningOpt"/> <label for="learningOpt">Subject Tutoring</label>
+                            </div>                            
+                        </div>
+                        
+                        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="radio onSelectBold">
+                              <input type="radio" name="optradio" value="Writing" onchange="onchangecenterAF('Writing');" id="writingOpt"/> <label for="writingOpt">Writing Center</label>
+                            </div>                            
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="radio onSelectBold">
+                            <input type="radio" name="optradio" value="Speaking" onchange="onchangecenterAF('Speaking');" id="speakingOpt"/> <label for="speakingOpt">Speaking Center</label>
+                            </div>                            
+                        </div>
+                        
+                       
+                    </div>  
+                    </apex:actionRegion>
+                    <div class="row courseContent Learning learningMessage">
+                        <p class="subHeading learningSubHeading">Welcome to the Subject Tutoring.</p>
+                        <div class="welcomeDesc" id="learningMessageText">
+                           <p>Use this system to schedule individual and group appointments for your currently enrolled courses. You will receive a confirmation email with more appointment details. Cancel or reschedule an appointment at least 24 hours in advance to avoid penalties. If you have additional questions, call 415-422-6713.</p>
+                        </div>
+                    </div>
+                    <div class="row courseContent Writing writingMessage">
+                        <p class="subHeading writingSubHeading">Welcome to the Writing Center.</p>
+                        <div class="welcomeDesc" id="writingMessageText">
+                            <p>Use this system to schedule individual appointments. To schedule group appointments, call 415-422-6713. You will receive a confirmation email with more appointment details. Cancel or reschedule an appointment at least 1 hour in advance to avoid penalties.</p>
+                        </div>
+                    </div>
+                    <div class="row courseContent Speaking speakingMessage">
+                        <p class="subHeading speakingSubHeading">Welcome to the Speaking Center.</p>
+                        <div class="welcomeDesc" id="speakingMessageText">
+                            <p>Use this system to schedule individual appointments. You will receive a confirmation email with more appointment details. Cancel or reschedule an appointment at least 1 hour in advance to avoid penalties. >Any additional questions email speakingcenter@usfca.edu.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row meetingTypeToggle">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <hr class="hLine"/>
+                        </div> 
+                    </div>
+                    <div class="row meetingWrap">                     
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 meetingTypeToggle">
+                            <label class="subHeading">Meeting type</label>
+                            <apex:selectList Styleclass="form-control selectDD" onchange="displaySlots();" id="meetingLocation" size="1" value="{!meetingLocation}">
+                              <apex:selectOptions value="{!meetingLocationLst}"/> 
+                            </apex:selectList>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 Learning">
+                           <!-- <apex:outputLabel value="Course: " id="courseLabel"/>-->
+                           <label class="subHeading">Course</label>
+                            <apex:selectList Styleclass="form-control selectDD" onchange="displaySlots();checkFirstAppointment()" label="Course" id="course" size="1" value="{!course}">
+                            <apex:actionRegion > 
+                                <apex:actionFunction name="fetchCourseBasedSlots"  action="{!getTodaysCA}" oncomplete="noslots('{!emptySlotsMessg}','','');" rerender="LocationLWC">
+                                    <apex:param name="dep"  assignTo="{!depart}" value=""/>
+                                    <apex:param name="date1"  assignTo="{!d}" value=""/>
+
+                                    <!-- <apex:param name="dept1" value="" assignTo="{!department}"/> --> <!--Nishit commented --> 
+                                    <apex:param name="cOfferingId" assignTo="{!courseOfferingId}" value=""/>
+                                    <apex:param name="cen"  assignTo="{!center}" value="" />
+                                    <apex:param name="spec"  assignTo="{!specialty}" value="" />
+                                    <apex:param name="mLocation"  assignTo="{!meetingLocation}" value="" />
+
+                                </apex:actionFunction>
+                                </apex:actionRegion> 
+                                <apex:selectOptions value="{!filteredCourseLst}"/> 
+                          </apex:selectList>                             
+                        </div>  
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 Writing">
+                            <!--<apex:outputLabel value="Specialty: " id="specialtyLabel"/> -->
+                            <label class="subHeading">Specialty</label>
+                            <apex:selectList Styleclass="form-control selectDD" onchange="displaySlots();checkFirstAppointmentWriting()" label="Specialty" id="specialty" size="1" value="{!specialty}">
+                            <apex:actionRegion > 
+                                <apex:actionFunction name="fetchCourseBasedSlots"  action="{!getTodaysCA}" oncomplete="noslots('{!emptySlotsMessg}','','');" rerender="LocationLWC">
+                                    <apex:param name="dep" value="" assignTo="{!depart}"/>
+                                    <apex:param name="date1" value="" assignTo="{!d}"/>
+                                   
+                                    <apex:param name="cOfferingId" value="" assignTo="{!courseOfferingId}" />
+                                    <apex:param name="center" value="" assignTo="{!center}" />
+                                    <apex:param name="specialty" value="" assignTo="{!specialty}" />
+                                    <apex:param name="mLocation" value="" assignTo="{!meetingLocation}" />
+
+                                </apex:actionFunction>
+                                </apex:actionRegion> 
+                                <apex:selectOptions value="{!specialtyLst}"/> 
+                            </apex:selectList>                            
+                        </div>                     
+                    </div> 
+                    
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <hr class="hLine"/>
+                        </div> 
+                    </div>
+                    
+                   
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="subHeading ">Available slots</h3>
+                        </div>                    
+                        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4" id="calnd1">
+                                <ul class="list-group">
+                                    <li class="list-group-item separator" id="calLi2">
+                                        <div style="overflow:hidden;">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div id="datetimepicker123">
+                                                        <input type="hidden" value="dSelected" class="form-control" id="datepicker-data123"/></div>
+                                                    <apex:actionRegion >
+                                                        <!--ARshad -->
+                                                        <!--<apex:actionFunction name="recInput"  action="{!getTodaysCA}" oncomplete="noslots('{!emptySlotsMessg}');" rerender="Location"> -->
+                                                        <apex:actionFunction name="recInputLWC"  action="{!getTodaysCA}" oncomplete="noslots('{!emptySlotsMessg}','','');" rerender="LocationLWC">
+                                                            <apex:param name="dep" value="" assignTo="{!depart}"/>
+                                                            <apex:param name="date1" value="" assignTo="{!d}"/>
+                                                            <!-- <apex:param name="dept1" value="" assignTo="{!department}"/> --> <!--Nishit commented --> 
+                                                            <apex:param name="cOfferingId" value="" assignTo="{!courseOfferingId}" />
+                                                            <apex:param name="center" value="" assignTo="{!center}" />
+                                                            <apex:param name="specialty" value="" assignTo="{!specialty}" />
+                                                            <apex:param name="mLocation" value="" assignTo="{!meetingLocation}" />
+                                                        </apex:actionFunction>
+                                                    </apex:actionRegion>                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                        </div>
+                         <div id="slotDetails" class="col-xs-12 col-sm-7 col-md-8 col-lg-8" >
+                            <div class="list-group">
+                                <div id="elementLWC" class="slotTimesWrap">
+                                    <span>Appointment Times Available for </span>
+                                   <span id="slotdateconLWC"> {!todayDateShow}</span>
+                                    <span id="slotDateLWC"> </span>
+                                    <span id="nosltmsgLWC"></span>
+                                </div>
+                                <div id="element2" class="appointmentListWrap">
+                                    <apex:outputPanel id="LocationLWC">
+                                        <apex:actionFunction name="validateCenterRules"  action="{!verifyCenterRules}" reRender="LocationLWC" oncomplete="appdetailsfun('{!slotElementId}','{!caSelectedId}','LWC','{!validationError}');">
+                                              <apex:param name="selectedSlotId" value="" assignTo="{!caSelectedId}"/>
+                                              <apex:param name="selectedApptType" value="" assignTo="{!caSelectedType}"/>
+                                              <apex:param name="slElementId" value="" assignTo="{!slotElementId}"/>
+                                                    </apex:actionFunction>
+                                        <apex:repeat value="{!wrapperList}" var="wrp" >
+                                            <div id="element2" class="slotDetailsWrap {!if(wrp.disabled,'','dropIn')}">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <span class="subHeading">{!wrp.startdate} - {!wrp.enddate}</span>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <span class="glyph-icon flaticon-cursor content breakLargeContent">{!wrp.location} &nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="statusSlot">{!wrp.typeofAppoitment}</span>
+                                                        <apex:outputPanel rendered="{!wrp.disabled}">
+                                                            <button id="regbuttn{!wrp.custAvailid}" class="btn btn-default green pull-right" onclick="validateCenterRules('{!wrp.custAvailid}','{!wrp.typeofInterview}','regbuttn{!wrp.custAvailid}');return false;"> Select</button>
+                                                        </apex:outputPanel> 
+                                                        <span class="glyphicon glyphicon-ok-circle pull-right activeBtn"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-9 col-md-offset-3">
+                                                        <span class="glyphicon glyphicon-user "></span><span class="content">{!wrp.custName}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-9 col-md-offset-3">
+                                                        <span class="content">Capacity: {!wrp.capacity}</span>                                                                                          
+                                                    </div>                                                    
+                                                </div>
+                                            </div>
+                                        </apex:repeat>
+                                    </apex:outputPanel>
+                                </div>
+                                <apex:actionRegion >    
+                                    <apex:actionFunction name="calistpass"  rerender="apId" >
+                                        <apex:param name="cid" value="" assignTo="{!caSelectedId}" />
+                                        <apex:param name="appTypeVal" value="" assignTo="{!appType}" />
+                                    </apex:actionFunction>
+                                </apex:actionRegion>
+                            </div>
+                         </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">
+                                 Can't find what you're looking for? <a href="/apex/USF_TutorRequest" target="_blank" class="redirectLink">Click here</a> to request a different course or time.
+                             </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <hr class="hLine"/>
+                            </div> 
+                         </div>
+                         <apex:outputPanel id="buttondivs">
+                         <div id="appointmentRegistrationLWC" style="display:none">
+                         <h3 class="subHeading" id="apptDetailsLWC">Appointment Details</h3>
+                         <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> </div>                            
+                            <div class="col-xs-12 col-md-6"> <span id="errmsgLWC" class="errorMsg" style="color:red; display:none;"> </span>
+                             </div>
+                        </div>
+                        <div class="row marginB ">
+                             <!--
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <label class="content marginB">What is your learning style or preference?</label>
+                                <input type="text" id="inpt6LWC" class="form-control customInput" placeholder=" "/>
+                            </div>
+                            -->
+                            <span id="errmsgLWC" style="color:red; display:none;"> </span>
+                             <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 marginB ">
+                                 <label class="content marginB required">Preferred Phone Number</label>
+                                <input type="text" class="form-control customInput" id="inpt4LWC" placeholder=" "/>
+                            </div>
+                        </div>
+                         <div class="row">                            
+                                <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+                                    <label class="content marginB">Additional Notes</label>
+                                    <textarea id="additionalNotesLWC" class="form-control customInput" maxlength="255" rows="4">                                   
+                                    
+                                    </textarea>
+                                </div>
+                            </div>
+                        
+                        <div class="row Writing">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <label class="content marginB marginT">Is English your first language?</label>
+                                <apex:selectradio id="firstLanguage" styleClass="languageTable" value="{!firstLanguage}" >
+                                    <apex:selectOptions value="{!firstLanguageList}"/>
+                                    <apex:actionSupport event="onchange" rerender="check"/>
+                                </apex:selectradio>
+                            </div>
+                        </div>
+                        <div class="row groupAssignment">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <label class="content marginB marginT">Is this appointment for a group assignment?</label>
+                                <apex:selectradio id="groupAssignment" styleClass="languageTable" value="{!groupAssignment}">
+                                    <apex:selectOptions value="{!groupAssignmentList}"/>
+                                    <apex:actionSupport event="onchange" rerender="check"/>
+                                </apex:selectradio>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <hr class="hLine"/>
+                            </div> 
+                        </div>                        
+                        <apex:outputPanel rendered="false" id="check"/>
+                        <div class="row">`
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <h3 class="subHeading marginTopSmall">Upload a document or assignment to review during your appointment</h3>
+                                <div class="fileName">
+                                    
+                                </div>
+                                <label for="file-upload" class="custom-file-upload green">
+                                     Browse
+                                </label>
+                                <!--<apex:outputLabel value="Browse" for="file"/>
+                                <apex:inputFile value="{!attachment.body}" filename="{!attachment.name}" id="file"/>-->
+                                <input type="file" value="{!attachment.body}" name="{!attachment.name}" class="file-uploaderLWC" id="file-upload" multiple="true" accept=".pdf,.jpeg,.png,.docx,.doc,.ppt,.pptx" size="5"/>
+                                <span id="errmsgLWCBrowse" style="color:red; display:none;">You cannot upload more than 5 attachments.</span>
+                            </div>
+                        </div>
+                        <!-- Added by Vandana (STRY0012151) - start -->
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <hr class="hLine"/>
+                            </div> 
+                        </div> 
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <h4 class="subHeading">Notify faculty or an advisor</h4>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <label class="content marginB">An email will be sent to the selected faculty, advisor or a CASA adviser when the appointment is complete.</label>
+                               </div>
+                                </div>
+                                
+                                <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">                                
+                                    <apex:inputText id="auto11" value="{!selectedFaculty}" required="false" html-placeholder="Search by email" styleclass="search-area form-control customInput"/>
+                                    <!-- Auto Complete VF component -->
+                                    <c:USF_AutoCompleteComponent objectname="Contact" input_id="{!$Component.auto11}" numberOfResultsToDisplay="10" wildcardBefore="false" additionalFilter="faculty"/>
+                                    
+                                    <apex:inputhidden id="selFacultyIdHidden" value="{!selectedFacultyId}"/>
+                                    
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <apex:outputPanel id="AddedContactsTable">
+                                <table id="NotifyContactsTable" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>NAME</th>
+                                            <th>EMAIL</th>                                            
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <apex:repeat value="{!allContacts}" var="con">
+                                        <tr>
+                                        <td><apex:outputText value="{!con.Name}"/>
+                                            <apex:commandlink value="x" action="{!removeContact}" rerender="AddedContactsTable" immediate="true" styleClass="deleteRowMob pull-right">
+                                            <apex:param name="contactToBeRemoved" value="{!con.Id}" assignTo="{!contactToBeRemoved}"/>
+                                            </apex:commandlink>                                            
+                                        </td>
+                                        <td><apex:outputText value="{!con.Email}"/></td>
+                                        <!--<td><apex:outputText value="{!con.Department}"/></td>-->
+                                        <td><apex:commandlink value="x" action="{!removeContact}" rerender="AddedContactsTable" immediate="true">
+                                            <apex:param name="contactToBeRemoved" value="{!con.Id}" assignTo="{!contactToBeRemoved}"/>
+                                            </apex:commandlink>
+                                        </td>
+                                        </tr>
+                                    </apex:repeat>
+                                    </tbody>
+                                </table>
+                                </apex:outputPanel>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Added by Vandana (STRY0012151) - end -->
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <hr class="hLine"/>
+                            </div> 
+                        </div>
+                        <apex:outputPanel rendered="{!IF(!boolNext && !boolNextTerm,true,false)}">
+                         <div class="text-center" id="appointmentRequestBtnLWC">
+                            <button type="button" class="btn btn-default primaryBtn" id="subbuttnLWC" onclick="requestLWCAppointment()">Request an Appointment</button>
+                        </div>
+                        </apex:outputPanel>
+                             <!-- Added by Suhan for first Appointment  -->
+                         <apex:outputPanel rendered="{!IF(boolNext,true,false)}">    
+                        <div class="text-center" id="firstAppointmentrequest">
+<button type="button" class="btn btn-default primaryBtn primaryBtnSec" id="FirstLWC" onclick="window.open('/apex/USF_StudentDashboard','_self');">&#60; Back</button>                            <button type="button" class="btn btn-default primaryBtn" id="FirstLWC" onclick="showtutorsurvey()">Next &#62;</button>
+                        </div>
+                         </apex:outputPanel>
+                         <apex:outputPanel rendered="{!IF(!boolNext && boolNextTerm,true,false)}">    
+                        <div class="text-center" id="firstTermAppointmentrequest">
+                            <button type="button" class="btn btn-default primaryBtn primaryBtnSec" id="FirstLWC" onclick="window.open('/apex/USF_StudentDashboard','_self');">&#60; Back</button><button type="button" class="btn btn-default primaryBtn" id="FirstTermLWC" onclick="showtutorsurveyTerm()">Next &#62;</button>
+                        </div>
+                         </apex:outputPanel>
+                        </div> 
+                      </apex:outputPanel>  
+                </div>
+            </div>
+            
+            </div>
+    </div>
+    
+    
+   <!----       First Appointment survey first form starts here ----->
+    <!---                     Added by suhan                    --->
+    <div id="Tutorutee2" style="display:none;" >
+        <h1 class="heading">Please fill out the following form to book your appointment</h1>
+        
+        <div id ="requiremain" style = "display: none">
+            <i style = "font-size: 16px; margin-left: 450px;"><b ><font color = "red">Please Review all the errors</font></b></i>
+        </div>
+        <div class="row formWrap">   
+            <p class="required subHeading">1. What is your current grade in this course?</p>
+            
+            <div class="row">
+                <div id ="require1" style = "display: none">
+                     <i style = "font-size: 14px;"><b ><font color = "red">Please answer this</font></b></i>
+                </div>
+                <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1">
+                    <div class="radio">
+                        <input type="radio" id="radiog1" name="grade" onclick="hesihide()"/><label for="radiog1">A</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1">
+                    <div class="radio">
+                       <input type="radio" id="radiog2" name="grade" onclick="hesihide()"/> <label for="radiog2">B</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1">
+                    <div class="radio">
+                        <input type="radio" id="radiog3" name="grade" onclick="hesihide()"/><label for="radiog3">C</label>                        
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1">
+                    <div class="radio">
+                        <input type="radio" id="radiog4" name="grade" onclick="hesihide()"/><label for="radiog4">D</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-2 col-md-1 col-lg-1">
+                    <div class="radio">
+                        <input type="radio" id="radiog5" name="grade" onclick="hesihide()"/><label for="radiog5">F</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-2 col-md-3 col-lg-3">
+                    <div class="radio">
+                        <input id="radiog6"  type="radio" name="grade" onclick="hesishow()"/><label for="radiog6">Don't know</label>
+                    </div>                            
+                </div>
+            </div> 
+            <div class="row">
+                <div id="hesideiv" class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="display:none">
+                    <input type="text" Id="hesiscoreinput" class="form-control customInput"  placeholder="HESI Score"/>
+                </div>
+            </div> 
+            
+            
+            <p class="topMargin required subHeading">2. How do you know?</p>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionk1" name="opt2"/><label for="radionk1">Professor calculation</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                       <input type="radio" id="radionk2" name="opt2"/> <label for="radionk2">Guesstimate</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionk3" name="opt2"/><label for="radionk3">My own calculation </label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionk4" name="opt2"/><label for="radionk4">N/A</label>
+                    </div>                            
+                </div>
+            </div>
+            
+            
+            <p class="topMargin required subHeading">3. Have you met with this course’s professor?</p>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionP1" name="opt3"/><label for="radionP1">Once</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionP2" name="opt3"/><label for="radionP2">A few times</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionP3" name="opt3" /><label for="radionP3">Regularly </label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionP4" name="opt3" /><label for="radionP4">N/A</label>
+                    </div>                            
+                </div>
+            </div>
+            
+            <p class="topMargin required subHeading">4. How many hours are you studying or preparing for this course each week?</p>
+            <div class="row">
+                <div id ="require2" style = "display: none">
+                     <i style = "font-size: 14px;"><b ><font color = "red">Please answer this</font></b></i>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionSP1" name="opt4"/><label for="radionSP1">1-2 hours</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionSP2" name="opt4" /><label for="radionSP2">3-4 hours</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionSP3" name="opt4"/><label for="radionSP3">5-8 hours</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionSP4" name="opt4"/><label for="radionSP4">9> hours</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="radio">
+                        <input type="radio" id="radionSP5" name="opt4"/><label for="radionSP5">Never</label>
+                    </div>                            
+                </div>
+            </div>
+            
+            <p class="topMargin required subHeading">5. What are you doing to study or prepare?</p>
+            <div class="row">
+                <div id ="require3" style = "display: none">
+                     <i style = "font-size: 14px;"><b ><font color = "red">Please answer this</font></b></i>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionwP1" onclick="studyhide()" name="opt5"/><label for="radionwP1">Reading</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionwP2" onclick="studyhide()" name="opt5"/><label for="radionwP2">Take/Review notes</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionwP3" onclick="studyhide()" name="opt5"/><label for="radionwP3">Creating study guides</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionwP4" onclick="studyhide()" name="opt5" /><label for="radionwP4">Flash cards</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionwP5" onclick="studyhide()" name="opt5"/><label for="radionwP5">Practice problems</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionwP6" onclick="studyhide()" name="opt5"/><label for="radionwP6">Review class handouts</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionwP7" onclick="studyhide()" name="opt5" /><label for="radionwP7">Pneumonics</label>
+                    </div>                            
+                </div>
+               
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionwP8" onclick="studyhide()" name="opt5" /><label for="radionwP8">Nothing</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionwP9" onclick="studyshow()" name="opt5"/><label for="radionwP9">Other</label>
+                    </div>                            
+                </div>
+                
+                <div id="studydiv" class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="display:none">
+                    <input type="text" id="inputstudyp" class="form-control customInput" placeholder="Others"/>
+                </div>
+            </div>
+            
+            
+            <p class="topMargin required subHeading">6. Do any of the following contribute to your performance?</p>
+            <div class="row">
+                <div id ="require4" style = "display: none">
+                     <i style = "font-size: 14px;"><b ><font color = "red">Please answer this</font></b></i>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioncP1" name="opt6"/><label for="radioncP1">Missing class</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioncP2" name="opt6"/><label for="radioncP2">Poor time management</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioncP3" name="opt6" /><label for="radioncP3">Lack of foundational knowledge</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioncP4" name="opt6" /><label for="radioncP4">Over involved/Work/Too many credits</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioncP5" name="opt6"/><label for="radioncP5">Difficulty with instructor</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioncP6" name="opt6"/><label for="radioncP6">Non-native speaker</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioncP7" name="opt6" /><label for="radioncP7">Missing course material</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioncP8" name="opt6" /><label for="radioncP8">None of these</label>
+                    </div>                            
+                </div>
+            </div>
+            
+            
+            <p class="topMargin required subHeading">7. What learning styles are you utilizing for this course?</p>
+            <div class="row">
+                <div id ="require5" style = "display: none">
+                     <i style = "font-size: 14px;"><b ><font color = "red">Please answer this</font></b></i>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionlsu1" onclick="learningstylehide()" name="opt7" /><label for="radionlsu1">Visual</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionlsu2" onclick="learningstylehide()" name="opt7" /><label for="radionlsu2">Kinesthetic</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionlsu3" onclick="learningstylehide()" name="opt7" /><label for="radionlsu3">Auditory</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionlsu4" onclick="learningstylehide()" name="opt7" /><label for="radionlsu4">Read/Write</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radionlsu5" onclick="learningstyleshow()" name="opt7"/><label for="radionlsu5">Other</label>
+                    </div>                            
+                </div>
+                
+                <div id="learningdiv" class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="display:none">
+                    <input type="text" id="inputlsu" class="form-control customInput" placeholder="Others"/>
+                </div>
+            </div>
+            
+            
+            <p class="topMargin required subHeading">8. What academic skills would you like to work on?</p>
+            <div class="row">
+                <div id ="require6" style = "display: none">
+                     <i style = "font-size: 14px;"><b ><font color = "red">Please answer this</font></b></i>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioAs1" onclick="skillhide()" name="opt8" /><label for="radioAs1">Class preparation</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioAs2" onclick="skillhide()" name="opt8" /><label for="radioAs2">Test taking</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioAs3" onclick="skillhide()" name="opt8" /><label for="radioAs3">Note taking</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioAs4" onclick="skillhide()" name="opt8" /><label for="radioAs4">Time management</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioAs5" onclick="skillhide()" name="opt8" /><label for="radioAs5">Reading</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioAs6" onclick="skillhide()" name="opt8" /><label for="radioAs6">Study strategies</label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioAs7" onclick="skillhide()" name="opt8" /><label for="radioAs7">Test preparation</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioAs8" onclick="skillhide()" name="opt8" /><label for="radioAs8">Organization</label>
+                    </div>                            
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioAs9" onclick="skillhide()" name="opt8" /><label for="radioAs9">Memorization</label>
+                    </div>                            
+                </div>
+                
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioAs10" onclick="skillhide()" name="opt8" /><label for="radioAs10">Goal Setting and Planning</label>
+                    </div>                            
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="radio">
+                        <input type="radio" id="radioAs11" onclick="skillshow()" name="opt8"/><label for="radioAs11">Other</label>
+                    </div>                            
+                </div>
+                
+                <div id="skilldiv" class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="display:none">
+                    <div class="radio">
+                       <input type="text" id="inputAs" class="form-control customInput" placeholder="Others"/> 
+                    </div>                           
+                </div>
+            </div>
+            
+            
+            <p class="topMargin required subHeading">9. How else do you expect your tutor to assist you? </p>
+            <div class="row">
+                <div id ="require7" style = "display: none">
+                     <i style = "font-size: 14px;"><b ><font color = "red">Please answer this</font></b></i>
+                </div>
+                <div class="col-xs-12 col-sm-7 col-md-5 col-lg-5">
+                    <textarea id="assisteDiv" class="form-control customInput">
+                    </textarea>
+                </div>
+            </div>
+            
+            <div class="row text-center buttonWrap">
+            <apex:outputPanel id="boolNextTermId">
+            <apex:outputPanel rendered="{!boolNextTerm}">
+                <button type="button" class="btn btn-default primaryBtn primaryBtnSec" id="FirstLWC" onclick="window.open('/apex/USF_AppointmentScheduler','_self');">&#60; Back</button> <button class="btn btn-default primaryBtn" type="button" onclick="tutortuteenextterm()">Next</button>
+            </apex:outputPanel> 
+            </apex:outputPanel>   
+             <apex:outputPanel id="noBoolNextTermId" >
+             <apex:outputPanel rendered="{!!boolNextTerm}">
+                <button type="button" class="btn btn-default primaryBtn primaryBtnSec" id="FirstLWC" onclick="window.open('/apex/USF_AppointmentScheduler','_self');">&#60; Back</button> <button class="btn btn-default primaryBtn" type="button" onclick="tutortuteenext()">Book Appointment</button>
+            </apex:outputPanel>  
+            </apex:outputPanel>           
+            </div>
+        </div>
+        
+    <apex:actionFunction name="checkFirstAppointment" action="{!checkFirstAppointment}" reRender="buttondivs,boolNextTermId,noBoolNextTermId" />  
+     <apex:actionFunction name="checkFirstAppointmentWriting" action="{!checkFirstAppointmentWriting}" reRender="buttondivs,boolNextTermId,noBoolNextTermId" />  
+    <apex:actionFunction name="resetFirstAppointmentFlags" action="{!resetFirstAppointmentFlags}" reRender="buttondivs,boolNextTermId,noBoolNextTermId" />   
+     
+ <apex:actionRegion >
+<apex:actionFunction name="AllRadioInput" action="{!bookorreject}" onComplete="backToDetail('{!result}','{!appType}','{!appConRecId}');" rerender="false" status="status">
+        <apex:param name="strGrade" value="" assignTo="{!strGrade}" />
+        <apex:param name="HowKnow" value="" assignTo="{!strHowKnow}" />
+        <apex:param name="MeetCon" value="" assignTo="{!strMeetCon}" />
+        <apex:param name="Hstudy" value="" assignTo="{!strHstudy}" />
+        <apex:param name="Prepare" value="" assignTo="{!strPrepare}" />
+        <apex:param name="Performance" value="" assignTo="{!strPerformance}" />
+        <apex:param name="learningStyl" value="" assignTo="{!strlearningStyl}" />
+        <apex:param name="Askils" value="" assignTo="{!strAskils}" />
+        <apex:param name="TutAssist" value="" assignTo="{!strTutorAssist}" />   
+        
+        <apex:param name="skValue" value="" assignTo="{!skypeId}" />
+        <apex:param name="commtValue" value="" assignTo="{!additionalComments}" />
+        <apex:param name="referrerpick" value="" assignTo="{!referrerpick}" />
+        <apex:param name="referrername" value="" assignTo="{!referrername}" />
+        <apex:param name="courseOfferingId" value="" assignTo="{!courseOfferingId}" />
+        </apex:actionFunction> 
+   </apex:actionRegion> 
+        
+    </div>
+    <!----       First Appointment survey first form ends here ----->
+    <!-----      First appointment second form starts here--> 
+                <!-----      Added By suhan ---->
+    <div id="tutortutee3" style="display:none">
+        <h1 class="heading">Tutor/Tutee Expectations</h1>
+
+<div class="row formWrap">
+    <h2 class="subHeading removeMarginTop">Your tutor expects that you will:</h2>
+    <ul class="bulletPoints">
+        <li><p>Arrive on time to your tutoring sessions and be prepared to work.<br/>A tutor is only required to wait 15 minutes before declaring the appointment as Missed.  A total of 3 Missed and/or cancellations less than 24 hours prior to the appointment will result in a loss of peer tutoring privileges for the remainder of the semester.</p></li>
+        <li><p>Bring to every session your course text, notes, and handouts, as well as pen, paper and calculator if necessary.  If course materials are found online, bring a laptop that connects to the internet or ask to meet in a location that provides computers and internet access.</p></li>
+        <li><p>Meet regularly with your tutor throughout the semester not simply around exam dates.</p></li>
+        <li><p>Come to each session with a plan.  Know what you want to work on during your time together.</p></li>
+        <li><p>Be an active participant in the tutoring session.  Take responsibility for writing clarify notes, comments, or ideas so that you feel empowered to work independently between sessions.</p></li>
+        <li><p>Show respect to your tutor and your time together. Avoid texting, emailing, and making and receiving phone calls during your time together unless it relates directly to the work at hand.</p></li>
+        <li><p>Remember, printing is not free in campus computer labs.  Bring your student ID to use the Go-Print stations.</p></li>        
+    </ul>
+
+    <h2 class="subHeading">You can expect that your tutor will:</h2>
+    <ul class="bulletPoints">
+        <li><p>Arrive on time to your tutoring sessions and be prepared to work.</p></li> 
+        <li><p>Respect you and your time together.  They will avoid texting, emailing, and making and receiving phone calls during your time together unless it relates directly to the work at hand.</p></li>
+        <li><p>Not do your homework for you.  They will assist you in solving similar problems so that you are able to understand the concepts and eventually feel empowered to work independently.</p></li>
+        <li><p>Respect you as an individual and assist you in developing study habits that best fit your needs.</p></li>
+        <li><p>Be accessible by leaving a message with the Learning and Writing Center front desk at 415.422.6713.</p></li>  
+        <li><p>Maintain confidentiality. What happens in a tutoring session stays in the tutoring session; however, a tutor may share information with the Learning Center Director if you or another student appears to be in danger.</p></li>
+    </ul>
+    
+    <div class="row">
+        <div class="col-xs-12 col-md-12 marginSmall">
+            <div id ="requireagreement" style = "display: none">
+                 <i style = "font-size: 14px;"><b ><font color = "red">Please Confirm</font></b></i>
+            </div>
+            <div class="checkbox">
+                <input id="agreementcheck" type="checkbox"/><label for="agreementcheck" class="content">I confirm that I have read and understood the Tutor/Tutee expectations form.</label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row text-center buttonWrap">
+        <button type="button" class="btn btn-default primaryBtn primaryBtnSec" id="FirstLWC" onclick="window.open('/apex/USF_AppointmentScheduler','_self');">&#60; Back</button><button class="btn btn-default primaryBtn primaryBtnMob" type="button" onclick="Appointmentbook()">Book Appointment</button>
+    </div>
+</div>
+      </div>
+      <!-----      First appointment second form ends here-->   
+      
+    <div id="tutortutee5" style="display:none" > 
+                <button class="btn btn-default primaryBtn" type="button" onclick="requestLWCAppointment()">Book Appointment</button> 
+                <!--
+                <script>
+                $(document).ready(function() {  requestLWCAppointment(); });
+                </script>  
+                -->
+    </div>
+</section>
+<apex:actionfunction action="{!fetchContact}" name="fetchContactAF" rerender="AddedContactsTable" immediate="true">
+    <apex:param name="selectedFacultyId" value="" assignTo="{!selectedFacultyId}"></apex:param>
+</apex:actionfunction>
+<script type="text/javascript">
+var filesToBeInserted = [];
+var uploadStatus = new Array();
+function displaySlots() {
+setTimeout(function () {
+    //alert('calledd');
+    $('#datetimepicker12, #datetimepicker123').datetimepicker({
+        format: 'dddd MMMM D, YYYY',
+        inline: true
+    });
+        document.getElementById("calnd").style.display="block";
+        var courseOfferingId = $('select[id$=course]').val();
+        var specialty = $('select[id$=specialty]').val();
+        var meetingLocation = $('select[id$=meetingLocation]').val();
+        var depart;
+        var slDate;
+        var d;
+        var d1;
+        var formatdate;
+        if($('#CASA_Tab').is('.active')){
+            depart = 'CASA';  
+            slDate = $('#datetimepicker12 #datepicker-data').val();
+            d = Date.parse(slDate);
+            d1 = new Date(d);
+            formatdate = d1.getMonth()+1 + "/" + d1.getDate() + "/" + (d1.getYear()+1900);
+            if(slDate == null || slDate == "") {
+                formatdate = $("td.active")[0].getAttribute("data-day");
+            } 
+            $("#slotDateCASA").text(slDate); 
+            $("#slotdateconCASA").hide();
+        }
+        if($('#LWC_Tab').is('.active')){
+            depart = 'LWC'; 
+            slDate = $('#datetimepicker123 #datepicker-data123').val();
+            //alert(slDate);
+            d = Date.parse(slDate);
+            d1 = new Date(d);
+            formatdate = d1.getMonth()+1 + "/" + d1.getDate() + "/" + (d1.getYear()+1900);
+            if(slDate == null || slDate == "") {
+                formatdate = $("td.active")[1].getAttribute("data-day");
+            }
+            $("#slotDateLWC").text(slDate);
+            $("#slotdateconLWC").hide();
+        }
+        var center = $("input[name='optradio']:checked").val();
+        //alert(center);
+        
+        
+        
+        //alert('called2'+specialty);
+        /*if(specialty == null) {
+            specialty = "abc";
+        }*/
+        //alert(depart+''+formatdate+''+courseOfferingId+''+center+''+specialty+''+meetingLocation);
+        fetchCourseBasedSlots(depart,formatdate,courseOfferingId,center,specialty,meetingLocation);
+        console.log('wrapperList: '+"{!wrapperList}");
+        $("#showSlDate").text(slDate);
+        $("#errmsg1").text('');
+        $("#resid").text('');  
+        document.getElementById("appDetails").style.display = "none";
+        
+        document.getElementById("slotDetails").style.display = "block";
+        document.getElementById("element2").style.display="block";
+        
+        $("#showSlDatecon").hide();
+        
+    }, 100);
+
+}
+$(document).ready(function() {
+//var filesToBeInserted = [];
+var event = '{!eventAvail}';
+$("#appointmentRegistrationCASA").hide();
+$("#appointmentRegistrationLWC").hide();
+//$('select[id$=specialty]').hide();
+//$("[id$=specialtyLabel]").hide();
+//$("[id$=courseLabel]").hide();
+//$('select[id$=course]').hide();
+if(event == 'Yes'){
+     $("#calnd").hide(); 
+    $("#elementLWC").css({"border-left": "1px solid #18453b"});
+    $("#elementCASA").css({"border-left": "1px solid #18453b"});
+    $("#ele0").css({"border-left": "1px solid #18453b"});
+}
+$('#datetimepicker12, #datetimepicker123').datetimepicker({
+    format: 'dddd MMMM D, YYYY',
+    inline: true
+});
+bookappointments();
+$('.datepicker .datepicker-days .table-condensed tbody').click(function(){
+    bookappointments();
+});
+});
+function bookappointments(){
+    setTimeout(function () {
+        var courseOfferingId = $('select[id$=course]').val();
+        var specialty = $('select[id$=specialty]').val();
+        var meetingLocation = $('select[id$=meetingLocation]').val();
+        var center = $("input[name='optradio']:checked").val();
+        var depart;
+        var slDate;
+        if($('#CASA_Tab').is('.active')){
+            depart = 'CASA';  
+            slDate = $('#datetimepicker12 #datepicker-data').val(); 
+            $("#slotDateCASA").text(slDate); 
+            $("#slotdateconCASA").hide();
+        }
+        if($('#LWC_Tab').is('.active')){
+            depart = 'LWC'; 
+            slDate = $('#datetimepicker123 #datepicker-data123').val();
+            $("#slotDateLWC").text(slDate);
+            $("#slotdateconLWC").hide();
+        }
+        var d = Date.parse(slDate);
+        var d1 = new Date(d);
+        var formatdate = d1.getMonth()+1 + "/" + d1.getDate() + "/" + (d1.getYear()+1900);
+        /*var courseOfferingId = $('select[id$=course]').val();
+        alert('courseOfferingId: '+courseOfferingId);*/
+        $("#showSlDate").text(slDate);
+        $("#errmsg1").text('');
+        $("#resid").text('');  
+        document.getElementById("appDetails").style.display = "none";
+        
+         document.getElementById("slotDetails").style.display = "block";
+        $("#showSlDatecon").hide();
+        if($('#CASA_Tab').is('.active')){
+            
+            center = '';
+            console.log('formatdate: '+formatdate);
+            //validateLeave(formatdate);
+            //console.log('leaveError: '+'{!leaveValidationError}');
+            //alert(depart +''+formatdate+''+courseOfferingId+''+center+''+specialty+''+meetingLocation);
+            recInputCASA(depart,formatdate,courseOfferingId,center,specialty,meetingLocation);
+            //alert('here');
+        }
+        if($('#LWC_Tab').is('.active')){
+            recInputLWC(depart,formatdate,courseOfferingId,center,specialty,meetingLocation);
+        }
+    }, 100);
+}
+function noslots(slt,leaveError,maxCasaError){
+    if($('#CASA_Tab').is('.active')){
+        if(leaveError != '') {
+            var x = document.getElementsByClassName("alert-dangerCASA");
+            x[0].style.display ="block";
+            $(".alert-dangerCASA").text(leaveError);
+            $("html, body").animate({ scrollTop: 0 }, 1000);
+        }
+        else if(maxCasaError != '') {
+            var x = document.getElementsByClassName("alert-dangerCASA");
+            x[0].style.display ="block";
+            $(".alert-dangerCASA").text(maxCasaError);
+            $("html, body").animate({ scrollTop: 0 }, 1000);
+        }
+        else {
+            var x = document.getElementsByClassName("alert-dangerCASA");
+            x[0].style.display ="none";
+        }
+        $("#nosltmsgCASA").text(slt);
+    }
+    if($('#LWC_Tab').is('.active')){
+        $("#nosltmsgLWC").text(slt);
+    }
+}
+function appdetailsfun(current,caSelectedId,tabName,validationError){
+  console.log('validationError: '+validationError);
+  console.log('caSelected1: '+caSelectedId);
+  console.log('current: '+current);
+  console.log('tabName: '+tabName);
+if(validationError != '' && validationError != null) {
+    //alert('IN');
+    var x = document.getElementsByClassName("alert-danger");
+    x[0].style.display ="block";
+    $('.alert-danger .errMsg').text(validationError);
+    $("html, body").animate({ scrollTop: 0 }, 1000);
+    //openConfirmationModal(validationError);
+}
+//alert('Same HERE');
+$(".appointmentListWrap span div").each(function(){
+    $(this).find("button").removeClass("activeBtn");
+    $(this).find("span.glyphicon-ok-circle").addClass("activeBtn");
+});
+if(tabName == 'CASA') {
+    console.log('Inside if CASA button');
+    $('#'+current).addClass('activeBtn');
+    $('#'+current).next().removeClass("activeBtn");
+}
+else if(tabName == 'LWC') {
+    console.log(current);
+    $('#'+current).addClass('activeBtn'); //added # to select the Id (ID was already being passed.) -- Nishit
+    $('#'+current).parent().next().removeClass("activeBtn");
+}
+
+
+document.getElementById("appDetails").style.display = "none";
+
+document.getElementById("slotDetails").style.display = "block";
+if(tabName == 'CASA') {
+    //document.getElementById("appointmentRegistrationCASA").style.display = "block";
+    if(validationError == '' || validationError == null) {
+            $("#appointmentRegistrationCASA").show();
+            $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+    }
+    //Auto scroll to bottom
+    
+    
+    //Resetting the Checkbox, Input box, file upload and select box
+    $("table.makeRows tbody tr td").each(function(){
+        $(this).find("input[type='checkbox']").prop('checked', false);
+    });
+    
+    
+    //File Change Event on file upload
+    /*$("#file-upload1:file").on("change",function(){
+        //alert($("#file-upload1:file").val().split('\\').pop());
+        var fileNames1 = $("#file-upload1:file").val().split('\\').pop();
+        $( "<span class='filesList'>"+fileNames1+"<span class='glyphicon glyphicon-remove'></span></span>" ).prependTo( ".fileName1" );
+        $(".filesList .glyphicon-remove").on("click", function(){
+            $(this).parent().remove();
+            $("#file-upload1").val("");
+        });
+    });*/
+    
+    $(".form-control").val("");
+    $(".file-uploaderCASA").val("");
+    
+    $("#ReferredPick option:first").prop('selected','selected');
+    
+}
+else if(tabName == 'LWC') {
+    //document.getElementById("appointmentRegistrationLWC").style.display = "block";
+    //File Change Event on file upload
+   
+    /*$("#file-upload:file").on("change",function(){
+        var file = $(".file-uploaderLWC")[0].files;        
+        console.log('file: '+file);
+        //alert('file: '+file.length);
+//        alert($("#file-upload:file").val().split('\\').pop());
+        $(".filesList").remove();
+        for(var l=0; l<file.length; l++){
+            console.log(file[l].name);
+            $( "<span class='filesList'>"+file[l].name+"<span class='glyphicon glyphicon-remove'></span></span>" ).prependTo( ".fileName" );
+            
+        }
+       // var fileNames = $("#file-upload:file").val().split('\\').pop();
+        //$( "<span class='filesList'>"+fileNames+"<span class='glyphicon glyphicon-remove'></span></span>" ).prependTo( ".fileName" );
+        $(".filesList .glyphicon-remove").on("click", function(){
+            $(this).parent().remove();
+            console.log('removing: '+$(this).parent().val());
+            $("#file-upload").val("");
+        });
+    });*/
+    
+    $("#file-upload:file").on("change",function(){
+        var file = $(".file-uploaderLWC")[0].files;
+        //alert($("#file-upload:file").val().split('\\').pop());
+        //var fileNames = $("#file-upload:file").val().split('\\').pop();
+        //$( "<span class='filesList'>"+fileNames+"<span class='glyphicon glyphicon-remove'></span></span>" ).prependTo( ".fileName" );
+        for(var l=0; l<file.length; l++){
+            console.log('fileNish: '+l+' '+file[l].name);
+            if(filesToBeInserted.length < 5){
+                filesToBeInserted.push(file[l]);
+                $( "<span class='filesList'>"+file[l].name+"<span class='glyphicon glyphicon-remove'></span></span>" ).prependTo( ".fileName" );
+                document.getElementById("errmsgLWCBrowse").style.display = "none";
+            }else{
+                document.getElementById("errmsgLWCBrowse").style.display = "block";
+                break;
+            }
+        }
+        $(".filesList .glyphicon-remove").on("click", function(){
+            var currentFileName = $(this).parent().text();
+            $(this).parent().remove();
+            $("#file-upload").val("");
+            for (var i = 0; i < filesToBeInserted.length; i++){
+                // removing the file from files to be inserted
+                if(currentFileName == filesToBeInserted[i].name){
+                    filesToBeInserted.splice(i,1);
+                    break;
+                }       
+            }
+        });
+    });
+
+   
+    //Auto scroll to bottom
+    
+    if(validationError == '' || validationError == null) {
+        //alert('docHeight: '+$(document).height());
+        $("html, body").animate({ scrollTop: $("#appointmentRegistrationLWC").height()}, 1000);
+        $("#appointmentRegistrationLWC").show();
+        $(".customInput").val("");
+        //caSelectedId = '{!caSelectedId}';
+        console.log('caSelected: '+caSelectedId);
+    }
+    
+}
+//document.getElementById("appointmentRequestBtn").style.display = "block";
+
+//var slottime = stdat+' - '+endat;
+var intertype = '{!caSelectedType}'+' on';
+$("#intervtype").text(intertype);
+//$("#showtime").text(slottime);
+
+calistpass(caSelectedId,intertype);
+attachInputAutoComplete();
+}
+function attachInputAutoComplete() {
+    if(window.enableAutoCompleteInput)
+        window.enableAutoCompleteInput();
+}
+function openConfirmationModal(errorMsg) {
+    console.log('errorMsg: '+errorMsg);
+    $('#myModal').modal('show');
+    $('.modal-body').text(errorMsg);
+}
+
+function backslotdetails(){
+document.getElementById("slotDetails").style.display = "block";
+document.getElementById("appDetails").style.display = "none";
+$("#errmsg1").text('');
+$("#resid").text('');  
+}
+
+$('select[id$=dept]').change(function() {
+if($('select[id$=dept]').val() == 'LWC' && $('select[id$=center]').val() == '--None--' 
+&& $('select[id$=course]').val() == '--None--') {
+document.getElementById("calnd").style.display="none";
+document.getElementById("slotDetails").style.display="none";
+document.getElementById("element2").style.display="none";
+}
+else {
+document.getElementById("calnd").style.display="block";
+document.getElementById("slotDetails").style.display="block";
+document.getElementById("element2").style.display="block";
+} 
+});
+
+
+
+$('#subbuttnCASA').click(function(){
+// var emailvalue = $('#inpt3').val();
+var skypevalue = $('#inpt4CASA').val();
+// var nameValue = $('#inpt2').val();
+var commentsValue =$('#inpt6CASA').val();
+var referrerpick = $("#ReferredPick").val();
+var referrername = $("#ReferrerName").val();
+if(skypevalue ==""){
+  $("#resid").text(''); 
+  var nameEmSkMiss = '{!$Label.Interview_Error_Name_Email_SkypeId_Missing}';
+  document.getElementById("errmsgCASAPhone").style.display="block";
+  $("#errmsgCASAPhone").text(nameEmSkMiss);   
+}
+else if(!phonenumber(skypevalue)) {
+    $("#resid").text(''); 
+    var nameEmSkMiss = 'Please enter the phone number in a valid format XXX-XXX-XXXX or XXX.XXX.XXXX or XXX XXX XXXX';
+    document.getElementById("errmsgCASAPhone").style.display="block";
+    $("#errmsgCASAPhone").text(nameEmSkMiss); 
+}
+else if(referrerpick != "None" && referrername == ""){
+  var nameEmSkMiss = '{!$Label.Referrer_Name_Error}';
+  document.getElementById("errmsgReferredName").style.display="block";
+  $("#errmsgReferredName").text(nameEmSkMiss);
+}
+/* else if(emailvalue == ""){
+  $("#resid").text(''); 
+  var emaMissing = '{!$Label.Interview_Error_Email_Missing}';
+  document.getElementById("errmsg1").style.display="block";
+  $("#errmsg1").text(emaMissing); 
+}
+else if(skypevalue == ""){
+  $("#resid").text(''); 
+  var skypMissing = '{!$Label.Interview_Error_SkypeId_Missing}';
+  document.getElementById("errmsg1").style.display="block";
+  $("#errmsg1").text(skypMissing);  
+}
+else if(nameValue == ""){
+$("#resid").text(''); 
+ var nameMissing = '{!$Label.Interview_Error_Name_Missing}';
+document.getElementById("errmsg1").style.display="block";
+$("#errmsg1").text(nameMissing);  
+}
+*/
+else{
+console.log('entered..');
+check(skypevalue,commentsValue,referrerpick,referrername);
+
+}  
+});
+
+function phonenumber(inputtxt) {
+console.log('phonenumber: '+inputtxt);  
+  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;  
+  if(inputtxt.match(phoneno)) {  
+      return true;  
+  }  
+  else {  
+    return false;  
+  } 
+  return null; 
+}
+//$(document).on("click","#subbuttnLWC",requestLWCAppointment);
+//$(document).on("click","#subbuttnLWC", function(){
+
+function requestLWCAppointment(){
+   var stringvalue='{!strGrade}';
+//var emailvalue = $('#inpt3').val();
+var skypevalue = $('#inpt4LWC').val();
+//var nameValue = $('#inpt2').val();
+var commentsValue =$('#inpt6LWC').val();
+var additionalNotes = $('#additionalNotesLWC').val();
+if(skypevalue ==""){
+  $("#resid").text(''); 
+  var nameEmSkMiss = '{!$Label.Interview_Error_Name_Email_SkypeId_Missing}';
+  document.getElementById("errmsgLWC").style.display="block";
+  $("#errmsgLWC").text(nameEmSkMiss);   
+     var $box = $('.errorMsg'); // select the box
+
+    $('html, body').animate({
+        scrollTop: $box.offset().top - ($(window).height() - $box.outerHeight(true)) / 2
+    }, 200);
+    $("#inpt4LWC").focus();
+}
+else if(!phonenumber(skypevalue)) {
+    $("#resid").text(''); 
+    var nameEmSkMiss = 'Please enter the phone number in a valid format XXX-XXX-XXXX or XXX.XXX.XXXX or XXX XXX XXXX';
+    document.getElementById("errmsgLWC").style.display="block";
+    $("#errmsgLWC").text(nameEmSkMiss); 
+}
+/*else if(emailvalue == ""){
+  $("#resid").text(''); 
+  var emaMissing = '{!$Label.Interview_Error_Email_Missing}';
+  document.getElementById("errmsg1").style.display="block";
+  $("#errmsg1").text(emaMissing); 
+}else if(skypevalue == ""){
+  $("#resid").text(''); 
+  var skypMissing = '{!$Label.Interview_Error_SkypeId_Missing}';
+  document.getElementById("errmsg1").style.display="block";
+  $("#errmsg1").text(skypMissing);  
+}else if(nameValue == ""){
+$("#resid").text(''); 
+ var nameMissing = '{!$Label.Interview_Error_Name_Missing}';
+document.getElementById("errmsg1").style.display="block";
+$("#errmsg1").text(nameMissing);  
+}*/
+else{
+var courseOfferingId = $('select[id$=course]').val();
+var coachspecialty = $('select[id$=specialty]').val();
+console.log('check');
+var referrerpick ='';
+var referrername = '';
+commentsValue = '';
+console.log(skypevalue+'+'+commentsValue+'+'+referrerpick+'+'+referrername+'+'+courseOfferingId+'+'+coachspecialty);
+check(skypevalue,additionalNotes,referrerpick,referrername,courseOfferingId,coachspecialty);
+}  
+}
+
+function backToDetail(res,aptype,parentID) {
+var errorEmptySlotMsg = '{!$Label.Interview_Error_Empty_Slots_Messg}';
+var errorEmailNotMatchMsg = '{!$Label.Interview_error_email_not_match_Msg}';
+var bookingErrorMsg = '{!$Label.Interview_Error_Slot_Booked}';
+if(res == 'error occured' || res == errorEmailNotMatchMsg || res == bookingErrorMsg || res == errorEmptySlotMsg){
+$("#errmsg1").text('');
+$("#resid").text(res);
+}else if(parentID === "" || parentID == null){
+    var errorMessage = res;
+    if(errorMessage.indexOf('{!$Label.Duplicate_Appoinment_Error_Message}')!=-1){
+        errorMessage = '{!$Label.Duplicate_Appoinment_Error_Message}';
+    }
+    var x = document.getElementsByClassName("alert-danger");
+    x[0].style.display ="block";
+    $('.alert-danger .errMsg').text(errorMessage);
+    $("html, body").animate({ scrollTop: 0 }, 1000);
+}else{
+$("#errmsg1").text('');
+$("#resid").text('');
+//alert('addCaseAttachment');
+addCaseAttachment(parentID);
+
+}
+}
+
+
+/*function addCaseAttachment(parentID) {
+    if ($(".file-uploaderLWC").val() == '' && $('#LWC_Tab').is('.active')){
+        window.open("/apex/USF_TutorTuteeConfirmation?type=LWC","_self");
+    }
+    else {
+            var client = new forcetk.Client();
+            var instanceUrl = '{!$Site.BaseUrl}';
+            client.setSessionToken('{!$Api.Session_ID}', 'v35.0', instanceUrl);
+            client.proxyUrl = null;
+            client.instanceUrl = instanceUrl;
+            var caseId = $('input[id*="hidden-case-id"').val();
+            var file;
+            if($('#CASA_Tab').is('.active')){
+               //file = $(".file-uploaderCASA")[0].files;
+               // Commented as file upload is not used for CASA
+            }
+            if($('#LWC_Tab').is('.active')){
+            file = $(".file-uploaderLWC")[0].files;     
+            console.log('file: '+file);
+            
+            //alert('file: '+file.length);
+            window.setInterval(function(){
+                try{
+                    console.log('checking...');
+                    for (var i = 0; i < file.length; i++){
+                        console.log(uploadStatus[i][0]+' '+uploadStatus[i][1]);
+                        if(uploadStatus[i][1] == 'true'){
+                            if(i == (file.length - 1)){
+                                console.log('DONE');
+                                window.open("/apex/USF_TutorTuteeConfirmation?type=LWC","_self");
+                                break;
+                            }
+                        }else{
+                            break;
+                        }
+                    }
+                }catch(err){
+                  console.log(err);  
+                }
+            }, 1000);
+            
+            for (var i = 0; i < file.length; i++){
+                (function(){
+                     uploadStatus[i] = new Array();
+                //alert('creating blob: '+file[i].name);
+                //console.log('creating blob: '+file[i].name);
+                var filename = file[i].name;
+                var currentIteration = i;
+                // removing the special characters so that a valid id can be assigned to div
+                filename = filename.replace(/[\s!#$%&()*+,.:;<=>?@[\]^{|}~]/g, '');
+                //alert('ParentId: '+parentID+' '+file[i].name);
+                client.createBlob('Attachment', {
+                    ParentId: parentID,
+                    Name: file[i].name,
+                    Description: $('.file-description').val()
+                }, file[i].name, 'Body', file[i], function(){
+                    
+                    uploadStatus[currentIteration][0] = filename;
+                    uploadStatus[currentIteration][1] = 'true';
+                }, '', false);
+                
+                //alert('created');
+                    
+                    
+                }());
+            }
+         console.log(uploadStatus);
+        
+        }
+        
+    }
+}*/
+
+function addCaseAttachment(parentID) {
+        //alert('attaching...');
+        if ($(".file-uploaderLWC").val() == '' && $('#LWC_Tab').is('.active')){
+            //alert('attaching...1');
+            window.open("/apex/USF_TutorTuteeConfirmation?type=LWC","_self");
+        }else if($('#CASA_Tab').is('.active')){
+            window.open("/apex/USF_TutorTuteeConfirmation","_self");
+        }else {
+            //alert('attaching...2');
+            var client = new forcetk.Client();
+            var instanceUrl = '{!$Site.BaseUrl}';
+            client.setSessionToken('{!$Api.Session_ID}', 'v35.0', instanceUrl);
+            client.proxyUrl = null;
+            client.instanceUrl = instanceUrl;
+            //var file = $(".file-uploaderLWC")[0].files;
+            // alert('attaching...2'+ filesToBeInserted);
+            console.log('filesToBeInserted: '+filesToBeInserted);
+            var file = filesToBeInserted;
+           /* var file=[];
+            $('.file-uploaderLWC').live('change', function (){
+                    for (var i = 0; i < this.files.length; i++){
+                        file.push(this.files[i].body);
+                    }
+                    console.log(file);
+                });
+            }); */
+            console.log('file: '+file);
+            //alert('file: '+file.length);
+            try {
+            for (var i = 0; i < file.length; i++){
+                var filename = file[i].name;
+                //alert('filename:'+filename);
+                // removing the special characters so that a valid id can be assigned to div
+                filename = filename.replace(/[\s!#$%&()*+,.:;<=>?@[\]^{|}~]/g, '');
+                client.createBlob('Attachment', {
+                    ParentId: parentID,
+                    Name: file[i].name,
+                    Description: $('.file-description').val()
+                }, file[i].name, 'Body', file[i], '','', false);            
+            }
+            console.log('outside for');
+            var phone = $('#inpt4LWC').val();
+            if(phone ==""){
+                $("#resid").text(''); 
+                var nameEmSkMiss = '{!$Label.Interview_Error_Name_Email_SkypeId_Missing}';
+                document.getElementById("errmsgLWC").style.display="block";
+                $("#errmsgLWC").text(nameEmSkMiss);   
+            }
+            else if(!phonenumber(phone)) {
+                $("#resid").text(''); 
+                var nameEmSkMiss = 'Please enter the phone number in a valid format XXX-XXX-XXXX or XXX.XXX.XXXX or XXX XXX XXXX';
+                document.getElementById("errmsgLWC").style.display="block";
+                $("#errmsgLWC").text(nameEmSkMiss); 
+            }
+            else {
+                console.log('nav');
+                 window.open("/apex/USF_TutorTuteeConfirmation?type=LWC","_self");
+            }
+            
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        
+        
+       }
+
+
+
+
+// Fucntion to reintiate values for selection of CASA and LWC
+$('li').click(function(){
+     $('.learningMessage').hide();
+     $('.writingMessage').hide();
+     $('.speakingMessage').hide();
+     $("#nosltmsgLWC").text('Please complete the above fields');
+     rerendertabs();
+});
+    
+window.onload = init;
+function init() {
+   tables = document.getElementsByTagName('table');
+   for (i = 0; i < tables.length; i++) {
+      table = tables[i];
+      if (table.className == 'makeRows') {
+         makeRows(table, 2);
+      }
+   }
+}
+
+function makeRows(table, columnCount) {
+   cells = table.rows[0].cells;
+   cellCount = cells.length;
+   rowCount = Math.ceil(cellCount / columnCount);
+   for (i = 0; i < rowCount; i++) {
+      table.insertRow(0);
+   }
+   for (i = 0; i < cellCount; i++) {
+      row = Math.floor(i / columnCount);
+      table.rows[row].appendChild(cells[i].cloneNode(true));
+   }
+   table.deleteRow(rowCount);
+} 
+
+function showtutorsurvey(){     
+        var skypevalue = $('#inpt4LWC').val();
+        var commentsValue =$('#inpt6LWC').val();
+        if(skypevalue ==""){
+          $("#resid").text(''); 
+          var nameEmSkMiss = '{!$Label.Interview_Error_Name_Email_SkypeId_Missing}';
+          document.getElementById("errmsgLWC").style.display="block";
+          $("#errmsgLWC").text(nameEmSkMiss);   
+        }
+        else if(!phonenumber(skypevalue)) {
+            $("#resid").text(''); 
+            var nameEmSkMiss = 'Please enter the phone number in a valid format XXX-XXX-XXXX or XXX.XXX.XXXX or XXX XXX XXXX';
+            document.getElementById("errmsgLWC").style.display="block";
+            $("#errmsgLWC").text(nameEmSkMiss); 
+        }
+        else{
+        document.getElementById("Tutorutee2").style.display="block";
+        document.getElementById("AppointmentDiv").style.display="none";
+        document.getElementById("assisteDiv").value='';
+        window.scrollTo(0,0);
+        }
+        }
+        
+function showtutorsurveyTerm(){
+        var skypevalue = $('#inpt4LWC').val();
+        var commentsValue =$('#inpt6LWC').val();
+        if(skypevalue ==""){
+          $("#resid").text(''); 
+          var nameEmSkMiss = '{!$Label.Interview_Error_Name_Email_SkypeId_Missing}';
+          document.getElementById("errmsgLWC").style.display="block";
+          $("#errmsgLWC").text(nameEmSkMiss);   
+        }
+        else if(!phonenumber(skypevalue)) {
+            $("#resid").text(''); 
+            var nameEmSkMiss = 'Please enter the phone number in a valid format XXX-XXX-XXXX or XXX.XXX.XXXX or XXX XXX XXXX';
+            document.getElementById("errmsgLWC").style.display="block";
+            $("#errmsgLWC").text(nameEmSkMiss); 
+        }
+        else{
+        document.getElementById("tutortutee3").style.display="block";
+        document.getElementById("Tutorutee2").style.display="none";
+        document.getElementById("AppointmentDiv").style.display="none";
+        window.scrollTo(0,0);
+        }
+        }       
+
+    function hesihide() { 
+        document.getElementById("hesideiv").style.display='none';
+        document.getElementById('hesiscoreinput').value='';
+         }
+
+    function hesishow() {
+         document.getElementById("hesideiv").style.display='block';
+          }
+    function studyhide() {
+        document.getElementById("studydiv").style.display='none';
+        document.getElementById('inputstudyp').value='';
+        }
+
+    function studyshow() {
+         document.getElementById("studydiv").style.display='block';
+         }
+    function learningstylehide() {
+        document.getElementById("learningdiv").style.display='none';
+        document.getElementById('inputlsu').value='';
+        }
+
+    function learningstyleshow() {
+        document.getElementById("learningdiv").style.display='block';
+        }
+    function skillhide() {
+        document.getElementById("skilldiv").style.display='none';
+        document.getElementById('inputAs').value='';
+        }
+
+    function skillshow() {
+         document.getElementById("skilldiv").style.display='block';
+         }
+    
+    function tutortuteenext(){
+        var radio1;
+        var radio2;
+        var radio3;
+        var radio4;
+        var radio5;
+        var radio6;
+        var radio7;
+        var radio8;
+        var discription;
+        if(document.getElementById('radiog1').checked) {
+            radio1='A';
+            document.getElementById('require1').style.display = 'none';
+        }else if(document.getElementById('radiog2').checked) {
+            radio1='B';
+            document.getElementById('require1').style.display = 'none';
+            }else if(document.getElementById('radiog3').checked) {
+                radio1='C';
+                document.getElementById('require1').style.display = 'none';
+                }else if(document.getElementById('radiog4').checked) {
+                    radio1='D';
+                    document.getElementById('require1').style.display = 'none';
+                    }else if(document.getElementById('radiog5').checked) {
+                        radio1='F';
+                        document.getElementById('require1').style.display = 'none';
+                        }else if(document.getElementById('radiog6').checked) {
+                            radio1=document.getElementById('hesiscoreinput').value;
+                            if(radio1 == null || radio1 == ''){
+                              document.getElementById('require1').style.display = 'block';
+                              window.scrollTo(0,0);
+                                }else{
+                                document.getElementById('require1').style.display = 'none';
+                                }
+                            }else{
+                                document.getElementById('require1').style.display = 'block';
+                                window.scrollTo(0,0);
+                            }
+          if(document.getElementById('radionk1').checked) {
+            radio2='Professor calculation';
+        }else if(document.getElementById('radionk2').checked) {
+            radio2='Guesstimate'; 
+            }else if(document.getElementById('radionk3').checked) {
+                radio2='My own calculation ';
+                }else if(document.getElementById('radionk4').checked) {
+                    radio2='Don\'t know';
+                    }
+        if(document.getElementById('radionP1').checked) {
+            radio3='Once';
+        }else if(document.getElementById('radionP2').checked) {
+            radio3='A few times';
+            }else if(document.getElementById('radionP3').checked) {
+                radio3='Regularly';
+                }else if(document.getElementById('radionP4').checked) {
+                    radio3='Don\'t know';
+                    }
+        if(document.getElementById('radionSP1').checked) {
+            radio4='1-2 hours';
+            document.getElementById('require2').style.display = 'none';
+        }else if(document.getElementById('radionSP2').checked) {
+            radio4='3-4 hours';
+            document.getElementById('require2').style.display = 'none';
+            }else if(document.getElementById('radionSP3').checked) {
+                radio4='5-8 hours';
+                document.getElementById('require2').style.display = 'none';
+                }else if(document.getElementById('radionSP4').checked) {
+                    radio4='9> hours';
+                    document.getElementById('require2').style.display = 'none';
+                    }else if(document.getElementById('radionSP5').checked) {
+                        radio4='Never';
+                        document.getElementById('require2').style.display = 'none';
+                        }else{
+                            document.getElementById('require2').style.display = 'block';
+                            window.scrollTo(0,0);
+                        }
+        if(document.getElementById('radionwP1').checked) {
+            radio5='Reading';
+            document.getElementById('require3').style.display = 'none';
+            }else if(document.getElementById('radionwP2').checked) {
+                radio5='Take/Review notes';
+                document.getElementById('require3').style.display = 'none';
+                }else if(document.getElementById('radionwP3').checked) {
+                    radio5='Creating study guides';
+                    document.getElementById('require3').style.display = 'none';
+                    }else if(document.getElementById('radionwP4').checked) {
+                        radio5='Flash cards';
+                        document.getElementById('require3').style.display = 'none';
+                        }else if(document.getElementById('radionwP5').checked) {
+                            radio5='Practice problems';
+                            document.getElementById('require3').style.display = 'none';
+                            }else if(document.getElementById('radionwP6').checked) {
+                                radio5='Review class handouts';
+                                document.getElementById('require3').style.display = 'none';
+                                }else if(document.getElementById('radionwP7').checked) {
+                                    radio5='Pneumonics';
+                                    document.getElementById('require3').style.display = 'none';
+                                    }else if(document.getElementById('radionwP8').checked) {
+                                        radio5='Nothing';
+                                        document.getElementById('require3').style.display = 'none';
+                                        }else if(document.getElementById('radionwP9').checked) {
+                                            radio5=document.getElementById('inputstudyp').value;
+                                            if(radio5 == null || radio5 == ''){
+                                              document.getElementById('require3').style.display = 'block';
+                                              window.scrollTo(0,0);
+                                                }else{
+                                                document.getElementById('require3').style.display = 'none';
+                                                }
+                                            }else{
+                                            document.getElementById('require3').style.display = 'block';
+                                            window.scrollTo(0,0);
+                                            }
+        if(document.getElementById('radioncP1').checked) {
+            radio6='Missing class';
+            document.getElementById('require4').style.display = 'none';
+            }else if(document.getElementById('radioncP2').checked) {
+                radio6='Poor time management';
+                document.getElementById('require4').style.display = 'none';
+                }else if(document.getElementById('radioncP3').checked) {
+                    radio6='Lack of foundational knowledge';
+                    document.getElementById('require4').style.display = 'none';
+                    }else if(document.getElementById('radioncP4').checked) {
+                        radio6='Over involved/Work/Too many credits';
+                        document.getElementById('require4').style.display = 'none';
+                        }else if(document.getElementById('radioncP5').checked) {
+                            radio6='Difficulty with instructor';
+                            document.getElementById('require4').style.display = 'none';
+                            }else if(document.getElementById('radioncP6').checked) {
+                                radio6='Non-native speaker';
+                                document.getElementById('require4').style.display = 'none';
+                                }else if(document.getElementById('radioncP7').checked) {
+                                    radio6='Missing course material';
+                                    document.getElementById('require4').style.display = 'none';
+                                    }else if(document.getElementById('radioncP8').checked) {
+                                        radio6='None of these';
+                                        document.getElementById('require4').style.display = 'none';
+                                        }else{
+                                            document.getElementById('require4').style.display = 'block';
+                                            window.scrollTo(0,0);
+                                            }
+                                        
+        if(document.getElementById('radionlsu1').checked) {
+            radio7='Visual';
+            document.getElementById('require5').style.display = 'none';
+        }else if(document.getElementById('radionlsu2').checked) {
+            radio7='Kinesthetic';
+            document.getElementById('require5').style.display = 'none';
+            }else if(document.getElementById('radionlsu3').checked) {
+                radio7='Auditory';
+                document.getElementById('require5').style.display = 'none';
+                }else if(document.getElementById('radionlsu4').checked) {
+                    radio7='Read/Write';
+                    document.getElementById('require5').style.display = 'none';
+                    }else if(document.getElementById('radionlsu5').checked) {
+                        radio7=document.getElementById('inputlsu').value;
+                        if(radio7==null || radio7==''){
+                            radio7=document.getElementById('require5').style.display = 'block';
+                            window.scrollTo(0,0);
+                           }else{
+                            document.getElementById('require5').style.display = 'none';
+                               }
+                        }else{
+                            document.getElementById('require5').style.display = 'block';
+                            window.scrollTo(0,0);
+                            }
+        if(document.getElementById('radioAs1').checked) {
+            radio8='Class preparation';
+            document.getElementById('require6').style.display = 'none';
+            }else if(document.getElementById('radioAs2').checked) {
+                radio8='Test taking';
+                document.getElementById('require6').style.display = 'none';
+                }else if(document.getElementById('radioAs3').checked) {
+                    radio8='Note taking';
+                   document.getElementById('require6').style.display = 'none';
+                    }else if(document.getElementById('radioAs4').checked) {
+                        radio8='Time management';
+                        document.getElementById('require6').style.display = 'none';
+                        }else if(document.getElementById('radioAs5').checked) {
+                            radio8='Reading';
+                            document.getElementById('require6').style.display = 'none';
+                            }else if(document.getElementById('radioAs6').checked) {
+                                radio8='Study strategies';
+                                document.getElementById('require6').style.display = 'none';
+                                }else if(document.getElementById('radioAs7').checked) {
+                                    radio8='Test preparation';
+                                    document.getElementById('require6').style.display = 'none';
+                                    }else if(document.getElementById('radioAs8').checked) {
+                                        radio8='Organization';
+                                        document.getElementById('require6').style.display = 'none';
+                                        }else if(document.getElementById('radioAs9').checked) {
+                                            radio8='Memorization';
+                                            document.getElementById('require6').style.display = 'none';
+                                            }else if(document.getElementById('radioAs10').checked) {
+                                                radio8='Goal Setting and Planning';
+                                                document.getElementById('require6').style.display = 'none';
+                                                }else if(document.getElementById('radioAs11').checked) {
+                                                    radio8=document.getElementById('inputAs').value;
+                                                    if(radio8 == null || radio8 == ''){
+                                                      document.getElementById('require6').style.display = 'block';
+                                                      window.scrollTo(0,0);
+                                                        }else{
+                                                        document.getElementById('require6').style.display = 'none';
+                                                        }
+                                                        }else{
+                                                            document.getElementById('require6').style.display = 'block';
+                                                            window.scrollTo(0,0);
+                                                        }
+     discription=document.getElementById('assisteDiv').value;
+        if(discription == null || discription == ''){
+            document.getElementById('require7').style.display = 'block';
+            window.scrollTo(0,0);
+            }
+        else{
+            document.getElementById('require7').style.display = 'none';
+        }
+        if(radio1==null || radio1=='' || radio4== null || radio4=='' || radio5==null || radio5=='' || radio6==null || radio6=='' || radio7==null || radio7=='' || radio8==null || radio8=='' || discription==null || discription==''){
+            document.getElementById('requiremain').style.display = 'block';
+        }
+        else{
+            var skypevalue = $('#inpt4LWC').val();
+            var commentsValue =$('#inpt6LWC').val();
+            var firstLanguageValue =$('select[id$=firstLanguage]').val();
+            var courseOfferingId = $('select[id$=course]').val();
+            var referrerpick ='';
+            var referrername = '';
+           AllRadioInput(radio1,radio2,radio3,radio4,radio5,radio6,radio7,radio8,discription,skypevalue,commentsValue,referrerpick,referrername,courseOfferingId);                 
+        }
+}
+  
+   function tutortuteenextterm(){
+        var radio1;
+        var radio2;
+        var radio3;
+        var radio4;
+        var radio5;
+        var radio6;
+        var radio7;
+        var radio8;
+        var discription;
+        if(document.getElementById('radiog1').checked) {
+            radio1='A';
+            document.getElementById('require1').style.display = 'none';
+        }else if(document.getElementById('radiog2').checked) {
+            radio1='B';
+            document.getElementById('require1').style.display = 'none';
+            }else if(document.getElementById('radiog3').checked) {
+                radio1='C';
+                document.getElementById('require1').style.display = 'none';
+                }else if(document.getElementById('radiog4').checked) {
+                    radio1='D';
+                    document.getElementById('require1').style.display = 'none';
+                    }else if(document.getElementById('radiog5').checked) {
+                        radio1='F';
+                        document.getElementById('require1').style.display = 'none';
+                        }else if(document.getElementById('radiog6').checked) {
+                            radio1=document.getElementById('hesiscoreinput').value;
+                            if(radio1 == null || radio1 == ''){
+                              document.getElementById('require1').style.display = 'block';
+                              window.scrollTo(0,0);
+                                }else{
+                                document.getElementById('require1').style.display = 'none';
+                                }
+                            }else{
+                                document.getElementById('require1').style.display = 'block';
+                                window.scrollTo(0,0);
+                            }
+          if(document.getElementById('radionk1').checked) {
+            radio2='Professor calculation';
+        }else if(document.getElementById('radionk2').checked) {
+            radio2='Guesstimate'; 
+            }else if(document.getElementById('radionk3').checked) {
+                radio2='My own calculation ';
+                }else if(document.getElementById('radionk4').checked) {
+                    radio2='Don\'t know';
+                    }
+        if(document.getElementById('radionP1').checked) {
+            radio3='Once';
+        }else if(document.getElementById('radionP2').checked) {
+            radio3='A few times';
+            }else if(document.getElementById('radionP3').checked) {
+                radio3='Regularly';
+                }else if(document.getElementById('radionP4').checked) {
+                    radio3='Don\'t know';
+                    }
+        if(document.getElementById('radionSP1').checked) {
+            radio4='1-2 hours';
+            document.getElementById('require2').style.display = 'none';
+        }else if(document.getElementById('radionSP2').checked) {
+            radio4='3-4 hours';
+            document.getElementById('require2').style.display = 'none';
+            }else if(document.getElementById('radionSP3').checked) {
+                radio4='5-8 hours';
+                document.getElementById('require2').style.display = 'none';
+                }else if(document.getElementById('radionSP4').checked) {
+                    radio4='9> hours';
+                    document.getElementById('require2').style.display = 'none';
+                    }else if(document.getElementById('radionSP5').checked) {
+                        radio4='Never';
+                        document.getElementById('require2').style.display = 'none';
+                        }else{
+                            document.getElementById('require2').style.display = 'block';
+                            window.scrollTo(0,0);
+                        }
+        if(document.getElementById('radionwP1').checked) {
+            radio5='Reading';
+            document.getElementById('require3').style.display = 'none';
+            }else if(document.getElementById('radionwP2').checked) {
+                radio5='Take/Review notes';
+                document.getElementById('require3').style.display = 'none';
+                }else if(document.getElementById('radionwP3').checked) {
+                    radio5='Creating study guides';
+                    document.getElementById('require3').style.display = 'none';
+                    }else if(document.getElementById('radionwP4').checked) {
+                        radio5='Flash cards';
+                        document.getElementById('require3').style.display = 'none';
+                        }else if(document.getElementById('radionwP5').checked) {
+                            radio5='Practice problems';
+                            document.getElementById('require3').style.display = 'none';
+                            }else if(document.getElementById('radionwP6').checked) {
+                                radio5='Review class handouts';
+                                document.getElementById('require3').style.display = 'none';
+                                }else if(document.getElementById('radionwP7').checked) {
+                                    radio5='Pneumonics';
+                                    document.getElementById('require3').style.display = 'none';
+                                    }else if(document.getElementById('radionwP8').checked) {
+                                        radio5='Nothing';
+                                        document.getElementById('require3').style.display = 'none';
+                                        }else if(document.getElementById('radionwP9').checked) {
+                                            radio5=document.getElementById('inputstudyp').value;
+                                            if(radio5 == null || radio5 == ''){
+                                              document.getElementById('require3').style.display = 'block';
+                                              window.scrollTo(0,0);
+                                                }else{
+                                                document.getElementById('require3').style.display = 'none';
+                                                }
+                                            }else{
+                                            document.getElementById('require3').style.display = 'block';
+                                            window.scrollTo(0,0);
+                                            }
+        if(document.getElementById('radioncP1').checked) {
+            radio6='Missing class';
+            document.getElementById('require4').style.display = 'none';
+            }else if(document.getElementById('radioncP2').checked) {
+                radio6='Poor time management';
+                document.getElementById('require4').style.display = 'none';
+                }else if(document.getElementById('radioncP3').checked) {
+                    radio6='Lack of foundational knowledge';
+                    document.getElementById('require4').style.display = 'none';
+                    }else if(document.getElementById('radioncP4').checked) {
+                        radio6='Over involved/Work/Too many credits';
+                        document.getElementById('require4').style.display = 'none';
+                        }else if(document.getElementById('radioncP5').checked) {
+                            radio6='Difficulty with instructor';
+                            document.getElementById('require4').style.display = 'none';
+                            }else if(document.getElementById('radioncP6').checked) {
+                                radio6='Non-native speaker';
+                                document.getElementById('require4').style.display = 'none';
+                                }else if(document.getElementById('radioncP7').checked) {
+                                    radio6='Missing course material';
+                                    document.getElementById('require4').style.display = 'none';
+                                    }else if(document.getElementById('radioncP8').checked) {
+                                        radio6='None of these';
+                                        document.getElementById('require4').style.display = 'none';
+                                        }else{
+                                            document.getElementById('require4').style.display = 'block';
+                                            window.scrollTo(0,0);
+                                            }
+                                        
+        if(document.getElementById('radionlsu1').checked) {
+            radio7='Visual';
+            document.getElementById('require5').style.display = 'none';
+        }else if(document.getElementById('radionlsu2').checked) {
+            radio7='Kinesthetic';
+            document.getElementById('require5').style.display = 'none';
+            }else if(document.getElementById('radionlsu3').checked) {
+                radio7='Auditory';
+                document.getElementById('require5').style.display = 'none';
+                }else if(document.getElementById('radionlsu4').checked) {
+                    radio7='Read/Write';
+                    document.getElementById('require5').style.display = 'none';
+                    }else if(document.getElementById('radionlsu5').checked) {
+                        radio7=document.getElementById('inputlsu').value;
+                        if(radio7==null || radio7==''){
+                            radio7=document.getElementById('require5').style.display = 'block';
+                            window.scrollTo(0,0);
+                           }else{
+                            document.getElementById('require5').style.display = 'none';
+                               }
+                        }else{
+                            document.getElementById('require5').style.display = 'block';
+                            window.scrollTo(0,0);
+                            }
+        if(document.getElementById('radioAs1').checked) {
+            radio8='Class preparation';
+            document.getElementById('require6').style.display = 'none';
+            }else if(document.getElementById('radioAs2').checked) {
+                radio8='Test taking';
+                document.getElementById('require6').style.display = 'none';
+                }else if(document.getElementById('radioAs3').checked) {
+                    radio8='Note taking';
+                    document.getElementById('require6').style.display = 'none';
+                    }else if(document.getElementById('radioAs4').checked) {
+                        radio8='Time management';
+                        document.getElementById('require6').style.display = 'none';
+                        }else if(document.getElementById('radioAs5').checked) {
+                            radio8='Reading';
+                            document.getElementById('require6').style.display = 'none';
+                            }else if(document.getElementById('radioAs6').checked) {
+                                radio8='Study strategies';
+                                document.getElementById('require6').style.display = 'none';
+                                }else if(document.getElementById('radioAs7').checked) {
+                                    radio8='Test preparation';
+                                    document.getElementById('require6').style.display = 'none';
+                                    }else if(document.getElementById('radioAs8').checked) {
+                                        radio8='Organization';
+                                        document.getElementById('require6').style.display = 'none';
+                                        }else if(document.getElementById('radioAs9').checked) {
+                                            radio8='Memorization';
+                                            document.getElementById('require6').style.display = 'none';
+                                            }else if(document.getElementById('radioAs10').checked) {
+                                                radio8='Goal Setting and Planning';
+                                                document.getElementById('require6').style.display = 'none';
+                                                }else if(document.getElementById('radioAs11').checked) {
+                                                    radio8=document.getElementById('inputAs').value;
+                                                    if(radio8 == null || radio8 == ''){
+                                                      document.getElementById('require6').style.display = 'block';
+                                                      window.scrollTo(0,0);
+                                                        }else{
+                                                        document.getElementById('require6').style.display = 'none';
+                                                        }
+                                                        }else{
+                                                            document.getElementById('require6').style.display = 'block';
+                                                            window.scrollTo(0,0);
+                                                        }
+     discription=document.getElementById('assisteDiv').value;
+        if(discription == null || discription == ''){
+            document.getElementById('require7').style.display = 'block';
+            window.scrollTo(0,0);
+            }
+        else{
+            document.getElementById('require7').style.display = 'none';
+        }
+        if(radio1==null || radio1=='' || radio4== null || radio4=='' || radio5==null || radio5=='' || radio6==null || radio6=='' || radio7==null || radio7=='' || radio8==null || radio8=='' || discription==null || discription==''){
+            document.getElementById('requiremain').style.display = 'block';
+        }
+        else{
+            var skypevalue = $('#inpt4LWC').val();
+            var commentsValue =$('#inpt6LWC').val();
+            var firstLanguageValue =$('select[id$=firstLanguage]').val();
+            var courseOfferingId = $('select[id$=course]').val();
+            var referrerpick ='';
+            var referrername = '';
+           showtutorsurveyTerm();
+        }
+}
+
+    //Tutoortutee survey form book appointment
+    function Appointmentbook(){
+        if($("#agreementcheck").is(':checked')){
+            document.getElementById('requireagreement').style.display = 'none';
+            requestLWCAppointment();
+            }
+        else{
+            document.getElementById('requireagreement').style.display = 'block';
+        }
+    }  
+    
+    //Onchange complete of the radio button event.
+    
+    function onChangeCenter(center, strikeValidationError,welcomeMessage){
+        //alert(center); 
+        console.log('welcome: '+ welcomeMessage);
+        if(center == "Learning"){
+            $(".Learning").show();
+            $(".meetingTypeToggle").show();
+            
+            $(".Writing").hide();
+            $(".Speaking").hide();
+            $(".groupAssignment").hide();
+            if(strikeValidationError != '') {
+                var x = document.getElementsByClassName("alert-danger");
+                x[0].style.display ="block";
+                $(".alert-danger").text(strikeValidationError);
+                $("#learningMessageText").replaceWith("<div class=\"welcomeDesc\" id=\"learningMessageText\">"+ welcomeMessage+"</div>");
+            }
+            else {
+                var x = document.getElementsByClassName("alert-danger");
+                x[0].style.display ="none";
+                //var htmlWelcome = $(welcomeMessage);
+                //console.log(htmlWelcome);
+                $("#learningMessageText").replaceWith("<div class=\"welcomeDesc\" id=\"learningMessageText\">"+ welcomeMessage+"</div>");
+                //alert('>>> :'+$('select[id$=course]').val());
+                //alert('ddd1 '+$('select[id$=course]').val());
+                var crse = $('select[id$=course]').val();
+                if(crse == '--None--') {
+                    //alert('ddd '+crse);
+                    $("#nosltmsgLWC").text('Please complete the above fields');
+                }
+            }
+            checkFirstAppointment();
+        }
+        
+        if(center == "Writing"){
+            $(".Learning").hide();
+            $(".Writing").show();
+            $(".meetingTypeToggle").show();
+            $(".Speaking").hide();
+            $(".groupAssignment").show();
+            if(strikeValidationError != '') {
+                var x = document.getElementsByClassName("alert-danger");
+                x[0].style.display ="block";
+                $(".alert-danger").text(strikeValidationError);
+                $("#writingMessageText").replaceWith("<div class=\"welcomeDesc\" id=\"writingMessageText\">"+ welcomeMessage+"</div>");
+            }
+            else {
+                var x = document.getElementsByClassName("alert-danger");
+                x[0].style.display ="none";
+                $("#writingMessageText").replaceWith("<div class=\"welcomeDesc\" id=\"writingMessageText\">"+welcomeMessage+"</div>");
+            }
+          checkFirstAppointmentWriting();   
+        }
+        
+        if(center == "Speaking"){
+            $(".Learning").hide();
+            $(".Writing").hide();
+            $(".Speaking").show();
+            $(".meetingTypeToggle").hide();
+            //$(".meetingWrap").hide();
+            $(".groupAssignment").show();
+            if(strikeValidationError != '') {
+                var x = document.getElementsByClassName("alert-danger");
+                x[0].style.display ="block";
+                $(".alert-danger").text(strikeValidationError);
+            }
+            else {
+                var x = document.getElementsByClassName("alert-danger");
+                x[0].style.display ="none";
+                $("#speakingMessageText").replaceWith("<div class=\"welcomeDesc\" id=\"speakingMessageText\">"+welcomeMessage+"</div>");
+            }
+           resetFirstAppointmentFlags(); 
+        }
+        displaySlots();
+        
+     }   
+    
+    function autocompleteCallback(data){
+        $('[id$="selFacultyIdHidden"]').val(data);         
+        fetchContactAF(data);
+     }
+</script>
+<c:USF_Footer />
+</body>
+</html>
+</apex:form>
+
+</apex:page>

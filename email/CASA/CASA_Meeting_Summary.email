@@ -1,0 +1,15 @@
+Dear {!Contact.FirstName},
+
+Thank you for coming to meet with me in CASA. Below is a recap of our conversation from {!Interaction__c.Appointment_Date__c} at {!Interaction__c.Appointment_Time__c} and some action items for you to manage between now and the next time we meet.
+
+{!Interaction__c.Meeting_Note_Summary__c}
+
+Here are some other resources that will be of help to you:
+
+XXX Name, Phone, Location, Link XXX
+XXX Name, Phone, Location, Link XXX
+
+I look forward to seeing how else I can be of support to you. Please be sure to contact CASA at 415.422.5050 or online at XXappointment linkXX to schedule your next appointment with me.
+
+All the best,
+{!Contact.Academic_Success_Coach__c}

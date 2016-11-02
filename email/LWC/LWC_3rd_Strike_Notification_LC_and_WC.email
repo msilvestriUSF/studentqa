@@ -1,0 +1,15 @@
+Dear {!AppointmentContact__c.00N2C000000KxDE},
+
+Please be aware that you have a total of 3 strikes on your record. This is the maximum number of strikes given to each student for cancelling an appointment passed the centers regulated deadline or by missing an appointment you previously scheduled. As a result, you will no longer be able to utilize services provided by the Learning and Writing Center or Speaking Center. You received your last strike for the following appointment:
+
+Center:  {!AppointmentContact__c.Center__c}
+Date:  {!AppointmentContact__c.Start_Date__c}
+Time:  {!AppointmentContact__c.Start_Time__c}
+Course (If applicable):  {!AppointmentContact__c.SelectedCourse__c}
+Tutor:  {!AppointmentContact__c.Staff__c}
+Status:  {!AppointmentContact__c.Status__c}
+
+These regulations are in place to ensure that all students receive an opportunity to utilize our services. If you have any questions or wish to meet with a staff member, please call 415-422-6713.
+
+Thank you,
+The Learning and Writing Center and the Speaking Center

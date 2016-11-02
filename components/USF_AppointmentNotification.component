@@ -1,0 +1,101 @@
+<apex:component Controller="USF_NotificationController">
+<apex:attribute name="pageUsedOn" description="This is used to identify the page where the component is being used" required="true" assignTo="{!pageNameValue}" type="String"/>
+<apex:attribute name="coach" description="This is used to identify the specific coach user ID for which the updates must display" required="false" assignTo="{!selectedCoachValue}" type="String"/>        
+        <!--<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+        <link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+        <link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+        <link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+        <script>
+        function hidenext(){
+            document.getElementById("refreshbtn").style.display = "block"; 
+            document.getElementById("backbtn").style.display = "none"; 
+        }
+        function shownext(){
+            document.getElementById("refreshbtn").style.display = "none"; 
+            document.getElementById("backbtn").style.display = "block"; 
+        }
+        </script>-->
+        <style>
+            .green-status{
+                background-color: #B8D74C;
+                color: #425501;
+                text-transform: uppercase;
+                padding:7px 0;
+            }
+            .red-status{
+                background-color: #FEAB8F;
+                color: #872200;
+                text-transform: uppercase;
+                padding:7px 0;
+            }
+            .blue-status{
+                background-color: #80DBCF;
+                color: #005F52;
+                text-transform: uppercase;
+                padding:7px 0;
+            }
+             .quick-update-wrap{
+                background: #FFFFFF;
+                box-shadow: 0px 2px 4px 0px rgba(145,145,147,0.20);
+                border-radius: 5px;
+                padding: 15px 15px 0 0;               
+                
+            }
+            .quick-update-wrap p{
+               margin: 15px 0 15px 15px;
+               border-bottom: 1px solid #e6e6e6;
+               padding:0;
+               padding-bottom: 15px;
+            }
+            .quick-update-wrap p:last-child{
+                border:none;
+            }
+            .quick-update-status{
+                display: inline-block;
+                width: 100px;
+                text-align: center;
+                box-shadow: 0px 2px 4px 0px rgba(145,145,147,0.20);
+                border-radius: 0 5px 5px 0;
+                font-family:QuattrocentoSans-Bold;
+                font-size:12px;
+            }
+            .quick-update-status-time{
+                font-family: QuattrocentoSans;
+                font-size: 14px;
+                color: #919194;
+                letter-spacing: 0px;
+                text-transform: lowercase;
+                text-align:right;
+            }
+        </style>
+        
+    <apex:actionFunction name="getAll" action="{!getAll}" reRender="PostID"/>
+    <apex:actionFunction name="goBack" action="{!getBack}" reRender="PostID" oncomplete="hidenext();" />
+    <apex:actionFunction name="getSpecified" action="{!getSpecified}" reRender="PostID" oncomplete="shownext();" >
+        <apex:param name="specified" value="" assignTo="{!strPostType}"/>
+    </apex:actionFunction>
+    <apex:outputPanel id="PostID">
+        <!--<div class="row" style="margin-left: 0px; margin-right: 0;position: fixed;left: 28%;top: 0%;">        
+            <span class="pull-right">
+                <button type="button" id="refreshbtn" class="btn btn-primary btn-sm" onclick="getAll();" style="position: relative; display:block;">
+                    <i class="glyphicon glyphicon-refresh"></i>
+                </button>
+                <button type="button" id="backbtn" class="btn btn-primary btn-sm" onclick="goBack();" style="position: relative; display:none;">
+                    <i class="glyphicon glyphicon-arrow-left"></i>
+                </button>
+            </span>
+        </div>-->
+        <apex:outputText value="No Updates." rendered="{!ChatterPost.size==0}"/>
+        <div class="quick-update-wrap" rendered="{!ChatterPost.size>0}">
+            <apex:repeat value="{!ChatterPost}" var="post">
+                <div class="row row-eq-height">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <span class="quick-update-status {!IF(post.strTittle=='Cancelled','red-status','')}{!IF(post.strTittle=='Checked-In','green-status' ,'')} {!IF(post.strTittle=='Missed','red-status' ,'')}{!IF(post.strTittle=='Update','blue-status','')}">{!post.strTittle}</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 quick-update-status-time"><span>{!post.strDuration}</span></div>
+                </div>
+                <p>{!post.strBody}</p>
+            </apex:repeat>
+        </div> 
+    </apex:outputPanel>
+</apex:component>

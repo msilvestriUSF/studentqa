@@ -1,0 +1,481 @@
+<apex:page showHeader="true" standardController="Eligible_Tutor_Courses__c" extensions="USF_CourseAllocationController" sidebar="false" standardStylesheets="false" cache="false" docType="html-5.0" language="en-US" applyHTMLTag="true">
+    <html>
+
+<head>
+      <meta charset="utf-8" />
+      <title>Course Configurator</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <!-- Bootstrap Theme-->
+      <link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+      <link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+    </head>
+    
+
+
+<body>
+
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+<apex:includeScript value="{!URLFOR($Resource.CourseAssignmentJs)}" /> 
+    <apex:includeScript value="{!URLFOR($Resource.select2js)}" />
+    <apex:stylesheet value="{!$Resource.CourseAssignment}" />
+<apex:stylesheet value="{!$Resource.select2}" />     
+ <script type="text/javascript">
+ function autocompleteCallback(data){
+    $('[id$="selStudentIdHidden"]').val(data);  
+ } 
+ function resetSelectedStudentId(){
+     $('[id$="selStudentIdHidden"]').val(''); 
+ }
+ $(document).ready(function() {
+    console.log('cwid: '+'{!CWID}');
+    if('{!CWID}' != '') {
+        SearchAF();
+    }
+    
+ });
+ </script>   
+ <style>
+ .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus{
+background: #fff;
+border-color: #fff;
+color:#000;
+}
+ .mainHeading {
+font-size:18px;
+margin-top:40px;
+font-weight:500;
+}
+label {
+font-weight:normal;
+}
+.course-group > ul li{
+padding:0px !important;
+}
+.list-group-item {
+padding:0px !important;
+}
+.list-group-item-link-check {
+margin-left:-30px;
+}
+.course-group .course-group-link{
+font-size:14px;
+font-family: QuattrocentoSans-Bold;
+}
+
+.course-available__wrapper,
+.selected-courses__wrapper {
+margin-top:16px;
+}
+.course-configurator-select {
+        margin-bottom: 36px;
+}
+.course-available__wrapper_search_input,.selected-courses__wrapper_search >input {
+height:45px !important;
+margin-top:20px;
+}
+.course-available__wrapper_search,.selected-courses__wrapper_search{
+padding:0;
+border:none;
+}
+.course-group {
+    margin-top: 12px;
+}
+.course-available__wrapper_collection,.selected-courses__wrapper_collection{
+margin-top: 10px;
+border-top: 1px solid #ccc;
+padding:0;
+}
+.selected-courses__wrapper_search {
+border: none;
+}
+.selected-courses__wrapper_search input {
+padding-left:10px;
+}
+.container {
+max-width:936px;
+}
+ul li, ol li {
+margin-left: 0;
+}
+
+ul ul {
+margin-left:15px;
+font-family: QuattrocentoSans;
+font-size: 14px;
+color: #2A2A2A;
+}
+
+.selected-courses__wrapper_collection_list {
+margin-top: 0px !important;
+}
+.course-available h4,.selected-courses h4{
+font-size: 14px;
+color: #2A2A2A;
+letter-spacing: 0px;
+font-family: QuattrocentoSans-Bold;
+}
+
+/*
+.course-selection_add_btn {
+background: #00543C !important;
+border-radius: 4px !important;
+color: #fff !important;
+font-size: 14px !important; 
+font-weight: normal !important;
+  }*/
+.course-selection {
+padding:0;
+}
+/*
+.course-selection_remove_btn {
+background:none !important;
+font-weight: normal !important;
+top: 214px;
+color:#919194 !important;
+border:1px solid #999;
+}*/
+.course-selection_remove_btn:hover{
+border:1px solid #999;
+color:#000;
+}
+.course-available__wrapper,.selected-courses__wrapper{
+background: #FFFFFF;
+box-shadow: 0px 2px 4px 0px rgba(145,145,147,0.20);
+}
+.course-available__wrapper span{
+float:right;
+position: absolute;
+    top: 38px;
+    right: 16px;
+    color: #999;
+}
+.selected-courses__wrapper_search span {
+float:right;
+position: absolute;
+    top: 38px;
+    right: 32px;
+    color: #999;
+}
+
+.course-configurator-save_btn {
+/*padding:9px 55px !important;
+background: #00543C !important;
+border-radius: 4px !important;
+color:#fff !important;*/
+margin-bottom: 60px !important;
+}
+
+.inputContainer input {
+height:40px;
+}
+.table td {
+color:#999;
+}
+
+table{
+width:100%;
+border:none;
+font-family: QuattrocentoSans;
+font-size: 14px;
+color: #2A2A2A;
+letter-spacing: 0px;
+}
+ .table>tbody>tr>td {
+ padding: 12px !important;
+ }
+.table>tbody>tr>th {
+border:none;
+}
+.btn {
+    background: #fff !important;
+}
+
+.btn:hover,
+.btn:focus {
+    background: #fff !important;
+    border: 1px solid #737575 !important;
+    outline: none !important;
+}
+
+.btn-default {
+    font-family: QuattrocentoSans-Bold !important;
+    background: white !important;    
+    padding: 10px 38px !important;
+    margin: 0 15px !important;
+    background-color: #00543C !important;
+    color: #fff !important;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    border: none !important;
+    outline: none !important;
+    text-shadow:none !important;
+    box-shadow: none !important;
+}
+.btn-default:hover,.btn-default:focus{
+    background-color: #73973F !important;
+    color: #fff !important;    
+    border: none !important;
+    outline: none !important;
+    text-shadow:none !important;
+    box-shadow: none !important;
+}
+.btn-default:active{
+    background-color: #73973F !important;
+    color: #fff !important;    
+    border: none !important;
+    outline: none !important;
+    text-shadow:none !important;
+    box-shadow: none !important;
+}
+.content {
+border: none; 
+} 
+.selectedConsultantsHeading{
+margin-top:10px;
+margin-bottom:30px;
+font-size:14px;
+font-family:QuattrocentoSans-Bold
+}
+
+tr:nth-child(even) {
+background: #fff;
+height:34px;
+border:1px solid #ccc;
+margin-top:10px
+
+}
+tr:nth-child(even) td {
+padding:16px 0;
+color:#000;
+}
+.messageTable tr:nth-child(even){
+display:none;
+}
+
+.messageTable tr {
+    display: table-footer-group;
+}
+.outerNoSidebar{
+background: #eee !important;;
+}
+.inputContainer span {
+    position: absolute;
+    right: 30px;
+    top: 32px;
+    color:#999;
+    
+}
+.tutorHeading {
+font-family: QuattrocentoSans-Bold;
+font-size: 20px;
+color: #2A2A2A;
+min-width:100%;
+
+}
+.selected-courses__wrapper_collection_list {
+    margin-top: -36px !important;
+}
+.selected-courses__wrapper_collection {
+padding-top:40px;
+}
+.list-group-item.active{
+color:#000;
+} 
+.right{
+font-size:10px;
+}
+.negativeRight {
+margin-left: -6px;
+font-size: 10px;
+}
+.left{
+font-size:10px;
+}
+.negativeLeft {
+margin-left: -6px;
+font-size: 10px;
+}
+.message .messageText {
+    margin-left: 8px;
+    margin-top: -10px;
+}
+ </style>
+         
+<apex:form styleclass="mainForm" >
+    <apex:pageMessages id="pgId"/>
+    <section class="container mainSection">
+
+               <div class="row inputSection">
+
+            <div class="col-md-8 inputContainer">
+                <apex:inputText styleclass="form-control" id="cName" value="{!CWID}" html-placeholder="Enter CWID or Full name">
+                <!--<span class="glyphicon glyphicon-search" onclick="SearchAF();"></span>-->
+                    <span class="btn btn-default" style="right: 0px; top: 19px" type="button" onclick="SearchAF();" status="statusProcessing">Look Up</span>
+                    <apex:inputhidden id="selStudentIdHidden" value="{!selectedStudentId}"/>
+                    <!-- Auto Complete VF component -->
+
+                    <c:USF_AutoCompleteComponent objectname="Contact" input_id="{!$Component.cName}" numberOfResultsToDisplay="10" wildcardBefore="false"/>
+
+                </apex:inputText>
+            
+            </div>
+            
+          
+        </div><br/><br/>
+        <apex:outputPanel id="facultyD">
+          <apex:outputPanel id="faculty_details" rendered="{!faculty.Id != null}"> 
+        <h4 class="selectedConsultantsHeading pull-left">Selected Consultants</h4>
+        <div class="content">
+            <div class="row contentRow">
+              <table class="table">
+              <tr>
+              <th>Full name</th>
+              <th>CWID</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Academic Standing</th>
+              </tr>
+              
+              <tr>
+              <td>{!faculty.Name}</td>
+              <td>{!faculty.CWID__c}</td>
+              <td>{!faculty.ASC_Email__c}</td>
+              <td>{!faculty.Phone}</td>
+              <td>{!faculty.Academic_Standing__c}</td>
+              </tr>
+              
+              </table>
+            </div>
+        </div>
+        </apex:outputPanel>
+        </apex:outputPanel>
+   
+    </section>
+        <apex:OutputPanel id="completecoursePanel">
+           <div class="course-configurator container">
+                <apex:outputPanel id="coursesPanel" rendered="{!faculty.Id != null}">
+                
+                <div class="row course-configurator-container">
+                    <aside class="col-md-5 course-available">
+                        <h4> Courses Available</h4>
+                        <div class="col-md-12 col-sm-12 list-left course-available__wrapper">
+                            <div class="col-md-12 col-sm-12 course-available__wrapper_search">
+                              <!--  <input type="text" placeholder="Search" class="col-md-12 col-sm-12" /> -->
+                              <input type="text" placeholder="Search" class="col-md-12 col-sm-12 course-available__wrapper_search_input" />
+                              <span class="glyphicon glyphicon-search"></span>
+                            </div>
+                            <div class="col-md-12 col-sm-12 list-left course-available__wrapper_collection">
+                            <apex:repeat value="{!courseMap}" var="key">
+                                <div class="col-md-12 course-group" id="technologyGroup">
+                                    <ul class="list-group">
+                                        
+
+                                            <li class="list-group-item">
+                                                <label class="course-group-link">
+                                                    <input type="checkbox" class="pull-left course-group-checkbox" /> &nbsp;
+                                                    <apex:outputText value="{!key}" />
+                                                </label>
+                                                <ul>
+                                                    <apex:repeat value="{!courseMap[key]}" var="coursekey">
+
+                                                        <li class="list-group-item">
+                                                            <label class="list-group-item-link-check">
+                                                                <!--<input type="checkbox" class="pull-left list-group-item-link-check" />-->
+                                                                <apex:inputCheckbox value="{!coursekey.selected}">
+
+                                                                </apex:inputCheckbox> &nbsp;
+                                                                <apex:outputText value="{!coursekey.courseID}" /> - <apex:outputText value="{!coursekey.eligibleCourseName}" />
+                                                                  (<apex:outputText value="{!coursekey.sectionId }" />)
+                                                            </label>
+                                                        </li>
+
+                                                    </apex:repeat>
+                                                </ul>
+                                            </li>
+
+                                       
+                                    </ul>
+                                </div>
+                                 </apex:repeat>
+                            </div>
+                        </div>
+                    </aside>
+                    <div class="col-md-2 course-selection">
+                        <!--<button class="col-md-10 btn btn-primary course-selection_add_btn move-right" id="addCourse">Add Selcted >></button>
+        <button class="col-md-10 btn btn-warning course-selection_remove_btn move-left disabled" id="removeCourse"> Remove Selected </button>-->
+                        <!-- <apex:commandButton action="{!addCourses}" styleClass="col-md-10 btn btn-primary course-selection_add_btn move-right" value="Add Selected" rerender="coursesPanel" status="statusProcessing"></apex:commandButton>
+                        <apex:commandButton action="{!removeCourses}" styleClass="col-md-10 btn btn-warning course-selection_remove_btn move-left" value="Remove Selected" rerender="coursesPanel" status="statusProcessing"></apex:commandButton>-->
+                        <button type="button" class="col-md-10 btn btn-primary course-selection_add_btn move-right" onclick="AddSelectedAF();">Add Courses<span class="glyphicon glyphicon-menu-right right"></span><span class="glyphicon glyphicon-menu-right right negativeRight"></span></button>
+                        <button type="button" class="col-md-10 btn btn-warning course-selection_remove_btn move-left" onclick="RemoveSelectedAF();"><span class="glyphicon glyphicon-menu-left left"></span><span class="glyphicon glyphicon-menu-left negativeLeft"></span>Remove Courses</button>
+                    </div>
+                    <aside class="col-md-5  selected-courses">
+                        <h4> Courses Selected</h4>
+                        <div class="col-md-12 col-sm-12 selected-courses__wrapper">
+                             <div class="selected-courses__wrapper_search">
+                                <input type="text" placeholder="Search" class=""  style="width:100%"/>
+                                <span class="glyphicon glyphicon-search"></span>
+                            </div>
+                            <div class="col-md-12 col-sm-12 list-right selected-courses__wrapper_collection">
+                            <apex:repeat value="{!addedCourseMap}" var="key">
+                                <div class="col-md-12 col-sm-12 selected-courses__wrapper_collection_list">
+                                    <div class="course-group">
+                                        <ul class="list-group" style="box-shadow:none;">
+                                            
+                                                <li class="list-group-item">
+                                                    <label class="course-group-link">
+                                                        <input type="checkbox" class="pull-left course-group-checkbox" /> &nbsp;
+                                                        <apex:outputText value="{!key}" />
+                                                    </label>
+                                                    <ul>
+                                                        <apex:repeat value="{!addedCourseMap[key]}" var="coursekey">
+
+                                                            <li class="list-group-item">
+                                                                <label class="list-group-item-link-check">
+                                                                    <!--<input type="checkbox" class="pull-left list-group-item-link-check" />-->
+                                                                    <apex:inputCheckbox value="{!coursekey.selected}">
+
+                                                                    </apex:inputCheckbox> &nbsp;
+                                                                     <apex:outputText value="{!coursekey.courseID}" />
+                                                                     - <apex:outputText value="{!coursekey.eligibleCourseName}" />
+                                                                      (<apex:outputText value="{!coursekey.sectionId }" />)
+                                                                </label>
+                                                            </li>
+                                                            
+
+                                                        </apex:repeat>
+                                                    </ul>
+                                                </li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                                </apex:repeat>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                </apex:outputPanel>
+                <div class="row course-configurator-save">
+                    <apex:commandButton action="{!saveCourses}" styleClass="btn btn-success course-configurator-save_btn" value="Save Courses" rerender="coursesPanel,saveResultPanel,pgId" status="statusProcessing" rendered="{!faculty.Id != null}" ></apex:commandButton>
+                    
+                </div>
+            </div>
+            </apex:OutputPanel>
+            <apex:actionStatus id="statusProcessing">
+                <apex:facet name="start">
+                    <c:loadingStatus ></c:loadingStatus>
+                </apex:facet>
+            </apex:actionStatus>
+            <apex:actionFunction name="SearchAF" action="{!getfacultyInfoByCWID}"  status="statusProcessing" reRender="facultyD,completecoursePanel,pgId" oncomplete="resetSelectedStudentId();"></apex:actionFunction>
+            <apex:actionFunction action="{!addCourses}" name="AddSelectedAF" rerender="coursesPanel" status="statusProcessing"></apex:actionFunction>
+            <apex:actionFunction action="{!removeCourses}" name="RemoveSelectedAF" rerender="coursesPanel" status="statusProcessing"></apex:actionFunction>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+             Include all compiled plugins (below), or include individual files as needed 
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+    </apex:form>
+</body>
+</html>
+</apex:page>

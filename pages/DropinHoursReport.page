@@ -1,0 +1,17 @@
+<apex:page controller="DropinHoursController">
+	<h1>Report - Drop in hours: Available vs Used</h1>
+	<apex:form >
+		<span>
+		<apex:selectList value="{!selectedCenter}" label="Center">
+			<apex:selectOptions value="{!centers}"/>
+		</apex:selectList>
+		<apex:selectList value="{!selectedCourse}" label="Semester">
+			<apex:selectOptions value="{!courses}"/>
+		</apex:selectList>
+		</span>
+		<apex:commandButton action="{!viewReport}" value="View Report" rerender="Report"/>
+		<apex:outputPanel id="Report">
+			<apex:outputPanel rendered="{!renderReport}"/>
+		</apex:outputPanel>
+	</apex:form>	
+</apex:page>

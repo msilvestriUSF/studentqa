@@ -1,0 +1,11 @@
+Hello {!Contact.Name},
+
+The Appointment with the following details has been completed:
+Student Name: {!AppointmentContact__r.Contact__r.Name}
+Faculty Name:
+Consultant Name: {!AppointmentContact__r.Counsellor_Availability__r.Coach_Full_Name__c}
+Date/Time: {!AppointmentContact__c.Date_Time__c}
+Location: {!AppointmentContact__c.Location__c}
+
+Regards,
+USF Team

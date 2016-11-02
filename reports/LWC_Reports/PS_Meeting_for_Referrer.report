@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Project_Success__c$Student__c</field>
+    </columns>
+    <columns>
+        <field>Project_Success__c$Tutor__c</field>
+    </columns>
+    <columns>
+        <field>Project_Success__c.PS_Attendance__r$Start_Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>Project_Success__c$Term__c</field>
+    </columns>
+    <description>Add Referrer name as a filter, then run report</description>
+    <filter>
+        <criteriaItems>
+            <column>Project_Success__c$Referrer__c</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Project_Success__c$Term__c</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Project_Success__c$Referrer__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>PS Meeting for Referrer</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Project_Success_PS_Attendance__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Project_Success__c$Term__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Project_Success__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

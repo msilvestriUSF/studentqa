@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields><fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Sports --></relationshipLabel>
+    </fields><fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields><fields>
+        <label><!-- Sport Name --></label>
+        <name>Sport_Name__c</name>
+    </fields><fields>
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+        <relationshipLabel><!-- Sports --></relationshipLabel>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Sport</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Sports</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>Sport Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts></CustomObjectTranslation>

@@ -1,0 +1,3 @@
+Hi {!AppointmentContact__c.00N2C000000KxDE},
+
+Your New location has been  changed to {!Counselor_Availability_Definition__c.Location__c}

@@ -1,0 +1,8 @@
+Dear {!Contact.Full_Name__c},
+
+Please be aware that you currently have {!Contact.00N2C000000LTJx} strike(s) on your record for the Learning Center. This is a result of cancelling an appointment passed the centers regulated deadline or by missing an appointment you previously scheduled. Those appointments can be found on the student portal (Student portal link)
+
+Be sure to cancel all Learning Center appointments at least 24 hours in advanced and all Writing Center and Speaking Center appointments at least 1 hour in advanced to avoid a strike. You may cancel the appointment online using Salesforce by (instructions here). If you receive 3 strikes you will no longer be able to utilize the services provided by the Learning and Writing Center or Speaking Center for the remainder of the semester. These regulations are in place to ensure that all students receive an opportunity to utilize our services. If you have any questions or wish to meet with a staff member, please call 415-422-6713.
+
+Thank you,
+The Learning and Writing Center and the Speaking Center

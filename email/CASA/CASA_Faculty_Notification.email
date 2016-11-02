@@ -1,0 +1,16 @@
+CONFIDENTIAL MEMORANDUM
+
+DATE:        XX
+TO:        XXAll Professor’s names, course/sectionXX
+                For example: S. Petrenko, ARCD 104-01
+FROM:     Center for Academic and Student Achievement (CASA)
+SUBJECT:     {!Contact.Name}, {!Contact.CWID__c}
+
+--
+
+
+I am writing in regard to a student in your course,  {!Contact.Name}, {!Contact.CWID__c}. This is to confirm that {!Contact.FirstName}...
+
+Any support and consideration you can provide regarding flexibility around absences or assignments would be greatly appreciated. We have advised him/her to work with you directly to make up any missed lectures, assignments or exams.
+ 
+If you have any questions, please do not hesitate to ask. Thank you in advance for your help regarding this matter.

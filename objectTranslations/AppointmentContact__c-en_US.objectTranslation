@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- Active Term --></label>
+        <name>Active_Term__c</name>
+    </fields><fields>
+        <label><!-- Appointment Slot --></label>
+        <name>AppointmentSlot__c</name>
+        <relationshipLabel><!-- Appointments --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Appointment Type --></label>
+        <name>AppointmentType__c</name>
+    </fields><fields>
+        <label><!-- Appointment Week --></label>
+        <name>Appointment_Week__c</name>
+    </fields><fields>
+        <label><!-- CASA 48 hr Trigger --></label>
+        <name>CASA_48_hr_Trigger__c</name>
+    </fields><fields>
+        <label><!-- CASA Appointment --></label>
+        <name>CASA_Appointment__c</name>
+    </fields><fields>
+        <label><!-- CASA Staff --></label>
+        <name>CASA_Staff__c</name>
+    </fields><fields>
+        <label><!-- CWID --></label>
+        <name>CWID__c</name>
+    </fields><fields>
+        <label><!-- Canceled Date/Time --></label>
+        <name>Canceled_Date_Time__c</name>
+    </fields><fields>
+        <help><!-- This field will get updated by the workflow on creation of the appointment --></help>
+        <label><!-- Center --></label>
+        <name>Center__c</name>
+    </fields><fields>
+        <label><!-- Check In Time --></label>
+        <name>CheckInTime__c</name>
+    </fields><fields>
+        <label><!-- Check Out Time --></label>
+        <name>CheckOutTime__c</name>
+    </fields><fields>
+        <label><!-- Checked In --></label>
+        <name>Checked_In__c</name>
+    </fields><fields>
+        <label><!-- Coach Specialty --></label>
+        <name>Coach_Specialty__c</name>
+        <relationshipLabel><!-- Appointments --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Consultant Email --></label>
+        <name>Consultant_Email__c</name>
+    </fields><fields>
+        <label><!-- Consultant --></label>
+        <name>Consultant__c</name>
+        <relationshipLabel><!-- Appointments --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Contact Name --></label>
+        <name>Contact_Name__c</name>
+    </fields><fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Appointments --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Contacts To Notify --></label>
+        <name>Contacts_To_Notify__c</name>
+    </fields><fields>
+        <label><!-- Date/Time --></label>
+        <name>Date_Time__c</name>
+    </fields><fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields><fields>
+        <label><!-- Drop In Used Time --></label>
+        <name>DropInUsedTime__c</name>
+    </fields><fields>
+        <label><!-- Duration --></label>
+        <name>Duration__c</name>
+    </fields><fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields><fields>
+        <label><!-- End Time --></label>
+        <name>End_Time__c</name>
+    </fields><fields>
+        <label><!-- First Language --></label>
+        <name>FirstLanguage__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Group Assignment --></label>
+        <name>Group_Assignment__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Half Hour After Start Time --></label>
+        <name>Half_Hour_After_Start_Time__c</name>
+    </fields><fields>
+        <label><!-- Academic Skills To Work on --></label>
+        <name>LWC_AcademicSkills__c</name>
+        <picklistValues>
+            <masterLabel>Class preparation</masterLabel>
+            <translation><!-- Class preparation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Note taking</masterLabel>
+            <translation><!-- Note taking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Organization</masterLabel>
+            <translation><!-- Organization --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reading</masterLabel>
+            <translation><!-- Reading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Study strategies</masterLabel>
+            <translation><!-- Study strategies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test preparation</masterLabel>
+            <translation><!-- Test preparation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test taking</masterLabel>
+            <translation><!-- Test taking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Time management</masterLabel>
+            <translation><!-- Time management --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Contribute to Performance --></label>
+        <name>LWC_ContributeToPerformance__c</name>
+        <picklistValues>
+            <masterLabel>Difficulty with instructor</masterLabel>
+            <translation><!-- Difficulty with instructor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lack of foundation knowledge</masterLabel>
+            <translation><!-- Lack of foundation knowledge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Missing class</masterLabel>
+            <translation><!-- Missing class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Missing course material</masterLabel>
+            <translation><!-- Missing course material --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-native speaker</masterLabel>
+            <translation><!-- Non-native speaker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None of these</masterLabel>
+            <translation><!-- None of these --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Over involved/Work/Too many credits</masterLabel>
+            <translation><!-- Over involved/Work/Too many credits --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Poor time management</masterLabel>
+            <translation><!-- Poor time management --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Current Grade/Score of Course --></label>
+        <name>LWC_CurrentGradeofCourse__c</name>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F</masterLabel>
+            <translation><!-- F --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- HESI/Tutee --></label>
+        <name>LWC_HESITutee__c</name>
+        <picklistValues>
+            <masterLabel>Don't know</masterLabel>
+            <translation><!-- Don&apos;t know --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guesstimate</masterLabel>
+            <translation><!-- Guesstimate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>My own calculation</masterLabel>
+            <translation><!-- My own calculation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professor calculation</masterLabel>
+            <translation><!-- Professor calculation --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Number of Hour Preparation --></label>
+        <name>LWC_HourStudy__c</name>
+        <picklistValues>
+            <masterLabel>1-2 hours</masterLabel>
+            <translation><!-- 1-2 hours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3-4 hours</masterLabel>
+            <translation><!-- 3-4 hours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5-8 hours</masterLabel>
+            <translation><!-- 5-8 hours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9&gt; hours</masterLabel>
+            <translation><!-- 9&gt; hours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Never</masterLabel>
+            <translation><!-- Never --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Learning Styles --></label>
+        <name>LWC_LearningStyles__c</name>
+        <picklistValues>
+            <masterLabel>Auditory</masterLabel>
+            <translation><!-- Auditory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kinesthetic</masterLabel>
+            <translation><!-- Kinesthetic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Read/Write</masterLabel>
+            <translation><!-- Read/Write --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visual</masterLabel>
+            <translation><!-- Visual --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Method Of Study --></label>
+        <name>LWC_MethodOfStudy__c</name>
+        <picklistValues>
+            <masterLabel>Creating study guides</masterLabel>
+            <translation><!-- Creating study guides --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flash cards</masterLabel>
+            <translation><!-- Flash cards --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nothing</masterLabel>
+            <translation><!-- Nothing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pneumonia</masterLabel>
+            <translation><!-- Pneumonia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Practice problems</masterLabel>
+            <translation><!-- Practice problems --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reading</masterLabel>
+            <translation><!-- Reading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Review class handouts</masterLabel>
+            <translation><!-- Review class handouts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Take/Review notes</masterLabel>
+            <translation><!-- Take/Review notes --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Tutor Tutee Expectation --></label>
+        <name>LWC_TutorTuteeExpectation__c</name>
+    </fields><fields>
+        <label><!-- Interaction with professor --></label>
+        <name>LWC_TutorTutee__c</name>
+        <picklistValues>
+            <masterLabel>A few times</masterLabel>
+            <translation><!-- A few times --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Don't know</masterLabel>
+            <translation><!-- Don&apos;t know --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Once</masterLabel>
+            <translation><!-- Once --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regularly</masterLabel>
+            <translation><!-- Regularly --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Location Change --></label>
+        <name>Location_Change__c</name>
+    </fields><fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields><fields>
+        <label><!-- Background Notes (Visible to Students) --></label>
+        <name>Notes__c</name>
+    </fields><fields>
+        <help><!-- Student Phone from Banner --></help>
+        <label><!-- Phone --></label>
+        <name>Phone__c</name>
+    </fields><fields>
+        <help><!-- Phone received from the student when booking an appointment --></help>
+        <label><!-- Preferred Phone --></label>
+        <name>Preferred_Phone__c</name>
+    </fields><fields>
+        <label><!-- Appointment Reasons --></label>
+        <name>Reason_for_Meeting__c</name>
+        <picklistValues>
+            <masterLabel>Academic Coaching</masterLabel>
+            <translation><!-- Academic Coaching --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Academic Probation</masterLabel>
+            <translation><!-- Academic Probation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Concerns</masterLabel>
+            <translation><!-- Financial Concerns --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Housing / Residence Hall</masterLabel>
+            <translation><!-- Housing / Residence Hall --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leave of Absence / Withdrawal</masterLabel>
+            <translation><!-- Leave of Absence / Withdrawal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major / Minor Exploration</masterLabel>
+            <translation><!-- Major / Minor Exploration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Student Survey</masterLabel>
+            <translation><!-- New Student Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Personal Concerns</masterLabel>
+            <translation><!-- Personal Concerns --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registration Assistance</masterLabel>
+            <translation><!-- Registration Assistance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Study Abroad</masterLabel>
+            <translation><!-- Study Abroad --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Referred By --></label>
+        <name>Referred_By__c</name>
+        <picklistValues>
+            <masterLabel>Faculty</masterLabel>
+            <translation><!-- Faculty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friend</masterLabel>
+            <translation><!-- Friend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parent / Guardian</masterLabel>
+            <translation><!-- Parent / Guardian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Staff</masterLabel>
+            <translation><!-- Staff --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Referrer Name --></label>
+        <name>Referrer_Name__c</name>
+    </fields><fields>
+        <label><!-- Course --></label>
+        <name>SelectedCourse__c</name>
+        <relationshipLabel><!-- Appointments --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Self-Reported Email --></label>
+        <name>Self_Reported_Email__c</name>
+    </fields><fields>
+        <label><!-- Staff Email --></label>
+        <name>Staff_Email__c</name>
+    </fields><fields>
+        <label><!-- Staff --></label>
+        <name>Staff__c</name>
+    </fields><fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields><fields>
+        <label><!-- Start Time --></label>
+        <name>Start_Time__c</name>
+    </fields><fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>All Appointments</masterLabel>
+            <translation><!-- All Appointments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled by Consultant</masterLabel>
+            <translation><!-- Cancelled by Consultant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled by Student</masterLabel>
+            <translation><!-- Cancelled by Student --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Checked-In</masterLabel>
+            <translation><!-- Checked-In --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed</masterLabel>
+            <translation><!-- Confirmed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Denied</masterLabel>
+            <translation><!-- Denied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Missed by Student</masterLabel>
+            <translation><!-- Missed by Student --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Needs Notes</masterLabel>
+            <translation><!-- Needs Notes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Show</masterLabel>
+            <translation><!-- No Show --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Student Checked-In</masterLabel>
+            <translation><!-- Student Checked-In --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Strike --></label>
+        <name>Strike__c</name>
+    </fields><fields>
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+    </fields><fields>
+        <label><!-- Time Trigger 15 --></label>
+        <name>Time_Trigger_15__c</name>
+    </fields><fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>In Person</masterLabel>
+            <translation><!-- In Person --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone/Online</masterLabel>
+            <translation><!-- Phone/Online --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Zoom --></label>
+        <name>Zoom__c</name>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Appointment</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Appointments</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>CASA Appointment Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Student Information --></label>
+            <section>Student Information</section>
+        </sections>
+        <sections>
+            <label><!-- Student Reasons --></label>
+            <section>Student Reasons</section>
+        </sections>
+    </layouts><layouts>
+        <layout>LWC Appointment Layout</layout>
+        <sections>
+            <label><!-- Appointment Information --></label>
+            <section>Appointment Information</section>
+        </sections>
+        <sections>
+            <label><!-- Consultant Information --></label>
+            <section>Consultant Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Drop-In Information --></label>
+            <section>Drop-In Information</section>
+        </sections>
+        <sections>
+            <label><!-- First Appointment Survey --></label>
+            <section>First Appointment Survey</section>
+        </sections>
+        <sections>
+            <label><!-- Student Information --></label>
+            <section>Student Information</section>
+        </sections>
+    </layouts><recordTypes>
+        <label><!-- CASA Appointment --></label>
+        <name>CASA_Appointment</name>
+    </recordTypes><recordTypes>
+        <label><!-- LWC Appointment --></label>
+        <name>LWC_Appointment</name>
+    </recordTypes></CustomObjectTranslation>

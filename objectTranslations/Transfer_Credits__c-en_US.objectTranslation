@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <help><!-- Course attributes assigned by USF --></help>
+        <label><!-- Attributes --></label>
+        <name>Attributes__c</name>
+    </fields><fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields><fields>
+        <help><!-- Grade assigned to completed course by transferred institution --></help>
+        <label><!-- Grade --></label>
+        <name>Grade__c</name>
+    </fields><fields>
+        <help><!-- Academic level of course, Undergraduate or Graduate --></help>
+        <label><!-- Level --></label>
+        <name>Level__c</name>
+    </fields><fields>
+        <help><!-- Student Name --></help>
+        <label><!-- Student --></label>
+        <name>Student__c</name>
+        <relationshipLabel><!-- Transfer Credits --></relationshipLabel>
+    </fields><fields>
+        <help><!-- Credit hours granted by transferred institution --></help>
+        <label><!-- Transfer Credit Hours --></label>
+        <name>TR_Credit_Hours__c</name>
+    </fields><fields>
+        <help><!-- Credit points assigned to completed course by transferred institution --></help>
+        <label><!-- Transfer Credit Points --></label>
+        <name>TR_Credit_Points__c</name>
+    </fields><fields>
+        <help><!-- Course subject from transferred institution --></help>
+        <label><!-- Transfer Subject --></label>
+        <name>TR_Subject__c</name>
+    </fields><fields>
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+        <relationshipLabel><!-- Transfer Credits --></relationshipLabel>
+    </fields><fields>
+        <help><!-- Course number from transferred institution --></help>
+        <label><!-- Transfer Course Number --></label>
+        <name>Transfer_Course_Number__c</name>
+    </fields><fields>
+        <label><!-- Transfer Course --></label>
+        <name>Transfer_Course__c</name>
+    </fields><fields>
+        <help><!-- Course title from transferred institution --></help>
+        <label><!-- Transfer Title --></label>
+        <name>Transfer_Title__c</name>
+    </fields><fields>
+        <help><!-- Course number assigned by USF --></help>
+        <label><!-- USF Course Number --></label>
+        <name>USF_Course_Number__c</name>
+    </fields><fields>
+        <label><!-- USF Course --></label>
+        <name>USF_Course__c</name>
+    </fields><fields>
+        <help><!-- Course credit hours assigned by USF --></help>
+        <label><!-- USF Credit Hours --></label>
+        <name>USF_Credit_Hours__c</name>
+    </fields><fields>
+        <help><!-- Subject assigned by USF --></help>
+        <label><!-- USF Subject --></label>
+        <name>USF_Subject__c</name>
+    </fields><fields>
+        <help><!-- Course title assigned by USF --></help>
+        <label><!-- USF Title --></label>
+        <name>USF_Title__c</name>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Transfer Credit</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Transfer Credits</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>Transfer Credit Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts><recordTypes>
+        <label><!-- Transfer Credits --></label>
+        <name>Transfer_Credits</name>
+    </recordTypes></CustomObjectTranslation>

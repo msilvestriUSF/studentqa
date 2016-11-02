@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>LWC_Tutor_Request</letterhead>
+    <name>LWC Tutor Request Confirmation - Student</name>
+    <style>freeForm</style>
+    <subject>[USF] Tutor Request Confirmation</subject>
+    <textOnly>Thank you for completing a Tutor Request Form {!Case.Contact}.
+
+We will respond to your request within 24-48 hours Monday-Friday.
+If you need immediate assistance with scheduling, contact the LWC front desk at 415.422.6713.
+
+Please note, we will do our best to connect you with a peer tutor as soon as possible, however not all tutor requests will be fulfilled and it may take several weeks to locate an available tutor.
+We highly recommend working closely with faculty and classmates whether you do or do not use tutoring.
+
+Notice:  Writing Center: Contact the LWC front desk to schedule all Writing appointments.  Speaking Center: Email speakingcenter@usfca.edu about scheduling issues.
+
+Thank you,
+
+Learning &amp; Writing Center Staff Cowell 215</textOnly>
+    <type>html</type>
+</EmailTemplate>

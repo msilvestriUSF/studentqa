@@ -1,0 +1,7 @@
+Hi {!Counsellor_Availability__c.Coach_Full_Name__c},
+
+As per your request, location for appointment at {!Counsellor_Availability__c.Start_Time__c} has been changed to {!Counsellor_Availability__c.Location__c} .
+
+Have a wonderful day
+
+The Learning & Writing Center

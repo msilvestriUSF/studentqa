@@ -1,0 +1,9 @@
+<aura:component abstract="true" extensible="true" controller="hed.UTIL_CustomSettingsFacade">
+
+    <aura:attribute name="namespacePrefix" type="String" />
+    <aura:attribute name="isView" type="Boolean" default="true"/>
+    <aura:attribute name="hierarchySettings" type="Object" />
+    
+    <div>{!v.body}</div>
+    
+</aura:component>

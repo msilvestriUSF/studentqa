@@ -1,0 +1,15 @@
+Dear {!AppointmentContact__c.Staff__c},
+
+You have the following appointment scheduled for {!AppointmentContact__c.Start_Date__c}.
+
+{!AppointmentContact__c.Start_Time__c}, 
+{!AppointmentContact__c.00N2C000000KxDE}, 
+{!AppointmentContact__c.SelectedCourse__c},
+{!AppointmentContact__c.Notes__c}
+
+{!AppointmentContact__c.Link}
+
+Please contact us with any questions or concerns.
+
+Thank you, 
+Learning & Writing Center Staff

@@ -1,0 +1,815 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"><actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides><fields>
+        <fullName>Active_Term__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Active Term</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>AppointmentType__c</fullName>
+        <description>Formula field for Appointment type from Availability Definition Object</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Availability__r.AppointmentType__c)</formula>
+        <inlineHelpText>Appointment type of Availability Definition</inlineHelpText>
+        <label>Appointment Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Availability__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Used to store the reference to Availability</description>
+        <externalId>false</externalId>
+        <label>Availability</label>
+        <referenceTo>Counselor_Availability_Definition__c</referenceTo>
+        <relationshipLabel>Slots (Availability)</relationshipLabel>
+        <relationshipName>Slots</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>CAConflictProcessFlag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>CAConflictProcessFlag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>CASA_Appointment__c</fullName>
+        <externalId>false</externalId>
+        <formula>CONTAINS(Availability__r.Success_Center__r.Name, "CASA" )</formula>
+        <label>CASA Appointment</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>CapacityReached__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Noofstudentsregistered__c ==  Capacity__c,true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Capacity Reached</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Capacity__c</fullName>
+        <externalId>false</externalId>
+        <label>Capacity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Center_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Center Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Center__c</fullName>
+        <externalId>false</externalId>
+        <formula>Availability__r.Success_Center__r.Name</formula>
+        <label>Center</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>CheckInTime__c</fullName>
+        <externalId>false</externalId>
+        <label>Check In Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields><fields>
+        <fullName>CheckOutTime__c</fullName>
+        <externalId>false</externalId>
+        <label>Check Out Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields><fields>
+        <fullName>Checked_In__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Checked In</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Coach_Email__c</fullName>
+        <description>Field to capture Coach email address</description>
+        <externalId>false</externalId>
+        <label>Coach Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Coach_First_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Availability__r.Coach__r.FirstName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Coach First Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Coach_Full_Name__c</fullName>
+        <description>FirstName LastName</description>
+        <externalId>false</externalId>
+        <formula>Coach_First_Name__c &amp; " " &amp;  Coach_Last_Name__c</formula>
+        <label>Coach Full Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Coach_Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Availability__r.Coach__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Coach Last Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Consultant__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Consultant</label>
+        <referenceTo>Consultant__c</referenceTo>
+        <relationshipLabel>Slots</relationshipLabel>
+        <relationshipName>Slots</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields><fields>
+        <fullName>DropinTotalUsedTime__c</fullName>
+        <externalId>false</externalId>
+        <label>Drop in Total Used Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>End_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>End Time</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields><fields>
+        <fullName>Event_Conflict__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Event Conflict</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Has_Possible_Conflict__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates that the user has another calendar event that overlaps this one.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this field is checked please review your calendar for conflicting events. Do not clear the box unless you are certain you have resolved any conflicts.</inlineHelpText>
+        <label>Has Possible Conflict</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Interviewer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Staff</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Counsellor_Availability</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <length>175</length>
+        <required>true</required>
+        
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>No_of_missed_by_student_appointments__c</fullName>
+        <description>No of missed by student appointments</description>
+        <externalId>false</externalId>
+        <label>No of missed by student appointments</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Noofstudentsregistered__c</fullName>
+        <description>No of students registered</description>
+        <externalId>false</externalId>
+        <label>No of Students Registered</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Notes__c</fullName>
+        <description>Notes provided by the consultant</description>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields><fields>
+        <fullName>Number_Of_Seats_Booked__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Number Of Seats Booked (Obsolete)</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Peer_Center_Appointment__c</fullName>
+        <externalId>false</externalId>
+        <formula>CONTAINS(Availability__r.Success_Center__r.Name, "Peer Center")</formula>
+        <label>Peer Center Appointment</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Selected_Course__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Selected Course</label>
+        <referenceTo>hed__Course_Offering__c</referenceTo>
+        <relationshipLabel>Slots</relationshipLabel>
+        <relationshipName>Slots</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Selected_Meeting_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Selected Meeting Location</label>
+        <picklist>
+            <picklistValues>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>SlotDuration__c</fullName>
+        <externalId>false</externalId>
+        <formula>(End_Time__c -  Start_Time__c) * 24*60</formula>
+        <label>Slot Duration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Slot_Date__c</fullName>
+        <description>Workflow to support Report functionality: Missed Appointments for LWC</description>
+        <externalId>false</externalId>
+        <label>Slot Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields><fields>
+        <fullName>StartDate__c</fullName>
+        <externalId>false</externalId>
+        <formula>DATEVALUE( Start_Time__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields><fields>
+        <fullName>Start_Time24__c</fullName>
+        <externalId>false</externalId>
+        <formula>MID (TEXT (  Start_Time__c  - (7/24) ), 12, 5)</formula>
+        <inlineHelpText>24-Hour time</inlineHelpText>
+        <label>Start Time24</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Start_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Time</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Missed by Consultant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Checked-In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consultant Checked-In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Needs Notes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>All Appointments</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Booked</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>true</required>
+        
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Term__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>System field for strike and report functionality</description>
+        <externalId>false</externalId>
+        <label>Term</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>hed__Term__c.Active__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>hed__Term__c</referenceTo>
+        <relationshipLabel>Slots</relationshipLabel>
+        <relationshipName>Slots</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Time_Trigger_15__c</fullName>
+        <description>This field will be used for Missed Appointment By Consultant Workflow Rule. Should not be displayed on pagelayouts</description>
+        <externalId>false</externalId>
+        <formula>Start_Time__c - 0.03109</formula>
+        <label>Time Trigger 15</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields><fields>
+        <fullName>Total_No_of_appointments__c</fullName>
+        <externalId>false</externalId>
+        <label>Total No of appointments</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields><allowInChatterGroups>true</allowInChatterGroups><compactLayoutAssignment>SYSTEM</compactLayoutAssignment><deploymentStatus>Deployed</deploymentStatus><enableActivities>true</enableActivities><enableBulkApi>true</enableBulkApi><enableFeeds>false</enableFeeds><enableHistory>true</enableHistory><enableReports>true</enableReports><enableSearch>true</enableSearch><enableSharing>true</enableSharing><enableStreamingApi>true</enableStreamingApi><label>Slot</label><nameField>
+        <displayFormat>CA-{0000}</displayFormat>
+        <label>Coach Availability Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField><pluralLabel>Slots</pluralLabel><recordTypeTrackHistory>false</recordTypeTrackHistory><searchLayouts>
+        <customTabListAdditionalFields>Start_Time__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>End_Time__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Coach_First_Name__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Coach_Full_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Slot_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+    </searchLayouts><sharingModel>Private</sharingModel><listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Coach_First_Name__c</columns>
+        <columns>Coach_Last_Name__c</columns>
+        <columns>Start_Time__c</columns>
+        <columns>End_Time__c</columns>
+        <columns>Location__c</columns>
+        <columns>Status__c</columns>
+        <columns>Interviewer__c</columns>
+        <columns>Center__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews><listViews>
+        <fullName>Available_Slots</fullName>
+        <columns>NAME</columns>
+        <columns>Coach_First_Name__c</columns>
+        <columns>Start_Time__c</columns>
+        <columns>End_Time__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Available Slots</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews><listViews>
+        <fullName>LWC_Learning_Slots</fullName>
+        <columns>NAME</columns>
+        <columns>Coach_First_Name__c</columns>
+        <columns>Coach_Last_Name__c</columns>
+        <columns>Start_Time__c</columns>
+        <columns>End_Time__c</columns>
+        <columns>Location__c</columns>
+        <columns>Status__c</columns>
+        <columns>Interviewer__c</columns>
+        <columns>Center__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Counsellor_Availability__c.LWC_Slot</value>
+        </filters>
+        <filters>
+            <field>Center__c</field>
+            <operation>contains</operation>
+            <value>Learning</value>
+        </filters>
+        <label>LWC Learning Slots</label>
+    </listViews><listViews>
+        <fullName>LWC_Slots</fullName>
+        <columns>NAME</columns>
+        <columns>Coach_First_Name__c</columns>
+        <columns>Coach_Last_Name__c</columns>
+        <columns>Start_Time__c</columns>
+        <columns>End_Time__c</columns>
+        <columns>Location__c</columns>
+        <columns>Status__c</columns>
+        <columns>Interviewer__c</columns>
+        <columns>Center__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Counsellor_Availability__c.LWC_Slot</value>
+        </filters>
+        <label>LWC Slots</label>
+    </listViews><listViews>
+        <fullName>My_Availability</fullName>
+        <columns>NAME</columns>
+        <columns>Start_Time__c</columns>
+        <columns>End_Time__c</columns>
+        <columns>Interviewer__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Availability</label>
+    </listViews><recordTypes>
+        <fullName>CASA_Slot</fullName>
+        <active>true</active>
+        <label>CASA Slot</label>
+        <picklistValues>
+            <picklist>Interview_Location</picklist>
+            <values>
+                <fullName>New York</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Fransisco</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington DC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Selected_Meeting_Location__c</picklist>
+            <values>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Booked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Checked-In</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Needs Notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes><recordTypes>
+        <fullName>LWC_Slot</fullName>
+        <active>true</active>
+        <label>LWC Slot</label>
+        <picklistValues>
+            <picklist>Interview_Location</picklist>
+            <values>
+                <fullName>New York</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Fransisco</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington DC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Selected_Meeting_Location__c</picklist>
+            <values>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Booked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consultant Checked-In</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missed by Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Needs Notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes><validationRules>
+        <fullName>EndDate_not_less_than_Start_Date</fullName>
+        <active>true</active>
+        <errorConditionFormula>End_Time__c  &lt;  Start_Time__c</errorConditionFormula>
+        <errorDisplayField>End_Time__c</errorDisplayField>
+        <errorMessage>End date Should not be less than Start date</errorMessage>
+    </validationRules><validationRules>
+        <fullName>Start_Date_not_less_than_Current_Time</fullName>
+        <active>false</active>
+        <errorConditionFormula>Start_Time__c &lt;  NOW()</errorConditionFormula>
+        <errorDisplayField>Start_Time__c</errorDisplayField>
+        <errorMessage>Start date Should not be less than Current Date and Time</errorMessage>
+    </validationRules></CustomObject>

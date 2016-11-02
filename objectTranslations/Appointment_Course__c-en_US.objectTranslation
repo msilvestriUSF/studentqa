@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- Availability Definition --></label>
+        <name>Availability_Definition__c</name>
+        <relationshipLabel><!-- Courses Tutored --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Eligible Tutor Courses --></label>
+        <name>Eligible_Tutor_Courses__c</name>
+        <relationshipLabel><!-- Available Courses --></relationshipLabel>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Appointment Course</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Appointment Courses</value>
+    </caseValues><startsWith>Consonant</startsWith></CustomObjectTranslation>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <fullName>Profile__c</fullName>
+        <externalId>false</externalId>
+        <label>Profile</label>
+        <length>100</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Status_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Status Value</label>
+        <length>100</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><customSettingsType>List</customSettingsType><enableFeeds>false</enableFeeds><label>Profile Status Value Map</label><visibility>Public</visibility></CustomObject>

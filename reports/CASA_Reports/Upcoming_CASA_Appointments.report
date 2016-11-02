@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_$Contact.AcademicSuccessCoach__c</field>
+    </columns>
+    <columns>
+        <field>AppointmentContact__c.Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Contact.Full_Name__c</field>
+    </columns>
+    <columns>
+        <field>AppointmentContact__c.Reason_for_Meeting__c</field>
+    </columns>
+    <columns>
+        <field>AppointmentContact__c.Location__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>AppointmentContact__c.Status__c</column>
+            <operator>equals</operator>
+            <value>Confirmed</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Upcoming CASA Appointments</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$AppointmentContact__c@AppointmentContact__c.Contact__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>AppointmentContact__c.Date_Time__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>AppointmentContact__c.Date_Time__c</dateColumn>
+        <interval>INTERVAL_THISNEXTMONTH</interval>
+    </timeFrameFilter>
+</Report>

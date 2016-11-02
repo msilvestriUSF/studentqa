@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SamlSsoConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <identityLocation>SubjectNameId</identityLocation>
+    <identityMapping>FederationId</identityMapping>
+    <issuer>https://idp.usfca.edu/idp/shibboleth</issuer>
+    <loginUrl>https://idp.usfca.edu/idp3/profile/SAML2/Redirect/SSO</loginUrl>
+    <logoutUrl>https://idp.usfca.edu/idp3/profile/Logout</logoutUrl>
+    <name>idp</name>
+    <oauthTokenEndpoint>https://usfca-student--QA.cs60.my.salesforce.com/services/oauth2/token?so=00D3C000000Gze0</oauthTokenEndpoint>
+    <redirectBinding>true</redirectBinding>
+    <requestSignatureMethod>0</requestSignatureMethod>
+    <salesforceLoginUrl>https://usfca-student--QA.cs60.my.salesforce.com?so=00D3C000000Gze0</salesforceLoginUrl>
+    <samlEntityId>https://usfca-student--QA.cs60.my.salesforce.com</samlEntityId>
+    <samlVersion>SAML2_0</samlVersion>
+    <userProvisioning>false</userProvisioning>
+    <validationCert>MIIDHzCCAgegAwIBAgIUagsBoBGqyxBWdxdY+FeCoTfkt0UwDQYJKoZIhvcNAQEFBQAwGDEWMBQGA1UEAxMNaWRwLnVzZmNhLmVkdTAeFw0xNDA3MjIyMTI5NDdaFw0zNDA3MjIyMTI5NDdaMBgxFjAUBgNVBAMTDWlkcC51c2ZjYS5lZHUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCHnvCGLb0jtX9yY6aCbaND8OvqtUYD/m/AAH2c4zBLJMNr5+7vSM+UIF9Rnq6O4QEfdBy925s5d5ZLmPcheHCggLL9GYCGWXjt dQEMqkWbOv5jbEngnIGCKd34ALfNMIgn+4106UPARyZhnPIxMia+v7Iz8o2GKAVe WGMvEqBEjA6jMlneINNzdlNoLzBYt9ctBaqbmLvtJKFHM/tAf9vLXAQjQFb82F0u vVm5pHhR9Ie5LcsUgZ3Qvye/LnQBttBsqLK5CypmeEpgzAa6HK9XMd9HgNVUILLo PkIJqvmp4pjmg38aWwT2/pY3sT04lmLs++1Ebc0vv7PWzcdh9dzrAgMBAAGjYTBf MD4GA1UdEQQ3MDWCDWlkcC51c2ZjYS5lZHWGJGh0dHBzOi8vaWRwLnVzZmNhLmVk dS9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUIcrxWFEtfoUSOH0acWtKHjpuRtgw DQYJKoZIhvcNAQEFBQADggEBAEnuVIGeZKXwxcNjLr+nKRnwfK801VihRgwBTI7i k4Lnj9epzeoTvr1rkjPs4+DyrKb6IXO1QLmK3mo/kPbBJgzKXZcF18/PKW5vFc+X Gy1D42zlsrRipEMJLnsTQ7gsvd0s928jC0aWFwOEIbm22z/qyBSszcJN3seAn8E+ 637XihOmQITjlmFG1PjuCvWz84VgV8LTCCr7duICVBvUpR7vez/vjO3KJFU84SV2 vdqJv1AF7DcY+GA30cLr6Y+IaOhnrzyN7VG+EAIq1Gs/3qzlyuMFEiCwqO9qGJKm nMb/UjKmfuoylzQvl9mN4qRmOTFUecoGIVi6VNtG0gDsyG4=</validationCert>
+</SamlSsoConfig>

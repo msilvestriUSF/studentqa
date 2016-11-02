@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.hed__Student_Course_Enrollments__r$Course_Name__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>Contact.hed__Student_Course_Enrollments__r$hed__Grade__c</field>
+    </columns>
+    <columns>
+        <field>Contact.hed__Student_Course_Enrollments__r$Letter_Grade__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Contact$Student__c</column>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.hed__Student_Course_Enrollments__r$Grade_Change_Reason__c</column>
+            <operator>contains</operator>
+            <value>Final</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>LWC Student Final GPA</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contacts_and_Course_Connection__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

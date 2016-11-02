@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <fullName>Boolean_Value__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Boolean Value</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Integer_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Integer Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Text_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Text Value</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields><customSettingsType>List</customSettingsType><description>Stores all configurable settings for USF</description><enableFeeds>false</enableFeeds><label>App Config</label><visibility>Public</visibility></CustomObject>

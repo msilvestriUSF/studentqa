@@ -1,0 +1,16 @@
+<!--
+//************************************************************************************
+// Name             : USF_AppointmentConfirmationDetails
+// Description      : Visualforce component to display Appointment details
+// Created By       :  Mohan Kalagatla
+// Created Date     : 09/06/2016 
+// ************************Version Updates********************************************
+// Date             Developer               Description
+// -----------------------------------------------------------------------------------
+// 09/06/2016       Mohan Kalagatla      Created
+// ************************************************************************************
+-->
+<apex:component controller="USF_AppointmentConfirmationDetailsExtn" access="global">
+     <apex:outputText value=" {!slotStartValue}"/>
+    <apex:attribute name="IDofObject" type="ID" description="Id of the object being passed" assignTo="{!objectID}"/>
+ </apex:component>

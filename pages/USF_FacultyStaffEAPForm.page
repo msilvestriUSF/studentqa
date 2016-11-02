@@ -1,0 +1,575 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" cache="true" docType="html-5.0" language="en-US" applyHTMLTag="false" standardController="case" extensions="USF_FacultyStaffEAPFormController" title="EAP Report Form">
+<title>Student Progress Report Form</title>
+<apex:form styleclass="form-group">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+
+
+<apex:includeScript value="{!URLFOR($Resource.MomentJs)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+
+<style>
+body{    
+    background: #F8F7F0;
+}
+
+.mainWrap {
+    margin: 10px 0 0 0;
+    padding: 20px 20px 40px 20px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px 0px rgba(145,145,147,0.20);
+    border-radius: 5px;
+}
+.student-details{
+    padding: 20px 25px;
+    border: 1px solid #E6E6E6;
+    border-radius: 4px;
+    margin-bottom: 22px;
+}
+.student-details .row{
+    margin-bottom: 25px;
+}
+.student-details .row:last-child{
+    margin-bottom: 0;
+}
+.subject-margin{
+    margin-bottom: 55px;
+}
+.table{
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.table>thead>tr>th{
+    border:0;
+    text-align:left;
+    font-weight: normal;
+}
+
+.table>tbody>tr>td, .table>tfoot>tr>td{
+   border: 1px solid #999;
+    vertical-align: middle;
+    /* border-radius: 5px 0 0 5px; */
+    border-width: 1px 0;
+    text-align: left;
+    font-size: 15px;
+    color:#999;
+}
+
+.table>tbody>tr>td:first-child{
+    border-left-width: 1px;
+    border-radius: 5px 0 0 5px;
+    font-weight: bold;
+    width: 30%;
+}
+
+.table>tbody>tr>td:nth-child(2){
+    width: 30%;
+}
+
+
+.table>tbody>tr>td:last-child{
+    border-right-width: 1px;
+    border-radius: 0 5px 5px 0;
+}
+
+.btn{
+    background: #fff;
+}
+.green {
+    border-color: green;
+    color: green;
+    padding: 3px;
+    font-size: 12px;
+}
+
+hr{
+    border: 1px solid #E6E6E6;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.studentTable{
+    display:none;
+}
+
+
+.addBorder{
+    border-color: green !important;
+}
+
+.form-horizontal .control-label{
+    padding-top:0;
+}
+
+textarea{
+    resize: none;
+}
+
+.reasonWrap p{
+    font-size: 16px;
+}
+
+.estimateWrap label {
+    padding-left: 32px;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.btnWrap{
+    padding-top: 20px;
+}
+
+table.makeRows{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+table.makeRows tr td label{
+    margin-left: 15px;
+    font-weight: normal;
+}
+
+table.makeRows tr td {
+ width: 25%;
+} 
+
+/*VD starts here*/
+.bodyClass{
+    font-size: 14px;   
+    font-family: Whitney-Book; 
+    color: #2a2a2a;
+}
+.container {
+    width: 935px;
+}
+h2.headerClass{
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    color: #00543C;
+    margin-bottom: 15px;
+}
+h2.headerClass span{    
+    font-family: Whitney-Black;
+    font-size: 22px;
+}
+h2.headerClass i.glyphicon{
+    font-size: 20px;    
+    cursor: pointer;
+}
+.btn-default {
+    background: white;    
+    padding: 10px 38px;
+    margin: 0 15px;
+    background-color: #00543C;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.btn-default:hover,.btn-default:focus{
+    background-color: #00543C;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.btn-default:active{
+    background-color: #73973F;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.last-button {
+    margin-right: 0;
+}
+.row-eq-height {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display:         flex;
+      align-items:center;
+}
+.detailsContainer{
+    background: #fff;
+    border-radius: 5px;
+    padding: 25px;
+}
+.title-text{
+    font-family: Whitney-Semibold;
+}
+.status{
+    font-family: Whitney-Semibold;
+    padding: 6px 16px;
+    border-radius: 4px;
+    border-width: 2px;   
+    border-style: solid;
+}
+.modal-footer {
+    text-align: center;
+}
+.form-control{    
+    letter-spacing: 0;
+    font-family: Whitney-Book;
+    font-size: 14px;
+    color: #2A2A2A;
+    box-shadow: none;
+    border: 1px solid #919194;
+    border-radius: 0;
+    height: 45px;
+}
+input[type='radio'],
+input[type='checkbox']{
+  /* Hide original inputs */
+  visibility: hidden;
+  position: absolute;
+}
+
+input[type='radio'] + label:before{
+  height:12px;
+  width:12px;
+  margin-right: 5px;
+  content: " ";
+  display:inline-block;
+  vertical-align: baseline;
+  border:2px solid #919194;
+}
+
+input[type=checkbox] + label:before{
+  height:15px;
+  width:15px;
+  margin-right: 15px;
+  /*content: "✔";*/
+  content: " ";
+  display:inline-block;
+  vertical-align: baseline;
+  border:1px solid #919194;
+    position: relative;
+    top: 1px;
+} 
+
+input[type=radio]:checked + label:before{
+    background: #00543C;
+    background-clip: content-box;
+    border: 2px solid #00543C;
+    padding: 1px;
+}
+
+input[type=checkbox]:checked + label:before{
+    background: #00543C;
+    border: 1px solid #00543C;
+    padding: 1px;
+    color:#fff;
+    background-image: url(/resource/USF_Checkbox); 
+    background-size: contain;
+}
+
+
+/* CUSTOM RADIO AND CHECKBOX STYLES */
+input[type=radio] + label:before{
+  border-radius:50%;
+}
+input[type=checkbox] + label:before{
+  border-radius:2px;
+}
+.radio label, .checkbox label{
+    padding-left: 0px;
+}
+.mainWrap p{
+    margin-bottom: 10px;
+}
+.marginB{
+    margin-bottom: 15px;
+}
+.grade-margin{
+    margin-top: 20px;
+}
+textarea.form-control{
+    height: 135px;
+}
+.modal-title{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #00543C !important;
+}
+ul.dropdown-menu{
+    padding: 0;
+    border-radius: 0;
+}
+
+ul.dropdown-menu .divider{
+    margin: 0;
+}
+
+ul.dropdown-menu li{
+    margin: 0;
+}
+
+ul.dropdown-menu>li>a{
+    padding: 10px 15px;
+    font-size: 12px;
+    color: #2A2A2A;
+    font-family: QuattrocentoSans;
+}
+
+ul.dropdown-menu>li>a:hover{
+    background-color: #E6E6E6;
+    background-image: none;
+}
+
+.btnGroup {
+padding:0;
+margin-top:30px;
+}
+.submitBtn{
+margin:0 !important;
+}
+.submitBtn,.cancelBtn {
+width:180px;
+}
+.cancelBtn, .cancelBtn:hover {
+    background-color: #73973F;
+}
+
+/*Mobile phone media queries*/
+@media only screen and (max-width: 544px){
+    .container {
+        max-width: 440px !important;
+    }
+    table.makeRows tr{
+        display: block;
+    }
+    table.makeRows tr td{
+        display: block;
+        width: 100%;
+    }
+
+    .student-details .row {
+        margin-bottom: 0 !important;
+    }
+
+    .student-details .row div{
+        margin-bottom: 10px;
+    }
+}
+/*Tablet Media queries*/
+@media only screen and (max-width: 768px){
+    .container {
+        max-width: 708px;
+    }
+}
+</style>
+
+<script type="text/javascript">
+window.onload = init;
+function init() {
+   tables = document.getElementsByTagName('table');
+   for (i = 0; i < tables.length; i++) {
+   
+      table = tables[i];
+      if (table.className == 'makeRows' ) {
+         makeRows(table, 3);
+      }
+   }
+}
+
+function makeRows(table, columnCount) {
+   cells = table.rows[0].cells;
+   cellCount = cells.length;
+   rowCount = Math.ceil(cellCount / columnCount);
+   for (var j= 0; j < rowCount; j++) {
+      table.insertRow(0);
+   }
+   for (var k = 0; k < cellCount; k++) {
+      row = Math.floor(k / columnCount);
+      table.rows[row].appendChild(cells[k].cloneNode(true));
+   }
+   table.deleteRow(rowCount);
+ }
+ 
+ function saveReferral(){
+
+ submitReferral();
+ 
+ setTimeout($('#changeLocation').modal('show'), 1000);
+
+ //$('#changeLocation').modal('show');
+ 
+ }
+ 
+</script>
+<body class="bodyClass">
+<c:USF_Header />
+    <apex:actionFunction action="{!submitReferral}" name="submitReferral" reRender="messageBox"/>
+    <section class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h2 class="headerClass">
+                    <i class="glyphicon glyphicon-chevron-left" onClick="backToDashboard();"></i>
+                    <apex:actionFunction action="/apex/USF_FacultyDashBoard" name="backToDashboard"/>
+                    <span>Student Progress Report Form</span>
+                </h2>
+            </div>
+        </div>        
+        <div class="mainWrap">
+            <div class="student-details">
+                <apex:messages style="color:green; font-weight:bold; font-size:16px;" id="pageMessage"/>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <span>
+                            <span class="title-text">STUDENT: &nbsp; </span>
+                             <!--20334880 Scott, Brittni Yvonne-->
+                            <apex:outputtext value="{!sName}" rendered="{!!viewFormToggle}"/>
+                            <apex:outputText value="{!eapReportRecord.ContactLastName__c}, {!eapReportRecord.ContactFirstName__c} {!eapReportRecord.CWID__c}" rendered="{!viewFormToggle}"/>
+                        </span>
+                    </div>
+                     <div class="col-md-6col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <span><span class="title-text">FACULTY: &nbsp; </span><apex:outputText value="{!facultyName}" /></span>
+                    </div>   
+                                       
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <span>
+                            <span class="title-text">COURSE: &nbsp; </span>
+                            <apex:outputText value="{!courseSectionName}" rendered="{!!viewFormToggle}"/>
+                            <apex:outputText value="{!IF(eapReportRecord.Course_Section__c != null,eapReportRecord.CourseName__c+' ('+eapReportRecord.Course_Section__c+')',eapReportRecord.CourseName__c)}" rendered="{!viewFormToggle}"/>
+                        </span>
+                    </div>
+                    <apex:outputPanel rendered="{!viewFormToggle}">
+                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                       <span>
+                            <span class="title-text">CASE NUMBER: &nbsp; </span>
+                            <apex:outputText value="{!eapReportRecord.CaseNumber}" />
+                        </span>
+                    </div>    
+                    </apex:outputPanel>               
+                </div>                
+                <!-- <div class="form-group">
+                     <label class="control-label col-md-2 col-sm-2" for="email">NOTES:</label>
+                     <div class="col-md-3 col-sm-3">
+                        <!--<textarea class="form-control">
+                        
+                        </textarea>
+                        <apex:inputfield value="{!newEAPReport.Notes__c}" styleclass="form-control"/>
+                     </div>
+                </div>-->
+            </div>
+           
+            <div>
+            <!--<p>Please select all appropriate options from the check boxes below</p><br></br>-->
+                <p class="title-text">Areas for Improvement</p>    
+                <apex:selectCheckboxes styleClass="makeRows" value="{!areasOfImp}" disabled="{!viewFormToggle}" >
+                    <apex:selectOptions value="{!AreasOfImprovement}"/>  
+                </apex:selectCheckboxes>
+            </div>
+            <hr />
+            <div>
+                <p class="title-text">Work</p>
+                <apex:selectCheckboxes styleClass="makeRows" value="{!selectedWork}" disabled="{!viewFormToggle}">
+                    <apex:selectOptions value="{!WorkValues}"/>  
+                </apex:selectCheckboxes>
+            </div>
+            <hr />
+            <div>
+                <p class="title-text">Recommendations</p>
+                <apex:selectCheckboxes styleClass="makeRows" value="{!selectedRecomendations}" disabled="{!viewFormToggle}">
+                    <apex:selectOptions value="{!RecommendationValues}"/>  
+                </apex:selectCheckboxes>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="marginB"><span class="title-text">Estimated Grade:</span></div>
+                    <div>
+                        <span>
+                            <apex:outputText value="{!eapReportRecord.Estimated_Grade__c}" rendered="{!viewFormToggle}"/>
+                            <apex:inputfield value="{!newEAPReport.Estimated_Grade__c}" styleclass="form-control" rendered="{!!viewFormToggle}"/>
+                        </span>
+                    </div>
+                </div> 
+                                 
+            </div>
+            <div class="row grade-margin">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="marginB"><span class="title-text">Notes to Student:</span></div>
+                    <div>
+                        <span>
+                            <apex:outputText value="{!eapReportRecord.Notes__c}" rendered="{!viewFormToggle}"/>
+                            <apex:inputfield value="{!newEAPReport.Notes__c}" styleclass="form-control" rendered="{!!viewFormToggle}" html-rows="3"/>
+                        </span>
+                    </div>
+                </div>        
+                
+            </div>
+              
+            <div class="btnGroup text-center">
+            <apex:commandbutton value="Submit" styleClass="btn btn-default submitBtn cancelBtn" action="{!submitReferral}" reRender="messageBox" oncomplete="$('#changeLocation').modal('show');" rendered="{!!viewFormToggle}" status="actStatusId"/> 
+            <apex:commandbutton action="/apex/USF_FacultyStaffEAPIntg" value="Cancel" styleClass="btn btn-default" rendered="{!!viewFormToggle}"/> 
+            
+                                                   
+            
+            </div>
+          
+                
+        </div>
+        
+      
+        <div id="changeLocation" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <apex:outputPanel id="messageBox">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+            <h4 class="modal-title">Message</h4>
+          </div>
+          
+          <div class="modal-body">
+           <apex:outputText value="{!message}" style="color:green; font-weight:bold; font-size:16px;"></apex:outputText> 
+          </div>
+          <div class="modal-footer">
+            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>-->
+          <!--  <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>  -->
+          <apex:commandButton styleClass="btn btn-default" action="/apex/USF_FacultyDashBoard" value="Ok" />
+            
+          </div>
+        </div>
+    </apex:outputPanel>
+      </div>
+    </div>
+    
+    <apex:actionStatus id="actStatusId" >
+                                    <apex:facet name="start" >
+                                    <!--  <img src="/img/loading.gif" />     -->
+                                    <c:loadingStatus />               
+                                    </apex:facet>
+                                </apex:actionStatus>
+        
+        <script>
+            $.fn.modal.prototype.constructor.Constructor.DEFAULTS.backdrop = 'static'; 
+            $.fn.modal.prototype.constructor.Constructor.DEFAULTS.keyboard = false;
+        </script>  
+        
+    </section>
+</body>
+
+<c:USF_Footer /> 
+
+</apex:form>
+</apex:page>

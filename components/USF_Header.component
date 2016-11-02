@@ -1,0 +1,181 @@
+<apex:component controller="USF_HeaderExtn" allowDML="true">    
+    <style type="text/css">
+        .navbar{            
+            font-size: 12px; 
+            background-color: #FFFFFF;
+            font-family: Whitney-Semibold;
+            color: #2A2A2A;
+            letter-spacing: 0px;
+            line-height: 18px;
+        }        
+        .notificationLinkParent{
+            font-size: 20px;
+            position: relative;
+        }
+        .notificationLinkParent .glyphicon{
+            padding:6px 0;
+        }
+        .notificationLinkParent a[data-messages]:after {
+            content: attr(data-messages);
+            position: absolute;
+            top: 14px;
+            left: 25px;
+            background: #ea4335;
+            color: white;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+            line-height: 16px;
+            border-radius: 50%;
+            font-size: 0.6em;
+        }
+        .profileName{
+            color: #00543C !important;
+        }
+        .profileName span{
+            margin-left: 20px;
+        }
+        .navbar-nav>li>a {
+            padding: 22px 15px;
+        }
+        .navbar .row-eq-height {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display:         flex;
+            align-items:center;
+        }
+        .navbar-header{
+            padding: 7px 0;
+        }
+        #myModalEditProfile p{
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        #myModalEditProfile .header-title-text{
+            font-family: QuattrocentoSans-Bold !important;
+            color: #00543C !important;
+            margin: 30px 0 10px 0 !important;
+        }
+        #myModalEditProfile .modal-edit-row{
+            margin: 20px 0 0 0 !important;
+        }
+        body{
+            margin-top: 105px;
+        }
+        .navbar ul.dropdown-menu{
+            padding: 0;
+            border-radius: 0;
+        }
+        
+        .navbar ul.dropdown-menu .divider{
+            margin: 0;
+        }
+        
+        .navbar ul.dropdown-menu li{
+            margin: 0;
+        }
+        
+        .navbar ul.dropdown-menu>li>a{
+            padding: 10px 15px;
+            font-size: 12px;
+            color: #2A2A2A;
+            font-family: QuattrocentoSans;
+        }        
+        .navbar ul.dropdown-menu>li>a:hover{
+            background-color: #E6E6E6;
+            background-image: none;
+        }
+        .navbar .glyphicon{
+            font-size:20px;
+        }
+    </style>
+    <nav class="navbar navbar-default navbar-fixed-top nav-page-header">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+              <a class="navbar-brand" href="#"><img src="/resource/USF_HeaderLogo" alt=""/></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right row-eq-height">
+                  <li style="display: {!if(isStudentProfile,"block","none")}" class="">
+                      <a href="/apex/USF_StudentHelpFAQ">
+                        <span class="glyphicon glyphicon-info-sign"></span> 
+                      </a>
+                  </li>
+                  <!--<li class="dropdown notificationLinkParent">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="glyphicon glyphicon-bell"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Page 1-1</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Page 1-2</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Page 1-3</a></li> 
+                    </ul>
+                  </li> -->
+                  <li class="dropdown">
+                    <a class="dropdown-toggle profileName" data-toggle="dropdown" href="#">
+                        <img src="{!$Label.USF_ImageURL}{!con.cwid__c}.JPG" alt="user image" width="32px" height="32px" class="img-circle" />
+                        <span><apex:outputText value="{!loggedinUser.Name}" /></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!--<apex:variable value="{!isDashboardPage}" var="isStudent" rendered="{!isDashboardPage}">-->
+                            <li>
+                             <apex:commandLink value="{!linkValue}" rendered="{!isPermissionAssgined}" action="/apex/{!pageLink}"/>
+                            </li>
+                        <!--</apex:variable>-->
+                         <li role="separator" class="divider" style="display: {!if(isPermissionAssgined,"block","none")}"></li>
+                        <li style="display: {!if(isStudentProfile,"none","block")}"><a data-toggle="modal" data-target="#myModalEditProfile" href="javascript:void(0);">Edit</a></li>
+                        <li role="separator" class="divider" style="display: {!if(isStudentProfile,"none","block")}"></li>
+                        <li>
+                        <!--<a href="#">Sign Out</a>-->
+                        <apex:commandLink value="Sign Out" action="{!signOut}"/>
+                        </li>
+                    </ul>
+                  </li> 
+                </ul>
+            </div>          
+        </div>
+    </nav>
+    <section>
+        <div id="myModalEditProfile" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header modal-header-edit">
+                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h2 class="modal-title">Edit Profile</h2>
+              </div>
+              <div class="modal-body modal-body-edit">
+                    <div>
+                        <p>Zoom URL</p>
+                        <apex:inputText styleclass="form-control" value="{!zoomDetails}"/>
+                    </div>
+                    <p class="header-title-text">Learning Center Preferences</p> 
+                    <div>
+                        <p>Maximum appointments per week</p>
+                        <apex:inputText styleclass="form-control form-control-auto" value="{!hoursInWeek}"/>
+                    </div>  
+                    <div class="modal-edit-row">
+                        <p>Maximum appointments in a row</p>
+                         <apex:inputText styleclass="form-control form-control-auto" value="{!hoursInRow}"/>
+                    </div>                    
+              </div>
+              <div class="modal-footer modal-footer-edit text-center">
+                    <apex:commandButton action="{!updateUserDetails}" styleClass="search-button btn btn-default search-button-menu primaryBtnSec" value="Save"/> 
+                    <button class="search-button btn btn-default search-button-menu " type="button" data-dismiss="modal">Cancel</button> 
+                    
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+    </section>
+</apex:component>

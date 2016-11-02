@@ -1,0 +1,10 @@
+To {!AppointmentContact__c.00N2C000000KxDE}, 
+
+We would like to inform you that your appointment with {!Timeslot_Definition__c.Student__c} has been changed. Please review the current appointment information below. 
+
+Tutoring appointment with {!Timeslot_Definition__c.Student__c} has been changed to {!AppointmentContact__c.Start_Time__c} on {!AppointmentContact__c.Start_Date__c}.
+
+If you have any questions, please contact us at 415-422-6713.
+
+Thank you,
+The Learning and Writing Center

@@ -1,0 +1,488 @@
+<apex:page controller="USF_LWCStaffConAvailbltyController" action="{!pageLoad}" showHeader="{!!isLWCConsultant}" sidebar="false" standardStylesheets="false" cache="false" docType="html-5.0" language="en-US" applyHTMLTag="{!!isLWCConsultant}" tabStyle="Front_Desk_Dashboard__tab">
+    <link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+    <link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+    
+    <apex:Stylesheet value="{!URLFOR($Resource.fullCalendarZip,'fullcalendar-2.9.1/fullcalendar.min.css')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.fullCalendarZip,'fullcalendar-2.9.1/lib/jquery.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.fullCalendarZip,'fullcalendar-2.9.1/lib/jquery-ui.custom.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.fullCalendarZip,'fullcalendar-2.9.1/lib/moment.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.fullCalendarZip,'fullcalendar-2.9.1/fullcalendar.min.js')}"/>    
+    <apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+    <link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+ <title>Availability Calendar</title>                         
+    <apex:outputPanel id="jsFilter">
+
+    <script>
+    var myeventsTest =[{"id":99,"title":"","start":"2016-10-26T07:30:00Z","end":"2016-10-26T13:00:00Z","color":"#fff","textColor":"#000","borderColor":"#000","allDay":false},{"id":101,"title":"","start":"2014-05-27T13:00:00Z","end":"2014-05-27T17:00:00Z","color":"#fff","textColor":"#000","borderColor":"#000","allDay":false}]
+        //We need to wrap everything in a doc.ready function so that the code fires after the DOM is loaded
+        $(document).ready(function() {   
+            var newSource = new Array();
+          newSource = [
+             <apex:repeat value="{!events}" var="cal">
+             {
+                title: "{!cal.title}",
+                start: '{!cal.startString}',
+                end: '{!cal.endString}',
+                url: '{!cal.url}',
+                allDay: '{!cal.allDay}',
+                className: '{!cal.className}'
+             },
+             </apex:repeat>
+          ];
+          $('#calendar').fullCalendar('removeEvents');
+          $('#calendar').fullCalendar('addEventSource', newSource);
+            //Call the fullCallendar method. You can replace the '#calendar' with the ID of the dom element where you want the calendar to go. 
+            var myEvents = [
+                    //At run time, this APEX Repeat will reneder the array elements for the events array
+
+                    <apex:repeat value="{!events}" id="repeatId" var="e">
+
+                        {
+
+                            title: "{!e.title}",
+
+                            start: '{!e.startString}',
+
+                            end: '{!e.endString}',
+
+                            url: '{!e.url}',
+
+                            allDay: '{!e.allDay}',
+
+                            className: '{!e.className}'
+
+                        },
+
+                    </apex:repeat>
+                ];
+            $('#calendar').fullCalendar({
+                header: {
+
+                    left: 'prev,next today',
+
+                    center: 'title',
+
+                    right: 'month,agendaDay'
+
+                },
+
+                views: {
+                    agendaDay: { // name of view
+                        titleFormat: 'dddd, MMMM DD, YYYY'
+                        // other view-specific options here
+                    }
+                },
+                timeFormat: 'h:mma',
+                editable: false,
+                height:750,
+                lang: 'en',
+                eventLimit: true, // If you set a number it will hide the items
+                eventLimitText: "more..",                 
+
+                events: function (start, end, timezone, callback) {
+        console.log(myEvents);
+        var obj = myEvents;
+        var events = [];
+        
+        $.each(obj, function (index, value) {
+            console.log(obj);
+            console.log(value)
+            event = {};
+            event.title = value['title']           
+            event.start = value['start'];
+            event.end = value['end'];
+            event.url = value['url'];
+            event.allDay = false;
+            //event.allDay = value['allDay'];
+            event.className = value['className'];            
+            console.log(event);
+            events.push(event);
+        });
+        
+        callback(events);
+    }
+
+                
+
+            });
+        });
+    </script>
+ </apex:outputPanel> 
+    <!--some styling. Modify this to fit your needs-->
+    <style>
+
+        #cal-options {float:left;}
+
+        #cal-legend { float:right; margin-right: 15px;}
+
+        #cal-legend ul {margin:0;padding:0;list-style:none;}
+
+        #cal-legend ul li {margin:0;padding:5px;float:left;}
+
+        #cal-legend ul li span {display:block; height:16px; width:16px; margin-right:15px; float:left; border-radius:4px;}
+
+        #calendar {margin-top:30px;}
+
+        #calendar a {color:#2A2A2A !important;}
+        #calendar a.fc-more{    color: #00543C !important;}
+
+        #calendar a:hover {color:#fff !important;}
+
+        .fc-event-inner {padding:3px;}
+
+        .event-booked {background:transparent;border-color:transparent;}
+
+        .event-dropin {background:transparent;border-color:transparent;}
+
+        .event-open {background:transparent;border-color:transparent;}
+
+        #cal-legend .event-open:before,#cal-legend .event-booked:before,#cal-legend .event-dropin:before{
+            padding: 0 3px;
+            vertical-align: baseline;
+        }
+
+        .event-dropin:before{
+            content: "D";
+            background: #E8F1C5;
+            border-color: #E8F1C5;
+            vertical-align: top;
+            padding: 3px;
+            border-radius: 3px;
+            margin: 0 2px;
+            display: inline-block;
+        }
+        .event-open:before{
+            content: "A";
+            background: #FCBB30;
+            border-color: #FCBB30;
+            vertical-align: top;
+            padding: 3px;
+            border-radius: 3px;
+            margin: 0 2px;
+            display: inline-block;
+        }
+        .event-booked:before{
+            content: "B";
+            background: #E6E6E6;
+            border-color: #E6E6E6;
+            vertical-align: top;
+            padding: 3px;
+            border-radius: 3px;
+            margin: 0 2px;
+            display: inline-block;
+        }       
+
+        /*VD starts here*/
+        
+        body.sfdcBody{
+font-size: 12px;   
+}
+.bodyDiv,
+.bodyClass{
+    font-size: 14px;
+    font-family: QuattrocentoSans;
+    color: #2A2A2A;
+    background-color: #F8F7F0;
+}
+.container {
+    max-width: 935px;
+}
+h2.headerClass{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: #00543C;
+}
+h2.headerClass a{
+    color: #00543C;
+}
+h2.headerClass span{    
+    font-family: Whitney-Black;
+    font-size: 20px;
+}
+h2.headerClass i.glyphicon{
+    font-size: 15px;    
+    cursor: pointer;
+}
+.top-row{
+    margin-top: 40px;
+}
+.fc-event, .fc-event:hover, .ui-widget .fc-event{
+    color:#2a2a2a;
+}
+.fc-center h2{
+    font-size: 20px;
+    font-family: QuattrocentoSans-Bold;
+    color: #00543C;
+}
+.fc-view-container{
+    background-color: #fff;
+}
+.fc-toolbar{
+    margin-bottom: 35px;
+}
+.fc-button{
+    text-transform: capitalize;
+}
+.fc-today-button,.btn-default {
+    font-family: QuattrocentoSans-Bold;
+    background: white;    
+    padding: 10px 38px;
+    margin: 0 15px;
+    background-color: #00543C;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.fc-today-button:hover,.fc-today-button:focus,.btn-default:hover,.btn-default:focus{
+    background-color: #73973F;
+    color: #fff;    
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.fc-today-button[disabled]:hover,.fc-today-button[disabled]:focus{
+    background-color: #00543C;
+}
+.fc-today-button:active,.btn-default:active{
+    background-color: #73973F;
+    color: #fff;    
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+button.fc-prev-button,button.fc-next-button{    
+    background: transparent;
+    background-color: transparent;
+    color: #00543C;    
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+button.fc-prev-button:hover,button.fc-prev-button:focus,button.fc-next-button:hover,button.fc-next-button:focus{
+    background-color: transparent;
+    color: #666;    
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+button.fc-prev-button:active,button.fc-next-button:active{
+    background-color: transparent;
+    color: #666;    
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.form-control{    
+    letter-spacing: 0;
+    font-family: Whitney-Book;
+    font-size: 14px;
+    color: #2A2A2A;
+    box-shadow: none;
+    border: 1px solid #919194;
+    border-radius: 0;
+}
+.fc-month-button.fc-state-default,.fc-agendaDay-button.fc-state-default{
+    background-color: #fff;
+    color: #00543C;
+    background-image: none;
+    min-width: 78px;
+    border-color: #00543C;
+    text-shadow:none;
+}
+.fc-month-button.fc-state-active,.fc-agendaDay-button.fc-state-active{
+    background-color: #00543C;
+    color: #fff;  
+    text-shadow:none;
+}
+.fc-month-button.fc-state-hover,.fc-agendaDay-button.fc-state-hover{
+    background-image: none;
+}
+#calendar a:hover {
+    color: #00543C !important;
+}
+.fc-unthemed .fc-popover{
+    background: #FFFFFF;
+    border: 1px solid #E6E6E6;
+    box-shadow: 0px 2px 4px 0px rgba(212,209,209,0.50);
+    border-radius: 4px;
+}
+.fc-unthemed .fc-popover .fc-header{
+    background-color: #00543C;
+    color: #fff;
+    border-radius: 4px 4px 0 0;
+}
+.fc-unthemed .fc-popover .fc-header .fc-close{
+    color: #fff;
+}
+.event-dropin.fc-day-grid-event .fc-content,.event-dropin.fc-time-grid-event .fc-content{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 15px;
+    display: inline-block;
+    overflow: hidden;
+    background: #E8F1C5;
+    border-color: #E8F1C5;
+    padding: 3px;
+    border-radius: 3px;
+    width: 79.5%;
+}
+.event-open.fc-day-grid-event .fc-content,.event-open.fc-time-grid-event .fc-content{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 15px;
+    display: inline-block;
+    overflow: hidden;
+    background: #FCBB30;
+    border-color: #FCBB30;
+    padding: 3px;
+    border-radius: 3px;
+    width: 80%;
+}
+.event-booked.fc-day-grid-event .fc-content,.event-booked.fc-time-grid-event .fc-content{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 15px;
+    display: inline-block;
+    overflow: hidden;
+    background: #E6E6E6;
+    border-color: #E6E6E6;
+    padding: 3px;
+    border-radius: 3px;
+    width: 80%;
+}
+.event-booked.fc-time-grid-event:before,.event-booked.fc-time-grid-event .fc-content{
+    border: 1px solid #999;
+}
+.event-dropin.fc-time-grid-event:before,.event-dropin.fc-time-grid-event .fc-content{
+    border: 1px solid #999;
+}
+.event-open.fc-time-grid-event:before,.event-open.fc-time-grid-event .fc-content{
+    border: 1px solid #e80;
+}
+.event-booked.fc-time-grid-event:before,.event-open.fc-time-grid-event:before,.event-dropin.fc-time-grid-event:before{
+    padding: 9px 3px;
+}
+/*media queries*/
+@media (max-width: 768px) {
+    .event-open.fc-day-grid-event .fc-content,.event-open.fc-time-grid-event .fc-content{        
+        width: 73%;
+    }
+    .event-booked.fc-day-grid-event .fc-content,.event-booked.fc-time-grid-event .fc-content{        
+        width: 73%;
+    }
+    .event-dropin.fc-day-grid-event .fc-content,.event-dropin.fc-time-grid-event .fc-content{        
+        width: 73.5%;
+    }
+}
+@media (max-width: 460px) {
+    .event-open.fc-day-grid-event .fc-content,.event-open.fc-time-grid-event .fc-content{        
+        width: 58%;
+    }
+    .event-booked.fc-day-grid-event .fc-content,.event-booked.fc-time-grid-event .fc-content{        
+        width: 58%;
+    }
+    .event-dropin.fc-day-grid-event .fc-content,.event-dropin.fc-time-grid-event .fc-content{        
+        width: 56.5%;
+    }
+}
+    </style>
+    <apex:form id="formId">
+     <c:USF_Header rendered="{!isLWCConsultant}" /> 
+    <body class="bodyClass">
+        <section class="container">
+            <div class="row row-eq-height">
+                <div class="col-md-5">
+                    <h2 class="headerClass">
+                        <i class="glyphicon glyphicon-chevron-left" onClick="backToDashboard();"></i>
+                        <apex:actionFunction action="{!IF(isCasaStaff,'/apex/USF_FrontDeskStaffDashboard','/apex/USF_ConsultantDashboard')}" name="backToDashboard"/>
+                        <span><apex:outputText rendered="{!isCasaStaff}">CASA &nbsp;</apex:outputText>Availability Calendar</span>                        
+                    </h2>
+                </div>             
+            </div>
+        <apex:outputPanel id="calPanel">
+                <apex:input value="{!events}" id="eventList" rendered="false"/>
+                <!--<apex:actionFunction name="CallApexMethod" action="{!filterSelection}" onComplete="alert('After apex method') ;" />-->
+                <apex:outputPanel id="filterPanel">
+                <div class="row top-row">
+                    <div class="col-md-3">
+                        <!--<label>Center</label>-->
+                        <!--<apex:outputLabel rendered="{!IF(isLWCStaff || isLWCConsultant, true, false)}">Center</apex:outputLabel>
+                        <apex:outputLabel rendered="{!isCasaStaff}">Coach</apex:outputLabel>                  
+                        <!--<apex:actionRegion >-->
+                        <apex:selectList id="center" label="Center" styleClass="form-control" size="1"  multiselect="false"  value="{!selectedCenter}" rendered="{!IF(isCasaStaff,false,true)}">
+                            <apex:actionSupport event="onchange" reRender="jsFilter, filterPanel, calPanel" action="{!filterSelection}" status="statusProcessing"/>
+                            <apex:selectoptions value="{!centersList}"></apex:selectoptions>
+                        </apex:selectList>
+                        
+                        <apex:selectList styleClass="form-control" size="1"  multiselect="false"  value="{!selectedCoach}" rendered="{!isCasaStaff}">
+                            <apex:actionSupport event="onchange" reRender="jsFilter, filterPanel,calPanel" action="{!filterSelection}" status="statusProcessing"/>
+                            <apex:selectoptions value="{!CoachFilterValues}"></apex:selectoptions>
+                        </apex:selectList>  
+                        
+                        
+                        <!--</apex:actionRegion>-->
+                    </div>
+                        
+                    <apex:outputPanel rendered="{!!(isCasaStaff || isLWCConsultant)}">
+                        <div class="col-md-3">
+                            <!--<label>Consultant</label>-->
+                            <!--<apex:outputLabel rendered="{!isLWCStaff}">Consultant</apex:outputLabel>-->
+                            <apex:selectList id="consultant" label="Consultant" styleClass="form-control" size="1"  multiselect="false"  value="{!selectedConsultant}" rendered="{!!(isCasaStaff || isLWCConsultant)}">
+                                <apex:actionSupport event="onchange" reRender="jsFilter,filterPanel,calPanel" action="{!filterSelection}" status="statusProcessing"/>
+                                <apex:selectoptions value="{!consultantsList}"></apex:selectoptions>
+                            </apex:selectList>
+                        </div>
+                    </apex:outputPanel>
+                    <apex:outputPanel id="CourseFilterPanel" layout="block" rendered="{!IF(selectedCenter== $Label.LWC_Learning_Center_Id, true, false)}">     
+                        <div class="col-md-3">
+                             <!--<label>Course</label>-->
+                             <apex:selectList id="course" label="Course" styleClass="form-control" size="1"  multiselect="false"  value="{!selectedCourse}">
+                                <apex:actionSupport event="onchange" reRender="jsFilter,filterPanel,calPanel" action="{!filterSelection}" status="statusProcessing"/>
+                                <apex:selectoptions value="{!coursesList}"></apex:selectoptions>
+                            </apex:selectList> 
+                        </div>
+                    </apex:outputPanel> 
+                    <apex:outputPanel id="SpecialtyFilterPanel" layout="block" rendered="{!IF(selectedCenter== $Label.LWC_Writing_Center_Id, true, false)}">     
+                        <div class="col-md-3">
+                             <!--<label>Specialty</label>-->
+                             <apex:selectList id="specialty" label="Specialty" styleClass="form-control" size="1"  multiselect="false"  value="{!selectedSpecialty}">
+                                <apex:actionSupport event="onchange" reRender="jsFilter,filterPanel,calPanel" action="{!filterSelection}" status="statusProcessing"/>
+                                <apex:selectoptions value="{!specialtyList}"></apex:selectoptions>
+                            </apex:selectList> 
+                        </div>
+                    </apex:outputPanel>                 
+                    <apex:actionStatus id="statusProcessing">
+                        <apex:facet name="start">
+                            <c:loadingStatus ></c:loadingStatus>
+                        </apex:facet>
+                    </apex:actionStatus>
+                    <div id="cal-legend">
+                        <ul>
+                            <li style="{!IF(includeMyEvents,'','display:none')}"><span class="event-open"></span>Available</li>
+                            <li><span class="event-booked"></span>Booked</li>
+                            <li><span class="event-dropin"></span>Drop-in</li>
+                            <!--<li><span class="event-cancelled"></span>Cancelled</li>-->                            
+                        </ul>
+                        <div style="clear:both;"><!--fix floats--></div>
+                    </div>
+                    <div style="clear:both;"><!--fix floats--></div>
+                </div>
+                </apex:outputPanel>                
+
+                <div id="calendar"></div>
+        </apex:outputPanel>
+    </section>
+    </body>
+    </apex:form>   
+ <c:USF_Footer rendered="{!isLWCConsultant}" />  
+</apex:page>

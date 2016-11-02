@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Workflow xmlns="http://soap.sforce.com/2006/04/metadata"><fieldUpdates>
+        <fullName>PopulateTimeSlotDuration</fullName>
+        <description>PopulateTimeSlotDuration</description>
+        <field>TimeSlotDuration__c</field>
+        <formula>Success_Center__r.AppointmentLength__c</formula>
+        <name>PopulateTimeSlotDuration</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates><rules>
+        <fullName>PopulateTimeSlotDuration</fullName>
+        <actions>
+            <name>PopulateTimeSlotDuration</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>PopulateTimeSlotDuration</description>
+        <formula>Success_Center__r.LWC_Account_Flag__c</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules></Workflow>

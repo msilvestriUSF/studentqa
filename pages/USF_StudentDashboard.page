@@ -1,0 +1,936 @@
+<!--
+//************************************************************************************
+// Name             : USF_StudentDashboard
+// Description      : Visualforce page to display Slot details
+// Created By       : Mohan Kalagatla
+// Created Date     : 08/25/2016 
+// ************************Version Updates********************************************
+// Date             Developer           Description
+// -----------------------------------------------------------------------------------
+// 08/25/2016        Mohan Kalagatla       Created
+// ************************************************************************************
+-->
+
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" cache="false" docType="html-5.0" language="en-US" 
+applyHTMLTag="false" StandardController="Contact" extensions="USF_StudentDashboardExtn">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+
+
+<apex:includeScript value="{!URLFOR($Resource.MomentJs)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+
+<style>
+
+body{
+    background: #F8F7F0;;
+}
+.name,.location {
+font-family:QuattrocentoSans !important;
+
+}
+.heading{
+    font-family: Whitney-Black;
+    font-size: 22px;
+    color: #00543C;
+    margin:10px 0 0;
+}
+.tableUSF{
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    margin: 0;
+}
+
+.tableUSF>thead>tr>th{
+    border: 0;
+    border-top: 2px solid #e6e6e6 !important;
+    text-align: center;
+    padding-left: 15px;
+    font-family: Whitney-Semibold;
+    font-size: 12px;
+    color: #2A2A2A;
+    letter-spacing: 0px;
+    padding: 10px 0 0 0;
+    
+}
+
+.tableUSF>thead>tr>th:nth-child(4){
+text-align: center;
+padding-left:0;
+}
+
+.tableUSF>tbody>tr>td, .table>tfoot>tr>td{
+   border: 1px solid #e6e6e6;
+    vertical-align: top;
+    /* border-radius: 5px 0 0 5px; */
+    border-width: 1px 0;
+    padding: 15px 18px;
+    font-family: Whitney-SemiBold;
+    font-size: 13px;
+    color: #2A2A2A;
+    letter-spacing: 0px;
+    line-height: 18px;    
+    background: #fff;
+    width: 25%;
+}
+
+.tableUSF>tbody>tr
+{
+    box-shadow: 0 2px 4px 0 rgba(145, 145, 147,.2);
+}
+
+.tableUSF>tbody>tr>td strong{
+font-size: 14px;
+}
+
+.tableUSF>tbody>tr>td:nth-child(2), .tableUSF>tbody>tr>td span.name{
+    font-family: Whitney-Medium;
+    font-size: 13px;
+    color: #4A4A4A;
+    letter-spacing: 0px;
+}
+
+.tableUSF>tbody>tr>td:last-child{
+    vertical-align: middle;
+}
+.tableUSF>tbody>tr.confirm>td:last-child{
+    background: rgba(1,184,160,0.50);
+    color: #009380;    
+    border: 1px solid rgba(1,184,160,0.50);
+}
+
+.tableUSF>tbody>tr.pending>td:last-child{
+    background: rgba(242,164,0,0.60);
+    color: #E07F00;
+    border: 1px solid rgba(242,164,0,0.60);
+}
+
+.tableUSF>tbody>tr.cancel>td:last-child{
+    background: rgba(252,114,68,0.60);
+    color: #EA5321;
+    border: 1px solid rgba(252,114,68,0.60);
+}
+
+.tableUSF>tbody>tr.missed>td:last-child{
+    background: rgba(255,136,22,0.60);
+    color: #D06601;
+    border: 1px solid rgba(255,136,22,0.60);
+}
+
+.tableUSF>tbody>tr.checkin>td:last-child{
+    background: #B8D74C;
+    color: #749600;
+    border: 1px solid #B8D74C;
+}
+
+.tableUSF>tbody>tr>td:first-child{
+    border-left-width: 1px;
+    border-radius: 4px 0 0 4px;
+}
+
+    
+.tableUSF>tbody>tr>td:last-child{
+    border-right-width: 1px;
+    border-radius: 0 4px 4px 0;
+    letter-spacing: 1.69px;
+    font-family: Whitney-Semibold;
+    line-height: 24px;
+    padding:15px 18px;
+    font-size: 12px;
+/*    width: 35%;*/
+}
+
+.tableUSF>tbody>tr>td:nth-child(3){
+    font-size: 12px;
+}
+
+.tableUSF>tbody>tr.cancel>td, .tableUSF>tbody>tr.missed>td{
+    color: #919194;
+}
+
+.tableUSF>tbody>tr>td span{
+   /* display:block;*/
+}
+
+.tableUSF>tbody>tr>td span.glyphicon{
+    display: inline;
+    font-size: 13px;
+    margin-left: 5px;
+    top: 2px;
+}
+
+.tableUSF>tbody>tr>td span.glyphicon-edit{
+     display: inline;
+    font-size: 13px;
+    letter-spacing: 0px;
+    font-weight: normal;
+    cursor: pointer;
+    top: 5px;
+}
+
+.tableUSF>tbody>tr>td span.location{
+    font-size: 12px
+}
+
+.tableUSF>tbody>tr>td button{
+   border-radius: 4px;
+    padding: 2px 18px;
+    font-family: Whitney-Semibold;
+    font-size: 14px;
+    letter-spacing: 0px;
+    background: #fff;
+    height: 30px;
+}
+
+.tableUSF>tbody>tr>td button.red, .tableUSF>tbody>tr>td button.red:hover {
+    border: 2px solid #DB0000;
+    color: #DB0000;
+    background: #fff;
+}
+
+.tableUSF>tbody>tr>td button.green, .tableUSF>tbody>tr>td button.green:hover {
+    border: 2px solid #00543C;    
+    color: #00543C;    
+    background: #fff;
+}
+
+.popOutMenu {
+    position: absolute;
+    margin-left: 2.3%;
+    margin-top:0%;
+    z-index: 99;
+    display:none;
+}
+
+.list-group-item{
+    font-family: Whitney-Book;
+    font-size: 12px;
+    color: #2A2A2A;
+    letter-spacing: 0px;
+    padding: 8px 20px;
+    text-align: left;
+}
+
+.list-group-item:hover{
+    background: #E6E6E6;
+}
+
+.leftSection, .rightSection {
+    /*background: #fff;*/
+    padding-bottom: 2%;
+    margin-top: 15px;
+    padding: 15px;
+}
+
+.rightSection{
+   /* height: 483px;
+    overflow: auto;
+    box-shadow: 0px 2px 4px 0px #919194;*/
+    border-radius: 5px;
+    /*overflow-x: hidden;*/
+}
+
+.leftSection{
+    background: transparent;
+    padding-top: 0;
+}
+
+.rightBottomSection {
+    padding:0;
+    margin-left: 5px;
+    margin-top: 0;
+    
+}
+
+.rightBottomSection .row{
+    margin:0;
+}
+
+.bottomLeftSection{
+    width: 97%;
+    margin-right: 1%;
+    background:#fff;
+    padding-top:15px;
+    min-height: 300px;
+    /*overflow: auto;*/
+    box-shadow: 0 2px 4px 0 rgba(145, 145, 147,.2);
+    border-radius: 5px;
+}
+
+.bottomRightSection {
+    height: 300px;
+    box-shadow: 0 2px 4px 0 rgba(145, 145, 147,.2);
+    border-radius: 5px;
+}
+
+.rightBottomSection .bottomLeftSection .table>tbody>tr>td, .rightBottomSection .bottomRightSection .table>tbody>tr>td{
+    line-height: 18px;
+    border:0;
+    border-bottom: 1px solid #eee;
+    width: 25%;
+    padding: 20px;
+    font-family: QuattrocentoSans-Bold;
+    font-size: 13px;
+    color: #2A2A2A;
+    letter-spacing: 0px;
+}
+
+.rightBottomSection .bottomLeftSection .table>tbody>tr>td:nth-child(2), .rightBottomSection .bottomLeftSection .table>tbody>tr>td:nth-child(3){
+    font-family: QuattrocentoSans;
+}
+
+.rightBottomSection .bottomLeftSection .table>tbody>tr>td:last-child{
+    width: 50%;
+}
+
+.rightBottomSection .bottomRightSection .table>tbody>tr>td{
+    color: #007252;    
+}
+
+.rightBottomSection .bottomRightSection .table>tbody>tr>td span{
+    margin-left: 5px;
+    font-size: 13px;
+}
+
+.bottomRightSection{
+    background:#fff;
+    padding-top:15px;
+}
+
+
+  .settingsImg {
+    border: 2px solid #919194;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    height: 30px;
+    position: relative;
+    top: 4px;
+    color: #919194;
+    display: inline !important;
+}
+
+
+.lateTime {
+    color: red;
+}
+
+
+.settingsImg img {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    left: 5px;
+    bottom: 2px;
+}
+
+.leftSection span{
+    font-family: Whitney-Book;
+    font-size: 14px;
+    color: #2A2A2A;
+    letter-spacing: 0px;
+    line-height: 18px;
+    display:block;
+}
+
+
+.col-xs-offset-3{
+    margin-left: 24.3% !important;
+    margin-top: 10px;
+}
+
+.tableUSF>tbody>tr>td:nth-child(2){
+    /*width:20%;
+    text-align:center;*/
+} 
+
+.profilePic{
+    height: 80px;
+    width: 80px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.leftSection span.profileName{
+    font-family: Whitney-Semibold;
+    font-size: 14px;
+    color: #00543C;
+    letter-spacing: 0px;
+    line-height: 18px;
+    padding-bottom: 35px;
+}
+
+.subHeading{
+    font-family: Whitney-Bold;
+    font-size: 14px;
+    color: #2A2A2A;
+    letter-spacing: 0px;
+    padding-left:0;
+    padding-right:0;
+}
+
+.leftSection h4{
+font-family: Whitney-Bold;
+font-size: 15px;
+color: #2A2A2A;
+letter-spacing: 0px;
+}
+
+.paddingB{
+    padding-bottom: 30px;
+}
+
+.primaryBtn{
+    background: #00543C;
+    border-color: #00543C;
+    border-radius: 4px;
+    font-family: Whitney-Semibold;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0px;
+   /* padding: 6px 24px;*/
+    text-shadow: 0 0px 0 #fff;
+}
+.primaryBtn:hover {
+    
+    background-color:#00543C !important;
+}
+
+.primaryBtn span{
+    margin-left: 15px;
+    top: 2px;
+}
+
+.courseWrap{
+    width: 75%;
+    float: left;
+}
+
+.centerWrap{
+    width: 24.3%;
+    float: left;
+}
+
+.tableUSF>tbody>tr.confirm>td:last-child{
+    background: rgba(1,184,160,0.50);
+    color: #005F52;
+}
+
+.tableUSF>tbody>tr.pending>td:last-child{
+    background: rgba(242,164,0,0.60);
+    color: #6d3d00;
+}
+
+.tableUSF>tbody>tr.cancel>td:last-child{
+    background: rgba(252,114,68,0.60);
+    color: #872200;
+}
+
+.tableUSF>tbody>tr.missed>td:last-child{
+    background: rgba(255,136,22,0.60);
+    color: #7E4107;
+}
+
+.tableUSF>tbody>tr.checkin>td:last-child{
+    background: #B8D74C;
+    color: #425501;
+} 
+
+.btnSectionWrap{
+    padding-right: 0;
+    margin-bottom: 15px;
+}
+
+.positionTop{
+    position: relative;
+    top: 15px;
+}
+
+.btnSectionWrap .btn{
+    margin-right: 0;
+}
+
+.btn-default {  
+    padding: 10px 38px;
+    margin: 0 5px;
+    background-color: #00543C;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+    font-family: QuattrocentoSans-Bold;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0px;
+}
+.btn-default:hover,.btn-default:focus{
+    background-color: #00543C;
+    color: #fff;    
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.btn-default:active{
+    background-color: #00543C;
+    color: #fff;    
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.btn {
+    background: #00543C;
+}
+.last-button {
+    margin-right: 0;
+}
+
+.primaryBtnSec, .primaryBtnSec:hover{
+    background: #5F7E32;
+border-radius: 4px;
+}
+
+.dropdown-menu{
+    top: auto;
+    border-radius: 0;
+    padding: 0;
+    margin-top: 20px;
+}    
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus{
+    background: transparent !important;
+}
+
+.marginBottomSmall{
+    margin-bottom: 20px;
+}
+
+.rightBottomSection .bottomRightSection .table>tbody>tr>td a {
+    color: #007252;
+    font-family: QuattrocentoSans;
+    font-size: 13px;
+    color: #00543C;
+    letter-spacing: 0px;
+}
+
+.marginBLarge{
+    margin-bottom: 40px;
+}
+
+.modal-body p{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #2A2A2A !important;
+}
+.modal-title{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #00543C !important;
+}
+
+.modal-footer{
+    border-top: 0;
+    text-align: center;
+}
+
+/*Mobile phone media queries*/
+@media only screen and (max-width: 544px){
+    .container {
+        max-width: 440px;
+    }
+    
+    table.tableUSF{
+        margin-top: 30%;
+    }
+    table.tableUSF,table.tableUSF thead, table.tableUSF tbody, table.tableUSF th, table.tableUSF td, table.tableUSF tr{
+    /*table.courseTable, table.courseTable thead, table.courseTable tbody, table.courseTable th, table.courseTable tr */
+        display: block;
+        width: 100% !important;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    table.tableUSF thead tr, table.courseTable thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    table.tableUSF tr { 
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+     }
+
+    table.tableUSF td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        
+    }   
+ 
+    
+    .tableUSF>tbody>tr>td, .table>tfoot>tr>td{
+        border:0;
+        border-radius: 0;
+        box-shadow: none;
+        border-bottom: 1px solid #e6e6e6
+    }
+    
+    .tableUSF>tbody>tr>td:first-child, .tableUSF>tbody>tr>td:last-child{
+        border-radius: 0;
+    }
+    
+    .tableUSF>tbody>tr>td:nth-child(3), .tableUSF>tbody>tr>td:nth-child(4){
+        border-bottom: 0;
+    }
+    .btnSectionWrap .btn {
+        margin-right: 0;
+        padding: 10px 15px;
+    }
+    
+    .popOutMenu{
+        margin-left: 38.3%;
+    }
+    
+    .courseWrap, .centerWrap{
+        width: 100%;
+    }
+    
+    .rightBottomSection .bottomLeftSection .table>tbody>tr>td, .rightBottomSection .bottomRightSection .table>tbody>tr>td{
+        width: 33%;
+        word-break: break-all;
+    }
+    
+    /*.courseWrap{
+        width: 100%;
+    }*/
+    
+    .appointmentBtnWrap {
+        text-align: left;
+        padding: 0;
+    }
+    .appointmentBtnWrap .btn{
+        text-align: left;
+        margin:0;
+    }
+    
+    .rightBottomSection .bottomLeftSection .table>tbody>tr>td{
+        display: block;
+        width: 100% !important;
+        border: 0;
+        padding: 10px !important;
+    }
+    
+    .rightBottomSection .bottomLeftSection .table>tbody>tr{
+        border-bottom: 1px solid #eee;
+    }
+    
+    .rightBottomSection .bottomRightSection .table>tbody>tr>td{
+        padding: 20px;
+    }
+    
+    .positionTop{
+        top: -15px;
+    }
+    
+    .bottomLeftSection {
+        margin-bottom: 20px;
+    }
+    
+    .marginBLarge{
+        margin-bottom: 10px;
+    }
+    
+    .bottomRightSection, .bottomLeftSection{
+        width: 98%;
+    }
+}
+
+/*Tablet Media queries*/
+@media only screen and (max-width: 768px){
+    .container {
+        max-width: 708px;
+    }
+    
+    .popOutMenu{
+        margin-left: -5.7%;
+        margin-top: 3%;
+    }
+    
+    .rightBottomSection .bottomLeftSection .table>tbody>tr>td{
+        display: block;
+        width: 100% !important;
+        border: 0;
+        padding: 10px !important;
+    }
+    
+    .rightBottomSection .bottomLeftSection .table>tbody>tr{
+        border-bottom: 1px solid #eee;
+    }
+    
+    .rightBottomSection .bottomRightSection .table>tbody>tr>td{
+        padding: 20px 6px;
+    }
+}
+</style>
+
+<apex:form >  
+<c:USF_Header />
+<section class="container">
+<apex:pagemessages />
+<div class="row">
+    <div class="col-xs-12 col-md-3 leftSection">
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-12 col-lg-12">
+                 <img src="https://artemis.usfca.edu:8030/{!cwid}.JPG" class="img-circle profilePic"/>
+                <!--<img src="{!contactRecord.Photo__c}" class="img-circle profilePic"/>  -->
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-12 col-lg-12 marginBLarge">
+                <h4>My Details</h4>
+                <span>{!contactRecord.Department}</span> 
+                <span>ID# {!contactRecord.CWID__c}</span> 
+                <!--<span class="paddingB">Mentor : {!contactRecord.Special_Advisor__c}</span>-->
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-12 col-lg-12">
+                <h4>My ASC</h4>
+                <span class="ascName">{!contactRecord.AcademicSuccessCoach__r.Name}</span>
+                <span>{!contactRecord.AcademicSuccessCoach__r.Department}</span> 
+                <span>{!contactRecord.AcademicSuccessCoach__r.Email}</span>
+                <!--<span>Ph: {!contactRecord.AcademicSuccessCoach__r.Phone}</span>-->        
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-9">
+    
+
+
+            <h2 class="heading">Student Appointment Dashboard</h2>
+
+    <div class="col-xs-12 col-md-12 rightSection"> 
+
+        <div class="row">
+                <h4 class="col-xs-12 col-sm-4 col-md-4 col-lg-4 subHeading positionTop">Appointments</h4>
+                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 text-right btnSectionWrap appointmentBtnWrap">             
+                    <button class="btn btn-default primaryBtn" type="button" onClick="bookAppointment();">Request an Appointment <span class="glyphicon glyphicon-calendar"></span></button>                     
+                     <apex:actionFunction action="/apex/USF_AppointmentScheduler" name="bookAppointment"/>                    
+                 </div>
+                 <apex:outputPanel id="appointmentTable">                                   
+                <table class="table tableUSF table-fixed">
+                    <tbody>
+                    <!-- NEW VD DESIGN STARTS HERE-->
+                    <apex:actionFunction name="validateLeadTime" action="{!verifyLeadTime}" oncomplete="openConfirmationDialog('{!outsideLeadTime}');">
+                    </apex:actionFunction>
+                     <apex:repeat value="{!appDTOList}" var="appointment">                   
+                        <tr class="{!appointment.colorClass}">
+                            <td>
+                            <p>
+                                <strong>
+                               <!-- {!if(appointment.appointment.RecordTypeId == CASARecordTypeId,'CASA',appointment.appointment.Center__c)} -->
+                               {!appointment.appointment.Center__c}
+                                </strong>
+                                </p>
+                                <p>
+                                <span style="font-family: QuattrocentoSans !important;"> 
+                                <apex:outputText value="{!appointment.appointment.Reason_for_Meeting__c}" rendered="{!(appointment.appointment.RecordTypeId == CASARecordTypeId)}"/>
+                                <apex:outputText value="{!appointment.appointment.SelectedCourse__r.Name}" 
+                                rendered="{!(appointment.appointment.RecordTypeId == LWCRecordTypeId && contains(appointment.appointment.Center__c,learningCenter))}" />
+                                <apex:outputText value="{!appointment.appointment.Coach_Specialty__r.Name}" 
+                                rendered="{!(appointment.appointment.RecordTypeId == LWCRecordTypeId && contains(appointment.appointment.Center__c,writingCenter))}" />
+                                </span>  
+                                </p>
+                            </td>
+                            <td>
+                                <div class="name">{!appointment.appointment.Staff__c}</div>
+                                <div class="location">{!appointment.appointment.Location__c}</div> 
+                                                           
+                            </td>                            
+                            <td><apex:outputText value="{!appointment.starttime}" escape="false"/>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10">
+                                        {!appointment.statusToDisplay} <span class="{!appointment.statuSymbolClass}"></span>
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                        <span class="pull-right glyphicon glyphicon-edit dropdown-toggle" data-toggle="dropdown"></span>
+                                         <ul class="list-group dropdown-menu dropdown-menu-right">
+                                                     <li class="list-group-item">              
+                                            <apex:commandLink style="text-decoration:none; color:black;" value="View Appointment" 
+                                                    action="{!if(appointment.appointment.RecordTypeId == CASARecordTypeId,
+                                                                '/apex/USF_AppointmentDetailsStudentsCASA?id='+appointment.appointment.Id,
+                                                                '/apex/USF_AppointmentDetailsStudentsLWC?id='+appointment.appointment.Id)}"/>
+                                            </li>   
+                                            <li class="list-group-item" style="display: {!if(appointment.appointment.RecordTypeId == CASARecordTypeId || 
+                                                                                            CONTAINS(appointment.appointment.Status__c,cancel) || CONTAINS(appointment.appointment.Status__c,complete),"none","block")}">
+                                                <apex:commandLink style="text-decoration:none; color:black;" value="Modify Appointment" 
+                                                    action="/apex/USF_ModifyLWCAppointment?id={!appointment.appointment.Id}">
+                                                </apex:commandLink>
+                                            </li> 
+                                            <li class="list-group-item" style="display: {!if(CONTAINS(appointment.appointment.Status__c,cancel) || CONTAINS(appointment.appointment.Status__c,complete),"none","block")}">
+                                               <apex:commandLink style="text-decoration:none; color:black;" value="Cancel Appointment" reRender="none"
+                                                            action="{!verifyLeadTime}" oncomplete="openConfirmationDialog('{!outsideLeadTime}');"
+                                                            rendered="{!appointment.appointment.RecordTypeId == LWCRecordTypeId}">
+                                                    <apex:param name="currentAppointmentIdCancel" assignTo="{!currentAppointmentId}" value="{!appointment.appointment.Id}"/>
+                                                </apex:commandLink>  
+                                            
+                                               <apex:commandLink style="text-decoration:none; color:black;" value="Cancel Appointment"
+                                                            oncomplete="$('#myModalCancel').modal('show');"
+                                                            rendered="{!appointment.appointment.RecordTypeId == CASARecordTypeId}">
+                                                    <apex:param name="currentAppointmentIdCancel" assignTo="{!currentAppointmentId}" value="{!appointment.appointment.Id}"/>
+                                                </apex:commandLink> 
+                                            </li>
+                                         </ul>
+                                    </div>
+                                </div>
+                                
+                                <!--<span class="pull-right glyphicon glyphicon-edit"></span>
+                                
+                                 <div class="popOutMenu">
+                                  <ul class="list-group">
+                                    <li class="list-group-item">              
+                                    <apex:commandLink style="text-decoration:none; color:black;" value="View Appointment" 
+                                            action="{!if(appointment.appointment.RecordTypeId == CASARecordTypeId,
+                                                        '/apex/USF_AppointmentDetailsStudentsCASA?id='+appointment.appointment.Id,
+                                                        '/apex/USF_AppointmentDetailsStudentsLWC?id='+appointment.appointment.Id)}"/>
+                                    </li>   
+                                    <li class="list-group-item" style="display: {!if(appointment.appointment.RecordTypeId == CASARecordTypeId || 
+                                                                                    CONTAINS(appointment.appointment.Status__c,cancel) || CONTAINS(appointment.appointment.Status__c,complete),"none","block")}">
+                                        <apex:commandLink style="text-decoration:none; color:black;" value="Modify Appointment" 
+                                            action="/apex/USF_ModifyLWCAppointment?id={!appointment.appointment.Id}">
+                                        </apex:commandLink>
+                                    </li> 
+                                    <li class="list-group-item" style="display: {!if(CONTAINS(appointment.appointment.Status__c,cancel) || CONTAINS(appointment.appointment.Status__c,complete),"none","block")}">
+                                       <apex:commandLink style="text-decoration:none; color:black;" value="Cancel Appointment" reRender="none"
+                                                    action="{!verifyLeadTime}" oncomplete="openConfirmationDialog('{!outsideLeadTime}');"
+                                                    rendered="{!appointment.appointment.RecordTypeId == LWCRecordTypeId}">
+                                            <apex:param name="currentAppointmentIdCancel" assignTo="{!currentAppointmentId}" value="{!appointment.appointment.Id}"/>
+                                        </apex:commandLink>  
+                                    
+                                       <apex:commandLink style="text-decoration:none; color:black;" value="Cancel Appointment"
+                                                    oncomplete="$('#myModalCancel').modal('show');"
+                                                    rendered="{!appointment.appointment.RecordTypeId == CASARecordTypeId}">
+                                            <apex:param name="currentAppointmentIdCancel" assignTo="{!currentAppointmentId}" value="{!appointment.appointment.Id}"/>
+                                        </apex:commandLink> 
+                                    </li>                                                               
+                                  </ul>
+                                </div> -->
+                                
+                                
+                            </td>
+                        </tr>
+                        <!-- NEW VD DESIGN ENDS HERE-->
+                    </apex:repeat>          
+                    </tbody>
+                </table>
+            </apex:outputPanel> 
+            </div>
+        </div>
+                            <!-- Modal Cancel-->
+                             <div id="myModalCancel" class="modal fade" role="dialog">
+                                      <div class="modal-dialog">            
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">Cancel Appointment</h4>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    <p>Are you sure you want to cancel this appointment? </p>
+                                                    </div>
+                                                  <div class="modal-footer">
+                                                  <button type="button" class="btn btn-default primaryBtnSec" onclick="cancelAppointment();">Yes</button>
+                                                          <apex:actionFunction action="{!cancelAppointment}" name="cancelAppointment"/>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                                     
+                                                  </div>
+                                            </div>
+                                        </div>
+                                </div>
+        
+        <div class="col-xs-12 col-md-12 rightBottomSection ">
+         
+             <div class="row">
+                
+                <div class="row courseWrap">
+                    <h4 class="subHeading col-xs-12 col-md-12 marginBottomSmall">Courses this Semester</h4>
+                    <div class="col-xs-12 col-md-12 bottomLeftSection">
+                         
+                         <table class="table courseTable">
+                            <tbody>
+                             <apex:repeat value="{!coursesList}" var="course">
+                                 <tr>
+                                     <td>
+                                     <!-- {!course.Name} -->
+                                      {!course.hed__Course__r.Subject_Code__c} {!course.hed__Course__r.Course_Number__c} ({!course.hed__Section_ID__c}) 
+                                     </td>
+                                     <td>{!course.hed__Faculty__r.Name} </td>
+                                     <td> <!--<apex:outputText value="{0, date,d MMM yy}">
+                                        <apex:param value="{!course.Schedule__c}"/> </apex:outputText> -->
+                                        <apex:outputText value="{!course.Schedule__c}"/>
+                                     </td>                          
+                                 </tr>
+                             </apex:repeat>  
+                             </tbody>
+                         </table>
+                    </div>
+                </div>
+                
+                <div class="row centerWrap">
+                    <h4 class="subHeading col-xs-12 col-md-12 marginBottomSmall">More information</h4>
+                   <div class="col-xs-12 col-md-12 bottomRightSection">                    
+                     <table class="table">
+                         <tbody>
+                             <tr>
+                                 <td><a href="https://myusf.usfca.edu/student-life/lwc" target="_blank">Learning Center <span class="glyphicon glyphicon-new-window"></span></a></td>
+                             </tr>
+                             
+                             <tr>
+                                 <td><a href="https://myusf.usfca.edu/student-life/lwc/writing-center" target="_blank">Writing Center <span class="glyphicon glyphicon-new-window"></span></a></td>
+                             </tr>
+                             
+                             <tr>
+                                 <td><a href="https://myusf.usfca.edu/student-life/lwc/speaking-center" target="_blank">Speaking Center <span class="glyphicon glyphicon-new-window"></span></a></td>
+                             </tr>
+                             <tr>
+                                 <td><a href="https://myusf.usfca.edu/student-life/casa" target="_blank">CASA <span class="glyphicon glyphicon-new-window"></span></a></td>
+                             </tr>
+                         </tbody>
+                     </table>
+                </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+</apex:form>                
+                
+<script>
+$(document).ready(function(){
+    /*$(".glyphicon-edit").click(function(){
+        $(this).next().toggle();
+    });*/
+});
+
+function openConfirmationDialog(outsideLeadTime) {
+            if(outsideLeadTime == 'false') {
+                $('#myModalCancel').modal('show');
+                $('.modal-body').text('Cancellation of this appointment falls under the lead time of the Center, a strike will be counted against you in this center. Are you sure you want to cancel this appointment?');
+            }
+            else {
+                $('#myModalCancel').modal('show');
+            }
+        } 
+</script>
+<c:USF_Footer />
+</apex:page>

@@ -1,0 +1,9 @@
+To {!AppointmentContact__c.00N2C000000KxDE}, 
+
+Your scheduled tutoring appointment on {!AppointmentContact__c.Start_Date__c} at {!AppointmentContact__c.00N2C000000KzR8} with {!AppointmentContact__c.Staff__c} for {!AppointmentContact__c.00N2C000000LAPD} will be conducted online through Zoom.  Please copy and paste the following link into your browser: {!AppointmentContact__c.Zoom__c}
+
+Call us 415-422-6713 if you are unable to connect by the start of your appointment.
+
+Have a wonderful day, 
+
+The Learning & Writing Center

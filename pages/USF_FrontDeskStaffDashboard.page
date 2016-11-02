@@ -1,0 +1,978 @@
+<apex:page showHeader="true" cache="true" sidebar="false" standardStylesheets="false" docType="html-5.0" language="en-US" applyHTMLTag="true" controller="USF_FrontDeskDashboardController">
+
+
+<script> 
+        
+function updateHiddenField(){ 
+
+$('[id$="hdnAppraisalST"]').val($('[id$="ipAppraisalST"]').val());
+refreshPanel();
+
+}
+
+</script>
+
+<apex:form >
+<!--<c:USF_Header /> -->
+<apex:actionFunction reRender="dashBoardComp" name="refreshPanel"/>
+<!--<apex:actionPoller reRender="dashBoardComp,StudentCheckedInPanel" interval="15"/>-->
+  <html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Appointment Scheduler</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Bootstrap Theme-->
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+
+
+<apex:includeScript value="{!URLFOR($Resource.MomentJs)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+
+<style>
+body{    
+    background: #F8F7F0;
+}
+.filterByWrap .checkbox input[type="checkbox"]{
+    margin-left:10px;
+}
+
+.filterByWrap .checkbox{
+    border: 1px solid #999 !important;
+    padding: 14px;
+    text-align: center;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.filterByWrap .checkbox label{
+    position: relative;
+    right: 20px;
+}
+
+.btnSectionWrap input[type='submit'] , .btnSectionWrap button{
+    background: lightgreen;
+    border: 1px solid lightgreen;
+    color: #fff;
+    font-weight: normal;
+    padding: 6px 30px;
+}
+
+.filterByWrap button{
+    background: #fff;
+    border: 1px solid #999;
+    color: #000;
+    font-weight: normal;
+    padding: 10px 30px;
+}
+
+.statusSectionWrap{    
+    margin: 0 0 40px 0;    
+    border-radius: 4px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px 0px rgba(145,145,147,0.20);
+    font-family: Whitney-Semibold;
+    border: 1px solid #ddd;
+}
+.statusSectionWrap>div.statusSection:first-child{
+    border-radius: 4px 0 0 4px;
+}
+.statusSectionWrap>div.statusSection:last-child{
+    border-radius: 0 4px 4px 0;
+}
+.statusSection span:nth-child(1){
+    display: block;
+    font-size: 12px;
+    letter-spacing: 1.69px;
+    line-height: 24px;   
+    margin: 20px 0 15px 0;
+}
+
+.statusSection span:nth-child(2){
+    display: block;
+    font-size: 40px;
+    letter-spacing: 5.63px;
+    line-height: 24px;
+}
+
+.statusSection{    
+    height: 110px;
+}
+
+.completedSection {    
+    background-color: #B8D74C;
+    color: #425501;
+}
+
+.upcomingSection{
+    background: rgba(1,184,160,0.50);
+    color: #005F52;
+}
+
+.pendingSection{
+    background: rgba(242,164,0,0.60);
+    color: #6d3d00;
+}
+
+.delayedSection{
+    background-color: #FEAB8F;
+    color: #872200;
+}
+.cancelledSection{
+    background: rgba(252,114,68,0.60);
+    color: #872200;
+}
+.statusField{
+
+background: #fff;border: 1px solid #999;color: #000;font-weight: normal;padding: 10px 10px;
+}
+
+
+
+
+.headerSection {
+            font-size: 1.5rem;
+            color: #737575;
+            margin-top: 1%;
+            padding-left: 0;
+        }
+        
+        .inputSection {
+            border: 1px solid #d4d8d9;
+            border-radius: 5px;
+            padding: 1% 0;
+            font-size: 1.5rem;
+            color: #737575;
+            margin-top: 1%;
+        }
+        
+        .btnInfo .btn {
+            padding: 5px;
+            font-size: 1rem;
+        }
+        
+        .red {
+            border-color: red;
+            color: red;
+        }
+        
+        .studentInfo {
+            font-family: QuattrocentoSans-Bold;
+            font-size: 14px;
+            color: #2A2A2A;
+            letter-spacing: 0px;
+        }
+        .studentInfo div:nth-child(2){
+            font-family: QuattrocentoSans;
+            font-size: 14px;
+            color: #2A2A2A;
+            letter-spacing: 0px;
+            line-height: 18px;
+        }
+        
+        .green {
+            border-color: green;
+            color: green;
+        }
+        
+        .checkedIn {
+            font-weight: 600;
+        }
+        
+        .btn {
+            background: #fff;
+            font-family: QuattrocentoSans-Bold;
+        }
+        
+        .btn:hover,
+        .btn:focus {
+            background: #fff;
+            border: 1px solid #737575;
+            outline: none;
+        }
+        
+        .leftSection {
+             background: #fff;
+            border: 1px solid #999;
+            text-align: center;
+            padding-bottom: 2%;
+            margin: 0;
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 3px;
+        }
+        
+        .rightSection p {
+            margin: 10px 0;
+        }
+        
+        .InfoText {
+            padding-left: 0;
+        }
+        
+        .rightSection {
+            color: #737575;
+            margin-top: 52px;
+            border-radius:3px;
+        }
+        
+        .rightSection .result {
+            border-bottom: 1px solid #d4d8d9;
+            background: #fff;
+            padding-top: 3%;
+        }
+        
+        .leftSection h4 {
+            color: #737575;
+            font-weight: 600;
+            text-align: left;            
+        }
+        
+        .meetingInfo {
+            padding-left: 0;
+            margin-bottom: 4%;
+        }
+        
+        .meetingInfo div {
+            color: #000;
+            font-size: 1.5rem;
+        }
+        
+        .rightContent {
+            background: #fff;
+                margin-bottom: 2%;
+        }
+        .rightAlign{
+            text-align: right;
+        }
+        .settingsImg{
+            border: 1px solid;
+            padding: 0;            
+            border-radius: 7px;
+            font-size: 18px;
+        }    
+        .rect{
+            width: 10px;
+            height: 12px;
+            display: inline-block;
+            border: 1px solid;
+            margin-left: 10px;
+            margin-top: 6px;
+        }  
+    
+        .mainContent{
+            margin-top: 2%;
+        }
+        .normalFont{
+        font-weight:normal;
+        }
+        .table{
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+
+        .table>thead>tr>th{
+            border:0;
+            text-align:center;
+            font-weight: normal;
+        }
+
+        .table>tbody>tr>td, .table>tfoot>tr>td{
+           border: 1px solid #999;
+            vertical-align: top;
+            /* border-radius: 5px 0 0 5px; */
+            border-width: 1px 0;
+        }
+
+        .table>tbody>tr>td:first-child{
+            border-left-width: 1px;
+            border-radius: 5px 0 0 5px;
+        }
+
+
+        .table>tbody>tr>td:last-child{
+            border-right-width: 1px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .table>tbody>tr>td:nth-child(4){
+            
+        }
+
+        .table>tbody>tr>td span{
+            position:relative;            
+        }
+
+        .popOutMenu {
+            position: absolute;
+            margin-left: 8%;
+            margin-top: 13px;
+            z-index: 99;
+            display:none;
+        }
+
+        .list-group-item{
+            padding: 10px;
+            text-align: left;
+            cursor:pointer;
+        }          
+        li.dropdown-menu-item {
+            display: block;
+            padding: 3px 20px;
+            clear: both;
+            font-weight: normal;
+            line-height: 1.4285;
+            color: #333;
+            white-space: nowrap;
+        }
+        .margin-bottom-10 {
+            margin-bottom: 10px;
+        }
+        .checkin-details{
+            background-color: mediumseagreen;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .checkin-details-header{
+            text-align: center;
+        }
+        .checkin-details-center{
+            text-align:center;
+        }
+        .checkin-details-row{
+            margin:10px 0;
+        }
+        .checkin-details-row p{
+            margin:0;
+            padding: 0;
+        }
+        .checkin-details-name{
+            padding: 0;
+        }
+        .big-font{
+            font-size: 2rem;
+        }
+        .fixed-col-wide{
+            min-width: 225px;
+        }
+/* VD Starts here */
+body.sfdcBody{
+font-size: 12px;   
+}
+.bodyDiv,.bodyClass{
+    font-size: 14px;   
+    font-family: Whitney-Book; 
+    background-color: #F8F7F0;
+    color:#2a2a2a;
+}
+hr{
+    background-color: #E6E6E6;
+}
+.container {
+    max-width: 1125px;
+}
+.row-eq-height {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display:         flex;
+      align-items:center;
+}
+h2.headerClass{
+    margin: 30px 0 20px 0;
+    padding: 0;
+    font-size: 20px;
+    color: #00543C;
+}
+h2.headerClass span{    
+    font-family: Whitney-Black;
+    font-size: 20px;
+}
+h2.headerClass i.glyphicon{
+    font-size: 15px;    
+    cursor: pointer;
+}
+.btn-default {
+    background: white !important;    
+    padding: 10px 38px !important;
+    margin: 0 15px !important;
+    background-color: #00543C !important;
+    color: #fff !important;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    border: none !important;
+    outline: none !important;
+    text-shadow:none !important;
+    box-shadow: none !important;
+}
+.btn-default:hover,.btn-default:focus{
+    background-color: #73973F !important;
+    color: #fff !important;    
+    border: none !important;
+    outline: none !important;
+    text-shadow:none !important;
+    box-shadow: none !important;
+}
+.btn-default:active{
+    background-color: #73973F;
+    color: #fff;    
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.title-text{
+    font-family: Whitney-Semibold;
+}
+.modal-title{
+    font-family: Whitney-Bold;
+    font-size: 14px;
+    color: #00543C;
+}
+.form-control{
+    border-radius: 0;
+    height:auto;
+}
+.modal-margin{
+    margin-top: 20px;
+}
+.modal-footer{
+    border-top: none;
+    text-align: center;
+}
+.textColor {
+    color: #00543C;
+    margin-bottom: 5px;
+}
+.form-control-auto{
+    width:auto;
+}
+.no-right-margin{
+    margin-right: 0;
+    padding-right: 0;
+}
+.tableUSF{
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin: 0;
+}
+.tableUSF>thead>tr>th{
+    border: 0;
+    /*border-top: 2px solid #e6e6e6 !important;*/
+    text-align: center;
+    padding-left: 15px;
+    font-family: Whitney-Semibold;
+    font-size: 12px;
+    color: #2A2A2A;
+    letter-spacing: 0px;
+    padding: 10px 0 0 0;
+    
+}
+.tableUSF>thead>tr>th:nth-child(4){
+text-align: center;
+padding-left:0;
+}
+.tableUSF>tbody>tr>td, .table>tfoot>tr>td{
+    border: none;
+    vertical-align: top;
+    /* border-radius: 5px 0 0 5px; */
+    border-width: 1px 0;
+    padding: 15px 30px;    
+    font-size: 14px;
+    color: #2A2A2A;
+    letter-spacing: 0px;
+    line-height: 18px;    
+    box-shadow: 0px 2px 0 0 rgba(145,145,147,0.20);    
+    background: #fff;
+    
+}
+
+.tableUSF>tbody>tr>td:first-child{
+    border-left-width: 1px;
+    border-radius: 4px 0 0 4px;
+}    
+.tableUSF>tbody>tr>td:last-child{
+    border-right-width: 1px;
+    border-radius: 0 4px 4px 0;
+    letter-spacing: 1.69px;
+    font-family: Whitney-Semibold;
+    line-height: 18px;
+    padding:0 5px 0 15px;
+    font-size: 12px;
+    vertical-align: middle;
+    min-width: 220px;
+/*    width: 35%;*/
+}
+.tableUSF>tbody>tr>td span{
+    display:block;
+}
+.tableUSF>tbody>tr>td span.glyphicon{
+    display: inline;
+    font-size: 12px;
+    margin-left: 5px;
+    top: 2px;
+}
+.tableUSF>tbody>tr>td span.glyphicon-edit{
+    display: inline;
+    font-size: 12px;    
+    letter-spacing: 0px;
+    font-weight: normal;
+    cursor: pointer;    
+}
+.tableUSF>tbody>tr>td span.location{
+    font-size: 12px
+}
+.tableUSF>tbody>tr>td button{
+   border-radius: 4px;
+    padding: 2px 18px;
+    font-family: Whitney-Semibold;
+    font-size: 14px;
+    letter-spacing: 0px;
+    background: #fff;
+    height: 30px;
+}
+.tableUSF>tbody>tr>td button.red, .tableUSF>tbody>tr>td button.red:hover {
+    border: 2px solid #DB0000;
+    color: #DB0000;
+    background: #fff;
+}
+.tableUSF>tbody>tr>td button.green, .tableUSF>tbody>tr>td button.green:hover {
+    border: 2px solid #00543C;    
+    color: #00543C;    
+    background: #fff;
+}
+.tableUSF>tbody>tr.confirm>td:last-child{
+    background: rgba(1,184,160,0.50);
+    color: #005F52;
+}
+
+.tableUSF>tbody>tr.pending>td:last-child{
+    background: rgba(242,164,0,0.60);
+    color: #6d3d00;
+}
+
+.tableUSF>tbody>tr.cancel>td:last-child{
+    background: rgba(252,114,68,0.60);
+    color: #872200;
+}
+
+.tableUSF>tbody>tr.missed>td:last-child{
+    background: rgba(255,136,22,0.60);
+    color: #7E4107;
+}
+
+.tableUSF>tbody>tr.checkin>td:last-child{
+    background: #B8D74C;
+    color: #425501;
+}
+.dropdown-menu{
+    font-family: QuattrocentoSans;
+    font-size: 12px;
+    color: #2A2A2A;
+    letter-spacing: 0px;
+}
+.top-row-margin{
+    margin-bottom: 20px;
+    margin-top :30px;
+}
+button .glyphicon{
+    margin-left: 12px;
+}
+.next-appointment-wrapper{
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px 0px rgba(145,145,147,0.20);
+    border-radius: 5px;
+    /*padding-bottom: 20px;*/
+    margin-bottom: 15px;
+    font-family: QuattrocentoSans;
+    font-size: 14px;
+    color: #2a2a2a;
+}
+.next-appointment-details{
+    padding: 20px;
+}
+.nxt-apnt-row-margin{
+    margin-bottom: 15px;
+}
+.next-appointment{
+    color: #425501;
+    background-color: #B8D74C;
+    padding: 10px 0;    
+}
+.next-appointment-wrapper hr{
+    margin: 10px 0;
+}
+.book-appointment{    
+    padding: 10px 15px !important;
+}
+.primaryBtnSec{
+    background: #5F7E32 !important;
+}
+
+.modal-footer{
+    text-align:center !important;
+    border:0 !important;
+}
+
+.modal-body, .modal-body p{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #2A2A2A !important;
+    letter-spacing: 0px !important;
+    line-height: 20px !important;
+}
+
+.modal-title{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #2A2A2A !important;
+} 
+.modal-title{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #00543C !important;
+}
+ul.dropdown-menu{
+    padding: 0;
+    border-radius: 0;
+}
+
+ul.dropdown-menu .divider{
+    margin: 0;
+}
+
+ul.dropdown-menu li{
+    margin: 0;
+}
+
+ul.dropdown-menu>li>a{
+    padding: 10px 15px;
+    font-size: 12px;
+    color: #2A2A2A;
+    font-family: QuattrocentoSans;
+}
+
+ul.dropdown-menu>li>a:hover{
+    background-color: #E6E6E6;
+    background-image: none;
+}
+</style>
+</head>
+
+<body class="bodyClass">
+<section class="container">
+    <h2 class="headerClass">
+        <span>CASA Front Desk</span>
+    </h2>
+    <div class="row top-row-margin">
+        <div class="col-md-9">
+            <div class="row row-eq-height">
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                    <apex:selectlist value="{!selectedTodayValue }" size="1" styleclass="form-control">
+                        <apex:selectOptions value="{!TodayFilterValues}"></apex:selectOptions>
+                        <apex:actionSupport event="onchange" reRender="dashBoardComp"/>
+                    </apex:selectlist>
+                </div>
+                <div class="col-xs-12 col-md-3 col-sm-12">
+                    <apex:inputField id="ipAppraisalST" value="{!dummyAppointment.Status__c}" onChange="updateHiddenField();" styleclass="form-control" />
+                    <apex:inputHidden id="hdnAppraisalST" value="{!selectedStatusValue}" />     
+                </div>
+                <div class="col-xs-12 col-md-3 col-sm-12">
+                    <apex:selectlist value="{!selectedCoachValue}" size="1" styleclass="form-control" >
+                        <apex:selectOptions value="{!CoachFilterValues}"></apex:selectOptions>
+                    <apex:actionSupport event="onchange" reRender="dashBoardComp,notification"/>
+                    </apex:selectlist>
+                </div>
+                <div class=" col-md-4 col-sm-12 col-xs-12 text-right no-right-margin">
+                    <!-- Buttons -->
+                    <!--<apex:commandButton action="/apex/USF_AvailabilityCalendar" value="Book an appointment" styleclass="btn btn-default"/> -->
+                    <button class="btn btn-default book-appointment" id="bookAppointmentBtn">
+                        Book an Appointment <span class="glyphicon glyphicon-calendar"></span>
+                    </button>
+                </div>
+            </div>
+        </div>        
+    </div>
+    
+<div class="row">
+    <div class="col-xs-12 col-md-9">        
+        <apex:outputPanel id="dashBoardComp">
+        <!-- <div class="row statusSectionWrap">
+            <div class="col-xs-12 col-md-4 text-center statusSection upcomingSection">
+                <span>{!upcomingCount }</span>
+                <span>UPCOMING</span>
+            </div>
+            
+            <div class="col-xs-12 col-md-4 text-center statusSection  pendingSection">
+                <span>{!pendingCount}</span>
+                <span>PENDING <br/>CONFIRMATION</span>
+            </div>
+            
+           <!-- <div class="col-xs-12 col-md-3 text-center statusSection  delayedSection">
+                <span>{!delayedCount}</span>
+                <!--<span>DELAYED</span>-->
+               <!-- <span>LATE<br/>CANCELLATION</span>
+            </div>
+            
+            <div class="col-xs-12 col-md-4 text-center statusSection  cancelledSection">
+                <span>{!completeCount}</span>
+                <span>COMPLETED</span>
+            </div> 
+        </div> -->
+            <div class="row statusSectionWrap">
+                <div class="col-xs-12 col-md-4 text-center statusSection upcomingSection">
+                    <span>CONFIRMED</span>
+                    <span>{!upcomingCount }</span>
+                </div>
+                
+                <div class="col-xs-12 col-md-4 text-center statusSection  pendingSection">
+                    <span>PENDING CONFIRMATION</span>
+                    <span>{!pendingCount}</span>
+                </div>
+                
+                <div class="col-xs-12 col-md-4 text-center statusSection  cancelledSection">
+                    <span>CANCELLED</span>
+                    <span>{!completeCount}</span>
+                </div>
+            </div>
+            <div class="title-text">
+                <span>Appointments ({!AppoinitmentRecords.size})</span>
+            </div>
+            <hr />
+                        
+            <table class="table tableUSF">
+                <!--<thead class="headerSection">
+                    <tr>
+                        <th>
+                            STUDENT
+                        </th>
+                        <th>
+                            ASSIGNED ASC
+                        </th>
+                        <th>
+                            REASON
+                        </th>
+                        <th>
+                            WHEN
+                        </th>     
+                        <th class="fixed-col-wide">
+                            STATUS
+                        </th>                       
+                    </tr>
+                </thead> -->
+                <tbody> 
+                    <apex:repeat value="{!AppoinitmentRecords}" var="appDTO">
+                         <tr class="{!if(CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCSlotCompleteStatus) || CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCAppointmentStudentCheckinbyConsultantStatus),"checkin",if(CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCSlotConfirmedStatus),"confirm",if(CONTAINS(appDTO.appointment.Status__c,$Label.USF_CASAAppointmentMissedStatus),"missed",if(CONTAINS(appDTO.appointment.Status__c,$Label.USF_CASAAppointmentCancelledStatus),"cancel","pending"))))}">
+                            <td class="studentInfo">
+                                <div>{!appDTO.appointment.Contact__r.name}</div>
+                                <div>{!appDTO.appointment.CWID__c}</div>
+                            </td>
+                            <td class="studentInfo">
+                                <!--<div>{!appDTO.appointment.Contact__r.AcademicSuccessCoach__r.Name}</div>-->
+                                <div>{!appDTO.appointment.Staff__c}</div>
+                                <div>{!appDTO.appointment.Reason_for_Meeting__c}</div>                                
+                            </td>
+                            <td><!--<apex:outputText value="{0,date,EEEE,MMM d yyyy,hh:mm a}"> 
+                                    <apex:param value="{!appointment.Date_Time__c}" />
+                                </apex:outputText>-->
+                                {!appDTO.starttime}
+                            </td>
+                            <td class="row">
+                                <!--<button type="button" class="btn btn-default btn-lg col-md-7 green">{!appointment.Status__c}</button>-->
+                                <span class="text-left col-md-9" style="text-transform:uppercase;"><apex:outputtext value="{!appDTO.appointment.Status__c}"/></span>
+                                
+                                <span class="dropdown text-right col-md-3">
+                                    <span class="dropdown-toggle" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                    </span>    
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li style="display: {!if(CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCSlotCompleteStatus)|| CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCAppointmentStudentCheckinbyConsultantStatus),"none","block")}">
+                                        <!--<a href="javascript:void(0);">Check in student</a>-->
+                                        <apex:commandLink value="Check in student" action="{!updateStatusField}" reRender="dashBoardComp,StudentCheckedInPanel,notification" status="actStatusId">
+                                        <apex:param value="{!appDTO.appointment.id}" name="selectedRecordId" assignTo="{!selectedRecordId}" />
+                                        <apex:param value="Checkin" name="selectedAction" assignTo="{!selectedAction}"/>
+                                        </apex:commandLink>
+                                        </li>
+                                        
+                                        <li role="separator" class="divider" style="display: {!if(CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCSlotCompleteStatus),"none","block")}"></li>
+                                        <li><!--<a href="javascript:void(0);">View Appointment</a>-->
+                                        <apex:commandLink action="/apex/USF_FDAppointmentDetails?appId={!appDTO.appointment.id}" value="View Appointment"/>
+                                        </li>
+                                        
+                                        
+                                        <li role="separator" class="divider" style="display: {!if(CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCSlotCompleteStatus) ||
+                                        CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCSlotConfirmedStatus)
+                                        ,"none","block")}"></li>
+                                        
+                                        <!--<li><a href="javascript:void(0);">Modify Appointment</a></li>-->
+                                        <li style="display: {!if(CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCSlotCompleteStatus) || CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCSlotConfirmedStatus),"none","block")}">
+                                        <apex:commandLink value="Confirm Appointment" action="{!updateStatusField}" reRender="dashBoardComp" status="actStatusId">
+                                        <apex:param value="{!appDTO.appointment.id}" name="selectedRecordId" assignTo="{!selectedRecordId}" />
+                                        <apex:param value="Confirm" name="selectedAction" assignTo="{!selectedAction}"/>
+                                        </apex:commandLink>
+                                        </li>
+                                        
+                                        <li role="separator" class="divider" style="display: {!if(CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCSlotCompleteStatus) || CONTAINS(appDTO.appointment.Status__c,$Label.USF_CASAAppointmentCancelledStatus),"none","block")}"></li>
+                                        <!--<li><a href="javascript:void(0);">View Appointment</a></li>-->
+                                        <li style="display: {!if(CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCSlotCompleteStatus) || CONTAINS(appDTO.appointment.Status__c,$Label.USF_CASAAppointmentCancelledStatus),"none","block")}">
+                                        <!--<a href="javascript:void(0);">Cancel Appointment</a>-->
+                                        <apex:commandLink style="text-decoration:none; color:black;" value="Cancel Appointment" reRender="none"
+                                                html-data-toggle="modal"  html-data-target="#myModalCancel"
+                                                > <!--rendered="{!appointment.RecordTypeId == CASARecordTypeId}"-->
+                                        <apex:param name="selectedRecordId" assignTo="{!selectedRecordId}" value="{!appDTO.appointment.id}"/>
+                                        </apex:commandLink> 
+                                        
+                                        </li>                                        
+                                        
+                                       <!-- <li role="separator" class="divider" style="display: {!if(CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCSlotCompleteStatus),"none","block")}"></li>
+                                        <li style="display: {!if(CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCSlotCompleteStatus) ,"none","block")}">
+                                        <apex:commandLink value="Mark Completed" action="{!updateStatusField}" reRender="dashBoardComp" status="actStatusId">
+                                        <apex:param value="{!appDTO.appointment.id}" name="selectedRecordId" assignTo="{!selectedRecordId}" />
+                                        <apex:param value="Complete" name="selectedAction" assignTo="{!selectedAction}"/>
+                                        </apex:commandLink>
+                                        </li>
+                                        <li role="separator" class="divider" style="display: {!if(CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCSlotCompleteStatus) || CONTAINS(appDTO.appointment.Status__c,$Label.USF_CASAAppointmentCancelledStatus),"none","block")}"></li>
+                                        <li style="display: {!if(CONTAINS(appDTO.appointment.Status__c,$Label.USF_LWCSlotCompleteStatus) || CONTAINS(appDTO.appointment.Status__c,$Label.USF_CASAAppointmentCancelledStatus),"none","block")}">
+                                        <apex:commandLink value="Mark Missed" action="{!updateStatusField}" reRender="dashBoardComp" status="actStatusId">
+                                        <apex:param value="{!appDTO.appointment.id}" name="selectedRecordId" assignTo="{!selectedRecordId}" />
+                                        <apex:param value="Missed" name="selectedAction" assignTo="{!selectedAction}"/>
+                                        </apex:commandLink>
+                                        </li>-->
+                                        
+                                        
+                                    </ul>
+                                    <apex:actionStatus id="actStatusId" >
+                                    <apex:facet name="start" >
+                                    <!--  <img src="/img/loading.gif" />     -->
+                                    <c:loadingStatus />               
+                                    </apex:facet>
+                                </apex:actionStatus>
+                                </span> 
+                                
+                                
+                                                                   
+                            </td>
+                            
+                         </tr>
+                         <!--<tr class="inputSection">
+                            <td>
+                                <div class="studentInfo">
+                                    <div>Howard Rice</div>
+                                    <div>251009</div>
+                                </div>
+                            </td>
+                            <td>Dr. Steve Williams</td>
+                            <td>Assignment issue</td>
+                            <td>Today, 3:30PM</td>
+                            <td class="btnInfo">
+                                <button type="button" class="btn btn-default btn-lg col-md-7 green">Confirmed</button>
+                                <div class="dropdown col-md-5 pull-right">
+                                    <div class="settingsImg dropdown-toggle" data-toggle="dropdown">
+                                        <img id="u92_img" src="/resource/USF_Setting_Img" style="width:18px;"/>
+                                        <span class="glyphicon glyphicon-triangle-bottom"></span>
+                                    </div>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="javascript:void(0);">Modify Appointment</a></li>
+                                        <li><a href="javascript:void(0);">Cancel Appointment</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="javascript:void(0);">View Appointment</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="javascript:void(0);">Check in student</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="javascript:void(0);">Mark Completed</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="javascript:void(0);">Mark Missed</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="javascript:void(0);">Confirm Appointment</a></li>
+                                    </ul>
+                                </div>                                    
+                            </td>
+                         </tr> -->     
+                         </apex:repeat>                   
+                </tbody>
+            </table> 
+            
+            <!--Started-->
+                                     <!-- Modal -->
+              <div id="myModalCancel" class="modal fade" role="dialog">
+                                  <div class="modal-dialog">            
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                              <div class="modal-header">                                                
+                                                <h4 class="modal-title">Cancel Appointment</h4>
+                                              </div>
+                                              <div class="modal-body">
+                                                <p>Are you sure you want to cancel this appointment? </p>
+                                                </div>
+                                              <div class="modal-footer">
+                                                  <apex:commandLink styleClass="btn btn-default primaryBtnSec" value="Yes" action="{!cancelAppointment}" html-data-dismiss="modal"/> 
+                                                <apex:commandbutton styleClass="btn btn-default " value="No" html-data-dismiss="modal" />
+                                                
+                                              </div>
+                                        </div>
+                                    </div>
+                            </div>      
+                                    
+                                    <!--End-->             
+           
+         </apex:outputPanel>
+    </div>   
+   
+    <div class="col-xs-12 col-md-3">
+        <div class="next-appointment-wrapper">
+            <div class="next-appointment text-center">
+                <span class="title-text">STUDENT CHECKED IN</span>
+            </div>
+            <apex:outputPanel id="StudentCheckedInPanel">
+            
+                <div class="next-appointment-details">   
+                    <p class="title-text">Next meeting</p>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6">
+                            <div>{!latestCheckedAppDTO.appointment.Contact__r.name}</div>
+                            <div>{!latestCheckedAppDTO.appointment.CWID__c}</div>
+                        </div>
+                        <div class="col-md-6 col-xs-6 pull-right text-right title-text">
+                            <div>
+                                <span>at</span>
+                            </div>
+                            <div>
+                                <span>{!latestCheckedAppDTO.starttime}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="checkin-details-row">
+                        <p class="title-text">With</p>
+                        <p>{!latestCheckedAppDTO.appointment.Staff__c}</p>
+                    </div>    
+                    <hr/> 
+                    <div class="checkin-details-row">
+                        <p class="title-text">Reason for meeting</p>
+                        <p>{!latestCheckedAppDTO.appointment.Reason_for_Meeting__c}</p>
+                    </div>                    
+                </div>
+            </apex:outputPanel>
+        </div>
+        <apex:outputPanel id="notification"><c:USF_AppointmentNotification pageUsedOn="casaDashboard" coach="{!selectedCoachValue}"/></apex:outputPanel>
+    </div>
+</div>
+
+</section>
+
+
+</body>
+</html>
+</apex:form>
+<script>
+    $("#bookAppointmentBtn").on("click",function(e){
+    e.preventDefault();
+    window.location.href = window.location.origin + '/apex/USF_AvailabilityCalendar';
+    });
+    
+    </script>
+<!--<c:USF_Footer />-->
+</apex:page>

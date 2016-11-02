@@ -1,0 +1,46 @@
+<messaging:emailTemplate subject="CASA Appointment Confirmation" recipientType="Contact" relatedToType="AppointmentContact__c">
+<messaging:plainTextEmailBody >
+Dear {!relatedTo.Contact__r.Name},
+
+
+You are currently scheduled for an appointment with your Academic Success Coach, {!relatedTo.CASA_Staff__c}. Please check in at the CASA front desk on University Center 3rd Floor at least 5 minutes before your scheduled appointment time. 
+
+If you need to reschedule or cancel your appointment, please follow this link: 
+{!$Label.USF_Student_CASA_Appointment_details_page}{!relatedTo.Id}
+
+In the event that we need to call you, we will use this phone number {!relatedTo.Contact__r.Phone}. If this number is incorrect, please provide us with an updated number by following these steps: XXlist steps to change phone numberXX 
+
+
+In order to add this appointment to your calendar, please use the link provided in this email to add to your preferred calendar. 
+
+
+Thank you,
+
+
+Center for Academic and Student Achievement (CASA)
+University of San Francisco | UC 3rd Floor
+2130 Fulton St., San Francisco, CA  94117-1080
+T: 415.422.5050 | F: 415.422.2133 | Email: casa@usfca.edu
+Office Hours:  9:00 AM - 5:00 PM
+</messaging:plainTextEmailBody>
+<messaging:attachment filename="CASA Appointment reminder.ics">
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID::-//hacksw/handcal//NONSGML v1.0//EN
+BEGIN:VEVENT
+DTSTAMP;TZID=EEE:<apex:outputText value="{!SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TEXT(relatedTo.AppointmentSlot__r.Start_Time__c),':',''),'-',''),' ','T')}"/>
+UID:{!relatedTo.id}
+DTSTART;TZID=EEE:<apex:outputText value="{!SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TEXT(relatedTo.AppointmentSlot__r.Start_Time__c),':',''),'-',''),' ','T')}"/>
+DTEND;TZID=EEE:<apex:outputText value="{!SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TEXT(relatedTo.AppointmentSlot__r.End_Time__c),':',''),'-',''),' ','T')}"/>
+SUMMARY:<apex:outputText value="CASA Appointment Confirmation"/>
+DESCRIPTION;ENCODING=QUOTED-PRINTABLE:CASA Appointment with your Academic Success Coach, {!relatedTo.CASA_Staff__c}
+LOCATION:{!relatedTo.Location__c}
+BEGIN:VALARM
+TRIGGER:-PT1D
+ACTION:DISPLAY
+END:VALARM
+END:VEVENT
+END:VCALENDAR 
+</messaging:attachment>
+
+</messaging:emailTemplate>

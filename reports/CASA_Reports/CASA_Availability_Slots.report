@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Counsellor_Availability__c.Availability__c</field>
+    </columns>
+    <columns>
+        <field>Counsellor_Availability__c.Start_Time__c</field>
+    </columns>
+    <columns>
+        <field>Counsellor_Availability__c.End_Time__c</field>
+    </columns>
+    <columns>
+        <field>Counsellor_Availability__c.SlotDuration__c</field>
+    </columns>
+    <columns>
+        <field>Counsellor_Availability__c.Location__c</field>
+    </columns>
+    <description>Upcoming Availability Slots</description>
+    <filter>
+        <criteriaItems>
+            <column>Counsellor_Availability__c.Center__c</column>
+            <operator>contains</operator>
+            <value>Center for Academic Student Achievement</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CUST_RECORDTYPE</column>
+            <operator>equals</operator>
+            <value>Counsellor_Availability__c.CASA_Slot</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Counsellor_Availability__c.Coach_Full_Name__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Counsellor_Availability__c.StartDate__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>CASA - Availability Slots</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Counsellor_Availability__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Counsellor_Availability__c.StartDate__c</dateColumn>
+        <interval>INTERVAL_THISMONTH</interval>
+    </timeFrameFilter>
+</Report>

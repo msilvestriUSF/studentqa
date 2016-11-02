@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"><actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides><fields>
+        <fullName>Course_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>hed__Course_Offering__r.hed__Course__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Course Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Term__c</fullName>
+        <externalId>false</externalId>
+        <formula>hed__Course_Offering__r.hed__Term__r.Name</formula>
+        <label>Term</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>hed__Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The student taking the course.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The student taking the course.</inlineHelpText>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Course Connections</relationshipLabel>
+        <relationshipName>Student_Course_Enrollments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>hed__Course_Offering__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The Course Offering the student is enrolled in. It's a Course offered at a specific Term.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Course Offering the student is enrolled in. It's a Course offered at a specific Term.</inlineHelpText>
+        <label>Course Offering ID</label>
+        <referenceTo>hed__Course_Offering__c</referenceTo>
+        <relationshipLabel>Course Connection</relationshipLabel>
+        <relationshipName>Course_Enrollment</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>hed__Program_Enrollment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The Program Enrollment record number for the Program the student is enrolled in. Links a student with an Academic Program.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Program Enrollment record number for the Program the student is enrolled in. Links a student with an Academic Program.</inlineHelpText>
+        <label>Program Enrollment ID</label>
+        <referenceTo>hed__Program_Enrollment__c</referenceTo>
+        <relationshipLabel>Course Connections</relationshipLabel>
+        <relationshipName>Course_Enrollments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>hed__Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The Academic Program the student is enrolled in.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Academic Program the student is enrolled in.</inlineHelpText>
+        <label>Contact's Academic Program</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Course Connections</relationshipLabel>
+        <relationshipName>Course_Enrollments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>hed__Affiliation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Affiliation</label>
+        <referenceTo>hed__Affiliation__c</referenceTo>
+        <relationshipLabel>Course Connection</relationshipLabel>
+        <relationshipName>Course_Enrollment</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Subject_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>hed__Course_Offering__r.hed__Course__r.Subject_Code__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Subject Code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Course_Reference_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Course Reference Number</label>
+        <length>175</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>hed__Grade__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Grade</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Department__c</fullName>
+        <externalId>false</externalId>
+        <formula>hed__Course_Offering__r.hed__Course__r.hed__Account__r.Name</formula>
+        <label>Department</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>hed__Credits_Earned__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Credits Earned</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Faculty__c</fullName>
+        <externalId>false</externalId>
+        <formula>hed__Course_Offering__r.hed__Faculty__r.FirstName + ' ' +  hed__Course_Offering__r.hed__Faculty__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Faculty</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Course_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( RecordType.Name = "Banner Course Connection",  hed__Course_Offering__r.hed__Course__r.Subject_Name__c   &amp; " "&amp; hed__Course_Offering__r.hed__Course__r.Course_Number__c &amp; " ("&amp;
+ hed__Course_Offering__r.hed__Section_ID__c &amp;")",  Course_Offering_Name__c )</formula>
+        <label>Course ID</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Course_Offering_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>hed__Course_Offering__r.hed__Course__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Course Offering Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>hed__Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Represents the Status of the Course Connection.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Represents the Status of the Course Connection.  Use Course Added for current course enrollment.</inlineHelpText>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Course Added</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Course Dropped</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn from Course (W)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waitlisted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Audit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Course_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>hed__Course_Offering__r.hed__Course__r.Course_Number__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Course Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>hed__Primary__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Represents a Primary Course Connection.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Represents a Primary Course Connection.</inlineHelpText>
+        <label>Primary</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Grade_Change_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Grade Change Reason</label>
+        <length>175</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Athlete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Supports the athlete add/drop alert functionality.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>System field, not needed for a page layout.</inlineHelpText>
+        <label>Athlete</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Schedule__c</fullName>
+        <externalId>false</externalId>
+        <label>Schedule</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields><fields>
+        <fullName>SI_Hours__c</fullName>
+        <externalId>false</externalId>
+        <label>SI Hours</label>
+        <summarizedField>LP_Attendee__c.LP_Attendee_Hours__c</summarizedField>
+        <summaryForeignKey>LP_Attendee__c.Course_Enrollment__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields><fields>
+        <fullName>Activity_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Activity Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields><fields>
+        <fullName>External_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>External ID</label>
+        <length>175</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields><fields>
+        <fullName>Letter_Grade__c</fullName>
+        <externalId>false</externalId>
+        <label>Letter Grade</label>
+        <length>3</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>hed__Credits_Attempted__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Credits Attempted</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Eligible_to_Tutor__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Eligible to Tutor</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>College__c</fullName>
+        <externalId>false</externalId>
+        <formula>hed__Course_Offering__r.hed__Course__r.College__r.Name</formula>
+        <label>College</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates an Active Course Enrollment, not a withdraw and not final grade available for the current term.</description>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Received_Tutoring__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Received Tutoring</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields><allowInChatterGroups>false</allowInChatterGroups><compactLayoutAssignment>hed__HEDA_Course_Enrollment_Compact_Layout</compactLayoutAssignment><compactLayouts>
+        <fullName>hed__HEDA_Course_Enrollment_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>hed__Contact__c</fields>
+        <fields>hed__Course_Offering__c</fields>
+        <fields>hed__Program_Enrollment__c</fields>
+        <fields>hed__Grade__c</fields>
+        <fields>hed__Primary__c</fields>
+        <label>HEDA Course Connection Compact Layout</label>
+    </compactLayouts><deploymentStatus>Deployed</deploymentStatus><deprecated>false</deprecated><description>Represents a connection to a Course Offering.</description><enableActivities>false</enableActivities><enableBulkApi>true</enableBulkApi><enableFeeds>false</enableFeeds><enableHistory>false</enableHistory><enableReports>true</enableReports><enableSearch>true</enableSearch><enableSharing>true</enableSharing><enableStreamingApi>true</enableStreamingApi><label>Course Connection</label><nameField>
+        <displayFormat>CC-{0000}</displayFormat>
+        <label>Course Connection ID</label>
+        <type>AutoNumber</type>
+    </nameField><pluralLabel>Course Connections</pluralLabel><searchLayouts>
+        <lookupDialogsAdditionalFields>hed__Contact__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Course_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Faculty__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>hed__Grade__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Letter_Grade__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Term__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <searchFilterFields>hed__Contact__c</searchFilterFields>
+        <searchFilterFields>Course_Name__c</searchFilterFields>
+        <searchFilterFields>hed__Grade__c</searchFilterFields>
+        <searchFilterFields>Letter_Grade__c</searchFilterFields>
+        <searchFilterFields>Term__c</searchFilterFields>
+        <searchResultsAdditionalFields>hed__Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Course_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Eligible_to_Tutor__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>hed__Grade__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Letter_Grade__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+    </searchLayouts><sharingModel>Read</sharingModel><listViews>
+        <fullName>hed__All</fullName>
+        <columns>NAME</columns>
+        <columns>Course_Name__c</columns>
+        <columns>hed__Contact__c</columns>
+        <columns>hed__Course_Offering__c</columns>
+        <columns>Course_ID__c</columns>
+        <columns>Course_Offering_Name__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Course_Reference_Number__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews><recordTypes>
+        <fullName>Banner_Course_Connection</fullName>
+        <active>true</active>
+        <label>Banner Course Connection</label>
+        <picklistValues>
+            <picklist>hed__Status__c</picklist>
+            <values>
+                <fullName>Audit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Course Added</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Course Dropped</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waitlisted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn from Course %28W%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes><recordTypes>
+        <fullName>LWC_Course_Connection</fullName>
+        <active>true</active>
+        <label>LWC Course Connection</label>
+        <picklistValues>
+            <picklist>hed__Status__c</picklist>
+            <values>
+                <fullName>Audit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Course Added</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Course Dropped</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waitlisted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn from Course %28W%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes></CustomObject>

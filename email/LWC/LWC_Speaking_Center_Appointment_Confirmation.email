@@ -1,0 +1,11 @@
+To {!AppointmentContact__c.Staff__c}, 
+
+Your scheduled Speaking Center appointment on {!AppointmentContact__c.Start_Date__c} at {!AppointmentContact__c.00N2C000000KzR8} with {!AppointmentContact__c.00N2C000000KxDE} for {!AppointmentContact__c.00N2C000000LAPD} is confirmed.
+
+Log in to the student portal to modify or see additional details about this appointment.  Copy and paste the following link into your browser: 
+{!$Label.USF_Student_LWC_Appointment_details_page}{!AppointmentContact__c.Id} 
+
+
+Have a wonderful day, 
+
+The Learning & Writing Center

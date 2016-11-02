@@ -1,0 +1,16 @@
+Dear {!Contact.Name},
+
+
+This confirms that your appointment with {!AppointmentContact__c.CASA_Staff__c} in CASA on {!AppointmentContact__c.Start_Date__c} at {!AppointmentContact__c.Start_Time__c}, has been cancelled.
+
+
+To schedule a new appointment, please follow this link: {!$Label.USF_Student_CASA_Appointment_details_page}{!AppointmentContact__c.Id} We look forward to seeing you at another time.
+
+
+Thank you,
+
+Center for Academic and Student Achievement (CASA)
+University of San Francisco | UC 3rd Floor
+2130 Fulton St., San Francisco, CA  94117-1080
+T: 415.422.5050 | F: 415.422.2133 | Email: casa@usfca.edu
+Office Hours:  9:00 AM - 5:00 PM

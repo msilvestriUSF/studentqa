@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.hed__Student_Course_Enrollments__r$hed__Grade__c</field>
+    </columns>
+    <columns>
+        <field>Contact.hed__Student_Course_Enrollments__r$Course_Offering_Name__c</field>
+    </columns>
+    <columns>
+        <field>Contact.hed__Student_Course_Enrollments__r$Grade_Change_Reason__c</field>
+    </columns>
+    <columns>
+        <field>Contact.hed__Student_Course_Enrollments__r$Letter_Grade__c</field>
+    </columns>
+    <columns>
+        <field>Contact$Registered_for_Next_Term__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Contact$Student__c</column>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.hed__Student_Course_Enrollments__r$Letter_Grade__c</column>
+            <operator>contains</operator>
+            <value>D,F,W,I</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>CASA Student DFWI</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contacts_and_Course_Connection__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

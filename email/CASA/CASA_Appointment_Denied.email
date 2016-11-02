@@ -1,0 +1,11 @@
+Dear {!AppointmentContact__c.Contact__c},
+
+Unfortunately, your request for an appointment with your Academic Success Coach, {!AppointmentContact__c.Staff__c}, on {!AppointmentContact__c.Start_Date__c} at {!AppointmentContact__c.Start_Time__c} has been denied. You will be contacted shortly by your academic success coach with an explanation/offer for an alternative. 
+
+Thank you,
+
+Center for Academic and Student Achievement (CASA)
+University of San Francisco | UC 3rd Floor
+2130 Fulton St., San Francisco, CA  94117-1080
+T: 415.422.5050 | F: 415.422.2133 | Email: casa@usfca.edu
+Office Hours:  9:00 AM - 5:00 PM

@@ -1,0 +1,460 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" cache="true" docType="html-5.0" language="en-US" applyHTMLTag="false" controller="USF_FacultyDashBoardController">
+<apex:form >
+  <html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Faculty Staff Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Bootstrap Theme-->
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+
+<apex:includeScript value="{!URLFOR($Resource.MomentJs)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+<apex:includeScript value="{!URLFOR($Resource.USF_BootPag)}" />
+<style type="text/css">
+    body{        
+        background-color: #F8F7F0;
+    }
+    h2{
+        color: #000;
+    }
+    .details-container{
+        border :none;
+        margin-top: 20px;
+        border-radius: 0;        
+    }
+    .details-container emp{
+        margin: 5px 0;
+    }
+     .table{
+            border-collapse: separate;
+            border-spacing: 0 15px;
+            text-align: center;
+        }
+
+        .table>thead>tr>th{
+            border:0;
+            text-align:center;
+            font-weight: normal;
+        }
+
+        .table>tbody>tr>td, .table>tfoot>tr>td{
+           border: 1px solid #999;
+            vertical-align: middle;
+            /* border-radius: 5px 0 0 5px; */
+            border-width: 1px 0;
+        }
+
+        .table>tbody>tr>td:first-child{
+            border-left-width: 1px;
+            border-radius: 5px 0 0 5px;
+        }
+
+
+        .table>tbody>tr>td:last-child{
+            border-right-width: 1px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .table>tbody>tr>td:nth-child(4){
+           /* width:10%;*/
+        }
+
+        .table>tbody>tr>td span{
+            position:relative;
+            top:5px;
+        }
+        .headerSection {
+            font-size: 1.5rem;
+            color: #737575;
+            margin-top: 1%;
+            padding-left: 0;
+        }        
+        .inputSection {
+            border: 1px solid #d4d8d9;
+            border-radius: 5px;
+            padding: 1% 0;
+            font-size: 1.5rem;
+            color: #737575;
+            margin-top: 1%;
+        }
+        .studentInfo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #737575;
+        }
+        .btn:hover, .btn:focus {
+            background: #fff;
+            border: 1px solid #737575;
+            outline: none;
+        }
+        .btn {
+            background: #fff;
+        }
+        .btnInfo .btn {
+            padding: 5px 25px;
+            font-size: 1.2rem;
+            width: auto;
+            margin: 0 18%
+        }
+        .green {
+            border-color: green;
+            color: green;
+        }
+        .red {
+            border-color: red;
+            color: red;
+        }
+        .new-eap-but{
+            margin: 24px 0;
+        }
+        
+        .btnSectionWrap button, .btnSectionWrap input[type="submit"] {
+            background: #66cc66;
+            border: 1px solid #66cc66;
+            color: #fff;
+            font-weight: normal;
+            padding: 6px 30px;
+        }
+        .pagination-text{
+            padding: 5px 15px;
+        }
+        /*VD starts here*/
+.bodyClass{
+    font-size: 14px;   
+    font-family: Whitney-Book; 
+}
+.container {
+    width: 935px;
+}
+h2.headerClass{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: #00543C;
+}
+h2.headerClass span{    
+    font-family: Whitney-Black;
+    font-size: 20px;
+}
+h2.headerClass i.glyphicon{
+    font-size: 15px;    
+    cursor: pointer;
+}
+.btn-default {
+    background: white;    
+    padding: 10px 38px;
+    margin: 0 15px;
+    background-color: #00543C;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.btn-default:hover,.btn-default:focus{
+    background-color: #00543C;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.btn-default:active{
+    background-color: #73973F;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.last-button {
+    margin-right: 0;
+}
+.row-eq-height {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display:         flex;
+      align-items:center;
+}
+.detailsContainer{
+    background: #fff;
+    border-radius: 5px;
+    padding: 25px;
+}
+.title-text{
+    font-family: QuattrocentoSans-Bold;
+}
+.status{
+    font-family: Whitney-Semibold;
+    padding: 6px 16px;
+    border-radius: 4px;
+    border-width: 2px;   
+    border-style: solid;
+}
+.modal-footer {
+    text-align: center;
+}
+.tableUSF{
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin: 0;
+}
+.tableUSF>thead>tr>th{
+    border: 0;
+    /*border-top: 2px solid #e6e6e6 !important;*/
+    text-align: left;
+    padding-left: 15px;
+    font-family: Whitney-Bold;
+    font-size: 14px;
+    color: #2A2A2A;
+    letter-spacing: 0px;
+    padding: 10px 0 0 35px;
+    font-weight:bold;
+    
+}
+.tableUSF>thead>tr>th:nth-child(4){
+text-align: left;
+}
+.tableUSF>tbody>tr>td, .table>tfoot>tr>td{
+    border: none;
+    vertical-align: middle;
+    /* border-radius: 5px 0 0 5px; */
+    border-width: 1px 0;
+    padding: 15px 35px;    
+    font-size: 14px;
+    color: #2A2A2A;
+    letter-spacing: 0px;
+    line-height: 24px;    
+    box-shadow: 0px 2px 0 0 rgba(145,145,147,0.20);    
+    text-align:left;
+    background: #fff;
+}
+
+.tableUSF>tbody>tr>td:first-child{
+    border-left-width: 1px;
+    border-radius: 4px 0 0 4px;
+}  
+.tableUSF>tbody>tr>td:nth-child(2) {
+font-weight:bold;
+}  
+.tableUSF>tbody>tr>td:nth-child(5){
+letter-spacing:0px !important;
+}
+.tableUSF>tbody>tr>td:last-child{
+    border-right-width: 1px;
+    border-radius: 0 4px 4px 0;
+    letter-spacing: 1.69px;
+    font-family: QuattrocentoSans-Bold;
+    line-height: 24px;
+    padding:15px 30px;
+    font-size: 14px;
+   width: 19%;
+}
+.tableUSF>tbody>tr>td span{
+    display:block;
+}
+.tableUSF>tbody>tr>td span.glyphicon{
+    display: inline;
+    font-size: 13px;
+    margin-left: 5px;
+    top: 2px;
+}
+.tableUSF>tbody>tr>td span.glyphicon-edit{
+    display: inline;
+    font-size: 13px;
+    color: #FFFFFF;
+    letter-spacing: 0px;
+    font-weight: normal;
+    cursor: pointer;    
+}
+.tableUSF>tbody>tr>td span.location{
+    font-size: 12px
+}
+.top-row{
+    margin-top: 15px;
+}
+.tableUSF a, .tableUSF a:hover{
+    color: #00543C;
+    text-decoration: underline;
+}
+
+
+.pageinationText{
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+.instructionSection {
+background-color:#d7ede2;
+padding:10px;
+margin-top:20px;
+}
+.text-right {
+padding-right:0;
+}
+.modal-title{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #00543C !important;
+}
+ul.dropdown-menu{
+    padding: 0;
+    border-radius: 0;
+}
+
+ul.dropdown-menu .divider{
+    margin: 0;
+}
+
+ul.dropdown-menu li{
+    margin: 0;
+}
+
+ul.dropdown-menu>li>a{
+    padding: 10px 15px;
+    font-size: 12px;
+    color: #2A2A2A;
+    font-family: QuattrocentoSans;
+}    
+
+ul.dropdown-menu>li>a:hover{
+    background-color: #E6E6E6;
+    background-image: none;
+}
+
+.tableUSF>thead>tr>th:last-child{
+padding-left: 28px;
+}
+
+.paginationCrtl .btn-default[disabled], .paginationCrtl .btn-default[disabled]:hover{
+    color: #919194;
+    background: transparent;
+}
+
+.paginationCrtl .btn-default, .paginationCrtl .btn-default:focus, .paginationCrtl .btn-default:hover{
+    background: transparent;
+    color: #2a2a2a;
+    font-size: 14px;
+    padding: 5px 10px;
+    margin: 0;
+    box-shadow: none;
+    outline: 0;
+}
+
+.paginationCrtl .btn-default:active{    
+     color:#00543C;
+}
+</style>
+</head>
+<body class="bodyClass">
+<c:USF_Header />
+    <section class="container">        
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="headerClass">                    
+                    <span>Faculty Staff Dashboard</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row ">
+       <div class="col-md-12 ">
+               <p class="instructionSection">Please submit a new report if a student is earning below a C in your class, or if you are concerned about their progress in class. Note that a copy of this report with all of your remarks will be sent directly to the student, their Academic Success Coach, faculty adviser, and CASA/Dean's office. If you have any questions please contact Sara Solloway at 422-6742 or Marvella Luey at 422-6374.</p>
+
+       </div>
+        </div>
+        <div class="row row-eq-height top-row">
+            <div class="col-md-6">
+                <div><span class="title-text">Student Progress Reports</span></div>
+                <div><span>Below are the recent Student Progress Reports that you have submitted.</span></div>
+            </div> 
+            <!-- Buttons -->
+            <div class="col-md-6 text-right">
+                <apex:commandButton styleclass="btn btn-default" action="/apex/USF_FacultyStaffEAPIntg" value="Submit New Report"/>
+            </div>
+        </div>
+        <div class="details-container">            
+            <apex:outputPanel id="eapReportSection">
+            <div> 
+                <table class="table tableUSF">
+                    <thead class="headerSection">
+                        <tr>
+                         <th>
+                                SUBMITTED
+                            </th>  
+                            <th>
+                                STUDENT
+                            </th>
+                            <th>
+                                CWID
+                            </th>
+                            <th>
+                                SUBJECT
+                            </th>
+                                                     
+                            <th>
+                                STATUS
+                            </th>                       
+                        </tr>
+                    </thead>
+                    <tbody> 
+                        <apex:repeat value="{!EAPReports}" var="eapReport">                    
+                             <tr>
+                              <td>                                
+                                    <apex:outputText value="{!eapDateMap[eapReport.id]}"/>                          
+                                </td>
+                                <td>{!eapReport.ContactLastName__c},&nbsp;{!eapReport.ContactFirstName__c}</td>
+                                <td>{!eapReport.CWID__c}</td>
+                                <!--<td>{!eapReport.contact.AcademicSuccessCoach__r.name}</td>-->
+                                 <td>{!eapReport.CourseName__c} - {!eapReport.Course_Section__c}</td>                                
+                               
+                                <td class="btnInfo">
+                                    <!--<button type="button" class="btn btn-default btn-lg col-md-7 green">View Form</button>-->
+                                   <apex:commandLink styleClass="" value="View Form" action="/apex/USF_FacultyStaffEAPForm?eapId={!eapReport.id}&view=true"/>
+                                    <span class="glyphicon glyphicon-new-window" style="color:#00543C;"></span>
+                                </td>
+                             </tr>                         
+                        </apex:repeat>                                        
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <apex:panelGrid columns="7" rendered="{!noOfRecords>5}" styleClass="paginationCrtl">
+                            <apex:commandButton reRender="eapReportSection" value="First" action="{!first}" disabled="{!!hasPrevious}" title="First Page" styleClass="btn btn-default"/>
+                            <apex:commandButton reRender="eapReportSection"  action="{!previous}" disabled="{!!hasPrevious}" title="Previous Page" styleClass="btn btn-default" value="<< Previous"/>
+                            <apex:commandButton reRender="eapReportSection" value="Next >>" action="{!next}" disabled="{!!hasNext}" title="Next Page" styleClass="btn btn-default"/>
+                            <apex:commandButton reRender="eapReportSection" value="Last" action="{!last}" disabled="{!!hasNext}" title="Last Page" styleClass="btn btn-default"/>
+                            
+                           <!-- <apex:outputPanel style="color:#4AA02C;font-weight:bold">
+                                <apex:actionStatus id="fetchStatus" startText="Fetching..." stopText=""/>
+                            </apex:outputPanel>-->
+                        </apex:panelGrid>                        
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                        <div class="pageinationText">
+                            <span>
+                                <apex:outputText >{!(pageNumber * eapPageSize)+1-eapPageSize}-{!IF((pageNumber * eapPageSize)>noOfRecords, noOfRecords,(pageNumber * eapPageSize))} of {!noOfRecords}</apex:outputText>
+                            </span>
+                        </div>
+                    </div>
+                </div>                
+                 
+            </div>
+            </apex:outputPanel>           
+        </div>
+    </section>   
+    <c:USF_Footer /> 
+</body>
+
+</html>
+</apex:form> 
+</apex:page>

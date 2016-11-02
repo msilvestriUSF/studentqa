@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields><fields>
+        <label><!-- External Email --></label>
+        <name>External_Email__c</name>
+    </fields><fields>
+        <label><!-- External Participant --></label>
+        <name>External_Participant__c</name>
+    </fields><fields>
+        <label><!-- Interaction --></label>
+        <name>Interaction__c</name>
+        <relationshipLabel><!-- Participants --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Participant Name --></label>
+        <name>Participant_Name__c</name>
+    </fields><fields>
+        <label><!-- Student --></label>
+        <name>Student__c</name>
+    </fields><fields>
+        <help><!-- Type Name and Email of Department and Friends
+Lookup Staff or Faculty using Contacts --></help>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Faculty</masterLabel>
+            <translation><!-- Faculty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friend</masterLabel>
+            <translation><!-- Friend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outside CASA Staff</masterLabel>
+            <translation><!-- Outside CASA Staff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parent / Family Member</masterLabel>
+            <translation><!-- Parent / Family Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Person or Department</masterLabel>
+            <translation><!-- Person or Department --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- USF Email --></label>
+        <name>USF_Email__c</name>
+    </fields><fields>
+        <label><!-- USF Participant Full Name --></label>
+        <name>USF_Participant_Full_Name__c</name>
+    </fields><fields>
+        <label><!-- USF Participant --></label>
+        <name>USF_Participant__c</name>
+        <relationshipLabel><!-- Participants --></relationshipLabel>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Participant</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Participants</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>Paticipant Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Participant Information --></label>
+            <section>Participant Information</section>
+        </sections>
+    </layouts><validationRules>
+        <errorMessage><!-- Only enter an External Participant OR a USF Participant.  Create a new record for other participants. --></errorMessage>
+        <name>External_OR_USF_Participant</name>
+    </validationRules></CustomObjectTranslation>

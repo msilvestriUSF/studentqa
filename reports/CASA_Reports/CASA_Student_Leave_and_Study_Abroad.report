@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.Leave__r$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.Leave__r$Reason__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Leave__r$Other_Reason__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Leave__r$Start_Date__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Leave__r$Expected_Return_Date__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Leave__r$Current__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Leave__r$CreatedDate</field>
+    </columns>
+    <description>CASA Students with Leave and Study Abroad</description>
+    <filter>
+        <criteriaItems>
+            <column>Contact$Student__c</column>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact.Leave__r$Type__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>CASA Student Leave and Study Abroad</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contacts_and_Leave__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Contact.Leave__r$Current__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Contact$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

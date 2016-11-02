@@ -1,0 +1,112 @@
+<!--
+//************************************************************************************
+// Name             : USF_EditAvailabilityConfirmation
+// Description      : Visualforce page to display USF_EditAvailabilityConfirmation page
+// Created By       : MANDI FAZEEL AHMED
+// Created Date     : 09/22/2016 
+// ************************Version Updates********************************************
+// Date             Developer           Description
+// -----------------------------------------------------------------------------------
+// 09/22/2016        MANDI FAZEEL AHMED       Created
+// ************************************************************************************
+-->
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" cache="false" docType="html-5.0" language="en-US" applyHTMLTag="false">
+<apex:form > 
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Edit Setting Availability - Confirmation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Bootstrap Theme-->
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+
+
+<apex:includeScript value="{!URLFOR($Resource.MomentJs)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+<style>
+p.largeMsg {
+    font-size: 30px;
+    font-family: Whitney-Black;
+    color: #00543C;
+
+}
+
+p.smallMsg {
+    font-size: 18px;
+}
+
+.msgWrap{
+    margin-top: 125px;
+   
+}
+/*VD starts here*/
+.buttonWrap {
+    margin-top: 30px;
+}
+.bodyClass{
+    font-size: 14px;   
+    font-family: Whitney-Book; 
+    background: #F8F7F0;
+}
+.container {
+    width: 935px;
+}
+.glyphicon-ok-sign {
+    font-size: 100px;
+    color: #00543C;
+}
+.btn-default {
+    background: white;    
+    padding: 10px 38px;
+    margin: 0 15px;
+    background-color: #00543C;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.btn-default:hover,.btn-default:focus{
+    background-color: #73973F;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.btn-default:active{
+    background-color: #73973F;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+</style>
+</head>
+<body class="bodyClass">
+    <div class="container">
+        <div class="row text-center msgWrap">
+            <div class="col-md-12">
+                <p><span class="glyphicon glyphicon-ok-sign"></span></p>
+                <p class="largeMsg">Your availability has been modified.</p>
+                <!--<p class="smallMsg">We will notify you once your request is approved.</p>-->
+                 <div class="row text-center buttonWrap">
+                    <button class="btn btn-default" type="button">Back to Availability</button>     
+                    
+                </div>
+            </div>            
+        </div>
+    </div>
+</body>
+</html>
+</apex:form> 
+</apex:page>

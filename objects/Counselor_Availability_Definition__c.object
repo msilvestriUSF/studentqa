@@ -1,0 +1,686 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"><actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides><fields>
+        <fullName>AppointmentType__c</fullName>
+        <externalId>false</externalId>
+        <label>Appointment Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Scheduled</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Drop In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Center_Text__c</fullName>
+        <description>This field is used to sharing rule and is being populated with Center name via center lookup field</description>
+        <externalId>false</externalId>
+        <label>Center Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Coach__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Coach</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Availability_Definition</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Consultant__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to Consultant. Need to link this to Contact to allow them having Write access</description>
+        <externalId>false</externalId>
+        <label>Consultant</label>
+        <referenceTo>Consultant__c</referenceTo>
+        <relationshipLabel>Availability</relationshipLabel>
+        <relationshipName>Availability</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>End_Date_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>End Date Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields><fields>
+        <fullName>Friday__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Friday</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <picklist>
+            <picklistValues>
+                <fullName>LWC, Cowell 215</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cowell 212</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SC, Malloy 103</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>McLaren 107</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gleeson Library</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Front Desk Online/Canvas</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UC 3rd Floor Lounge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UC 4th Floor Lounge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UC 5th Floor Lounge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hayes-Healy Formal Lounge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gillson Lounge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fromm Lounge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outtakes Cafe (LoMo by OneCard Office)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Crossroads Cafe outside Bookstore Entrance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Harney 512</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cowell 417/418</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kalmanovitz 309 Library</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>University Center, 3rd floor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pleasanton</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>San Jose</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sacramento</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Downtown SF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Max_No_Of_Slots__c</fullName>
+        <externalId>false</externalId>
+        <label>Maximum No Of Slots/Day</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Max_Number_of_Students__c</fullName>
+        <defaultValue>1</defaultValue>
+        <externalId>false</externalId>
+        <label>Max Number of Students</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Meeting_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Meeting Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>In Person</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields><fields>
+        <fullName>Monday__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Monday</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Repeat__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select "Only Once" to create slots for a single day.
+Select "Daily" to create slots every day of a specified date range. Do not select specific days.
+Select "Weekly" to create slots for selected days of a specified date range. Select the specific days.</inlineHelpText>
+        <label>Repeat</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Only Once</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Daily</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Start_Date_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Date Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields><fields>
+        <fullName>Success_Center__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Center</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.Center__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Availability (Center)</relationshipLabel>
+        <relationshipName>Availability</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Thursday__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Thursday</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>TimeSlotDurationLWC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Success_Center__r.AppointmentLength__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Time Slot Duration (LWC)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>TimeSlotDuration__c</fullName>
+        <defaultValue>60</defaultValue>
+        <description>Time in minutes.  For CASA use only.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Time in minutes</inlineHelpText>
+        <label>Time Slot Duration (min)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Tuesday__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Tuesday</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Wednesday__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Wednesday</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><allowInChatterGroups>false</allowInChatterGroups><compactLayoutAssignment>SYSTEM</compactLayoutAssignment><deploymentStatus>Deployed</deploymentStatus><enableActivities>false</enableActivities><enableBulkApi>true</enableBulkApi><enableFeeds>false</enableFeeds><enableHistory>true</enableHistory><enableReports>true</enableReports><enableSearch>true</enableSearch><enableSharing>true</enableSharing><enableStreamingApi>true</enableStreamingApi><label>Availability</label><nameField>
+        <displayFormat>CAD-{0000}</displayFormat>
+        <label>Coach Availability Definition Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField><pluralLabel>Availability</pluralLabel><recordTypeTrackHistory>false</recordTypeTrackHistory><searchLayouts>
+        <customTabListAdditionalFields>Start_Date_Time__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>End_Date_Time__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Max_Number_of_Students__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Monday__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Tuesday__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Wednesday__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Thursday__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Friday__c</lookupDialogsAdditionalFields>
+    </searchLayouts><sharingModel>Read</sharingModel><listViews>
+        <fullName>All1</fullName>
+        <columns>NAME</columns>
+        <columns>Coach__c</columns>
+        <columns>Location__c</columns>
+        <columns>Max_Number_of_Students__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Start_Date_Time__c</columns>
+        <columns>End_Date_Time__c</columns>
+        <columns>Success_Center__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews><listViews>
+        <fullName>CASA_Availability</fullName>
+        <columns>NAME</columns>
+        <columns>Coach__c</columns>
+        <columns>AppointmentType__c</columns>
+        <columns>Meeting_Location__c</columns>
+        <columns>Location__c</columns>
+        <columns>Max_Number_of_Students__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Start_Date_Time__c</columns>
+        <columns>End_Date_Time__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Success_Center__c</field>
+            <operation>contains</operation>
+            <value>Center for Academic Student Achievement</value>
+        </filters>
+        <label>CASA Availability</label>
+    </listViews><listViews>
+        <fullName>LWC_Availability</fullName>
+        <columns>NAME</columns>
+        <columns>Coach__c</columns>
+        <columns>Success_Center__c</columns>
+        <columns>AppointmentType__c</columns>
+        <columns>Meeting_Location__c</columns>
+        <columns>Location__c</columns>
+        <columns>Max_Number_of_Students__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Start_Date_Time__c</columns>
+        <columns>Consultant__c</columns>
+        <columns>End_Date_Time__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Success_Center__c</field>
+            <operation>contains</operation>
+            <value>Learning,Writing,Speaking</value>
+        </filters>
+        <label>LWC Availability</label>
+    </listViews><listViews>
+        <fullName>Naya_Availability</fullName>
+        <columns>NAME</columns>
+        <columns>Coach__c</columns>
+        <columns>Start_Date_Time__c</columns>
+        <columns>End_Date_Time__c</columns>
+        <columns>Max_Number_of_Students__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Coach__c</field>
+            <operation>contains</operation>
+            <value>Naya</value>
+        </filters>
+        <label>Naya's Availability</label>
+    </listViews><recordTypes>
+        <fullName>CASA_Availability</fullName>
+        <active>true</active>
+        <label>CASA Availability</label>
+        <picklistValues>
+            <picklist>AppointmentType__c</picklist>
+            <values>
+                <fullName>Drop In</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scheduled</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Downtown SF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pleasanton</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sacramento</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Jose</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>University Center%2C 3rd floor</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Location__c</picklist>
+            <values>
+                <fullName>In Person</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Repeat__c</picklist>
+            <values>
+                <fullName>Daily</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Only Once</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes><recordTypes>
+        <fullName>LWC_Availabilty</fullName>
+        <active>true</active>
+        <label>LWC Availabilty</label>
+        <picklistValues>
+            <picklist>AppointmentType__c</picklist>
+            <values>
+                <fullName>Drop In</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scheduled</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>Cowell 212</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cowell 417%2F418</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crossroads Cafe outside Bookstore Entrance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fromm Lounge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Front Desk Online%2FCanvas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gillson Lounge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gleeson Library</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Harney 512</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hayes-Healy Formal Lounge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kalmanovitz 309 Library</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LWC%2C Cowell 215</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>McLaren 107</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outtakes Cafe %28LoMo by OneCard Office%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SC%2C Malloy 103</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UC 3rd Floor Lounge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UC 4th Floor Lounge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UC 5th Floor Lounge</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Location__c</picklist>
+            <values>
+                <fullName>In Person</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Repeat__c</picklist>
+            <values>
+                <fullName>Daily</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Only Once</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes><validationRules>
+        <fullName>Cannot_Edit_Appointment_Type</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED( AppointmentType__c )</errorConditionFormula>
+        <errorMessage>You cannot change Appointment type.</errorMessage>
+    </validationRules><validationRules>
+        <fullName>Cannot_edit_Center_for_an_Availability</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED( Success_Center__c )</errorConditionFormula>
+        <errorMessage>You cannot update Center for an existing Availability.</errorMessage>
+    </validationRules><validationRules>
+        <fullName>Capacity_1_for_CASA</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(CONTAINS(Success_Center__r.Name, 'CASA') &amp;&amp; Max_Number_of_Students__c &gt; 1,true,false)</errorConditionFormula>
+        <errorDisplayField>Max_Number_of_Students__c</errorDisplayField>
+        <errorMessage>For CASA maximum number of students should be one</errorMessage>
+    </validationRules><validationRules>
+        <fullName>Capacity_1_for_Writing_Speaking</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF((CONTAINS(Success_Center__r.Name, 'Writing') || CONTAINS(Success_Center__r.Name, 'Speaking')) &amp;&amp;  Max_Number_of_Students__c &gt; 1,true,false)</errorConditionFormula>
+        <errorDisplayField>Max_Number_of_Students__c</errorDisplayField>
+        <errorMessage>Maximum number of students should not be greater than one</errorMessage>
+    </validationRules><validationRules>
+        <fullName>MaxNoofStudentsshouldbemorethan0</fullName>
+        <active>true</active>
+        <description>Should save an availability when max no of students is more than 0</description>
+        <errorConditionFormula>Max_Number_of_Students__c &lt;= 0</errorConditionFormula>
+        <errorMessage>Max No of Students should be at least 1</errorMessage>
+    </validationRules><validationRules>
+        <fullName>Repeat_Weekly_selection</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT(ISPICKVAL( Repeat__c , 'Weekly'))   &amp;&amp; 
+ (
+  Monday__c  = TRUE  || 
+ Tuesday__c = TRUE   || 
+  Wednesday__c= TRUE || 
+ Thursday__c= TRUE   || 
+  Friday__c= TRUE 
+)</errorConditionFormula>
+        <errorDisplayField>Repeat__c</errorDisplayField>
+        <errorMessage>Days of the Week selection valid for Repeat Weekly only.</errorMessage>
+    </validationRules><validationRules>
+        <fullName>Same_Day_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+    ISPICKVAL(Repeat__c , 'Only Once'),  
+    DAY(DATEVALUE(End_Date_Time__c))  &lt;&gt;  
+    DAY(DATEVALUE(Start_Date_Time__c))
+   )</errorConditionFormula>
+        <errorDisplayField>End_Date_Time__c</errorDisplayField>
+        <errorMessage>The End Date must be the same as the Start Date when selecting the 'Only Once' repeat option.</errorMessage>
+    </validationRules><validationRules>
+        <fullName>Start_End_Time_Min_Gap</fullName>
+        <active>true</active>
+        <description>Start time and End time must have must not be same</description>
+        <errorConditionFormula>Start_Date_Time__c   &gt;=  End_Date_Time__c</errorConditionFormula>
+        <errorDisplayField>End_Date_Time__c</errorDisplayField>
+        <errorMessage>The End Date Time must be greater than the Start Date Time</errorMessage>
+    </validationRules></CustomObject>

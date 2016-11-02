@@ -1,0 +1,3683 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"><actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>ChangeStatus</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>CloneAsChild</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>CloseCase</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>MassClose</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>NewCase</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides><businessProcesses>
+        <fullName>CASA Case</fullName>
+        <description>Typical CASA Case</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses><businessProcesses>
+        <fullName>EAP</fullName>
+        <description>Early Alert Progress Report</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Canceled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses><businessProcesses>
+        <fullName>LWC Case</fullName>
+        <description>Typical LWC Case</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses><fields>
+        <fullName>Academic_Counseling_Coaching__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Academic Counseling/Coaching</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Academic_Form_Processing__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Multiple reasons can be chosen</inlineHelpText>
+        <label>Academic Form Processing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Add/Drop Form</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PEAI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OPT/CPT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transfer Verification</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields><fields>
+        <fullName>Academic_Foundation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Academic Foundation</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>AccountId</fullName>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.Name</field>
+                <operation>contains</operation>
+                <value>Success</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Advising_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Advising Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields><fields>
+        <fullName>Appeal_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Appeal Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Did Not Appeal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Appeal Denied</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reinstated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Decision</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Areas_for_improvement__c</fullName>
+        <description>This field holds the areas for improvement values in Reasons Section on EAP Report Form page.</description>
+        <externalId>false</externalId>
+        <label>Areas for Improvement</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Attendance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Participation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Preparation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test Grades</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>AssetId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Attendance__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Attendance</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Available_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Available on or after</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields><fields>
+        <fullName>BusinessHoursId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>CWID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact.CWID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CWID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>ClosedDate</fullName>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>Comments</fullName>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>Consider_Withdrawing_from_Course__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Consider Withdrawing from Course</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>ContactEmail</fullName>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>ContactFax</fullName>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>ContactFirstName__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact.FirstName</formula>
+        <label>ContactFirstName</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>ContactId</fullName>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.Student__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <trackFeedHistory>false</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>ContactLastName__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact.LastName</formula>
+        <label>ContactLastName</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>ContactMobile</fullName>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>ContactPhone</fullName>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>CourseName__c</fullName>
+        <externalId>false</externalId>
+        <formula>Course_Offering__r.hed__Course__r.Name</formula>
+        <label>Course Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Course_Connection__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Course Connection</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>hed__Course_Enrollment__c.hed__Contact__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.ContactId</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>hed__Course_Enrollment__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Course_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Course Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Course_Offering__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Course</label>
+        <referenceTo>hed__Course_Offering__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Course_Section__c</fullName>
+        <externalId>false</externalId>
+        <formula>Course_Offering__r.hed__Section_ID__c</formula>
+        <label>Course Section</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Course__c</fullName>
+        <externalId>false</externalId>
+        <formula>Course_Connection__r.Course_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Course</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Description</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>Estimated_Grade__c</fullName>
+        <externalId>false</externalId>
+        <label>Estimated Grade</label>
+        <length>175</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Faculty_Email__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter faculty member's email</inlineHelpText>
+        <label>Faculty Email</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Faculty_Referral__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if student was referred by faculty</inlineHelpText>
+        <label>Faculty Referral</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Faculty__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>EAP Faculty Referrer</description>
+        <externalId>false</externalId>
+        <label>Faculty</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Cases (Faculty)</relationshipLabel>
+        <relationshipName>Cases_Faculty</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Friday_End__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_End_Time</globalPicklist>
+        <label>to</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Friday_Start__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_Start_Time</globalPicklist>
+        <label>Friday from</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>IsClosedOnCreate</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>IsEscalated</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>LWC_Tutor__c</fullName>
+        <externalId>false</externalId>
+        <formula>Course_Offering__r.LWC_Tutor__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>LWC Tutor</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Lack_of_Motivation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Lack of Motivation</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Late_Work__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Late Work</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Monday_End__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_End_Time</globalPicklist>
+        <label>to</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Monday_Start__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_Start_Time</globalPicklist>
+        <label>Monday from</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields><fields>
+        <fullName>Number_of_Calls__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter number of times student has been called</inlineHelpText>
+        <label>Number of Calls</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Origin</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Visit - Drop in</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Visit - Scheduled Appointment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Portal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WebTrack</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Other__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Reason</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>ParentId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Participation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Participation</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Personal_Issues__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Personal Issues</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Poor_Study_Skills__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Poor Study Skills</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Poor_Time_Management__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Poor Time Management</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Preparation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Preparation</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Priority</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>High</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Quality_of_Work__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Quality of Work</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Reason</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Academic Coaching</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Academic Disqualification</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Academic Form Processing</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Academic Integrity</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Academic Probation</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Appointment Information</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CMBIT</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dean's Letter / Tuition Adjustment</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Disability Related Issues</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Disruptive Behavior</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Early Alert</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Faculty/Student Complaint</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Faculty Notification</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financial Needs</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Grade Appeal / Grade Change</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Graduation</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Homesickness</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Housing / Residence Hall</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leave of Absence/Withdrawal from USF</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loss / Grief</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Major / Minor Exploration</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical Health</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Student Survey</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Referral</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registration Assistance</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SOM Waitlist</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Study Abroad</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Substance Abuse</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Underenrolled</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Webtrack</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawal from Class</fullName>
+                <default>false</default>
+                <cssExposed>false</cssExposed>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Reason_Tutor_Request__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason Tutor Request</label>
+        <picklist>
+            <picklistValues>
+                <fullName>This course was not listed on my course list</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>There are no available appointments</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No available appointments fit my schedule</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Recommendations__c</fullName>
+        <description>This field holds the 'recommendation' values of Reasons Section on EAP Report Form page.</description>
+        <externalId>false</externalId>
+        <label>Recommendations</label>
+        <picklist>
+            <picklistValues>
+                <fullName>See Instructor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tutoring</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Supplemental Instruction</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Academic Counseling/Coaching</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Student Disability Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Improve Study Skills</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Writing Center</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consider Withdrawing from Course</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>See CASA Staff</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields><fields>
+        <fullName>Recommended_Classes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Classes Recommended to student by advisor</inlineHelpText>
+        <label>Recommended Classes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields><fields>
+        <fullName>Referred_By_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Referred By Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Referred_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Referred By</label>
+        <length>175</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Saturday_End__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_End_Time</globalPicklist>
+        <label>to</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Saturday_Start__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_Start_Time</globalPicklist>
+        <label>Saturday from</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>See_CASA_Staff__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>See CASA Staff</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>See_Instructor__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>See Instructor</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>SourceId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Status</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>New</fullName>
+                <default>true</default>
+                <closed>false</closed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Open</fullName>
+                <default>false</default>
+                <closed>false</closed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complete</fullName>
+                <default>false</default>
+                <closed>true</closed>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Canceled</fullName>
+                <default>false</default>
+                <closed>true</closed>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Student_Disability_Services__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Student Disability Services</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Study_Skills__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Study Skills</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Subject</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>Sunday_End__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_End_Time</globalPicklist>
+        <label>to</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Sunday_Start__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_Start_Time</globalPicklist>
+        <label>Sunday from</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Supplemental_Instruction__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Supplemental Instruction</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>SuppliedCompany</fullName>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>SuppliedEmail</fullName>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>SuppliedName</fullName>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>SuppliedPhone</fullName>
+        <trackTrending>false</trackTrending>
+    </fields><fields>
+        <fullName>Test_Grades__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Test Grades</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Thursday_End__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_End_Time</globalPicklist>
+        <label>to</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Thursday_Start__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_Start_Time</globalPicklist>
+        <label>Thursday from</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Tuesday_End__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_End_Time</globalPicklist>
+        <label>to</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Tuesday_Start__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_Start_Time</globalPicklist>
+        <label>Tuesday From</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Tutoring__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Tutoring</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Type</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Wednesday_End__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_End_Time</globalPicklist>
+        <label>to</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Wednesday_Start__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>Available_Start_Time</globalPicklist>
+        <label>Wednesday from</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Work__c</fullName>
+        <description>This field holds the 'Work' values of Reasons Section on EAP Report Form page.</description>
+        <externalId>false</externalId>
+        <label>Work</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Quality of work</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Late Work</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lack of Study Skills</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Time Management Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Academic Foundation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lack of Motivation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Performing below a "C"</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields><fields>
+        <fullName>Writing_Center__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Writing Center</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><compactLayoutAssignment>SYSTEM</compactLayoutAssignment><enableFeeds>true</enableFeeds><recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory><searchLayouts>
+        <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
+        <customTabListAdditionalFields>NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.CREATED_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.PRIORITY</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.STATUS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER_NAME</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.STATUS</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.CASE_NUMBER</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.SUBJECT</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.STATUS</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.CASE_NUMBER</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.SUBJECT</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.STATUS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+    </searchLayouts><sharingModel>Private</sharingModel><listViews>
+        <fullName>AllCases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.LAST_UPDATE</columns>
+        <columns>CASES.RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Cases</label>
+    </listViews><listViews>
+        <fullName>Early_Alerts</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>OWNER_NAME</columns>
+        <columns>NAME</columns>
+        <columns>CASES.RECORDTYPE</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE_DATE_ONLY</columns>
+        <columns>Areas_for_improvement__c</columns>
+        <columns>Work__c</columns>
+        <columns>Recommendations__c</columns>
+        <columns>Estimated_Grade__c</columns>
+        <columns>Referred_By__c</columns>
+        <columns>Course_Offering__c</columns>
+        <columns>Course_Name__c</columns>
+        <columns>Faculty__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.EAP_Report</value>
+        </filters>
+        <label>Early Alerts</label>
+        <sharedTo>
+            <role>CASA_Staff</role>
+        </sharedTo>
+    </listViews><listViews>
+        <fullName>MyCases</fullName>
+        <filterScope>Mine</filterScope>
+        <label>My Cases</label>
+    </listViews><listViews>
+        <fullName>MyOpenCases</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>My Open Cases</label>
+    </listViews><listViews>
+        <fullName>My_Case_Team</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CONTACT.FIRST_NAME</columns>
+        <columns>CONTACT.LAST_NAME</columns>
+        <filterScope>Team</filterScope>
+        <label>My Case Team</label>
+    </listViews><listViews>
+        <fullName>Tutor_Request</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Tutor_Request</value>
+        </filters>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>Tutor Request (Open)</label>
+        <sharedTo>
+            <role>LWC_Admin</role>
+            <role>LWC_Front_Desk</role>
+            <role>LWC_Learning_Lead</role>
+        </sharedTo>
+    </listViews><listViews>
+        <fullName>Tutor_Request_Closed</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Tutor_Request</value>
+        </filters>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Tutor Request (Closed)</label>
+        <sharedTo>
+            <role>LWC_Admin</role>
+            <role>LWC_Front_Desk</role>
+            <role>LWC_Learning_Lead</role>
+        </sharedTo>
+    </listViews><recordTypes>
+        <fullName>CASA_Case</fullName>
+        <active>true</active>
+        <businessProcess>EAP</businessProcess>
+        <label>CASA Case</label>
+        <picklistValues>
+            <picklist>Academic_Form_Processing__c</picklist>
+            <values>
+                <fullName>Add%2FDrop Form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OPT%2FCPT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PEAI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transfer Verification</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Appeal_Status__c</picklist>
+            <values>
+                <fullName>Appeal Denied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Did Not Appeal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Decision</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reinstated</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Areas_for_improvement__c</picklist>
+            <values>
+                <fullName>Attendance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Participation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preparation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Grades</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Available_End_Time</picklist>
+            <values>
+                <fullName>1%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Available_Start_Time</picklist>
+            <values>
+                <fullName>1%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit - Drop in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit - Scheduled Appointment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WebTrack</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Academic Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Disqualification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Form Processing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Integrity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Probation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Appointment Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CMBIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dean%27s Letter %2F Tuition Adjustment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability Related Issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disruptive Behavior</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Early Alert</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Faculty Notification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Faculty%2FStudent Complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grade Appeal %2F Grade Change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Graduation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Homesickness</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing %2F Residence Hall</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leave of Absence%2FWithdrawal from USF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loss %2F Grief</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major %2F Minor Exploration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Student Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SOM Waitlist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Study Abroad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Substance Abuse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underenrolled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webtrack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawal from Class</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason_Tutor_Request__c</picklist>
+            <values>
+                <fullName>No available appointments fit my schedule</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>There are no available appointments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This course was not listed on my course list</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Recommendations__c</picklist>
+            <values>
+                <fullName>Academic Counseling%2FCoaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consider Withdrawing from Course</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Improve Study Skills</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>See CASA Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>See Instructor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student Disability Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supplemental Instruction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tutoring</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Writing Center</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Work__c</picklist>
+            <values>
+                <fullName>Academic Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Motivation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Study Skills</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Late Work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quality of work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Time Management Issues</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes><recordTypes>
+        <fullName>EAP_Report</fullName>
+        <active>true</active>
+        <businessProcess>EAP</businessProcess>
+        <label>EAP Report</label>
+        <picklistValues>
+            <picklist>Academic_Form_Processing__c</picklist>
+            <values>
+                <fullName>Add%2FDrop Form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OPT%2FCPT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PEAI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transfer Verification</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Appeal_Status__c</picklist>
+            <values>
+                <fullName>Appeal Denied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Did Not Appeal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Decision</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reinstated</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Areas_for_improvement__c</picklist>
+            <values>
+                <fullName>Attendance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Participation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preparation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Grades</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Available_End_Time</picklist>
+            <values>
+                <fullName>1%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Available_Start_Time</picklist>
+            <values>
+                <fullName>1%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit - Drop in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit - Scheduled Appointment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Academic Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Disqualification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Form Processing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Integrity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Probation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Appointment Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CMBIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dean%27s Letter %2F Tuition Adjustment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability Related Issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disruptive Behavior</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Early Alert</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Faculty Notification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Faculty%2FStudent Complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grade Appeal %2F Grade Change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing %2F Residence Hall</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leave of Absence%2FWithdrawal from USF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loss %2F Grief</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major %2F Minor Exploration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Student Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SOM Waitlist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Study Abroad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Substance Abuse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underenrolled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webtrack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawal from Class</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason_Tutor_Request__c</picklist>
+            <values>
+                <fullName>No available appointments fit my schedule</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>There are no available appointments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This course was not listed on my course list</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Recommendations__c</picklist>
+            <values>
+                <fullName>Academic Counseling%2FCoaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consider Withdrawing from Course</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Improve Study Skills</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>See CASA Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>See Instructor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student Disability Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supplemental Instruction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tutoring</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Writing Center</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Work__c</picklist>
+            <values>
+                <fullName>Academic Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Motivation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Study Skills</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Late Work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Performing below a %22C%22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quality of work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Time Management Issues</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes><recordTypes>
+        <fullName>Faculty_Recommendation</fullName>
+        <active>false</active>
+        <businessProcess>CASA Case</businessProcess>
+        <label>Faculty Recommendation</label>
+        <picklistValues>
+            <picklist>Academic_Form_Processing__c</picklist>
+            <values>
+                <fullName>Add%2FDrop Form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OPT%2FCPT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PEAI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transfer Verification</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Appeal_Status__c</picklist>
+            <values>
+                <fullName>Appeal Denied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Did Not Appeal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Decision</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reinstated</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Areas_for_improvement__c</picklist>
+            <values>
+                <fullName>Attendance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Participation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preparation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Grades</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Available_End_Time</picklist>
+            <values>
+                <fullName>1%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Available_Start_Time</picklist>
+            <values>
+                <fullName>1%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit - Drop in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit - Scheduled Appointment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WebTrack</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Academic Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Disqualification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Form Processing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Integrity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Probation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Appointment Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CMBIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dean%27s Letter %2F Tuition Adjustment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability Related Issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disruptive Behavior</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Early Alert</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Faculty Notification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Faculty%2FStudent Complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grade Appeal %2F Grade Change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing %2F Residence Hall</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leave of Absence%2FWithdrawal from USF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loss %2F Grief</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major %2F Minor Exploration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Student Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SOM Waitlist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Study Abroad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Substance Abuse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underenrolled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webtrack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawal from Class</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason_Tutor_Request__c</picklist>
+            <values>
+                <fullName>No available appointments fit my schedule</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>There are no available appointments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This course was not listed on my course list</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Recommendations__c</picklist>
+            <values>
+                <fullName>Academic Counseling%2FCoaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consider Withdrawing from Course</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Improve Study Skills</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>See CASA Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>See Instructor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student Disability Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supplemental Instruction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tutoring</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Writing Center</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Work__c</picklist>
+            <values>
+                <fullName>Academic Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Motivation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Study Skills</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Late Work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quality of work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Time Management Issues</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes><recordTypes>
+        <fullName>Student_Appeal</fullName>
+        <active>false</active>
+        <businessProcess>CASA Case</businessProcess>
+        <description>Case type used for student appeals</description>
+        <label>Student Appeal</label>
+        <picklistValues>
+            <picklist>Academic_Form_Processing__c</picklist>
+            <values>
+                <fullName>Add%2FDrop Form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OPT%2FCPT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PEAI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transfer Verification</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Appeal_Status__c</picklist>
+            <values>
+                <fullName>Appeal Denied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Did Not Appeal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Decision</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reinstated</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Areas_for_improvement__c</picklist>
+            <values>
+                <fullName>Attendance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Participation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preparation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Grades</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Available_End_Time</picklist>
+            <values>
+                <fullName>1%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Available_Start_Time</picklist>
+            <values>
+                <fullName>1%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit - Drop in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit - Scheduled Appointment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WebTrack</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Academic Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Disqualification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Form Processing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Integrity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Probation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Appointment Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CMBIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dean%27s Letter %2F Tuition Adjustment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability Related Issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disruptive Behavior</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Early Alert</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Faculty Notification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Faculty%2FStudent Complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grade Appeal %2F Grade Change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing %2F Residence Hall</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leave of Absence%2FWithdrawal from USF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loss %2F Grief</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major %2F Minor Exploration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Student Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SOM Waitlist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Study Abroad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Substance Abuse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underenrolled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webtrack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawal from Class</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason_Tutor_Request__c</picklist>
+            <values>
+                <fullName>No available appointments fit my schedule</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>There are no available appointments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This course was not listed on my course list</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Recommendations__c</picklist>
+            <values>
+                <fullName>Academic Counseling%2FCoaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consider Withdrawing from Course</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Improve Study Skills</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>See CASA Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>See Instructor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student Disability Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supplemental Instruction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tutoring</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Writing Center</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Work__c</picklist>
+            <values>
+                <fullName>Academic Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Motivation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Study Skills</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Late Work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quality of work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Time Management Issues</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes><recordTypes>
+        <fullName>Tutor_Request</fullName>
+        <active>true</active>
+        <businessProcess>LWC Case</businessProcess>
+        <description>Case record type for tutor request</description>
+        <label>Tutor Request</label>
+        <picklistValues>
+            <picklist>Academic_Form_Processing__c</picklist>
+            <values>
+                <fullName>Add%2FDrop Form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OPT%2FCPT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PEAI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transfer Verification</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Appeal_Status__c</picklist>
+            <values>
+                <fullName>Appeal Denied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Did Not Appeal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Decision</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reinstated</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Areas_for_improvement__c</picklist>
+            <values>
+                <fullName>Attendance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Participation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preparation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Grades</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Available_End_Time</picklist>
+            <values>
+                <fullName>1%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Available_Start_Time</picklist>
+            <values>
+                <fullName>1%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 PM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portal</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit - Drop in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit - Scheduled Appointment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WebTrack</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Academic Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Disqualification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Form Processing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Integrity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Probation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Appointment Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CMBIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dean%27s Letter %2F Tuition Adjustment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability Related Issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disruptive Behavior</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Early Alert</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Faculty Notification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Faculty%2FStudent Complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grade Appeal %2F Grade Change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing %2F Residence Hall</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leave of Absence%2FWithdrawal from USF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loss %2F Grief</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major %2F Minor Exploration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Student Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SOM Waitlist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Study Abroad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Substance Abuse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underenrolled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webtrack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawal from Class</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason_Tutor_Request__c</picklist>
+            <values>
+                <fullName>No available appointments fit my schedule</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>There are no available appointments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This course was not listed on my course list</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Recommendations__c</picklist>
+            <values>
+                <fullName>Academic Counseling%2FCoaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consider Withdrawing from Course</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Improve Study Skills</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>See CASA Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>See Instructor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student Disability Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supplemental Instruction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tutoring</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Writing Center</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Work__c</picklist>
+            <values>
+                <fullName>Academic Foundation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Motivation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Study Skills</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Late Work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quality of work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Time Management Issues</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes></CustomObject>

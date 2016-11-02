@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <help><!-- This field will automatically populate with the duration when you save the record. --></help>
+        <label><!-- Duration (Minutes) --></label>
+        <name>Duration_Minutes__c</name>
+    </fields><fields>
+        <label><!-- End Date/Time --></label>
+        <name>End_Date_Time__c</name>
+    </fields><fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields><fields>
+        <label><!-- Project Success --></label>
+        <name>Project_Success__c</name>
+        <relationshipLabel><!-- PS Meetings --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Start Date/Time --></label>
+        <name>Start_Date_Time__c</name>
+    </fields><fields>
+        <label><!-- Student --></label>
+        <name>Student__c</name>
+    </fields><fields>
+        <label><!-- Tutor --></label>
+        <name>Tutor__c</name>
+    </fields><fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Meeting Time</masterLabel>
+            <translation><!-- Meeting Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Missed Meeting</masterLabel>
+            <translation><!-- Missed Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prep Time</masterLabel>
+            <translation><!-- Prep Time --></translation>
+        </picklistValues>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>PS Meeting</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>PS Meetings</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>PS Meeting Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+    </layouts></CustomObjectTranslation>

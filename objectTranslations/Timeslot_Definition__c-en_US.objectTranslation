@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- Academic Coaching --></label>
+        <name>Academic_Coaching__c</name>
+    </fields><fields>
+        <label><!-- Academic Probation --></label>
+        <name>Academic_Probation__c</name>
+    </fields><fields>
+        <label><!-- CWID --></label>
+        <name>CWID__c</name>
+    </fields><fields>
+        <label><!-- Centre --></label>
+        <name>Centre__c</name>
+        <picklistValues>
+            <masterLabel>USF Location  2</masterLabel>
+            <translation><!-- USF Location  2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USF Location 1</masterLabel>
+            <translation><!-- USF Location 1 --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Courses --></label>
+        <name>Courses__c</name>
+        <picklistValues>
+            <masterLabel>Art</masterLabel>
+            <translation><!-- Art --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engineering</masterLabel>
+            <translation><!-- Engineering --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBA</masterLabel>
+            <translation><!-- MBA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS in Computer Applications</masterLabel>
+            <translation><!-- MS in Computer Applications --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nano Tech</masterLabel>
+            <translation><!-- Nano Tech --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Department --></label>
+        <name>Department__c</name>
+        <picklistValues>
+            <masterLabel>CASA</masterLabel>
+            <translation><!-- CASA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LWC</masterLabel>
+            <translation><!-- LWC --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields><fields>
+        <label><!-- Financial Concerns --></label>
+        <name>Financial_Concerns__c</name>
+    </fields><fields>
+        <label><!-- Housing / Residence Hall --></label>
+        <name>Housing_Residence_Hall__c</name>
+    </fields><fields>
+        <label><!-- Interview Location --></label>
+        <name>Interview_Location__c</name>
+        <picklistValues>
+            <masterLabel>East Lansing</masterLabel>
+            <translation><!-- East Lansing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Troy</masterLabel>
+            <translation><!-- Troy --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Leave of Absence / Withdrawal --></label>
+        <name>Leave_of_Absence_Withdrawal__c</name>
+    </fields><fields>
+        <label><!-- Length Of Appointment --></label>
+        <name>Length_Of_Appointment__c</name>
+        <picklistValues>
+            <masterLabel>15</masterLabel>
+            <translation><!-- 15 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20</masterLabel>
+            <translation><!-- 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30</masterLabel>
+            <translation><!-- 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60</masterLabel>
+            <translation><!-- 60 --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Major / Minor Exploration --></label>
+        <name>Major_Minor_Exploration__c</name>
+    </fields><fields>
+        <label><!-- New Student Survey --></label>
+        <name>New_Student_Survey__c</name>
+    </fields><fields>
+        <label><!-- Personal Concerns --></label>
+        <name>Personal_Concerns__c</name>
+    </fields><fields>
+        <label><!-- Phone --></label>
+        <name>Phone__c</name>
+    </fields><fields>
+        <label><!-- Program --></label>
+        <name>Program__c</name>
+        <relationshipLabel><!-- Appointment Definition --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Referred By --></label>
+        <name>Referred_By__c</name>
+        <picklistValues>
+            <masterLabel>Faculty</masterLabel>
+            <translation><!-- Faculty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friend</masterLabel>
+            <translation><!-- Friend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parent / Guardian</masterLabel>
+            <translation><!-- Parent / Guardian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Staff</masterLabel>
+            <translation><!-- Staff --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Registration Assistance --></label>
+        <name>Registration_Assistance__c</name>
+    </fields><fields>
+        <label><!-- Request Course Tutor --></label>
+        <name>Request_Course_Tutor__c</name>
+        <relationshipLabel><!-- Appointment Definition --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Self-Reported Email --></label>
+        <name>Self_Reported_Email__c</name>
+    </fields><fields>
+        <label><!-- Self-Reported Phone --></label>
+        <name>Self_Reported_Phone__c</name>
+    </fields><fields>
+        <label><!-- Staff --></label>
+        <name>Staff__c</name>
+        <relationshipLabel><!-- Appointment (Staff) --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Canceled</masterLabel>
+            <translation><!-- Canceled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Checked In</masterLabel>
+            <translation><!-- Checked In --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed</masterLabel>
+            <translation><!-- Confirmed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Missed by Consultant</masterLabel>
+            <translation><!-- Missed by Consultant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Missed by Student</masterLabel>
+            <translation><!-- Missed by Student --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Needs Notes</masterLabel>
+            <translation><!-- Needs Notes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Show</masterLabel>
+            <translation><!-- No Show --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Student --></label>
+        <name>Student__c</name>
+        <relationshipLabel><!-- Appointments --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Study Abroad --></label>
+        <name>Study_Abroad__c</name>
+    </fields><fields>
+        <label><!-- Type of Appointment --></label>
+        <name>Type_of_Appointment__c</name>
+        <picklistValues>
+            <masterLabel>Counseling</masterLabel>
+            <translation><!-- Counseling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Course Enrollment</masterLabel>
+            <translation><!-- Course Enrollment --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Type of Interview --></label>
+        <name>Type_of_Interview__c</name>
+        <picklistValues>
+            <masterLabel>Location - Lansing Campus</masterLabel>
+            <translation><!-- Location - Lansing Campus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Location - Troy Campus</masterLabel>
+            <translation><!-- Location - Troy Campus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone Interview</masterLabel>
+            <translation><!-- Phone Interview --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Skype Interview</masterLabel>
+            <translation><!-- Skype Interview --></translation>
+        </picklistValues>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Appointment Definition</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Appointment Definition</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>CASA</layout>
+        <sections>
+            <label><!-- Appointment Reasons --></label>
+            <section>Appointment Reasons</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts><layouts>
+        <layout>Timeslot Definition Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts><validationRules>
+        <errorMessage><!-- You must select an Interview Location when selecting In Person as the Interview Type. --></errorMessage>
+        <name>Need_Location_If_In_Person</name>
+    </validationRules></CustomObjectTranslation>

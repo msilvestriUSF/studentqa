@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- Appointment Date --></label>
+        <name>Appointment_Date__c</name>
+    </fields><fields>
+        <label><!-- CWID --></label>
+        <name>CWID__c</name>
+    </fields><fields>
+        <label><!-- Campus Resource --></label>
+        <name>Campus_Resource__c</name>
+        <relationshipLabel><!-- Referrals --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Referrals --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Formula Name --></label>
+        <name>Formula_Name__c</name>
+    </fields><fields>
+        <label><!-- Interaction Staff --></label>
+        <name>Interaction_Staff__c</name>
+    </fields><fields>
+        <label><!-- Interaction --></label>
+        <name>Interaction__c</name>
+        <relationshipLabel><!-- Referrals --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Other Resource Email --></label>
+        <name>Other_Resource_Email__c</name>
+    </fields><fields>
+        <label><!-- Other Resource --></label>
+        <name>Other_Resource__c</name>
+    </fields><fields>
+        <label><!-- Referral Date --></label>
+        <name>Referral_Date__c</name>
+    </fields><fields>
+        <label><!-- Referred To Email --></label>
+        <name>Referred_To_Email__c</name>
+    </fields><fields>
+        <label><!-- Referred To --></label>
+        <name>Referred_To__c</name>
+        <relationshipLabel><!-- Referrals (To) --></relationshipLabel>
+    </fields><fields>
+        <help><!-- Do not show on a page layout.  System field. --></help>
+        <label><!-- Resource Email Workflow --></label>
+        <name>Resource_Email_Workflow__c</name>
+    </fields><fields>
+        <label><!-- Resource Email --></label>
+        <name>Resource_Email__c</name>
+    </fields><fields>
+        <label><!-- Student --></label>
+        <name>Student__c</name>
+        <relationshipLabel><!-- Referrals --></relationshipLabel>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Referral</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Referrals</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>Referral Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Referral Information --></label>
+            <section>Referral Information</section>
+        </sections>
+        <sections>
+            <label><!-- Related Information --></label>
+            <section>Related Information</section>
+        </sections>
+    </layouts><validationRules>
+        <errorMessage><!-- Please enter either a Campus Resource or Other Resource --></errorMessage>
+        <name>All_resources_NULL</name>
+    </validationRules><validationRules>
+        <errorMessage><!-- If you select a Campus Resource, leave Other Resource blank --></errorMessage>
+        <name>One_Resource_per_Referral</name>
+    </validationRules><webLinks>
+        <label><!-- New_Referral --></label>
+        <name>New_Referral</name>
+    </webLinks><webLinks>
+        <label><!-- New_Referral_From_Interaction --></label>
+        <name>New_Referral_From_Interaction</name>
+    </webLinks></CustomObjectTranslation>

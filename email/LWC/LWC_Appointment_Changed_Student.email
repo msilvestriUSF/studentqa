@@ -1,0 +1,8 @@
+To {!AppointmentContact__c.Contact__c}, 
+
+We would like to inform you that your appointment with {!AppointmentContact__c.Staff__c} has been changed. Please review the current appointment information on the student portal using the following link: {!$Label.USF_Student_LWC_Appointment_details_page}{!AppointmentContact__c.Id}.
+
+If you have any questions, please contact us at 415-422-6713.
+
+Thank you,
+Learning and Writing Center

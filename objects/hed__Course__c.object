@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"><actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides><fields>
+        <fullName>hed__Course_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Course ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Credit_Minimum__c</fullName>
+        <description>Minimum credits allowed to be earned from the course</description>
+        <externalId>false</externalId>
+        <label>Credit Minimum</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>External_Course_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>External Course ID</label>
+        <length>175</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields><fields>
+        <fullName>No_of_Sections__c</fullName>
+        <externalId>false</externalId>
+        <label>No. of Sections</label>
+        <summaryFilterItems>
+            <field>hed__Course_Offering__c.Current_Term__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>hed__Course_Offering__c.hed__Course__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields><fields>
+        <fullName>Course_Long_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Course Long Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Course_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Course Number</label>
+        <length>3</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Credit_Maximum__c</fullName>
+        <description>Maximum credits to be earned from the course (usually null).</description>
+        <externalId>false</externalId>
+        <label>Credit Maximum</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>College__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>College</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Courses (College)</relationshipLabel>
+        <relationshipName>Courses</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Subject_Code__c</fullName>
+        <description>The Subject abbreviation in code format</description>
+        <externalId>false</externalId>
+        <label>Subject Code</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Subject_Name__c</fullName>
+        <description>The full name of a subject related to a course.</description>
+        <externalId>false</externalId>
+        <label>Subject Name</label>
+        <length>175</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>hed__Account__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Department</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Courses</relationshipLabel>
+        <relationshipName>Courses</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields><fields>
+        <fullName>hed__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields><fields>
+        <fullName>hed__Credit_Hours__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Credit Hours</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><allowInChatterGroups>false</allowInChatterGroups><compactLayoutAssignment>hed__HEDA_Course_Compact_Layout</compactLayoutAssignment><compactLayouts>
+        <fullName>hed__HEDA_Course_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>hed__Course_ID__c</fields>
+        <fields>hed__Account__c</fields>
+        <fields>hed__Credit_Hours__c</fields>
+        <label>HEDA Course Compact Layout</label>
+    </compactLayouts><deploymentStatus>Deployed</deploymentStatus><deprecated>false</deprecated><description>Academic course that a Department or School (the degree-granting Account type for the University) offers.</description><enableActivities>false</enableActivities><enableBulkApi>true</enableBulkApi><enableFeeds>false</enableFeeds><enableHistory>false</enableHistory><enableReports>true</enableReports><enableSearch>true</enableSearch><enableSharing>true</enableSharing><enableStreamingApi>true</enableStreamingApi><label>Course</label><nameField>
+        <label>Course Name</label>
+        <type>Text</type>
+    </nameField><pluralLabel>Courses</pluralLabel><searchLayouts /><sharingModel>ControlledByParent</sharingModel><listViews>
+        <fullName>hed__All</fullName>
+        <columns>NAME</columns>
+        <columns>hed__Account__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews><listViews>
+        <fullName>LWCCourses</fullName>
+        <columns>hed__Course_ID__c</columns>
+        <columns>NAME</columns>
+        <columns>hed__Account__c</columns>
+        <columns>Course_Number__c</columns>
+        <columns>Subject_Name__c</columns>
+        <columns>Subject_Code__c</columns>
+        <columns>College__c</columns>
+        <columns>hed__Description__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>hed__Course__c.LWC_Course</value>
+        </filters>
+        <label>LWC Courses</label>
+        <sharedTo>
+            <role>LWC_Admin</role>
+        </sharedTo>
+    </listViews><recordTypes>
+        <fullName>LWC_Course</fullName>
+        <active>true</active>
+        <label>LWC Course</label>
+    </recordTypes><recordTypes>
+        <fullName>Banner_Course</fullName>
+        <active>true</active>
+        <label>Banner Course</label>
+    </recordTypes></CustomObject>

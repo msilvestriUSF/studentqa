@@ -1,0 +1,32 @@
+Dear {!AppointmentContact__c.Contact__c},
+
+
+You are currently scheduled for an appointment with your Academic Success Coach, {!AppointmentContact__c.Staff__c}, on {!AppointmentContact__c.Start_Date__c} at {!AppointmentContact__c.Start_Time__c}. Please check in at the CASA front desk on University Center 3rd Floor at least 5 minutes before your scheduled appointment time. 
+
+
+If you need to reschedule or cancel your appointment, please follow this link: 
+{!$Label.USF_Student_CASA_Appointment_details_page}{!AppointmentContact__c.Id}
+
+In the event that we need to call you, we will use this phone number {!AppointmentContact__c.Phone__c}. If this number is incorrect, please provide us with an updated number by following these steps: 
+
+1. Log into your myUSF account
+2. Click on "Student" button under Self-Service on your dashboard
+3. Click on "Personal Information" tab located near the top left of your screen
+4. Click on "Addresses and Phones"
+5. Scroll down to "Type of Address to Insert" and use the drop down menu to select the type of address you want to add/update
+6. Fill out required fields on the form
+7. Click on "Submit" button when finished
+
+
+
+In order to add this appointment to your calendar, please use the link provided in this email to add to your preferred calendar. 
+
+
+Thank you,
+
+
+Center for Academic and Student Achievement (CASA)
+University of San Francisco | UC 3rd Floor
+2130 Fulton St., San Francisco, CA  94117-1080
+T: 415.422.5050 | F: 415.422.2133 | Email: casa@usfca.edu
+Office Hours:  9:00 AM - 5:00 PM

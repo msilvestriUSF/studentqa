@@ -1,0 +1,831 @@
+<apex:page showHeader="{!!isLWCConsultant}" sidebar="false" standardController="Counsellor_Availability__c" applyHTMLTag="{!!isLWCConsultant}" extensions="USF_LWCStaffViewAppointmentController" standardStylesheets="false" cache="false" docType="html-5.0" language="en-US" >
+
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+
+
+<apex:includeScript value="{!URLFOR($Resource.MomentJs)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+<!--Added by Manjunath Start -->
+<script>
+function autocompleteCallback(data){
+    $('[id$="selStudentIdHidden"]').val(data);
+console.log(data);
+    validateCenterRules();    
+    } 
+</script>
+<!--Added by Manjunath Start -->
+<style>
+body{
+    padding:0 !important;
+    background: #F8F7F0 !important;
+}
+.filterByWrap .checkbox input[type="checkbox"]{
+    margin-left:10px !important;
+}
+
+.filterByWrap .checkbox{
+    border: 1px solid #999 !important !important;
+    padding: 14px !important;
+    text-align: center !important;
+    border-radius: 3px !important;
+    background: #fff !important;
+}
+
+.filterByWrap .checkbox label{
+    position: relative !important;
+    right: 20px !important;
+}
+
+.btnSectionWrap{
+    padding-top:26px !important;
+}
+
+.btnSectionWrap button{
+    background: lightgreen !important;
+    border: 1px solid lightgreen !important;
+    color: #fff !important;
+    font-weight: normal !important;
+    padding: 6px 30px !important;
+}
+
+.statusSectionWrap{
+    border: 1px solid #999 !important;
+    padding: 20px 0 !important;
+    margin: 0 !important;
+    background: #fff !important;
+    border-radius: 3px !important;
+}
+.statusSection span:nth-child(1){
+    display: block !important;
+    font-size: 30px !important;
+}
+
+.statusSection span:nth-child(2){
+    color: #999 !important;
+    font-size: 13px !important;
+}
+
+.statusSection{
+    border-right: 1px solid #999 !important;
+    height: 80px;
+}
+
+.statusSection.completedSection {
+    border: 0 !important;
+}
+
+.upcomingSection span:nth-child(1){
+    color: #0066FF !important;
+}
+
+.pendingSection span:nth-child(1){
+    color: #FFCC00 !important;
+}
+
+.delayedSection span:nth-child(1){
+    color: #FF3300 !important;
+}
+
+.completedSection span:nth-child(1){
+    color: #0099CC !important;
+}
+
+.headerSection {
+    font-size: 1.5rem !important;
+    color: #737575 !important;
+    margin-top: 1% !important;
+    padding-left: 0 !important;
+}
+
+.inputSection {
+    border: 1px solid #d4d8d9 !important;
+    border-radius: 5px !important;
+    padding: 1% 0 !important;
+    font-size: 1.5rem !important;
+    color: #737575 !important;
+    margin-top: 1% !important;
+}
+
+.btnInfo .btn {
+    padding: 5px !important;
+    font-size: 1.5rem !important;
+}
+
+.red {
+    border-color: red !important;
+    color: red !important;
+}
+
+.studentInfo {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    color: #737575 !important;
+}
+
+.green {
+    border-color: green !important;
+    color: green !important;
+}
+
+.checkedIn {
+    font-weight: 600 !important;
+}
+
+.btn {
+    background: #fff !important;
+}
+
+.btn:hover,
+.btn:focus {
+    background: #fff !important;
+    border: 1px solid #737575 !important;
+    outline: none !important;
+}
+
+.leftSection {
+     background: #fff !important;
+    border: 1px solid #999 !important;
+    text-align: center !important;
+    padding-bottom: 2% !important;
+    margin: 0 !important;
+    margin-top: 15px !important;
+    padding: 15px !important;
+    border-radius: 3px !important;
+    border-style: dotted !important;
+}
+
+.rightSection p {
+    margin: 10px 0 !important;
+}
+
+.InfoText {
+    padding-left: 0 !important;
+}
+
+.rightSection {
+    color: #737575 !important;
+    margin-top: 72px !important;
+    border-radius:3px !important;
+}
+
+.rightSection .result {
+    border-bottom: 1px solid #d4d8d9 !important;
+    background: #fff !important;
+    padding-top: 3% !important;
+}
+
+.leftSection h4 {
+    color: #737575 !important;
+    font-weight: 600 !important;
+    text-align: left !important;            
+}
+
+.meetingInfo {
+    padding-left: 0 !important;
+    margin-bottom: 4% !important;
+}
+
+.meetingInfo div {
+    color: #000 !important;
+    font-size: 1.5rem !important;
+}
+
+.rightContent {
+    background: #fff !important;
+        margin-bottom: 2% !important;
+}
+.rightAlign{
+    text-align: right !important;
+}
+.settingsImg{
+    border: 1px solid !important;
+    padding: 0% 2% 1% !important;
+    margin-left: 2% !important;
+    border-radius: 7px !important;
+}    
+.rect{
+    width: 10px;
+    height: 12px;
+    display: inline-block !important;
+    border: 1px solid !important;
+    margin-left: 10px !important;
+    margin-top: 6px !important;
+}  
+
+.mainContent{
+    margin-top: 2% !important;
+}
+
+.normalFont{
+font-weight:normal !important;
+}
+
+.buttonWrap button {
+    background: white !important;
+    font-size: 18px !important;
+    padding: 10px 50px !important;
+    margin: 22px !important;
+}
+
+.modal-body p{
+    font-size: 16px !important;
+}
+
+.table{
+    border-collapse: separate !important;
+    border-spacing: 0 10px !important;
+}
+
+.table>thead>tr>th{
+    border:0 !important;
+    text-align:center !important;
+    font-weight: normal !important;
+}
+
+.table>tbody>tr>td, .table>tfoot>tr>td{
+   border: 1px solid #999 !important;
+    vertical-align: middle !important;
+    /* border-radius: 5px 0 0 5px !important; */
+    border-width: 1px 0 !important;
+    text-align: center !important;
+}
+
+.table>tbody>tr>td:first-child{
+    border-left-width: 1px !important;
+    border-radius: 5px 0 0 5px !important;
+}
+
+
+.table>tbody>tr>td:last-child{
+    border-right-width: 1px !important;
+    border-radius: 0 5px 5px 0 !important;
+}
+
+.table>tbody>tr>td span{
+    position:relative !important;
+    top:5px !important;
+}
+
+.popOutMenu {
+    position: absolute !important;
+      margin-left: -1% !important;
+    margin-top: 36px !important;
+    z-index: 99 !important;
+    display:none !important;
+}
+
+.list-group-item{
+    padding: 10px !important;
+    text-align: left !important;
+    cursor:pointer !important;
+}
+
+ .settingsImg {
+    border: 1px solid !important;
+    padding: 5px 10px !important;
+    margin-left: 2% !important;
+    border-radius: 7px !important;
+    cursor: pointer !important;
+    width: 68px;
+}
+
+
+.lateTime {
+    color: red !important;
+}
+
+.rect {
+    width: 10px;
+    height: 12px;
+    display: inline-block !important;
+    border: 1px solid !important;
+    position: relative !important;
+   left: 7px !important;
+    top: 0px !important;
+}
+
+.settingsImg img {
+    width: 15px;
+    height: 15px;
+    position: relative !important;
+    left: 5px !important;
+    bottom: 2px !important;
+}
+
+/*VD starts here*/
+.bodyClass{
+    font-size: 14px !important;   
+    font-family: Whitney-Book !important; 
+}
+.container {
+    max-width: 935px !important;
+}
+h2.headerClass{
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 20px !important;
+    color: #00543C !important;
+}
+h2.headerClass a{
+    color: #00543C !important;
+}
+h2.headerClass span{    
+    font-family: Whitney-Black !important;
+    font-size: 20px !important;
+}
+h2.headerClass i.glyphicon{
+    font-size: 15px !important;    
+    cursor: pointer !important;
+}
+.search-area{
+        padding: 15px !important;        
+        height: 15px;
+        -webkit-box-sizing: content-box !important;
+        -moz-box-sizing: content-box !important;
+        box-sizing: content-box !important;
+        display: inline-block !important;
+        width: 70%;
+    }
+.btn-default {
+    font-family: QuattrocentoSans-Bold !important;
+    background: white !important;    
+    padding: 10px 38px !important;
+    margin: 0 15px !important;
+    background-color: #00543C !important;
+    color: #fff !important;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    border: none !important;
+    outline: none !important;
+    text-shadow:none !important;
+    box-shadow: none !important;
+}
+.btn-default:hover,.btn-default:focus{
+    background-color: #73973F !important;
+    color: #fff !important;    
+    border: none !important;
+    outline: none !important;
+    text-shadow:none !important;
+    box-shadow: none !important;
+}
+.btn-default:active{
+    background-color: #73973F !important;
+    color: #fff !important;    
+    border: none !important;
+    outline: none !important;
+    text-shadow:none !important;
+    box-shadow: none !important;
+}
+.last-button {
+    margin-right: 0 !important;
+}
+.row-eq-height {
+      display: -webkit-box !important;
+      display: -webkit-flex !important;
+      display: -ms-flexbox !important;
+      display:         flex !important;
+      align-items:center !important;
+}
+.detailsContainer{
+    background: #fff !important;
+    border-radius: 5px !important;
+    padding: 25px !important;
+}
+.title-text{
+    font-family: QuattrocentoSans-Bold !important;
+}
+.modal-footer{
+    border-top: none !important;
+    text-align: center !important;
+}
+.row-padding-top{
+    padding-top:10px !important;
+}
+.search-action{
+    vertical-align: middle !important;    
+}
+.form-control{    
+    letter-spacing: 0 !important;
+    font-family: Whitney-Book !important;
+    font-size: 14px !important;
+    color: #2A2A2A !important;
+    box-shadow: none !important;
+    border: 1px solid #919194 !important;
+    border-radius: 0 !important;
+}
+.tableUSF{
+    border-collapse: separate !important;
+    border-spacing: 0 10px !important;
+    margin: 0 !important;
+}
+.tableUSF>thead>tr>th{
+    border: 0 !important;
+    /*border-top: 2px solid #e6e6e6 !important !important;*/
+    text-align: center !important;
+    padding-left: 15px !important;
+    font-family: Whitney-Semibold !important;
+    font-size: 12px !important;
+    color: #2A2A2A !important;
+    letter-spacing: 0px !important;
+    padding: 10px 0 0 0 !important;
+    
+}
+.tableUSF>thead>tr>th:nth-child(4){
+text-align: center !important;
+padding-left:0 !important;
+}
+.tableUSF>tbody>tr>td, .table>tfoot>tr>td{
+    border: none !important;
+    vertical-align: middle !important;
+    /* border-radius: 5px 0 0 5px !important; */
+    border-width: 1px 0 !important;
+    padding: 20px 15px !important;    
+    font-size: 13px !important;
+    color: #2A2A2A !important;
+    letter-spacing: 0px !important;
+    line-height: 24px !important;    
+    box-shadow: 0px 2px 0 0 rgba(145,145,147,0.20) !important;    
+    background: #fff !important;
+    width: 25%;
+}
+
+.tableUSF>tbody>tr>td:first-child{
+    border-left-width: 1px !important;
+    border-radius: 4px 0 0 4px !important;
+}    
+.tableUSF>tbody>tr>td:last-child{
+    border-right-width: 1px !important;
+    border-radius: 0 4px 4px 0 !important;
+    letter-spacing: 1.69px !important;
+    font-family: Whitney-Semibold !important;
+    line-height: 24px !important;
+    padding:15px 30px !important;
+    font-size: 12px !important;
+/*    width: 35% !important;*/
+}
+.tableUSF>tbody>tr>td span{
+    display:block !important;
+}
+.tableUSF>tbody>tr>td span.glyphicon{
+    display: inline !important;
+    font-size: 13px !important;
+    margin-left: 5px !important;
+    top: 2px !important;
+}
+.tableUSF>tbody>tr>td span.glyphicon-edit{
+    display: inline !important;
+    font-size: 13px !important;
+    color: #FFFFFF !important;
+    letter-spacing: 0px !important;
+    font-weight: normal !important;
+    cursor: pointer !important;    
+}
+.tableUSF>tbody>tr>td span.location{
+    font-size: 12px
+}
+.tableUSF>tbody>tr>td button{
+   border-radius: 4px !important;
+    padding: 2px 18px !important;
+    font-family: Whitney-Semibold !important;
+    font-size: 14px !important;
+    letter-spacing: 0px !important;
+    background: #fff !important;
+    height: 30px;
+}
+.tableUSF>tbody>tr>td button.red, .tableUSF>tbody>tr>td button.red:hover {
+    border: 2px solid #DB0000 !important;
+    color: #DB0000 !important;
+    background: #fff !important;
+}
+.tableUSF>tbody>tr>td button.green, .tableUSF>tbody>tr>td button.green:hover {
+    border: 2px solid #00543C !important;    
+    color: #00543C !important;    
+    background: #fff !important;
+}
+.appointment-details{
+    background: #FFFFFF !important;
+    box-shadow: 0px 2px 4px 0px rgba(145,145,147,0.20) !important;
+    border-radius: 5px !important;
+    padding: 25px !important;
+    margin-top: 25px !important;
+    margin-bottom: 30px !important;
+}
+.appointment-details .row{
+    margin-bottom: 20px !important;
+}
+.appointment-details .row:last-child{
+    margin-bottom: 0 !important;
+}
+.serach-wrap{
+    margin-top: 15px !important;
+    margin-bottom: 30px !important;
+}
+.form-control-auto{
+    width: auto;
+}
+.student-name{
+    margin: 20px 0 !important;
+}
+.checkin-details{
+    margin-top: 20px !important;
+}
+</style>
+<body class="bodyClass">
+    <apex:form >
+     <c:USF_Header rendered="{!isLWCConsultant}"/>  
+    <!--Added by Manjunath Start-->
+    <apex:actionFunction name="validateCenterRules" action="{!validateCenterRules}" rerender="modalPanelId" status="statusProcessing"/>
+    <!--Added by Manjunath-End-->
+    <apex:actionFunction name="callAddStudent" action="{!addStudent}" rerender="outpanelId, outputSection"/>
+    <div class="container" style="padding-top:60px;">
+        <div class="row row-eq-height">
+             <div class="col-md-4 col-sm-12 col-xs-12">
+                <h2 class="headerClass">  
+                    <i class="glyphicon glyphicon-chevron-left" onClick="backToDashboard();"></i>
+                    <apex:actionFunction action="/apex/USF_ConsultantDashboard" name="backToDashboard"/>
+                    <span>Appointment Details</span>
+                </h2>
+             </div>
+             <div class="col-md-8 col-sm-12 col-xs-12 text-right">
+                <!-- Buttons -->
+                <button class="btn btn-default" type="button" data-toggle="modal" data-target="#cancelAppointment">Cancel this appointment</button>
+                <button class="btn btn-default last-button" type="button" data-toggle="modal" data-target="#modifyAppointment">Modify this appointment</button>                       
+             </div>
+        </div>
+         <div class="appointment-details">
+            <apex:outputPanel id="outputSection">
+                 <div class="row"> 
+                     <div class="col-xs-6 col-sm-4 col-md-3">
+                        <span><span class="title-text">Date: &nbsp; </span><apex:outputText value="{!slotDate}" /> </span>
+                     </div>
+                     <div class="col-xs-6 col-sm-4 col-md-3">
+                        <span><span class="title-text">Time: &nbsp; </span><apex:outputText value="{!slotTime}" /> </span>
+                     </div>
+                     <div class="col-xs-6 col-sm-4 col-md-3">
+                        <span><span class="title-text">Location: &nbsp; </span><apex:outputText value="{!Counsellor_Availability__c.Location__c}" /> </span>
+                     </div>
+                     <div class="col-xs-6 col-sm-4 col-md-3">
+                        <span><span class="title-text">Center: &nbsp; </span><apex:outputText value="{!Counsellor_Availability__c.Center__c}" /> </span>
+                     </div>                
+                 </div>
+                 <div class="row"> 
+                    <div class="col-xs-6 col-sm-4 col-md-3">
+                        <span><span class="title-text">Coach: &nbsp; </span><apex:outputText value="{!Counsellor_Availability__c.Coach_Full_Name__c}" /> </span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3">
+                        <span><span class="title-text">Max students: &nbsp; </span><apex:outputText value="{!Counsellor_Availability__c.Capacity__c}" /> </span>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3">
+                        <span><span class="title-text">Enrolled students: &nbsp; </span><apex:outputText value="{!slotRec.Noofstudentsregistered__c}" /> </span>
+                    </div>
+                 </div>
+             </apex:outputPanel>
+         </div>                
+        <div>
+            <span class="title-text">Add Students</span>
+        </div>
+        <div class="row row-eq-height serach-wrap">
+            <div class="col-md-11 search-action">
+                <!--<input type="text" id="cwidText" class="search-area form-control" placeholder="Enter student's CWID or full name" />-->                
+                <!-- Auto Complete VF component -->
+               <!-- <c:USF_AutoCompleteComponent objectname="Contact" input_id="cwidText" numberOfResultsToDisplay="10" wildcardBefore="false"/>  -->
+               <apex:inputText id="auto11" required="false" value="{!CWID}" html-placeholder="Enter student's CWID or full name(Minimum 5 characters)" styleclass="search-area form-control">
+                    <apex:inputhidden id="selStudentIdHidden" value="{!selectedStudentId}"/>
+                    <!-- Auto Complete VF component -->
+                    <c:USF_AutoCompleteComponent objectname="Contact" input_id="{!$Component.auto11}" numberOfResultsToDisplay="10" wildcardBefore="false"/>
+                </apex:inputText>
+                <apex:commandButton reRender="outpanelId, strikeErrMsg,outputSection,confirmAppointment,courseDropDown" styleClass="btn btn-default" onclick="confirmAppointment(true);" status="statusProcessing" value="Look up"></apex:commandButton>
+            </div>                   
+        </div>
+        <div>
+            <span class="title-text">Enrolled Students</span>
+        </div>        
+         <div class="row">                                     
+             <div class="col-md-10">
+                 <apex:outputPanel id="outpanelId">
+                     <table class="table tableUSF">
+                        <thead>
+                            <tr>
+                                <th>
+                                    NAME
+                                </th>
+                                <th>
+                                    CWID
+                                </th>
+                                <th>
+                                    PROGRAM
+                                </th>
+                                <th>
+                                    BOOKED ON
+                                </th>     
+                                <th>
+                                    
+                                </th>                       
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!AppointMentRecords}" var="appDTO" id="repeatId">
+                                <tr>
+                                    <td>{!appDTO.appointment.Contact__r.Name}</td>
+                                    <td>{!appDTO.appointment.CWID__c}</td>
+                                    <td>
+                                        {!appDTO.appointment.SelectedCourse__r.Name} {!appDTO.appointment.Coach_Specialty__r.Name}
+                                    </td>  
+                                    <td>
+                                        {!appDTO.starttime}
+                                    </td>                                  
+                                    <td>
+                                        <span class="dropdown-toggle" data-toggle="dropdown">
+                                            <span class="glyphicon glyphicon-edit" style="color:#919194;"></span>
+                                        </span>
+                                            <!-- Include the popOutMenu after discussion with Naya/Ken -->
+                                            <!--
+                                                <div class="popOutMenu">
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item">
+                                                            <apex:commandLink style="text-decoration:none; color:black;" value="Remove Student" action="{!removeStudent}" reRender="outpanelId">
+                                                                <apex:param name="currentAppointmentIdView" assignTo="{!currentAppointmentId}" value="{!appDTO.appointment.Id}"/>
+                                                            </apex:commandLink>                                                 
+                                                        </li> 
+                                                    </ul>
+                                                </div>
+                                            -->    
+                                     </td>
+                                 </tr>
+                             </apex:repeat>
+                        </tbody>
+                  </table>
+                  </apex:outputPanel>
+                <apex:actionStatus id="statusProcessing">
+                    <apex:facet name="start">
+                        <c:loadingStatus ></c:loadingStatus>
+                    </apex:facet>
+                </apex:actionStatus>
+             </div>
+         </div>
+    </div>      
+
+    <!-- Modal -->
+                <div id="cancelAppointment" class="modal fade" role="dialog">
+                  <div class="modal-dialog">            
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">                        
+                        <h4 class="modal-title">Cancel Appointment</h4>
+                      </div>
+                      <div class="modal-body">
+                       <p>Are you sure you want to cancel this appointment?<br/>
+                       the enrolled students will be notified of the cancellation.</p>
+                      </div>
+                      <div class="modal-footer">
+                        <apex:commandLink styleClass="btn btn-default" value="No" html-data-dismiss="modal" />
+                        <apex:commandLink styleClass="btn btn-default" value="Cancel Appointment" action="{!cancelSlot}" />                  
+                        <!--<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-default"> Cancel Appointment</button>
+                        -->
+                      </div>
+                    </div>            
+                  </div>
+                </div>
+                
+                <div id="modifyAppointment" class="modal fade" role="dialog">
+                  <div class="modal-dialog">            
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">                        
+                        <h4 class="modal-title">Modify Appointment</h4>
+                      </div>
+                     <div class="modal-body">
+                       <label> Location </label>
+                       <apex:selectlist id="LocationList"  size="1" value="{!newlocation}" required="true" styleClass="form-control form-control-auto" >
+                           <apex:selectOptions value="{!LocationList}" />
+                       </apex:selectlist>
+                       <label> Max Number of students </label> <br/>
+                       <apex:inputText value="{!capacity}" />
+                     </div>
+                      <div class="modal-footer">
+                        <apex:commandButton styleClass="btn btn-default" value="No" html-data-dismiss="modal" />
+                        <apex:commandButton styleClass="btn btn-default" value="Save" action="{!updateSlot}" oncomplete="window.location.reload();" />                   
+                        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-default"> Save</button>-->
+                      </div>
+                    </div>            
+                  </div>
+                </div>
+                
+                
+                <div id="strikeRule" class="modal fade" role="dialog">
+                  <div class="modal-dialog">            
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">                        
+                        <h4 class="modal-title">Strike Rule</h4>
+                      </div>
+                      <apex:outputPanel id="strikeErrMsg">
+                          <div class="modal-body">
+                           <p>You are about to violate below Center Rule<br/>{!errMsg}</p>
+                          </div>
+                      </apex:outputPanel>
+                      <apex:outputPanel rendered="{!!isLWCConsultant}">
+                          <div class="modal-footer">
+                            <apex:commandButton styleClass="btn btn-default" value="Proceed" onclick="confirmAppointment(false);" html-data-dismiss="modal" />
+                            <apex:commandButton styleClass="btn btn-default" value="Cancel" html-data-dismiss="modal" />
+                          </div>
+                      </apex:outputPanel>
+                      <apex:outputPanel rendered="{!isLWCConsultant}">
+                          <div class="modal-footer">
+                            <apex:commandButton styleClass="btn btn-default" value="OK" html-data-dismiss="modal" />
+                          </div>
+                      </apex:outputPanel>                  
+                    </div>            
+                  </div>
+                </div>
+                
+            <div id="confirmAppointmentDetails" class="modal fade" role="dialog">
+              <div class="modal-dialog">            
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">                    
+                    <h4 class="modal-title">Confirm Appointment</h4>
+                  </div>
+                  <div class="modal-body">
+                  <apex:outputPanel id="confirmAppointment">                      
+                           <p>The following student will be added to this appointment. Please confirm the following details</p>
+                           <label class="student-name">{!selectedStudentName}</label>  
+                  </apex:outputPanel>
+                  <apex:outputPanel id="specialityDropDown">
+                    <apex:outputPanel rendered="{!isWritingCenter}">
+                        <div>
+                                <label>Select a Speciality</label>
+                               <apex:selectList id="specialitySelectList" label="Speciality" size="1" styleClass="form-control selectDD" multiselect="false"  value="{!selectedSpeciality}">
+                                    <apex:selectoptions value="{!specialityList}"></apex:selectoptions>
+                               </apex:selectList>
+                        </div>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+                <apex:outputPanel id="courseDropDown">
+                    <apex:outputPanel rendered="{!isLearningCenter}">
+                        <div>
+                                <label>Select a course</label>
+                               <apex:selectList id="courseSelectList" disabled="{!isCourseDisabled}" label="Course" size="1" styleClass="form-control selectDD" multiselect="false"  value="{!selectedCourse}">
+                                    <apex:selectoptions value="{!courseList}"></apex:selectoptions>
+                               </apex:selectList>
+                        </div>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+                  <apex:outputPanel id="dropInDetails">
+                    <apex:outputPanel rendered="{!isDropInAppointmentType}">
+                        <div class="row checkin-details">
+                          <div class="col-md-6">
+                               <label>Check In Time</label>
+                               <apex:selectList id="startTime" label="Start Time" size="1" styleClass="form-control selectDD" multiselect="false"  value="{!checkInStartTime}">
+                                    <apex:selectoptions value="{!timeList}"></apex:selectoptions>
+                               </apex:selectList>
+                          </div>
+                          <div class="col-md-6">
+                               <label>Check Out Time</label>
+                               <apex:selectList id="endTime" label="End Time" size="1" styleClass="form-control selectDD" multiselect="false"  value="{!checkOutEndTime}">
+                                    <apex:selectoptions value="{!timeList}"></apex:selectoptions>
+                               </apex:selectList>
+                          </div>                      
+                        </div>
+                    </apex:outputPanel>
+                </apex:outputPanel>               
+                </div>
+                  <div class="modal-footer">
+                    <apex:commandButton styleClass="btn btn-default" value="Save" onclick="callAddStudent();" html-data-dismiss="modal"/>
+                    <apex:commandButton styleClass="btn btn-default" value="Cancel" html-data-dismiss="modal" />
+                  </div>
+                </div>            
+              </div>
+            </div>          
+    </apex:form>
+</body>
+
+<script>
+$(document).ready(function(){
+    $(".settingsImg ").click(function(){
+        $(this).next().toggle();
+    });
+});
+
+</script>
+<apex:outputPanel id="modalPanelId">
+    <script>
+    function confirmAppointment(strikeCheck) {
+        var strikeVal = {!isStrike};
+        if(strikeVal && strikeCheck) {
+            $('#strikeRule').modal('show');
+        }
+        else {
+            $('#confirmAppointmentDetails').modal('show');
+        }
+    }
+    </script>
+</apex:outputPanel>
+<c:USF_Footer rendered="{!isLWCConsultant}"/>
+</apex:page>

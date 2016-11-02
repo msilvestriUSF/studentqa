@@ -1,0 +1,952 @@
+<!--
+//************************************************************************************
+// Name             : USF_AvailabilityList
+// Description      : Visualforce page to display Availability List
+// Created By       : Mandi Fazeel Ahmed
+// Created Date     : 09/06/2016 
+// ************************Version Updates********************************************
+// Date             Developer               Description
+// -----------------------------------------------------------------------------------
+// 09/06/2016       MANDI FAZEEL AHMED       Created
+// ************************************************************************************
+-->
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" cache="false" docType="html-5.0" language="en-US" 
+applyHTMLTag="false" controller="USF_AvailabilityListExtn">
+
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+<apex:includeScript value="{!URLFOR($Resource.MomentJs)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+
+<style>
+body{
+    background-color: #F8F7F0;
+}
+
+.btn {
+    padding: 5px;
+    font-size: 1.5rem;
+    background: #fff;
+}
+
+.green {
+    border-color: green;
+    color: green;
+    font-size: 12px;
+}
+
+.bold{
+font-weight: bold;
+}
+
+li.dropdown-menu-item {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.4285;
+    color: #333;
+    white-space: nowrap;
+}
+             
+.leftSection {
+    background: #fff;
+    border: 1px solid #999;
+    text-align: center;
+    padding-bottom: 2%;
+    margin: 0;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 3px;
+    border-style: dotted;
+}
+
+.modal-body p{
+    font-size: 16px;
+}
+
+.table{
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.table>thead>tr>th{
+    font-family: Whitney-Semibold;
+    /*text-align:center;*/
+    border: none;
+    /*font-size: 12px;*/
+    padding: 8px 15px 0 15px;
+    vertical-align: baseline;
+    font-size: 12px;
+}
+
+
+.table>tbody>tr, .table>tfoot>tr{
+    border: 1px solid #ececec;
+    border-radius: 5px; 
+    background: #fff;
+    margin: 10px 0;
+}
+
+.table>tbody>tr>td, .table>tfoot>tr>td{    
+    vertical-align: top;
+    /*text-align:center;*/
+    border: none;
+    padding: 30px 15px 20px 15px;
+}
+
+.tableUSF>tbody>tr>td:first-child {
+    border-left-width: 1px;
+    border-radius: 4px 0 0 4px;
+}
+
+.tableUSF>tbody>tr>td, .tableUSF>tfoot>tr>td{
+    border: 1px solid #e6e6e6;
+    /*vertical-align: middle;*/
+    /* border-radius: 5px 0 0 5px; */
+    border-width: 1px 0;        
+    color: #2A2A2A;
+    letter-spacing: 0px;        
+    background: #fff;     
+    box-shadow: 0px 2px 0 0px rgba(145,145,147,0.20);    
+}
+
+.tableUSF>tbody>tr>td:last-child {    
+    /*color: #009380;*/
+    border: 1px solid #e6e6e6;
+    border-radius: 0 4px 4px 0;
+    border-left: none;
+    /*min-width: 150px;*/
+    vertical-align: top;
+    text-align: right;
+}
+.tableUSF>tbody>tr>td:last-child .btn {    
+    /*margin: 0 15px;*/
+}
+
+/*.table>tbody>tr>td a{
+    display:block;
+    color: #000;
+    margin-left: 20px;
+    text-decoration: underline;
+}
+
+.table>tbody>tr>td:first-child{
+    border-left-width: 1px;
+    border-radius: 5px 0 0 5px;
+    padding: 20px;
+}
+
+
+.table>tbody>tr>td:last-child{
+    border-right-width: 1px;
+    border-radius: 0 5px 5px 0;
+}*/
+
+.detailsWrap{
+    margin-bottom: 20px;
+}
+
+.settingsImg {
+    border: 1px solid;
+    padding: 5px 10px;
+    margin-left: 2%;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 68px;
+}
+
+
+.lateTime {
+    color: red;
+}
+
+.rect {
+    width: 10px;
+    height: 12px;
+    display: inline-block;
+    border: 1px solid;
+    position: relative;
+    left: 20px;
+    top: 2px;
+}
+
+.settingsImg img {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    left: 5px;
+    bottom: 2px;
+}
+
+.popOutMenu {
+    position: absolute;
+    margin-left: 0.5%;
+    margin-top: 2.8%;
+    z-index: 99;
+    display:none;
+}
+
+.list-group-item {
+    cursor:pointer;
+}
+.table>tbody>tr>td:nth-child(1){
+    
+}
+
+.slotTableRow tr td .rect{
+left: 10px;
+}
+
+.slotTable>tbody>tr>td:nth-child(2), .slotTable>tbody>tr>td:nth-child(3),
+.slotTable>thead>tr>th:nth-child(2), .slotTable>thead>tr>th:nth-child(3){
+    width: 15%;
+    text-align: left;
+}
+
+.slotTable>tbody>tr>td:nth-child(5),.slotTable>thead>tr>th:nth-child(5){
+    width: 15%;
+    text-align: center;
+}
+
+td.addBorder {
+    border-color: green !important;
+}
+
+.activeBtn, .btn-default:hover, activeBtn:active{ 
+    background: green;
+    color: #fff;
+    font-weight: normal;
+}
+
+hr{
+    width: 100%;
+}
+
+.greenBtn{
+    background: #66CC66;
+    color: #fff;
+    padding: 5px 18px;
+    font-weight: normal;
+    position: relative;
+    top: 20px;
+    border: 1px solid #66CC66;
+    font-size: 12px;
+}
+
+.removeTop{
+    top: 0;
+}
+
+.modal-footer .btn-default:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.modal-body .row{
+    margin-bottom: 20px;
+}
+.form-control-auto{
+    max-width: 100%;
+    width: auto;
+}
+
+/*VD starts here*/
+.bodyClass{
+    font-size: 14px;   
+    font-family: Whitney-Book; 
+    color: #2A2A2A;
+}
+.container {
+    max-width: 935px;
+}
+.row-eq-height {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display:         flex;
+      align-items:center;
+}
+h2.headerClass{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: #00543C;
+}
+h2.headerClass span{    
+    font-family: Whitney-Black;
+    font-size: 20px;
+}
+h2.headerClass i.glyphicon{
+    font-size: 15px;    
+    cursor: pointer;
+}
+.btn-default {
+    background: white;    
+    padding: 10px 38px;    
+    background-color: #00543C;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+    margin: 0 15px;
+    font-family: QuattrocentoSans-Bold;
+}
+.btn-default:hover,.btn-default:focus{
+    background-color: #73973F;
+    color: #fff;    
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.btn-default:active{
+    background-color: #73973F;
+    color: #fff;    
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.viewSlots {
+    padding: 7px 10px;
+}
+.title-text{
+    font-family: Whitney-Semibold;
+}
+.slotPanel{
+    margin-top: 20px;
+}
+.modal-title{
+    font-family: Whitney-Bold;
+    font-size: 14px;
+    color: #00543C;
+}
+.form-control{
+    border-radius: 0;
+}
+.modal-margin{
+    margin-top: 20px;
+}
+.modal-footer{
+    border-top: none;
+    text-align: center;
+}
+.last-button{
+    margin: 0 0;
+}
+.primaryBtnSec{
+    background: #5F7E32 !important;
+}
+
+.modal-footer{
+    text-align:center !important;
+    border:0 !important;
+}
+
+.modal-body, .modal-body p{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #2A2A2A !important;
+    letter-spacing: 0px !important;
+    line-height: 20px !important;
+}
+
+.modal-title{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #00543C !important;
+}
+ul.dropdown-menu{
+    padding: 0;
+    border-radius: 0;
+}
+
+ul.dropdown-menu .divider{
+    margin: 0;
+}
+
+ul.dropdown-menu>li>a{
+    padding: 10px 15px;
+    font-size: 12px;
+    color: #2A2A2A;
+    font-family: QuattrocentoSans;
+}
+
+ul.dropdown-menu>li>a:hover{
+    background-color: #E6E6E6;
+    background-image: none;
+}
+.availTable{
+    margin-top: 30px;
+}
+.glyphicon-edit,.glyphicon-option-vertical,.glyphicon-option-horizontal{
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+.horz-dot{
+    height: 15px;
+}
+.horz-dot ul.dropdown-menu{
+    padding: 0;
+    border-radius: 0;
+}
+.horz-dot ul.dropdown-menu>li{
+    padding: 10px 15px;
+    font-size: 12px;
+    color: #2A2A2A;
+    font-family: QuattrocentoSans;
+    max-width: 130px;
+}
+.pagination_button{
+    color: #00543C;
+    background: transparent;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0px;
+    outline: none;
+    margin: 0 10px;
+    font-size: 14px;
+    font-family: QuattrocentoSans;
+    border-width: 0;
+}
+.pagination_button:hover,.pagination_button:focus{    
+    background: transparent;
+    background-color: transparent;
+    cursor: pointer;    
+    outline: none;
+    border: none;
+    box-shadow: none;    
+}
+table>tbody>tr>td:first-child .pagination_button{
+    margin-left: 0;
+}
+.btn.pagination_button[disabled]{
+    color: #919194;
+    cursor: not-allowed;
+}
+body .tableUSF:nth-child(1)>thead>tr>th:nth-child(2),body .tableUSF:nth-child(1)>tbody>tr>td:nth-child(2){
+    max-width: 105px;
+}
+/*media queries*/
+@media (max-width: 768px) {
+    .container{
+        max-width: 708px;
+    }
+    .tableUSF>tbody>tr>td:last-child {        
+        min-width: auto;
+        vertical-align: top;
+    }
+}
+@media (max-width: 460px) {
+    .container{
+        max-width: 400px;
+    }
+    h2.headerClass{
+        margin-bottom: 20px;
+    }
+    .row-eq-height{
+        display: block;
+    }
+    .row-eq-height .text-right{
+        text-align: left;
+    }
+    .table>tbody>tr>td, .table>tfoot>tr>td{
+        padding: 10px 30px;
+    }
+    table.tableUSF{
+        margin-top: 22px;        
+    }
+    table.tableUSF,table.tableUSF thead, table.tableUSF tbody, table.tableUSF th, table.tableUSF td, table.tableUSF tr {
+        display: block;
+        width: 100% !important;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    table.tableUSF thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    table.tableUSF>tbody>tr { 
+        background: #FFFFFF;
+        box-shadow: 0px 2px 4px 0px rgba(145,145,147,0.20);
+        border-radius: 4px;
+     }
+
+    table.tableUSF>tbody>tr>td{
+        /* Behave  like a "row" */
+        border: none;        
+        position: relative;
+        padding-left: 50%; 
+    }   
+ 
+    
+    .tableUSF>tbody>tr>td, .table>tfoot>tr>td{
+        border:0;
+        border-radius: 0;
+        box-shadow: none;
+        /*border-bottom: 2px solid #e6e6e6;*/
+        text-align:left;
+        padding-right: 20px;
+    }
+    
+    .tableUSF>tbody>tr>td:first-child, .tableUSF>tbody>tr>td:last-child{
+        border-radius: 0;
+        border: none;
+        text-align: left;
+    }
+
+    .tableUSF td:before { 
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 8px;
+        left: 20px;       
+        white-space: nowrap;
+        font-family: QuattrocentoSans-Bold;
+        width: 45%;
+    }
+
+    .tableUSF td:nth-of-type(1):before { content: "LOCATION"; }
+    .tableUSF td:nth-of-type(2):before { content: "MAX NO. OF\aSTUDENTS"; white-space:pre;}
+    .tableUSF td:nth-of-type(3):before { content: "CENTER NAME"; }
+    .tableUSF td:nth-of-type(4):before { content: "AVAILABILITY\aPERIOD"; white-space:pre;}
+    .tableUSF td:nth-of-type(5):before { content: "TIME"; }
+    .tableUSF td:nth-of-type(6):before { content: "REPEAT"; }
+    .tableUSF td:nth-of-type(7):before { content: "APPOINTMENT\aTYPE"; white-space:pre;}
+    .tableUSF td:nth-of-type(8):before { content: " "; }
+
+    #slotDetails .tableUSF td:nth-of-type(1):before { content: "LOCATION"; }
+    #slotDetails .tableUSF td:nth-of-type(2):before { content: "COURSE NAME"; }
+    #slotDetails .tableUSF td:nth-of-type(3):before { content: "TYPE"; }
+    #slotDetails .tableUSF td:nth-of-type(4):before { content: "DATE"; }
+    #slotDetails .tableUSF td:nth-of-type(5):before { content: "TIME"; }
+    #slotDetails .tableUSF td:nth-of-type(6):before { content: "REGISTERED\a/CAPACITY"; white-space:pre; }    
+    #slotDetails .tableUSF td:nth-of-type(7):before { content: " "; }
+    
+    .tableUSF td{
+        min-height: 35px;
+    }
+    .availTable.tableUSF td:nth-of-type(2),.availTable.tableUSF td:nth-of-type(4),.availTable.tableUSF td:nth-of-type(7),#slotDetails .tableUSF td:nth-of-type(6){
+        min-height:55px;
+    }
+
+    .tableUSF>tbody>tr>td:last-child .btn{
+        margin-left: 0px;
+    }
+    
+    .visible-xs-custom{
+        display: inline-block !important;
+    }
+    .btn-default{
+        margin: 0 8px;
+    }
+    .horz-dot ul.dropdown-menu{
+        min-width: 145px;
+    }
+}
+</style>
+<body class="bodyClass">
+    <apex:form >  
+    <c:USF_Header />      
+    <section class="container">
+     <apex:pagemessages /> 
+        <div class="row row-eq-height">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <h2 class="headerClass">
+                    <i class="glyphicon glyphicon-chevron-left" onClick="backToDashboard();"></i>
+                    <apex:actionFunction action="/apex/USF_ConsultantDashboard" name="backToDashboard"/>
+                    <span>My Availability</span>
+                </h2>
+            </div>
+            <div class="col-md-8 col-sm-6 col-xs-12 text-right">
+                <!-- Button -->
+                <apex:commandButton styleClass="btn btn-default last-button primaryBtnSec" action="/apex/USF_SetAvailability" value="Set New Availability"> </apex:commandButton>   
+            </div>
+        </div>
+        
+             <apex:outputPanel id="availabilityTable">                 
+                <table class="table tableUSF availTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                LOCATION
+                            </th>
+                            <th>
+                                MAX NO OF STUDENTS
+                            </th>
+                            <th>
+                                CENTER NAME
+                            </th>   
+                            <th>
+                               DATE
+                            </th> 
+                            <th>
+                                TIME
+                            </th>
+                            <!--<th>
+                                DURATION
+                            </th>-->
+                            <th>
+                                REPEAT
+                            </th>
+                            <th>
+                                APPOINTMENT TYPE
+                            </th>  
+                            <th></th>                                   
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <apex:repeat value="{!Availabilities}" var="availability">
+                        <tr>
+                            <td>{!availability.Location__c}</td>
+                            <td>{!availability.Max_Number_of_Students__c}</td>
+                            <td>{!availability.Center_Text__c}</td>
+                            <td>
+                             <apex:outputText value="{!availabilityStartDateMap[availability.Id]} - {!availabilityEndDateMap[availability.Id]}" />                            
+                             </td>
+                             <td>
+                             <apex:outputText value="{!availabilityStartTimeMap[availability.Id]} - {!availabilityEndTimeMap[availability.Id]}" />
+                            </td>
+                            <!--<td>{!availability.TimeSlotDurationLWC__c} mins&nbsp;</td>-->
+                            <td>
+                                <div>{!availability.Repeat__c}</div>
+                                 <apex:outputText value="Mo" rendered="{!availability.Monday__c}"/>
+                                 <apex:outputText value=", " rendered="{!(availability.Tuesday__c)}"/>
+                                 
+                                 <apex:outputText value="Tu" rendered="{!availability.Tuesday__c}"/>
+                                 <apex:outputText value=", " rendered="{!(availability.Wednesday__c)}"/>
+                                 
+                                 <apex:outputText value="Wed" rendered="{!availability.Wednesday__c}"/>
+                                 <apex:outputText value=", " rendered="{!(availability.Thursday__c)}"/>
+                                 
+                                 <apex:outputText value="Th" rendered="{!availability.Thursday__c}"/>
+                                 <apex:outputText value=", " rendered="{!availability.Friday__c}"/>
+                                 
+                                 <apex:outputText value="Fr" rendered="{!availability.Friday__c}"/>
+                            </td>
+                            <td>{!availability.AppointmentType__c}</td>
+                            <td>
+                                <span class="dropdown">
+                                    <span class="dropdown-toggle hidden-xs" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-option-vertical" style="color: #919194;">
+                                        </span>
+                                    </span>                                    
+                                    <apex:commandButton styleClass="btn btn-default viewSlots visible-xs-custom" value="View slots"
+                                     rerender="slotsTable" action="{!refreshSlotList}" status="actStatusId" oncomplete="addClickToNewButtons();" style="display:none;"> 
+                                       <apex:param name="currentAvailabilityId" assignTo="{!currentAvailabilityId}" value="{!availability.Id}"/>
+                                    </apex:commandButton>
+                                    <span class="dropdown-toggle visible-xs-custom" data-toggle="dropdown" style="display:none;">
+                                        <span class="glyphicon glyphicon-edit" style="color:#666;"></span>
+                                    </span>                                            
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li class="hidden-xs">
+                                            <apex:commandLink style="text-decoration:none; color:black;" value="View slots" rerender="slotsTable" action="{!refreshSlotList}" status="actStatusId" oncomplete="addClickToNewButtons();">
+                                                <apex:param name="currentAvailabilityId" assignTo="{!currentAvailabilityId}" value="{!availability.Id}"/>
+                                            </apex:commandLink>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li>
+                                            <apex:commandLink style="text-decoration:none; color:black;" value="Edit" action="/apex/USF_SetAvailability?Id={!availability.id}"/> 
+                                        </li>
+                                        <li role="separator" class="divider"></li>                                          
+                                        <li>
+                                            <apex:commandLink style="text-decoration:none; color:black;" value="Cancel" oncomplete="$('#myModalCancel').modal('show');">
+                                                <apex:param name="currentAvailabilityIdCancel" assignTo="{!currentAvailabilityId}" value="{!availability.Id}"/>
+                                            </apex:commandLink> 
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li>
+                                            <!-- oncomplete="addClickToNewButtons();"> -->   
+                                            <apex:actionStatus id="actStatusId" >
+                                                <apex:facet name="start" >
+                                                    <c:loadingStatus />               
+                                                </apex:facet>
+                                            </apex:actionStatus>      
+                                        </li>
+                                    </ul>
+                                </span>                               
+                            </td>
+                        </tr>
+                        </apex:repeat>  
+                    </tbody>
+                </table>
+                <div class="row row-eq-height">                    
+                    <div class="col-xs-12 col-sm-5 col-md-4">
+                        <apex:panelGrid columns="7" rendered="{!noOfRecords>5}">
+                            <apex:commandButton reRender="availabilityTable,slotsTable" value="First" action="{!first}" disabled="{!!hasPrevious}" title="First Page" styleClass="btn pagination_button viewSlots"/>
+                            <apex:commandButton reRender="availabilityTable,slotsTable" value="<< Previous" action="{!previous}" disabled="{!!hasPrevious}" title="Previous Page" styleClass="btn pagination_button viewSlots"/>
+                            <apex:commandButton reRender="availabilityTable,slotsTable" value="Next >>" action="{!next}" disabled="{!!hasNext}" title="Next Page" styleClass="btn pagination_button next viewSlots"/>
+                            <apex:commandButton reRender="availabilityTable,slotsTable" value="Last" action="{!last}" disabled="{!!hasNext}" title="Last Page" styleClass="btn pagination_button viewSlots"/>                    
+                        </apex:panelGrid>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3">
+                        <span><apex:outputText >Showing {!(pageNumber * pageSize)+1-pageSize}-{!IF((pageNumber * pageSize)>noOfRecords, noOfRecords,(pageNumber * pageSize))} of {!noOfRecords}</apex:outputText></span>
+                    </div>
+                </div>   
+                </apex:outputPanel>
+            <hr/>
+            
+             <!-- Modal -->
+            <div id="myModalCancel" class="modal fade" role="dialog">
+                  <div class="modal-dialog">            
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                              <div class="modal-header">                                
+                                <h4 class="modal-title">Cancel Availability</h4>
+                              </div>
+                              <div class="modal-body">
+                                <p>Are you sure you want to cancel this availability?</p>
+                                </div>
+                              <div class="modal-footer">
+                                  <apex:commandLink styleClass="btn btn-default primaryBtnSec" value="Yes" action="{!cancelAvailability}" reRender="messageBox" oncomplete="$('#myModalCancel').modal('hide');$('#cancelAvailability').modal('show');"/>    
+                                <button type="button" class="btn btn-default " data-dismiss="modal">No</button>
+                                
+                              </div>
+                        </div>
+                    </div>
+            </div>      
+            <apex:outputPanel id="slotsTable"> 
+            <div class="slotPanel" id="slotDetails">
+                <div class="title-text" style="color:#00543C"><span>Slots</span></div>                
+                <table class="table tableUSF">
+                    <thead>
+                        <tr>
+                            <th>
+                                LOCATION
+                            </th>
+                             <th>
+                                COURSE NAME
+                            </th>
+                            <th>
+                                TYPE
+                            </th>
+                            <th>
+                                DATE
+                            </th>
+                            <th>
+                                TIME
+                            </th>  
+                            <th>
+                                REGISTERED/CAPACITY
+                            </th>                 
+                            <th>
+                            </th>        
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <apex:Repeat value="{!Slots}" var="slot" rendered="{!showSlotsSection}">
+                        <tr>
+                            <td>{!slot.Location__c}</td>
+                           <td>
+                           <div><apex:outputPanel rendered="{!CONTAINS(slot.Center_Text__c,'Learning') && !ISBLANK(slot.Selected_Course__c)}">                          
+                             {!slot.Selected_Course__r.hed__Course__r.Subject_Code__c} {!slot.Selected_Course__r.hed__Course__r.Course_Number__c} ({!slot.Selected_Course__r.hed__Section_ID__c})
+                            </apex:outputPanel> </div>
+                         
+                            <div ><apex:outputPanel rendered="{!CONTAINS(slot.Center_Text__c,'Learning') && ISBLANK(slot.Selected_Course__c)
+                                    && availabilityCoursesNone}">    
+                 {!availabilityCoursesMap[slot.Availability__c][0]}
+                </apex:outputPanel> </div>
+                <div class="{!if((CONTAINS(slot.Center_Text__c,'Learning') && ISBLANK(slot.Selected_Course__c) && availabilityCoursesNone && availabilityCoursesMore),'horz-dot','')}"><apex:outputPanel rendered="{!CONTAINS(slot.Center_Text__c,'Learning') && ISBLANK(slot.Selected_Course__c) && availabilityCoursesNone && availabilityCoursesMore}">  
+                        <div class="dropdown">
+                                    <div class="dropdown-toggle" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-option-horizontal" style="color: #919194;">
+                                        </span>
+                                    </div>                                        
+                                        <ul class="dropdown-menu dropdown-menu-left">
+                                         <apex:repeat value="{!availabilityCoursesMap[slot.Availability__c]}" var="course">
+                                          <li>
+                                            {!course}
+                                          </li> 
+                                          </apex:repeat>    
+                                        </ul>
+                                </div>
+</apex:outputPanel></div>                   
+                
+<div><apex:outputPanel rendered="{!!CONTAINS(slot.Center_Text__c,'Learning')}">      
+{!slot.Center_Text__c}
+</apex:outputPanel></div>               
+
+                            </td>                           
+                            <td>{!slot.Type__c}</td>
+                            <td><apex:outputText value="{!slotStartDateMap[slot.Id]}" /></td>
+                            <td><apex:outputText value="{!slotStartTimeMap[slot.Id]} - {!slotEndTimeMap[slot.Id]}" /></td>
+                            <td>{!IF(ISBLANK(slot.Noofstudentsregistered__c),0,slot.Noofstudentsregistered__c)}/{!slot.Capacity__c}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <div class="dropdown-toggle" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-edit visible-xs" style="color:#666;display:none;"></span>
+                                        <span class="glyphicon glyphicon-option-vertical hidden-xs" style="color: #919194;">
+                                        </span>
+                                    </div>                                        
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li>
+                                            <apex:commandLink style="text-decoration:none; color:black;" value="Edit" action="{!populateSlotDetails}"
+                                                        oncomplete="$('#editSlot').modal('show');" rerender="editPanel">
+                                                    <apex:param name="currentSlotIdEdit" assignTo="{!currentSlotId}" value="{!slot.Id}"/>
+                                            </apex:commandLink> 
+                                            </li>
+                                            <li role="separator" class="divider"></li>
+                                            <li>
+                                            <apex:commandLink style="text-decoration:none; color:black;" value="Delete" action="{!populateSlotDetails}"
+                                                            oncomplete="$('#myModalDelete').modal('show');">
+                                                    <apex:param name="currentSlotIdDelete" assignTo="{!currentSlotId}" value="{!slot.Id}"/>
+                                            </apex:commandLink> 
+                                            </li>
+                                        </ul>
+                                </div>
+                            </td>
+                        </tr>
+                      </apex:repeat>     
+                    </tbody>
+                  </table>
+            </div>
+           </apex:outputPanel>
+                                <!-- Modal Delete slot-->
+                                    <div id="myModalDelete" class="modal fade" role="dialog">
+                                           <div class="modal-dialog">            
+                                                 <!-- Modal content-->
+                                                 <div class="modal-content">
+                                                       <div class="modal-header">                          
+                                                         <h4 class="modal-title">Delete Slot</h4>
+                                                       </div>
+                                                       <div class="modal-body">
+                                                         <p>Are you sure you want to delete this slot?</p>
+                                                         </div>
+                                                       <div class="modal-footer">
+                                                           <apex:commandButton action="{!deleteSlot}" styleClass="btn btn-default primaryBtnSec" value="Yes"/>
+                                                            <button type="button" class="btn btn-default " data-dismiss="modal">No</button>
+                                                                                                                
+                                                       </div>
+                                                 </div>
+                                             </div>
+                                     </div>      
+                                                                        
+                                   <!-- Modal Edit -->
+                                    <div id="editSlot" class="modal fade" role="dialog">
+                                      <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                          <div class="modal-header">                                            
+                                            <h4 class="modal-title">Edit Slot</h4>
+                                          </div>
+                                          <div class="modal-body">
+                                          <apex:outputpanel id="editPanel">
+                                            <label> Location </label>
+                                            <!--
+                                                <apex:selectlist id="LocationList"  size="1" value="{!newlocation}" required="true" styleClass="form-control form-control-auto" >
+                                                    <apex:selectOptions value="{!Location}" />
+                                                </apex:selectlist>
+                                            -->
+                                                               <apex:selectlist id="LocationList"  size="1" value="{!newLocation}" required="true" styleClass="form-control form-control-auto" 
+                                                                  rendered="{!CONTAINS(newCenter,learningCenter)}">
+                                                                 <apex:selectOptions value="{!Location}" />
+                                                                   </apex:selectlist>
+                                                               
+                                                                   <apex:selectlist id="WritingLocationList"  size="1" value="{!newLocation}" required="true" disabled="true" styleClass="form-control form-control-auto" 
+                                                                    rendered="{!CONTAINS(newCenter,writingCenter)}">
+                                                                      <apex:selectOptions value="{!WritingLocation}" />  
+                                                                   </apex:selectlist>
+                                                               
+                                                                   <apex:selectlist id="SpeakingLocationList"  size="1" value="{!newLocation}" required="true" disabled="true" styleClass="form-control form-control-auto" 
+                                                                   rendered="{!CONTAINS(newCenter,speakingCenter)}">
+                                                                       <apex:selectOptions value="{!SpeakingLocation}" />
+                                                                   </apex:selectlist>
+                                            <label class="modal-margin"> Max no. of students </label> <br/>
+                                                    <apex:inputText value="{!newMaxStudents}" styleClass="form-control form-control-auto" disabled="{!IF(CONTAINS(newCenter,learningCenter) && !hasAppointments,false,true)}"/>
+                                          </apex:outputpanel>
+                                           </div>
+                                          <div class="modal-footer">
+                                            <apex:commandButton action="{!modifySlot}" styleClass="btn btn-default primaryBtnSec" value="Save" reRender="scriptPanel,availabilityTable,slotsTable" oncomplete="showConfirmModification({!isModificationSuccessful});"/>  
+                                            <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button>
+                                            
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+         
+    
+    <div id="cancelAvailability" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+                <!-- Modal content-->
+                <apex:outputPanel id="messageBox">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title subHeading">Info</h4>
+                  </div>
+                  
+                  <div class="modal-body">
+                   <apex:outputText value="{!message}" styleClass="content"></apex:outputText> 
+                  </div>
+                  <div class="modal-footer">
+                     <!--  <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>  -->
+                     <apex:commandLink action="{!refreshAvailabilityList}" reRender="availabilityTable,slotsTable" styleClass="btn btn-default primaryBtnSec" value="OK"
+                       oncomplete="$('#cancelAvailability').modal('hide');" />  
+                                           
+                  </div>
+                </div>
+            </apex:outputPanel>
+      </div>
+    </div>
+    <apex:outputPanel id="confirmModificationPanel">
+    <div id="confirmModification" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title subHeading">Success</h4>
+                  </div>
+                  
+                  <div class="modal-body">
+                   <apex:outputText value="Your availability has been updated. Slots with active appointments will remain unchanged." styleClass="content"></apex:outputText> 
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default " data-dismiss="modal">OK</button> 
+                                           
+                  </div>
+                </div>
+      </div>
+    </div>
+    </apex:outputPanel>
+    
+    </section>
+    </apex:form> 
+</body>
+<apex:outputPanel id="scriptPanel">
+<script>
+    function addClickToNewButtons(){       
+        $('html,body').animate({scrollTop: $("#slotDetails").offset().top},  'slow');      
+    }
+    /*
+    $(document).ready(function(){
+        if("{!slots.size}">0){
+            addClickToNewButtons();
+        }
+    });
+    */
+    
+    function showConfirmModification(isSuccess){
+        if(isSuccess == true){
+            $('#editSlot').modal('hide');
+            $('#confirmModification').modal('show');
+        }else{
+            $('#editSlot').modal('hide');
+        }
+    }
+</script>
+</apex:outputPanel>
+<c:USF_Footer />
+</apex:page>

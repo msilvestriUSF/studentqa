@@ -1,0 +1,140 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" cache="false" docType="html-5.0" language="en-US" applyHTMLTag="false">
+<apex:form >
+<c:USF_Header />
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Appointment Scheduler</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Bootstrap Theme-->
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+
+<apex:includeScript value="{!URLFOR($Resource.MomentJs)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+<style>
+body{
+background: #F8F7F0;
+}
+p.largeMsg {
+ font-family: QuattrocentoSans-Bold;
+font-size: 30px;
+color: #00543C;
+}
+
+p.smallMsg {
+font-family: QuattrocentoSans;
+font-size: 18px;
+color: #2A2A2A;
+}
+
+.msgWrap{
+    margin-top: 125px;
+   
+}
+/*VD starts here*/
+.buttonWrap {
+    margin-top: 78px;
+}
+
+.container {
+    width: 935px;
+}
+.glyphicon-ok-circle {
+    font-size: 100px;
+    color:#00543C;
+}
+.btn-default {
+    background: white;    
+    padding: 12px 95px;
+    margin: 0 15px;
+    background-color: #00543C;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+    font-family: QuattrocentoSans-Bold;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0px;
+}
+.btn-default:hover,.btn-default:focus{
+    background-color: #00543C;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.btn-default:active{
+    background-color: #73973F;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+
+/*Mobile phone media queries*/
+@media only screen and (max-width: 544px){
+    .container {
+        max-width: 440px;
+    }
+   
+   p.largeMsg{
+       font-size: 25px;
+   }
+}
+
+/*Tablet Media queries*/
+@media only screen and (max-width: 768px){
+    .container {
+        max-width: 708px;
+    }
+    
+     p.largeMsg{
+       font-size: 25px;
+   }
+}
+</style>
+<script>
+    $(document).ready(function(){
+        var type = "{!$CurrentPage.parameters.type}";
+        //alert(type);
+        if(type == 'LWC') {
+            $(".largeMsg").text("Your appointment has been booked.");
+            $(".smallMsg").text("");
+        }
+        else {
+            $(".smallMsg").text("We will notify you once your request is confirmed.");
+        }
+    });
+    
+</script>
+</head>
+<body>
+
+<div class="row text-center msgWrap">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <p><span class="glyphicon glyphicon-ok-circle" style=""></span></p>
+                <p class="largeMsg">Your appointment request has been made.</p>
+                 <p class="smallMsg">We will notify you once your request is confirmed.</p>
+                 <div class="row text-center buttonWrap">
+                    <button class="btn btn-default" type="button" onClick="window.open('/apex/USF_StudentDashboard','_self');">Back to Dashboard</button>     
+                    
+                </div>
+            </div>            
+        </div>
+</body>
+</html>
+</apex:form>
+<c:USF_Footer />
+</apex:page>

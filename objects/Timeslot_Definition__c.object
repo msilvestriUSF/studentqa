@@ -1,0 +1,519 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"><actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides><fields>
+        <fullName>Academic_Coaching__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CASA Appointment Reason</description>
+        <externalId>false</externalId>
+        <label>Academic Coaching</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Academic_Probation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CASA Appointment Reason</description>
+        <externalId>false</externalId>
+        <label>Academic Probation</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>CWID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Student__r.CWID__c</formula>
+        <label>CWID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Centre__c</fullName>
+        <externalId>false</externalId>
+        <label>Centre</label>
+        <picklist>
+            <controllingField>Department__c</controllingField>
+            <picklistValues>
+                <fullName>USF Location 1</fullName>
+                <default>false</default>
+                <controllingFieldValues>CASA</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>USF Location  2</fullName>
+                <default>false</default>
+                <controllingFieldValues>LWC</controllingFieldValues>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Courses__c</fullName>
+        <externalId>false</externalId>
+        <label>Courses</label>
+        <picklist>
+            <controllingField>Centre__c</controllingField>
+            <picklistValues>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+                <controllingFieldValues>USF Location 1</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBA</fullName>
+                <default>false</default>
+                <controllingFieldValues>USF Location 1</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS in Computer Applications</fullName>
+                <default>false</default>
+                <controllingFieldValues>USF Location  2</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Art</fullName>
+                <default>false</default>
+                <controllingFieldValues>USF Location  2</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nano Tech</fullName>
+                <default>false</default>
+                <controllingFieldValues>USF Location 1</controllingFieldValues>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Department__c</fullName>
+        <description>List Of Departments</description>
+        <externalId>false</externalId>
+        <label>Department</label>
+        <picklist>
+            <picklistValues>
+                <fullName>CASA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LWC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Student__r.Email</formula>
+        <label>Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Financial_Concerns__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CASA Appointment Reason</description>
+        <externalId>false</externalId>
+        <label>Financial Concerns</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Housing_Residence_Hall__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CASA Appointment Reason</description>
+        <externalId>false</externalId>
+        <label>Housing / Residence Hall</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Interview_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Interview Location</label>
+        <picklist>
+            <picklistValues>
+                <fullName>East Lansing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Troy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Leave_of_Absence_Withdrawal__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CASA Appointment Reason</description>
+        <externalId>false</externalId>
+        <label>Leave of Absence / Withdrawal</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Length_Of_Appointment__c</fullName>
+        <externalId>false</externalId>
+        <label>Length Of Appointment</label>
+        <picklist>
+            <picklistValues>
+                <fullName>15</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>20</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>30</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>60</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Major_Minor_Exploration__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CASA Appointment Reason</description>
+        <externalId>false</externalId>
+        <label>Major / Minor Exploration</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>New_Student_Survey__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CASA Appointment Reason</description>
+        <externalId>false</externalId>
+        <label>New Student Survey</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Personal_Concerns__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CASA Appointment Reason</description>
+        <externalId>false</externalId>
+        <label>Personal Concerns</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>Student__r.Phone</formula>
+        <label>Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Program__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Program</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Appointment Definition</relationshipLabel>
+        <relationshipName>Timeslot_Definition</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Referred_By__c</fullName>
+        <description>CASA Appointment Reason (Referral)</description>
+        <externalId>false</externalId>
+        <label>Referred By</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Faculty</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Staff</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parent / Guardian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields><fields>
+        <fullName>Registration_Assistance__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CASA Appointment Reason</description>
+        <externalId>false</externalId>
+        <label>Registration Assistance</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Request_Course_Tutor__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Show course enrollment records with course offerings that Peer Tutoring is available.</description>
+        <externalId>false</externalId>
+        <label>Request Course Tutor</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>hed__Course_Enrollment__c.hed__Course_Offering__r.LWC_Tutor__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>hed__Course_Enrollment__c</referenceTo>
+        <relationshipLabel>Appointment Definition</relationshipLabel>
+        <relationshipName>Appointment_Definition</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Self_Reported_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Self-Reported Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Self_Reported_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>Self-Reported Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields><fields>
+        <fullName>Staff__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Staff</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Appointment (Staff)</relationshipLabel>
+        <relationshipName>Appointment_Staff</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Missed by Student</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Missed by Consultant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Canceled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Checked In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Needs Notes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Student__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Student</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Appointments</relationshipLabel>
+        <relationshipName>Appointments</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Study_Abroad__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CASA Appointment Reason</description>
+        <externalId>false</externalId>
+        <label>Study Abroad</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Type_of_Appointment__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of Appointment</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Counseling</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Course Enrollment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Type_of_Interview__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of Interview</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Skype Interview</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone Interview</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Location - Troy Campus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Location - Lansing Campus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><allowInChatterGroups>false</allowInChatterGroups><compactLayoutAssignment>SYSTEM</compactLayoutAssignment><deploymentStatus>Deployed</deploymentStatus><enableActivities>true</enableActivities><enableBulkApi>true</enableBulkApi><enableFeeds>false</enableFeeds><enableHistory>true</enableHistory><enableReports>false</enableReports><enableSearch>true</enableSearch><enableSharing>true</enableSharing><enableStreamingApi>true</enableStreamingApi><label>Appointment Definition</label><nameField>
+        <label>Appointment Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField><pluralLabel>Appointment Definition</pluralLabel><searchLayouts>
+        <lookupDialogsAdditionalFields>Program__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Length_Of_Appointment__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Type_of_Appointment__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Type_of_Interview__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Interview_Location__c</lookupDialogsAdditionalFields>
+    </searchLayouts><sharingModel>Read</sharingModel><listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Length_Of_Appointment__c</columns>
+        <columns>Program__c</columns>
+        <columns>Type_of_Appointment__c</columns>
+        <columns>Type_of_Interview__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews><listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews><validationRules>
+        <fullName>Need_Location_If_In_Person</fullName>
+        <active>true</active>
+        <description>If the interview type is In Person the Location must be selected.</description>
+        <errorConditionFormula>ISBLANK(TEXT(  Interview_Location__c  )) &amp;&amp;  ISPICKVAL( Type_of_Interview__c , "In Person")</errorConditionFormula>
+        <errorMessage>You must select an Interview Location when selecting In Person as the Interview Type.</errorMessage>
+    </validationRules></CustomObject>

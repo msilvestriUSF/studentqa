@@ -1,0 +1,205 @@
+<!--
+//************************************************************************************
+// Name             : USF_ModifyLWCAppointmentConfirmation
+// Description      : Visualforce page to display Modify LWC confirmation page
+// Created By       : Mohan Kalagatla
+// Created Date     : 08/25/2016 
+// ************************Version Updates********************************************
+// Date             Developer           Description
+// -----------------------------------------------------------------------------------
+// 08/25/2016        Mohan Kalagatla       Created
+// ************************************************************************************
+-->
+<apex:page showHeader="false" StandardController="AppointmentContact__c" sidebar="false" standardStylesheets="false" cache="false" docType="html-5.0" language="en-US" applyHTMLTag="false">
+<apex:form > 
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Help and FAQs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Bootstrap Theme-->
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+
+
+<apex:includeScript value="{!URLFOR($Resource.MomentJs)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+<style>
+/*VD starts here*/
+h2.headerClass{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: #00543C;
+}
+h2.headerClass span{    
+    font-family: Whitney-Black;
+    font-size: 22px;
+}
+.buttonWrap {
+    margin-top: 78px;
+}
+.bodyClass{
+    font-size: 14px;   
+    font-family: Whitney-Book; 
+    background: #F5F5F5;
+}
+.container {
+    max-width: 935px;
+}
+.glyphicon-ok-sign {
+    font-size: 150px;
+}
+.btn-default {
+    background: white;    
+    padding: 10px 38px;
+    margin: 0 15px;
+    background-color: #00543C;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.btn-default:hover,.btn-default:focus{
+    background-color: #73973F;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.btn-default:active{
+    background-color: #73973F;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    text-shadow:none;
+    box-shadow: none;
+}
+.help_wrapper{
+    margin-top: 25px;
+}
+.row-margin{
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #E6E6E6;
+    border-radius: 4px;
+    background: #fff;
+}
+.row-eq-height {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display:         flex;
+      align-items:center;
+}
+
+.title-text{
+    font-family: Whitney-Semibold;    
+}
+.small-heading{
+    margin-bottom: 10px;
+}
+.active-text{
+    display: block;
+}
+
+@media only screen and (max-width: 544px){
+    .container {
+        max-width: 440px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .container {
+        max-width: 708px;
+    }
+}
+
+
+
+.help_wrapper p{
+    font-family: QuattrocentoSans;
+font-size: 14px;
+color: #2A2A2A;
+line-height: 18px;
+word-break: break-all;
+}
+
+.glyphicon-plus, .glyphicon-minus{
+    cursor: pointer;
+}
+</style>
+</head>
+<body class="bodyClass">
+    <div class="container">
+        <h2 class="headerClass">
+            <span>Help</span>
+        </h2>
+        <div class="help_wrapper">
+            <div>
+                <span class="title-text">Welcome to myUSF Help Center</span>
+            </div>
+            <div class="row row-margin row-eq-height">            
+                <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
+                    <div class="small-heading">
+                        <span class="title-text">Heading 1</span>
+                    </div>
+                    <p>Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short descri . . .</p>
+                    <p style="display:none;">Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short asjkdsadjkjkadhkjajkh jakhskjhasdjkhkadshkjhasdkjasdhjksadkjhasdkjsajhjksadkj.</p>
+                </div> 
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-center">
+                    <span class="glyphicon glyphicon-plus" style="color:#00543C;" onclick="activate('+');"></span>
+                    <span class="glyphicon glyphicon-minus" style="color:#00543C; display:none;" onclick="activate('-');"></span>
+                </div>          
+            </div>
+            <div class="row row-margin row-eq-height">            
+                <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
+                    <div class="small-heading">
+                        <span class="title-text">Heading 2</span>
+                    </div>
+                    <p>Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short descri . . .</p>
+                    <p style="display:none;">Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short description goes here. Short asjkdsadjkjkadhkjajkh jakhskjhasdjkhkadshkjhasdkjasdhjksadkjhasdkjsajhjksadkj.</p>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-center">
+                    <span class="glyphicon glyphicon-plus" style="color:#00543C;" onclick="activate('+');"></span>
+                    <span class="glyphicon glyphicon-minus" style="color:#00543C; display:none;" onclick="activate('-');"></span>
+                </div>          
+            </div>
+        </div>        
+    </div>
+    <script type="text/javascript">
+        function activate (sign){
+            event.stopPropagation();
+            if(sign === "+"){
+                $(".active-text").parent().next().find("span:eq(1)").hide();
+                $(".active-text").parent().next().find("span:eq(0)").show();
+                $(".active-text").hide();
+                $(".active-text").prev().show();            
+                $(".active-text").removeClass("active-text");
+                $(event.target).hide();
+                $(event.target).next().show();
+                $(event.target).parent().prev().find("p:eq(1)").addClass("active-text");
+                $(event.target).parent().prev().find("p:eq(0)").hide();
+                $(event.target).parent().prev().find("p:eq(1)").show();
+            }else{                
+                $(event.target).hide();
+                $(event.target).prev().show();
+                $(".active-text").prev().show();
+                $(".active-text").hide();
+                $(".active-text").removeClass("active-text");               
+            }
+        }        
+    </script>
+</body>
+</html>
+</apex:form> 
+</apex:page>

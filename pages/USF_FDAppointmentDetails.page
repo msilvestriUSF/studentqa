@@ -1,0 +1,637 @@
+<apex:page showHeader="true" sidebar="false" standardStylesheets="false" cache="false" docType="html-5.0" language="en-US" applyHTMLTag="true" standardController="AppointmentContact__c" extensions="USF_FDAppointmentDetailsController" tabStyle="Front_Desk_Dashboard__tab">
+ <apex:form >
+  <html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Appointment Details</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Bootstrap Theme-->
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+
+
+<apex:includeScript value="{!URLFOR($Resource.MomentJs)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+<style type="text/css">
+body{
+    padding:0;
+    
+}
+.filterByWrap .checkbox input[type="checkbox"]{
+    margin-left:10px;
+}
+
+.filterByWrap .checkbox{
+    border: 1px solid #999 !important;
+    padding: 14px;
+    text-align: center;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.filterByWrap .checkbox label{
+    position: relative;
+    right: 20px;
+}
+
+.btnSectionWrap{
+    padding-top:26px;
+}
+
+.btnSectionWrap button{
+    background: lightgreen;
+    border: 1px solid lightgreen;
+    color: #fff;
+    font-weight: normal;
+    padding: 6px 30px;
+}
+
+.statusSectionWrap{
+    border: 1px solid #999;
+    padding: 20px 0;
+    margin: 0;
+    background: #fff;
+    border-radius: 3px;
+}
+.statusSection span:nth-child(1){
+    display: block;
+    font-size: 30px;
+}
+
+.statusSection span:nth-child(2){
+    color: #999;
+    font-size: 13px;
+}
+
+.statusSection{
+    border-right: 1px solid #999;
+    height: 80px;
+}
+
+.statusSection.completedSection {
+    border: 0;
+}
+
+.upcomingSection span:nth-child(1){
+    color: #0066FF;
+}
+
+.pendingSection span:nth-child(1){
+    color: #FFCC00;
+}
+
+.delayedSection span:nth-child(1){
+    color: #FF3300;
+}
+
+.completedSection span:nth-child(1){
+    color: #0099CC;
+}
+
+.headerSection {
+    font-size: 1.5rem;
+    color: #737575;
+    margin-top: 1%;
+    padding-left: 0;
+}
+
+.inputSection {
+    border: 1px solid #d4d8d9;
+    border-radius: 5px;
+    padding: 1% 0;
+    font-size: 1.5rem;
+    color: #737575;
+    margin-top: 1%;
+}
+
+.btnInfo .btn {
+    padding: 5px;
+    font-size: 1.5rem;
+}
+
+.red {
+    border-color: #D06601;
+    background-color: #feab8f;
+    color: #d06601;
+}
+
+.studentInfo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #737575;
+}
+
+.green {
+    background: rgba(1,184,160,0.50);
+    color: #009380;    
+}
+
+.checkedIn {
+    font-weight: 600;
+}
+
+.btn {
+    background: #fff;
+}
+
+.btn:hover,
+.btn:focus {
+    background: #fff;
+    border: 1px solid #737575;
+    outline: none;
+}
+
+.leftSection {
+     background: #fff;
+    border: 1px solid #999;
+    text-align: center;
+    padding-bottom: 2%;
+    margin: 0;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 3px;
+    border-style: dotted;
+}
+
+.rightSection p {
+    margin: 10px 0;
+}
+
+.InfoText {
+    padding-left: 0;
+}
+
+.rightSection {
+    color: #737575;
+    margin-top: 72px;
+    border-radius:3px;
+}
+
+.rightSection .result {
+    border-bottom: 1px solid #d4d8d9;
+    background: #fff;
+    padding-top: 3%;
+}
+
+.leftSection h4 {
+    color: #737575;
+    font-weight: 600;
+    text-align: left;            
+}
+
+.meetingInfo {
+    padding-left: 0;
+    margin-bottom: 4%;
+}
+
+.meetingInfo div {
+    color: #000;
+    font-size: 1.5rem;
+}
+
+.rightContent {
+    background: #fff;
+        margin-bottom: 2%;
+}
+.rightAlign{
+    text-align: right;
+}
+.settingsImg{
+    border: 1px solid;
+    padding: 0% 2% 1%;
+    margin-left: 2%;
+    border-radius: 7px;
+}    
+.rect{
+    width: 10px;
+    height: 12px;
+    display: inline-block;
+    border: 1px solid;
+    margin-left: 10px;
+    margin-top: 6px;
+}  
+
+.mainContent{
+    margin-top: 2%;
+}
+
+.normalFont{
+font-weight:normal;
+}
+
+.statusWrap span{
+    float:left;
+}
+
+.statusWrap  div{
+  margin-left:10px;  
+}
+
+/*.row div span{
+    font-size:22px;
+}*/
+
+.row div label{
+    display:block;
+    color: #999;
+    font-size: 18px;
+}
+.row{
+    margin-bottom:20px;
+}
+
+.buttonWrap button {
+    background: white;
+    font-size: 18px;
+    padding: 10px 50px;
+    margin: 22px;
+}
+
+.modal-body p{
+    font-size: 16px;
+}
+
+/*VD starts here*/
+body.sfdcBody{
+font-size: 12px;   
+}
+.bodyDiv,
+.bodyClass{
+    font-size: 14px;   
+    font-family: Whitney-Book; 
+    background-color: #F8F7F0; 
+}
+.container {
+    max-width: 935px;
+}
+h2.headerClass{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: #00543C;
+}
+h2.headerClass a{
+    color: #00543C;
+}
+h2.headerClass span{    
+    font-family: Whitney-Black;
+    font-size: 20px;
+}
+h2.headerClass i.glyphicon{
+    font-size: 15px;    
+    cursor: pointer;
+}
+.btn-default {
+    background: white !important;  
+    padding: 10px 38px !important ;
+    margin: 0 15px !important ;
+    background-color: #00543C !important ;
+    color: #fff !important ;
+    border-radius: 4px !important ;
+    font-size: 14px !important ;
+    border: none !important ;
+    outline: none !important ;
+    text-shadow:none !important ;
+    box-shadow: none !important ;
+}
+.btn-default:hover,.btn-default:focus{
+    background-color: #73973F !important ;
+    color: #fff !important ;    
+    border: none !important ;
+    outline: none !important ;
+    text-shadow:none !important ;
+    box-shadow: none !important ;
+}
+.btn-default:active{
+    background-color: #73973F !important ;
+    color: #fff !important ;    
+    border: none !important ;
+    outline: none !important ;
+    text-shadow:none !important ;
+    box-shadow: none !important ;
+}
+.last-button {
+    margin-right: 0;
+}
+.row-eq-height {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display:         flex;
+      align-items:center;
+}
+.detailsContainer{
+    background: #fff;
+    border-radius: 5px;
+    padding: 25px;
+    box-shadow: 0px 2px 4px 0px rgba(145,145,147,0.20);
+    border-radius: 5px;
+}
+.title-text{
+    font-family: QuattrocentoSans-Bold;
+}
+.status {
+    font-family: Whitney-Semibold;
+    padding: 6px 16px;
+    text-transform: uppercase;    
+    font-size: 12px;
+}
+.details-text{
+    margin: 15px 0 20px 0;
+}
+.attachment{
+    margin-top: 35px;
+}
+.modal-footer{
+    border-top: none;
+    text-align: center;
+}
+.row-padding-top{
+    padding-top:10px;
+}
+.confirm{
+    background: rgba(1,184,160,0.50);
+    color: #005F52;
+}
+
+.pending{
+    background: rgba(242,164,0,0.60);
+    color: #6d3d00;
+}
+
+.cancel{
+    background: rgba(252,114,68,0.60);
+    color: #872200;
+}
+
+.missed{
+    background: rgba(255,136,22,0.60);
+    color: #7E4107;
+}
+
+.checkin{
+    background: #B8D74C;
+    color: #425501;
+}
+.modal-header{
+    color:#00543C;
+    font-family: Whitney-Black;
+}
+.primaryBtnSec{
+    background: #5F7E32 !important;
+}
+
+.modal-footer{
+    text-align:center !important;
+    border:0 !important;
+}
+
+.modal-body{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #2A2A2A !important;
+    letter-spacing: 0px !important;
+    line-height: 20px !important;
+}
+
+.primaryBtnSec{
+    background: #5F7E32 !important;
+}
+
+.modal-footer{
+    text-align:center !important;
+    border:0 !important;
+}
+
+.modal-body, .modal-body p{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #2A2A2A !important;
+    letter-spacing: 0px !important;
+    line-height: 20px !important;
+}
+
+.modal-title{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #2A2A2A !important;
+} 
+.marginT{
+    margin-top: 100px;
+    margin-bottom:50px;
+}
+.modal-title{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #00543C !important;
+}
+ul.dropdown-menu{
+    padding: 0;
+    border-radius: 0;
+}
+
+ul.dropdown-menu .divider{
+    margin: 0;
+}
+
+ul.dropdown-menu li{
+    margin: 0;
+}
+
+ul.dropdown-menu>li>a{
+    padding: 10px 15px;
+    font-size: 12px;
+    color: #2A2A2A;
+    font-family: QuattrocentoSans;
+}
+
+ul.dropdown-menu>li>a:hover{
+    background-color: #E6E6E6;
+    background-image: none;
+}
+@media only screen and (min-width: 768px) and (max-width: 992px){    
+    .row-eq-height{
+        display: inherit;
+    }
+    .text-right{
+        text-align: left
+    }
+    .btn-default{
+        margin: 15px 15px 0 0; 
+        padding: 10px 32px;       
+    }
+}
+
+@media only screen and (min-width: 460px) and (max-width: 768px){
+    .container {
+        max-width: 705px;
+    }
+    .row-eq-height{
+        display: inherit;
+    }
+    .text-right{
+        text-align: left
+    }
+    .btn-default{
+        margin: 15px 0 0 0; 
+        padding: 10px 32px;       
+    }
+}
+
+@media only screen and (max-width: 460px){
+    .container {
+        max-width: 440px;
+    }
+    .row-eq-height{
+        display: inherit;
+    }
+    .text-right{
+        text-align: left
+    }
+    .btn-default{
+        margin: 15px 0 0 0;
+        font-size: 12px;
+        padding: 10px 32px;
+    }
+}
+</style>
+</head>
+
+<body class="bodyClass">
+    <section class="container">
+        <div class="row row-eq-height">
+            <div class="col-md-5">
+                <h2 class="headerClass">                    
+                    <apex:commandLink action="/apex/USF_FrontDeskStaffDashboard">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                    </apex:commandLink>
+                    
+                    <span>CASA Appointment Details</span>
+                </h2>
+            </div> 
+             <!-- Buttons -->            
+        </div> 
+
+        <div class="detailsContainer">
+            <!-- Display Appointment details -->
+            <div class="row">
+                <div class="col-xs-12 col-md-3">
+                    <span><span class="title-text">Date: &nbsp; </span><apex:outputText value="{!appointmentDate}" /> </span>
+                </div>
+                <div class="col-xs-12 col-md-9">
+                    <span><span class="title-text">Time: &nbsp; </span><apex:outputText value="{!appointmentTime}" /> </span>
+                </div>
+            </div>        
+            <div class="row">
+                <div class="col-xs-12 col-md-3">
+                    <span><span class="title-text">CASA Staff: &nbsp;</span><apex:outputText value="{!appointmentRecord[0].AppointmentSlot__r.Availability__r.Coach__r.name}"/></span>                           
+                </div>
+                <div class="col-md-9">
+                    <span><span class="title-text">Location: &nbsp;</span><apex:outputText value="{!appointmentRecord[0].Location__c}"/></span>
+                </div>  
+            </div>           
+            <div class="row">
+                <div class="col-xs-12 col-md-3">
+                    <span class="title-text">Status: &nbsp;</span>
+                    <span class="status {!if(CONTAINS(appointmentRecord[0].status__c,$Label.USF_LWCSlotCompleteStatus) || CONTAINS(appointmentRecord[0].status__c,$Label.USF_LWCAppointmentStudentCheckinbyConsultantStatus),"checkin",if(CONTAINS(appointmentRecord[0].status__c,$Label.USF_LWCSlotConfirmedStatus),"confirm",if(CONTAINS(appointmentRecord[0].status__c,$Label.USF_CASAAppointmentMissedStatus),"missed",if(CONTAINS(appointmentRecord[0].status__c,$Label.USF_CASAAppointmentCancelledStatus),"cancel","pending"))))}">{!appointmentRecord[0].status__c}</span>
+                </div>    
+                <div class="col-md-9">
+                    <span><span class="title-text">ID: &nbsp;</span><apex:outputText value="{!appointmentRecord[0].Name}"/></span>
+                </div>
+            </div>
+            <div class="row">                
+                <div class="col-xs-12 col-md-12">                    
+                    <span class="title-text">Preferred Phone Number</span>
+                    <div class="row-padding-top">
+                        <span>
+                            {!appointmentRecord[0].Preferred_Phone__c}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <!--<div class="details-text"><span class="title-text">Details</span></div>-->
+            <!-- <div class="row">                
+                <div class="col-xs-12 col-md-12">                    
+                    <span class="title-text">Subject</span>
+                    <div class="row-padding-top">
+                        <span>Performance Review Discussion</span>
+                    </div>
+                </div>
+            </div> -->
+            <div class="row">                
+                <div class="col-xs-12 col-md-12">                    
+                    <span class="title-text">Reason(s) for Meeting</span>
+                    <div class="row-padding-top">
+                        <span id="reasonForMeeting">
+                            {!appointmentRecord[0].Reason_for_Meeting__c}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">                
+                <div class="col-xs-12 col-md-12">                    
+                    <span class="title-text">Referred By &nbsp; {!appointmentRecord[0].Referred_By__c}</span>
+                    <div class="row-padding-top">
+                        <span>
+                            {!appointmentRecord[0].Referrer_Name__c}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="row">                
+                <div class="col-xs-12 col-md-12">                    
+                    <span class="title-text">Preferred Phone Number</span>
+                    <div class="row-padding-top">
+                        <span>
+                            {!appointmentRecord[0].Preferred_Phone__c}
+                        </span>
+                    </div>
+                </div>
+            </div>-->
+            <div class="col-md-12 text-center marginT">  
+                <apex:commandbutton styleclass="btn btn-default primaryBtnSec" value="Cancel Appointment" reRender="none" html-data-toggle="modal"  html-data-target="#myModalCancel"/>             
+                <apex:commandbutton styleclass="btn btn-default " value="Back to Dashboard" action="/apex/USF_FrontDeskStaffDashboard" />                
+            </div>
+        </div>        
+        
+        <!--Started-->
+                                         <!-- Modal -->
+                  <div id="myModalCancel" class="modal fade" role="dialog">
+                                      <div class="modal-dialog">            
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                  <div class="modal-header">                                                    
+                                                    <h4 class="modal-title">Cancel Appointment</h4>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    <p>Are you sure you want to cancel this appointment? </p>
+                                                    </div>
+                                                  <div class="modal-footer">
+                                                      <apex:commandLink styleClass="btn btn-default primaryBtnSec" value="Yes" action="{!cancelAppointment}"/>
+                                                    <apex:commandLink styleClass="btn btn-default " value="No" html-data-dismiss="modal" />
+                                                    
+                                                  </div>
+                                            </div>
+                                        </div>
+                                </div>      
+                                        
+                                        <!--End--> 
+    </section>
+    
+    <script>
+    $(document).ready(function(){
+    var reasonFormeeting= $("#reasonForMeeting").text();
+     var reasonFormeetingText= reasonFormeeting.replace(/;/g, '; ');
+     $("#reasonForMeeting").text(reasonFormeetingText);
+    });
+    
+    </script>
+</body>
+
+</html>
+</apex:form> 
+</apex:page>

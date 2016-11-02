@@ -1,0 +1,5 @@
+{!Contact.Full_Name__c} {!Contact.CWID__c} has received their 2nd strike of the (fall/spring) semester. They have either missed or submitted a late cancellation for the following appointments which can be viewed from the contact record: {!Contact.Link}
+
+
+
+You may contact this student via email at {!Contact.Email}.

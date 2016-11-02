@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- Active Term --></label>
+        <name>Active_Term__c</name>
+    </fields><fields>
+        <help><!-- Appointment type of Availability Definition --></help>
+        <label><!-- Appointment Type --></label>
+        <name>AppointmentType__c</name>
+    </fields><fields>
+        <label><!-- Availability --></label>
+        <name>Availability__c</name>
+        <relationshipLabel><!-- Slots (Availability) --></relationshipLabel>
+    </fields><fields>
+        <label><!-- CAConflictProcessFlag --></label>
+        <name>CAConflictProcessFlag__c</name>
+    </fields><fields>
+        <label><!-- CASA Appointment --></label>
+        <name>CASA_Appointment__c</name>
+    </fields><fields>
+        <label><!-- Capacity Reached --></label>
+        <name>CapacityReached__c</name>
+    </fields><fields>
+        <label><!-- Capacity --></label>
+        <name>Capacity__c</name>
+    </fields><fields>
+        <label><!-- Center Text --></label>
+        <name>Center_Text__c</name>
+    </fields><fields>
+        <label><!-- Center --></label>
+        <name>Center__c</name>
+    </fields><fields>
+        <label><!-- Check In Time --></label>
+        <name>CheckInTime__c</name>
+    </fields><fields>
+        <label><!-- Check Out Time --></label>
+        <name>CheckOutTime__c</name>
+    </fields><fields>
+        <label><!-- Checked In --></label>
+        <name>Checked_In__c</name>
+    </fields><fields>
+        <label><!-- Coach Email --></label>
+        <name>Coach_Email__c</name>
+    </fields><fields>
+        <label><!-- Coach First Name --></label>
+        <name>Coach_First_Name__c</name>
+    </fields><fields>
+        <label><!-- Coach Full Name --></label>
+        <name>Coach_Full_Name__c</name>
+    </fields><fields>
+        <label><!-- Coach Last Name --></label>
+        <name>Coach_Last_Name__c</name>
+    </fields><fields>
+        <label><!-- Consultant --></label>
+        <name>Consultant__c</name>
+        <relationshipLabel><!-- Slots --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields><fields>
+        <label><!-- Drop in Total Used Time --></label>
+        <name>DropinTotalUsedTime__c</name>
+    </fields><fields>
+        <label><!-- End Time --></label>
+        <name>End_Time__c</name>
+    </fields><fields>
+        <label><!-- Event Conflict --></label>
+        <name>Event_Conflict__c</name>
+    </fields><fields>
+        <help><!-- If this field is checked please review your calendar for conflicting events. Do not clear the box unless you are certain you have resolved any conflicts. --></help>
+        <label><!-- Has Possible Conflict --></label>
+        <name>Has_Possible_Conflict__c</name>
+    </fields><fields>
+        <label><!-- Staff --></label>
+        <name>Interviewer__c</name>
+        <relationshipLabel><!-- Slots --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields><fields>
+        <label><!-- No of missed by student appointments --></label>
+        <name>No_of_missed_by_student_appointments__c</name>
+    </fields><fields>
+        <label><!-- No of Students Registered --></label>
+        <name>Noofstudentsregistered__c</name>
+    </fields><fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields><fields>
+        <label><!-- Number Of Seats Booked (Obsolete) --></label>
+        <name>Number_Of_Seats_Booked__c</name>
+    </fields><fields>
+        <label><!-- Peer Center Appointment --></label>
+        <name>Peer_Center_Appointment__c</name>
+    </fields><fields>
+        <label><!-- Selected Course --></label>
+        <name>Selected_Course__c</name>
+        <relationshipLabel><!-- Slots --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Selected Meeting Location --></label>
+        <name>Selected_Meeting_Location__c</name>
+        <picklistValues>
+            <masterLabel>In Person</masterLabel>
+            <translation><!-- In Person --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online</masterLabel>
+            <translation><!-- Online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Slot Duration --></label>
+        <name>SlotDuration__c</name>
+    </fields><fields>
+        <label><!-- Slot Date --></label>
+        <name>Slot_Date__c</name>
+    </fields><fields>
+        <label><!-- Start Date --></label>
+        <name>StartDate__c</name>
+    </fields><fields>
+        <help><!-- 24-Hour time --></help>
+        <label><!-- Start Time24 --></label>
+        <name>Start_Time24__c</name>
+    </fields><fields>
+        <label><!-- Start Time --></label>
+        <name>Start_Time__c</name>
+    </fields><fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>All Appointments</masterLabel>
+            <translation><!-- All Appointments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Booked</masterLabel>
+            <translation><!-- Booked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Checked-In</masterLabel>
+            <translation><!-- Checked-In --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed</masterLabel>
+            <translation><!-- Confirmed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consultant Checked-In</masterLabel>
+            <translation><!-- Consultant Checked-In --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Missed by Consultant</masterLabel>
+            <translation><!-- Missed by Consultant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Needs Notes</masterLabel>
+            <translation><!-- Needs Notes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Show</masterLabel>
+            <translation><!-- No Show --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+        <relationshipLabel><!-- Slots --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Time Trigger 15 --></label>
+        <name>Time_Trigger_15__c</name>
+    </fields><fields>
+        <label><!-- Total No of appointments --></label>
+        <name>Total_No_of_appointments__c</name>
+    </fields><fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>In Person</masterLabel>
+            <translation><!-- In Person --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online</masterLabel>
+            <translation><!-- Online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Slot</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Slots</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>CASA Layout</layout>
+        <sections>
+            <label><!-- Slot Information --></label>
+            <section>Slot Information</section>
+        </sections>
+        <sections>
+            <label><!-- Status --></label>
+            <section>Status</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts><layouts>
+        <layout>LWC Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Drop-In Information --></label>
+            <section>Drop-In Information</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Slot Information --></label>
+            <section>Slot Information</section>
+        </sections>
+        <sections>
+            <label><!-- Status --></label>
+            <section>Status</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts><recordTypes>
+        <label><!-- CASA Slot --></label>
+        <name>CASA_Slot</name>
+    </recordTypes><recordTypes>
+        <label><!-- LWC Slot --></label>
+        <name>LWC_Slot</name>
+    </recordTypes><validationRules>
+        <errorMessage><!-- End date Should not be less than Start date --></errorMessage>
+        <name>EndDate_not_less_than_Start_Date</name>
+    </validationRules><validationRules>
+        <errorMessage><!-- Start date Should not be less than Current Date and Time --></errorMessage>
+        <name>Start_Date_not_less_than_Current_Time</name>
+    </validationRules></CustomObjectTranslation>

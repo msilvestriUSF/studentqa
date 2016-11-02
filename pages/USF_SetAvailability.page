@@ -1,0 +1,628 @@
+<apex:page id="pageId" StandardController="Counselor_Availability_Definition__c" extensions="USF_SetAvailabilityController" showHeader="false" sidebar="false" standardStylesheets="false" cache="false" docType="html-5.0" language="en-US" applyHTMLTag="false">
+
+<!-- Bootstrap Theme-->
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{!URLFOR($Resource.USF_Bootstrap_Select_CSS)}"/>
+<apex:stylesheet value="{!$Resource.USF_Bootstrap_Datepicker_CSS}" />
+<!--<apex:stylesheet value="{!$Resource.USF_SetAvailabilityCSS}" />-->
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'flaticon.css')}" rel="stylesheet"/>
+<apex:includeScript value="{!URLFOR($Resource.MomentJs)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+<apex:includeScript value="{!URLFOR($Resource.USF_JQueryDatepicker)}" />
+<apex:includeScript value="{!URLFOR($Resource.USF_SetAvailabilityJS)}" />
+<apex:includeScript value="{!URLFOR($Resource.BootstrapSelect)}" />
+<style>
+body{   
+    background: #F8F7F0;
+
+}
+.formPanel{
+    border-right: 1px solid #eee;
+    padding: 0 45px 0 30px;
+}
+
+.daysWrap{
+    margin-top: 15px;
+}
+
+.date {
+    width: 100% !important;
+}
+
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 100%;
+}
+
+.bootstrap-select button, .bootstrap-select button:hover{
+    background: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: none;
+    border: 1px solid #e6e6e6;
+    border-radius: 0;
+    height: 30px;
+    font-family: Whitney-Book;
+    font-size: 14px;
+    color: #2A2A2A;
+}
+
+/*VD design styles*/
+.bodyClass{
+  font-family: QuattrocentoSans;
+    color: #2A2A2A;
+    font-size: 14px;
+}
+.heading {
+    font-family: Whitney-Black;
+    font-size: 20px;
+    color: #00543C;
+    margin: 10px 0 20px;
+}
+
+.subHeading {
+    font-family: Whitney-Bold;
+    font-size: 14px;
+    color: #2A2A2A;
+    letter-spacing: 0px;
+    padding-left: 0;
+}
+
+.content, .appointmentTable tbody tr td label {
+    font-family: Whitney-Book;
+    font-size: 14px;
+    color: #2A2A2A;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+.appointmentTable tbody tr td{
+    width: 81.1%;
+}
+
+.hLine {
+    border: 1px solid #e6e6e6;
+    margin: 15px 0;
+}
+
+.selectDD {
+    padding: 0px 0 0 15px;
+    font-size: 14px !important;
+    height: 30px !important;
+    line-height: 0;
+    letter-spacing: 0;
+    font-family: Whitney-Book;
+    font-size: 14px;
+    color: #2A2A2A;
+    box-shadow: none;
+    border: 1px solid #E6E6E6 ;
+    border-radius: 0;
+}
+
+input[type='radio'],
+input[type='checkbox']{
+  /* Hide original inputs */
+  visibility: hidden;
+  position: absolute;
+}
+
+input[type='radio'] + label:before{
+  height:12px;
+  width:12px;
+  margin-right: 5px;
+  content: " ";
+  display:inline-block;
+  vertical-align: baseline;
+  border:2px solid #919194;
+}
+
+input[type=checkbox] + label:before{
+  height:12px;
+  width:12px;
+  margin-right: 5px;
+  /*content: "✔";*/
+  content: " ";
+  display:inline-block;
+  vertical-align: baseline;
+  border:1px solid #919194;
+} 
+
+input[type=radio]:checked + label:before{
+    background: #00543C;
+    background-clip: content-box;
+    border: 2px solid #00543C;
+    padding: 1px;
+}
+
+input[type=checkbox]:checked + label:before{
+    color: #00543C;
+    background-color: #00543C;
+    border: 2px solid #00543C;
+    padding: 1px;
+    background-image: url(/resource/USF_Checkbox); 
+    background-size: contain;
+}
+
+
+/* CUSTOM RADIO AND CHECKBOX STYLES */
+input[type=radio] + label:before{
+  border-radius:50%;
+}
+input[type=checkbox] + label:before{
+  border-radius:2px;
+}
+.radio label, .checkbox label{
+    padding-left: 0px;
+}
+
+.customInput {
+    background: #FFFFFF;
+    border: 1px solid #e6e6e6;
+    border-radius: 0;
+    box-shadow: none;
+    height: 30px;
+    font-family: Whitney-Book;
+    font-size: 14px;
+}
+
+.primaryBtn, .primaryBtn:hover {
+    background: #00543C;
+    border-radius: 4px;
+    font-family: Whitney-Semibold;
+    font-size: 14px;
+    color: #FFFFFF !important;
+    letter-spacing: 0px;
+    padding: 12px 54px;
+    font-weight: normal;
+    text-shadow: none;
+    border: 1px solid #00543C;
+    margin-top: 20px;
+}
+
+.primaryBtnCancel, .primaryBtnCancel:hover{
+    background: #73973F;
+    border-radius: 4px;
+    margin-right: 20px;
+    border: 1px solid #73973F;
+}
+
+.mainWrap{
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    padding: 30px 5px;
+    background: #fff;
+    margin: 15px 0 0 0;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.btnMainWrap{
+    margin-top: 30px;
+}    
+
+.marginBottom{
+    margin-bottom: 20px;
+}
+.table{
+  margin-bottom: 0px;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+  border: none;
+}
+.formPanelEX{
+  padding: 0 45px 0 30px
+}
+.marginB{
+  margin-bottom: 15px;
+}
+.repeatText{
+  font-family: QuattrocentoSans;
+  font-size: 12px;
+  color: #919194;
+  letter-spacing: 0px;
+  line-height: 16px;
+  margin-top: 20px;
+}
+.btn-default-green {
+    background: white!important;     
+    padding: 10px 38px!important; 
+    margin: 0 15px; 
+    background-color: #00543C!important; 
+    color: #fff!important; 
+    border-radius: 4px!important; 
+    font-size: 14px!important; 
+    border: none!important; 
+    outline: none!important; 
+    text-shadow:none!important; 
+    box-shadow: none!important; 
+}
+.btn-default-green:hover,.btn-default-green:focus{
+    background-color: #73973F!important; 
+    color: #fff!important;     
+    border: none!important; 
+    outline: none!important; 
+    text-shadow:none!important; 
+    box-shadow: none!important; 
+}
+.btn-default-green:active{
+    background-color: #73973F!important; 
+    color: #fff!important; 
+    border: none!important; 
+    outline: none!important; 
+    text-shadow:none!important; 
+    box-shadow: none!important; 
+}
+.primaryBtnSec{
+    background: #5F7E32 !important;
+}
+
+.modal-footer{
+    text-align:center !important;
+    border:0 !important;
+}
+
+.modal-body, .modal-body p{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #2A2A2A !important;
+    letter-spacing: 0px !important;
+    line-height: 20px !important;
+}
+
+.modal-title{
+    font-family: QuattrocentoSans-Bold !important;
+    font-size: 14px !important;
+    color: #2A2A2A !important;
+}
+.MeetingType label{
+  font-weight: normal;
+}
+@media only screen and (max-width: 768px) {
+ 
+ .container {
+ max-width:708px;
+ font-size:12px;
+ }
+.formPanelEX .selectDD{
+  width: 30%;
+}
+.repeatText{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+}
+
+ @media only screen and (max-width: 460px) {
+ 
+ body{
+    padding-top:0px;
+}
+ .appointmentTable {
+ display:table-cell;
+ }
+ .appointmentTable tbody tr td {
+    max-width: 100% !important;
+    width:auto;
+}
+.primaryBtn, .primaryBtn:hover {
+    padding: 12px 36px;
+}
+.appointmentTable tbody tr td:nth-child(2){
+padding-left:30px;
+}
+.btnMainWrap {
+margin-left:3px;
+    margin-top: 10px;
+}
+ .container {
+ max-width:400px;
+ font-size:12px;
+ }
+ .marginBottomXS{
+    margin-bottom: 20px;
+}
+.formPanel{
+      padding: 0 30px;
+}
+.formPanelEX{
+  padding: 0 30px;
+}
+.MeetingType tr>td:nth-child(1),.MeetingType tr>td:nth-child(2){
+  display: block;
+}
+.formPanelEX .selectDD{
+  width: 100%;
+}
+.repeatText{
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+.btn-default-green{
+  padding: 10px 30px!important;
+}
+ }
+ .disabledCourse{
+  display: block;
+  width: 100% !important;
+  height: 30px !important;
+}
+/*.specialCourse button.btn-default {
+    background-color:#fff !important;
+    color: #2a2a2a !important;  
+    padding: 0px 0 0 15px;
+    font-size: 14px !important;
+    height: 30px !important;
+    line-height: 0;
+    letter-spacing: 0;
+    font-family: Whitney-Book;
+    font-size: 14px;
+    color: #2A2A2A!important;
+    box-shadow: none;
+    border: 1px solid #919194 !important;
+    border-radius: 0!important;  
+}
+.specialCourse button.btn-default:hover,.specialCourse button.btn-default:focus{
+    background-color: #fff !important;
+    color: #2a2a2a !important;    
+    
+}*/
+</style>
+<script type="text/javascript">
+    function submitActionJS() {
+        var sDate = document.getElementById("startDate").value;
+        var eDate = document.getElementById("endDate").value;
+        var sTime = $('[id$="startTime"]').val();
+        var eTime = $('[id$="endTime"]').val();
+        submitAction(sDate, eDate, sTime, eTime);
+    }
+    $(document).ready(function() {
+        $(".daysWrap").hide(0);
+        $(".specialCourse button.btn-default").removeClass(".btn-default");
+        checkCoursesDisabled();
+        var elem = $('[id$=":repeat"]');
+        checkRepeat(elem);
+        $('[id$=":repeat"]').change(function() {
+            checkRepeat(elem);
+        });
+    });
+    function checkRepeat(elem){
+        if(elem.val() === 'Weekly'){
+            $(".daysWrap").show();
+        }else if(elem.val() === 'Daily'){
+            $(".daysWrap").hide();
+        }else if(elem.val() === 'Only Once'){
+            $(".daysWrap").hide();
+        }
+    }
+    function refreshOptionsJS() {
+        refreshOptions();
+        checkCoursesDisabled();
+    }
+    function checkCoursesDisabled() {
+        if($(".centerList  option:selected" ).text()=="Learning Center"){
+            $(".enabledCourse").prop('disabled', false);
+        }
+        else{
+            $(".enabledCourse").prop('disabled', true);
+        }
+    }
+        // End
+</script>
+<body class="bodyClass">
+<apex:form id="formId">
+    <apex:actionFunction name="refreshOptions" action="{!refreshOptions}" reRender="meetingTypePanel,locationPanel"/>
+<c:USF_Header />  
+<!--<div class="navbar"  style="width:inherit">
+  <h2 class="logo">USF</h2>
+ <ul class="nav navbar-nav navbar-right">
+
+  <li><a href="#" style="color:white;"><i class="glyphicon glyphicon-bell"></i></a></li>
+  <li><a href="#" style="color:white;"><span class="glyphicon glyphicon-user"></span>Dr. Steve William</a></li>
+  </ul>
+  </div>-->
+  <div class="container">
+  <!-- <h1 class="heading">Set Availability</h1>  -->
+  <div class="row">
+    <div>
+        <h1 class="col-md-12 col-sm-12 col-xs-12 heading">
+            <i class="glyphicon glyphicon-chevron-left" onClick="goBack();"></i>
+            <span>Set Availability</span>
+        </h1>
+    </div>    
+  </div>
+  <div class="container-fluid mainWrap">
+    <div class="row ">
+      <div class="col-md-9 col-sm-12 col-xs-12 formPanel">
+             <form role="form">
+                  <div class="form-group">
+                  <div class="row marginBottom">
+                      <div class="col-xs-12 col-sm-8 col-md-8">
+                          <label class="subHeading">Center</label>
+                         <apex:selectList id="center" label="Center" onchange="refreshOptionsJS();" styleClass="form-control selectDD centerList" size="1"  multiselect="false"  value="{!selectedCenter}" disabled="{!isExistingAvailability}">
+                             <apex:selectoptions value="{!centersList}"></apex:selectoptions>
+                          </apex:selectList>                  
+                      </div> 
+                  </div>
+                     <div class="form-group">
+                     <label class="subHeading">Appointment Type</label>
+                       <apex:selectRadio value="{!avlRec.AppointmentType__c}" styleClass="appointmentTable" disabled="{!isExistingAvailability}">
+                            <apex:selectOptions value="{!availabilityTypes}"/>
+                       </apex:selectRadio>
+                     
+                  </div> 
+                       
+                  <br></br>
+                  <apex:outputPanel id="meetingTypePanel">
+                     <apex:outputPanel rendered="{!isNotSpeaking}">
+                        <label class="subHeading">How would you like to conduct this meeting</label>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <apex:selectCheckboxes styleClass="MeetingType table" value="{!selectedMeetingTypes}">
+                                  <apex:selectOptions value="{!meetingTypes}"/>
+                                </apex:selectCheckboxes>
+                            </div>
+                        </div>
+                     </apex:outputPanel>
+                  </apex:outputPanel>                    
+              </div>    
+                 <div class="row marginBottom">
+                 <div class="col-xs-12 col-sm-8 col-md-8">
+                          <label class="subHeading">Location</label>
+                          <apex:outputPanel id="locationPanel">
+                              <apex:selectList id="location" label="Pick A Location" styleClass="form-control selectDD " size="1"  multiselect="false"  value="{!avlRec.Location__c}">
+                                 <apex:selectoptions value="{!locationValues}"></apex:selectoptions>
+                              </apex:selectList>
+                          </apex:outputPanel>
+                      </div>   
+                 </div>
+                   <div class="row marginBottom">
+                      <div class="col-xs-12 col-sm-6 col-md-6 marginBottomXS">
+                       <label class="subHeading">Max No of Students</label>
+                          <!--<input type="text" name="maxStudents" class="form-control"/>-->
+                          <apex:inputField value="{!avlRec.Max_Number_of_Students__c}" styleClass="form-control customInput"/>
+                           
+                      </div>
+                      
+                      <apex:outputPanel id="coursesPanel" styleClass="coursesList">
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                         <label class="subHeading">Course</label>
+                          <apex:selectList id="course" styleClass="form-control selectDD selectpicker specialCourse courseList enabledCourse" label="Course" multiselect="true"  value="{!selectedCourseIds}">
+                             <apex:selectoptions value="{!coursesList}"></apex:selectoptions>
+                          </apex:selectList>
+                          <!-- <apex:selectList id="disabledCourse" label="Course" styleClass="form-control selectDD disabledCourse courseList" value="{!selectedCourses}" disabled="true">
+                             <apex:selectoption itemValue="None" itemLabel="Nothing Selected"/>
+                          </apex:selectList> -->     
+                      </div>
+                      </apex:outputPanel>
+                  </div>
+                  <div class="row marginBottom">
+                      <div class="col-xs-12 col-sm-6 col-md-6 marginBottomXS">
+                           <label class="subHeading">Start Date</label>
+                           <input  type="text" class="form-control date example1 customInput" placeholder="Start Date" value="{!startDate}" id="startDate" name="startDate"/><span class="glyphicons glyphicons-calendar"></span>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                           <label class="subHeading">Start Time</label>
+                           <apex:selectList id="startTime" label="Start Time" size="1" styleClass="form-control selectDD timeList" multiselect="false"  value="{!startTime}">
+                                <apex:selectoptions value="{!timeList}"></apex:selectoptions>
+                           </apex:selectList>
+                      </div>
+                  </div>
+
+                  <div class="row marginBottom">
+                      <div class="col-xs-12 col-sm-6 col-md-6 marginBottomXS">
+                           <label class="subHeading">End Date</label>
+                           <input  type="text" class="form-control date customInput" placeholder="End Date" value="{!endDate}"  id="endDate" name="endDate"/><span class="glyphicons glyphicons-calendar"></span>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-6">
+                           <label class="subHeading">End Time</label>
+                           <apex:selectList id="endTime" label="End Time" size="1" styleClass="form-control selectDD timeList" multiselect="false"  value="{!endTime}">
+                                <apex:selectoptions value="{!timeList}"></apex:selectoptions>
+                           </apex:selectList>
+                      </div>                      
+                   </div>
+                  
+                 
+               </form>          
+      </div>
+      
+      <div class="col-md-3 col-sm-12 col-xs-12 formPanelEX">
+             <div>
+                 <label class="subHeading">Repeat</label>
+                  <apex:selectList id="repeat" styleClass="form-control selectDD " label="Repeat" size="1"  multiselect="false"  value="{!avlRec.Repeat__c}">
+                     <apex:selectoptions value="{!repeatValues}"></apex:selectoptions>
+                  </apex:selectList>
+             </div>
+              
+              <div class="col-md-12 col-sm-12 col-xs-12 daysWrap">
+                  <div class="form-group">
+                      <div class="row marginBottom">
+                          <div class="col-md-6 col-sm-2 col-xs-6 marginB">                               
+                            <apex:inputField value="{!avlRec.Monday__c}" id="Mon"/>
+                            <label class="content" for="pageId:formId:Mon">
+                                Mon
+                            </label>
+                          </div>
+                          <div class="col-md-6 col-sm-2 col-xs-6 marginB">
+                             <apex:inputField value="{!avlRec.Tuesday__c}" id="Tue"/>
+                             <label class="content" for="pageId:formId:Tue">
+                                Tue
+                             </label>
+                          </div>
+                          <div class="col-md-6 col-sm-2 col-xs-6 marginB">
+                              <apex:inputField value="{!avlRec.Wednesday__c}" id="Wed"/>
+                              <label class="content" for="pageId:formId:Wed">
+                                Wed
+                             </label>
+                          </div>
+                          <div class="col-md-6 col-sm-2 col-xs-6 marginB">
+                              <apex:inputField value="{!avlRec.Thursday__c}" id="Thu"/>
+                               <label class="content" for="pageId:formId:Thu">                                
+                                Thu
+                              </label>
+                          </div>
+                          <div class="col-md-6 col-sm-2 col-xs-6 marginB">
+                                <apex:inputField value="{!avlRec.Friday__c}" id="Fri"/>
+                                <label class="content" for="pageId:formId:Fri">
+                                    Fri
+                                 </label>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="repeatText">
+                <span>Select "Only Once" to create slots for a single day.</span><br/>
+                <span>Select "Daily" to create slots every day of a specified date range. Do not select specific days.</span><br/>
+                <span>Select "Weekly" to create slots for selected days of a specified date range. Select the specific days.</span><br/>
+              </div>
+      </div>     
+   </div>
+    <div class="row text-center btnMainWrap">
+          <div class="form-group col-xs-12 col-sm-12 col-md-12">
+            <apex:commandButton styleClass="btn btn-default-green primaryBtnSec" onClick="submitActionJS();return false; " value="Save"/>
+              <button type="button" class="btn btn-default-green " onClick="goBack();return false;">Cancel</button>
+              <apex:actionFunction name="submitAction" action="{!submit}" reRender="messageBox" oncomplete="$('#changeLocation').modal('show');">
+                 <apex:param id="startDateParamId" name="startDate" value="" />
+                 <apex:param id="endDateParamId" name="endDate" value="" />
+                 <apex:param id="startTimeParamId" name="startTime" value="" />
+                 <apex:param id="endTimeParamId" name="endTime" value="" />
+              </apex:actionFunction>
+           </div>
+      </div>
+  </div>   
+    
+   
+</div>
+
+<div id="changeLocation" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <apex:outputPanel id="messageBox">
+    <div class="modal-content">
+      <div class="modal-header">        
+        <h4 class="modal-title subHeading">{!messageBoxHeader}</h4>
+      </div>
+      
+      <div class="modal-body">
+       <apex:outputText value="{!message}" styleClass="content"></apex:outputText> 
+      </div>
+      <div class="modal-footer">
+        <apex:outputPanel rendered="{!!isError}"><button type="button" class="btn btn-default-green primaryBtnSec" onclick="goBack();">Ok</button></apex:outputPanel>
+        <apex:outputPanel rendered="{!isError}"><button type="button" class="btn btn-default-green primaryBtnSec" data-dismiss="modal">Ok</button></apex:outputPanel>
+      </div>
+    </div>
+</apex:outputPanel>
+  </div>
+</div>
+<apex:actionFunction action="/apex/USF_AvailabilityList" name="goBack"/>
+</apex:form>
+<c:USF_Footer />
+</body>
+</apex:page>

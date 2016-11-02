@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- Cumulative GPA --></label>
+        <name>Cumulative_GPA__c</name>
+    </fields><fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields><fields>
+        <label><!-- Level --></label>
+        <name>Level__c</name>
+    </fields><fields>
+        <label><!-- Most Recent CGPA --></label>
+        <name>Most_Recent_CGPA__c</name>
+    </fields><fields>
+        <label><!-- Student --></label>
+        <name>Student__c</name>
+        <relationshipLabel><!-- Cumulative GPAs --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Term GPA --></label>
+        <name>Term_GPA__c</name>
+    </fields><fields>
+        <label><!-- Term Number --></label>
+        <name>Term_Number__c</name>
+    </fields><fields>
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+        <relationshipLabel><!-- Cumulative GPAs --></relationshipLabel>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Cumulative GPA</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Cumulative GPAs</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>Cumulative GPA Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts></CustomObjectTranslation>

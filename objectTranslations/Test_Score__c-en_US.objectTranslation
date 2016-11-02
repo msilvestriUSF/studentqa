@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- Category --></label>
+        <name>Category__c</name>
+    </fields><fields>
+        <label><!-- Score --></label>
+        <name>Score__c</name>
+    </fields><fields>
+        <label><!-- Student --></label>
+        <name>Student__c</name>
+        <relationshipLabel><!-- Test Scores --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+        <relationshipLabel><!-- Test Scores --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Test Date --></label>
+        <name>Test_Date__c</name>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Test Score</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Test Scores</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>Test Score Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts></CustomObjectTranslation>

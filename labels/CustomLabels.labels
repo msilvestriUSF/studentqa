@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata"><labels>
+        <fullName>ASC_User_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ASC User Type</shortDescription>
+        <value>ASC</value>
+    </labels><labels>
+        <fullName>AppointmentBookingInAdvance</fullName>
+        <categories>This value is in hours and let's the system know how far in advance appointments can be booked via the interview scheduler</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AppointmentBookingInAdvance</shortDescription>
+        <value>0</value>
+    </labels><labels>
+        <fullName>AppointmentsLast48hours</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AppointmentsLast48hours</shortDescription>
+        <value>48</value>
+    </labels><labels>
+        <fullName>BA_Opportunity_Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BA Opportunity Owner</shortDescription>
+        <value>00563000000K4JV</value>
+    </labels><labels>
+        <fullName>Broad_MBA_Exploration_Day</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Broad MBA Exploration Day</shortDescription>
+        <value>Broad MBA Exploration Day</value>
+    </labels><labels>
+        <fullName>Broad_MBA_Webinar</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Broad MBA Webinar</shortDescription>
+        <value>Broad MBA Webinar</value>
+    </labels><labels>
+        <fullName>CASASlotRecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CASASlotRecordType</shortDescription>
+        <value>0123C000000L3CEQA0</value>
+    </labels><labels>
+        <fullName>CASA_Center_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CASA Center Name</shortDescription>
+        <value>Center for Academic Student Achievement (CASA)</value>
+    </labels><labels>
+        <fullName>Case_Field_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Field ID</shortDescription>
+        <value>CF00N3C000000Zzj9</value>
+    </labels><labels>
+        <fullName>Contact_Field_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact Field ID</shortDescription>
+        <value>CF00N3C000000ZzjM</value>
+    </labels><labels>
+        <fullName>Cumulative_GPA_for_GMAT_GRE_Waived</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cumulative GPA for GMAT/GRE Waived</shortDescription>
+        <value>3.25</value>
+    </labels><labels>
+        <fullName>Current_Student_Events</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Current Student Events</shortDescription>
+        <value>Current Student Events</value>
+    </labels><labels>
+        <fullName>Default_LWC_Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Default LWC Owner</shortDescription>
+        <value>0053C000000YYoT</value>
+    </labels><labels>
+        <fullName>Duplicate_Appoinment_Error_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Duplicate Appoinment Error Message</shortDescription>
+        <value>You are trying to create a duplicate appointment.</value>
+    </labels><labels>
+        <fullName>EMBA_Reviewer_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Executive MBA Reviewer Id</shortDescription>
+        <value>005360000026PNw</value>
+    </labels><labels>
+        <fullName>Executive_MBA</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Executive MBA</shortDescription>
+        <value>Executive MBA</value>
+    </labels><labels>
+        <fullName>FT_MBA_Reviewer_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Full Time MBA Reviewer Id</shortDescription>
+        <value>005360000026PNz</value>
+    </labels><labels>
+        <fullName>Full_Time_MBA</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Full Time MBA</shortDescription>
+        <value>Full-Time MBA</value>
+    </labels><labels>
+        <fullName>Integration_User_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration User Id</shortDescription>
+        <value>005360000023lZD</value>
+    </labels><labels>
+        <fullName>Interview_Applicant_Booked_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Interview Applicant Booked Msg</shortDescription>
+        <value>You have already made an interview booking. Please contact admissions@mba.msu.edu if you would like to make a change to the interview. Thanks!</value>
+    </labels><labels>
+        <fullName>Interview_Error_Email_Missing</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Interview Error Email Missing</shortDescription>
+        <value>Please enter your Email.</value>
+    </labels><labels>
+        <fullName>Interview_Error_Empty_Slots_Messg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Interview_Error Empty Slots Messg</shortDescription>
+        <value>No slots available for this date.</value>
+    </labels><labels>
+        <fullName>Interview_Error_Name_Email_SkypeId_Missing</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Interview Error Mobile Number Missing</shortDescription>
+        <value>Please enter your Mobile Number</value>
+    </labels><labels>
+        <fullName>Interview_Error_Name_Missing</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Interview Error Name Missing</shortDescription>
+        <value>Please enter your Name.</value>
+    </labels><labels>
+        <fullName>Interview_Error_SkypeId_Missing</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Interview Error SkypeId Missing</shortDescription>
+        <value>Please enter your Skype Id.</value>
+    </labels><labels>
+        <fullName>Interview_Error_Slot_Booked</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Interview Error Slot Booked</shortDescription>
+        <value>Please select a different interview slot as this one has been booked.</value>
+    </labels><labels>
+        <fullName>Interview_Error_select_past_date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Interview Error select past date</shortDescription>
+        <value>You cannot book a slot in the past.</value>
+    </labels><labels>
+        <fullName>Interview_Invalid_URL_ErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Interview Invalid URL ErrorMsg</shortDescription>
+        <value>Invalid URL! Please check your email for the correct URL. Thanks!</value>
+    </labels><labels>
+        <fullName>Interview_Success_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Appointment Success Message</shortDescription>
+        <value>Thank you for submitting your Appointment request! An email will be sent to you confirming the details of the appointment booked.</value>
+    </labels><labels>
+        <fullName>Interview_Success_slot_booked_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Interview Success slot booked Msg</shortDescription>
+        <value>Your appointment has been booked Successfully.</value>
+    </labels><labels>
+        <fullName>Interview_error_email_not_match_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Interview error email not match Msg</shortDescription>
+        <value>The email address does not match the email address the invitation was sent to.</value>
+    </labels><labels>
+        <fullName>Interviewe_Submission_success_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Appointment Submission success Msg</shortDescription>
+        <value>Submission Successful!</value>
+    </labels><labels>
+        <fullName>LWCSlotRecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LWCSlotRecordType</shortDescription>
+        <value>0123C000000L3CFQA0</value>
+    </labels><labels>
+        <fullName>LWC_Consultant_Profile</fullName>
+        <categories>Profile</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LWC Consultant Profile</shortDescription>
+        <value>LWC Consultant</value>
+    </labels><labels>
+        <fullName>LWC_Learning_Center_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LWC Learning Center Id</shortDescription>
+        <value>0013C000003W8WLQA0</value>
+    </labels><labels>
+        <fullName>LWC_Learning_Center_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LWC Learning Center Name</shortDescription>
+        <value>Learning Center</value>
+    </labels><labels>
+        <fullName>LWC_Parent_Account_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LWC Parent Account Id</shortDescription>
+        <value>0013C000003W8UeQAK</value>
+    </labels><labels>
+        <fullName>LWC_Speaking_Center_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LWC Speaking Center Id</shortDescription>
+        <value>0013C000003W8WuQAK</value>
+    </labels><labels>
+        <fullName>LWC_Speaking_Center_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LWC Speaking Center Name</shortDescription>
+        <value>Speaking Center</value>
+    </labels><labels>
+        <fullName>LWC_Writing_Center_Id</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LWC Writing Center Id</shortDescription>
+        <value>0013C000003W8WpQAK</value>
+    </labels><labels>
+        <fullName>LWC_Writing_Center_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LWC Writing Center Name</shortDescription>
+        <value>Writing Center</value>
+    </labels><labels>
+        <fullName>MSMR</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MSMR</shortDescription>
+        <value>MSMR</value>
+    </labels><labels>
+        <fullName>MSMR_Reviewer_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MSMR Reviewer Id</shortDescription>
+        <value>005360000026aRk</value>
+    </labels><labels>
+        <fullName>MSU_COB_Admissions_Undergrad_GMAT_GRE_Waiver</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MSU COB Admissions Undergrad GMAT/GRE Waiver</shortDescription>
+        <value>Michigan State University</value>
+    </labels><labels>
+        <fullName>MS_in_Accounting</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MS in Accounting</shortDescription>
+        <value>MS in Accounting</value>
+    </labels><labels>
+        <fullName>MS_in_Accounting_Reviewer_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MS in Accounting Reviewer Id</shortDescription>
+        <value>005360000026PNv</value>
+    </labels><labels>
+        <fullName>MS_in_Business_Analytics</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MS in Business Analytics</shortDescription>
+        <value>MS in Business Analytics</value>
+    </labels><labels>
+        <fullName>MS_in_Business_Analytics_Reviewer_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MS in Business Analytics Reviewer Id</shortDescription>
+        <value>005360000026PO0</value>
+    </labels><labels>
+        <fullName>Opportunity_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunity Record Type</shortDescription>
+        <value>MSU Generic Admissions</value>
+    </labels><labels>
+        <fullName>Referral_Case_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Referral Case Field ID</shortDescription>
+        <value>CF00N3C000000Zzjo</value>
+    </labels><labels>
+        <fullName>Referral_Contact_Field_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Referral Contact Field ID</shortDescription>
+        <value>CF00N3C000000Zzd0</value>
+    </labels><labels>
+        <fullName>Referrer_Name_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Referrer_Name_Error</shortDescription>
+        <value>Please enter the Referrer Name</value>
+    </labels><labels>
+        <fullName>Tutor_Request_Record_Type_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tutor Request Record Type Id</shortDescription>
+        <value>0123C000000L3CDQA0</value>
+    </labels><labels>
+        <fullName>USF_Appointment_Frequency_Restriction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Frequency Validation Message</shortDescription>
+        <value>A student can not receive more than &lt;frequency&gt; tutoring sessions in the &lt;typeOfCenter&gt; per &lt;interval&gt;.  Select another day.</value>
+    </labels><labels>
+        <fullName>USF_Appointment_Strike_Policy</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF Appointment Strike Policy</shortDescription>
+        <value>The selected student has exceeded the strike limit for the center.  Ask the student to contact the Learning and Writing Center front desk at 415-422-6713.</value>
+    </labels><labels>
+        <fullName>USF_CASAAppointmentCancelledStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF CASA Appointment Cancelled Status</shortDescription>
+        <value>Cancelled</value>
+    </labels><labels>
+        <fullName>USF_CASAAppointmentCheckinStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF CASA Appointment Checkin Status</shortDescription>
+        <value>Checked-In</value>
+    </labels><labels>
+        <fullName>USF_CASAAppointmentMissedStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF CASA Appointment Missed Status</shortDescription>
+        <value>No Show</value>
+    </labels><labels>
+        <fullName>USF_CASAAppointmentRecordTypeName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF CASA Appointment RecordType Name</shortDescription>
+        <value>CASA_Appointment</value>
+    </labels><labels>
+        <fullName>USF_CancelledString</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF Cancelled String</shortDescription>
+        <value>Cancel</value>
+    </labels><labels>
+        <fullName>USF_ImageURL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF_ImageURL</shortDescription>
+        <value>https://artemis.usfca.edu:8030/</value>
+    </labels><labels>
+        <fullName>USF_LWCAppointmentCancelledStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Appointment Cancelled Status</shortDescription>
+        <value>Cancelled by Student</value>
+    </labels><labels>
+        <fullName>USF_LWCAppointmentCancelledbyConsultantStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Appointment Cancelled by Consultant Status</shortDescription>
+        <value>Cancelled by Consultant</value>
+    </labels><labels>
+        <fullName>USF_LWCAppointmentCheckinStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Appointment Checkin Status</shortDescription>
+        <value>Student Checked-In</value>
+    </labels><labels>
+        <fullName>USF_LWCAppointmentCompleteStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Appointment Complete Status</shortDescription>
+        <value>Complete</value>
+    </labels><labels>
+        <fullName>USF_LWCAppointmentConfirmedStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Appointment Confirmed Status</shortDescription>
+        <value>Confirmed</value>
+    </labels><labels>
+        <fullName>USF_LWCAppointmentLearningCenter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Appointment Learning Center</shortDescription>
+        <value>Learning</value>
+    </labels><labels>
+        <fullName>USF_LWCAppointmentMissedStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Appointment Missed Status</shortDescription>
+        <value>Missed By Student</value>
+    </labels><labels>
+        <fullName>USF_LWCAppointmentPendingStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Appointment Pending Status</shortDescription>
+        <value>Pending</value>
+    </labels><labels>
+        <fullName>USF_LWCAppointmentRecordTypeName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Appointment RecordType Name</shortDescription>
+        <value>LWC_Appointment</value>
+    </labels><labels>
+        <fullName>USF_LWCAppointmentSpeakingCenter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Appointment Speaking Center</shortDescription>
+        <value>Speaking</value>
+    </labels><labels>
+        <fullName>USF_LWCAppointmentStudentCheckinbyConsultantStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Appointment Student Checkin by Consultant Status</shortDescription>
+        <value>Checked-In</value>
+    </labels><labels>
+        <fullName>USF_LWCAppointmentWritingCenter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWCAppointment Writing Center</shortDescription>
+        <value>Writing</value>
+    </labels><labels>
+        <fullName>USF_LWCConsultantProfile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Consultant Profile</shortDescription>
+        <value>LWC Consultant</value>
+    </labels><labels>
+        <fullName>USF_LWCSlotCancelledbyConsultantStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Slot Cancelled by Consultant Status</shortDescription>
+        <value>Canceled by Consultant</value>
+    </labels><labels>
+        <fullName>USF_LWCSlotCheckInStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Slot CheckIn Status</shortDescription>
+        <value>Consultant Checked-In</value>
+    </labels><labels>
+        <fullName>USF_LWCSlotCompleteStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Slot Complete Status</shortDescription>
+        <value>Complete</value>
+    </labels><labels>
+        <fullName>USF_LWCSlotConfirmedStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Slot Confirmed Status</shortDescription>
+        <value>Confirmed</value>
+    </labels><labels>
+        <fullName>USF_LWCSlotMissedbyConsultantStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Slot Missed by Consultant Status</shortDescription>
+        <value>Missed by Consultant</value>
+    </labels><labels>
+        <fullName>USF_LWCSlotPendingStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Slot Pending Status</shortDescription>
+        <value>Pending</value>
+    </labels><labels>
+        <fullName>USF_LWCSlotRecordTypeName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Slot RecordType Name</shortDescription>
+        <value>LWC_Slot</value>
+    </labels><labels>
+        <fullName>USF_LWCStaff</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF LWC Staff</shortDescription>
+        <value>LWC Staff</value>
+    </labels><labels>
+        <fullName>USF_Learning_Appointment_Frequency_Day_Restriction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF Learning Appointment Frequency Day Restriction</shortDescription>
+        <value>Violates Learning Center Rules Per Day</value>
+    </labels><labels>
+        <fullName>USF_Learning_Appointment_Frequency_Week_Restriction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF Learning Appointment Frequency Week Restriction</shortDescription>
+        <value>Violates Learning Center Rules Per Week</value>
+    </labels><labels>
+        <fullName>USF_Student_Book_Appointment_page</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF Student Book Appointment page</shortDescription>
+        <value>https://qa-myusf.cs60.force.com/usf_appointmentscheduler</value>
+    </labels><labels>
+        <fullName>USF_Student_CASA_Appointment_details_page</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF Student CASA Appointment details page</shortDescription>
+        <value>https://qa-myusf.cs60.force.com/usf_appointmentdetailsstudentscasa?Id=</value>
+    </labels><labels>
+        <fullName>USF_Student_LWC_Appointment_details_page</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF Student LWC Appointment details page</shortDescription>
+        <value>https://qa-myusf.cs60.force.com/usf_appointmentdetailsstudentslwc?Id=</value>
+    </labels><labels>
+        <fullName>USF_Student_Profile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF Student Profile</shortDescription>
+        <value>Student</value>
+    </labels><labels>
+        <fullName>USF_SystemAdministrator</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF System Administrator</shortDescription>
+        <value>System Administrator</value>
+    </labels><labels>
+        <fullName>USF_TutorSessionLimitMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF_TutorSessionLimitMessage</shortDescription>
+        <value>A student can not receive more than 2 tutoring sessions with the same tutor.</value>
+    </labels><labels>
+        <fullName>USF_Writing_Appointment_Frequency_Day_Restriction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF Writing Appointment Frequency Day Restriction</shortDescription>
+        <value>Violates Writing Center Rules Per Day</value>
+    </labels><labels>
+        <fullName>USF_Writing_Appointment_Frequency_Week_Restriction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USF Writing Appointment Frequency Week Restriction</shortDescription>
+        <value>Violates Writing Center Rules Per Week</value>
+    </labels><labels>
+        <fullName>Webinar</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Webinar</shortDescription>
+        <value>Webinar</value>
+    </labels><labels>
+        <fullName>Women_s_Event</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Women’s Event</shortDescription>
+        <value>Women’s Event</value>
+    </labels></CustomLabels>

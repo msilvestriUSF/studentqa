@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- Appointment Type --></label>
+        <name>AppointmentType__c</name>
+        <picklistValues>
+            <masterLabel>Drop In</masterLabel>
+            <translation><!-- Drop In --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scheduled</masterLabel>
+            <translation><!-- Scheduled --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Center Text --></label>
+        <name>Center_Text__c</name>
+    </fields><fields>
+        <label><!-- Coach --></label>
+        <name>Coach__c</name>
+        <relationshipLabel><!-- Availability --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Consultant --></label>
+        <name>Consultant__c</name>
+        <relationshipLabel><!-- Availability --></relationshipLabel>
+    </fields><fields>
+        <label><!-- End Date Time --></label>
+        <name>End_Date_Time__c</name>
+    </fields><fields>
+        <label><!-- Friday --></label>
+        <name>Friday__c</name>
+    </fields><fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+        <picklistValues>
+            <masterLabel>Cowell 212</masterLabel>
+            <translation><!-- Cowell 212 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cowell 417/418</masterLabel>
+            <translation><!-- Cowell 417/418 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Crossroads Cafe outside Bookstore Entrance</masterLabel>
+            <translation><!-- Crossroads Cafe outside Bookstore Entrance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Downtown SF</masterLabel>
+            <translation><!-- Downtown SF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fromm Lounge</masterLabel>
+            <translation><!-- Fromm Lounge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Front Desk Online/Canvas</masterLabel>
+            <translation><!-- Front Desk Online/Canvas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gillson Lounge</masterLabel>
+            <translation><!-- Gillson Lounge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gleeson Library</masterLabel>
+            <translation><!-- Gleeson Library --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Harney 512</masterLabel>
+            <translation><!-- Harney 512 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hayes-Healy Formal Lounge</masterLabel>
+            <translation><!-- Hayes-Healy Formal Lounge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kalmanovitz 309 Library</masterLabel>
+            <translation><!-- Kalmanovitz 309 Library --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LWC, Cowell 215</masterLabel>
+            <translation><!-- LWC, Cowell 215 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>McLaren 107</masterLabel>
+            <translation><!-- McLaren 107 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outtakes Cafe (LoMo by OneCard Office)</masterLabel>
+            <translation><!-- Outtakes Cafe (LoMo by OneCard Office) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pleasanton</masterLabel>
+            <translation><!-- Pleasanton --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SC, Malloy 103</masterLabel>
+            <translation><!-- SC, Malloy 103 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sacramento</masterLabel>
+            <translation><!-- Sacramento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Jose</masterLabel>
+            <translation><!-- San Jose --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UC 3rd Floor Lounge</masterLabel>
+            <translation><!-- UC 3rd Floor Lounge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UC 4th Floor Lounge</masterLabel>
+            <translation><!-- UC 4th Floor Lounge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UC 5th Floor Lounge</masterLabel>
+            <translation><!-- UC 5th Floor Lounge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>University Center, 3rd floor</masterLabel>
+            <translation><!-- University Center, 3rd floor --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Maximum No Of Slots/Day --></label>
+        <name>Max_No_Of_Slots__c</name>
+    </fields><fields>
+        <label><!-- Max Number of Students --></label>
+        <name>Max_Number_of_Students__c</name>
+    </fields><fields>
+        <label><!-- Meeting Type --></label>
+        <name>Meeting_Location__c</name>
+        <picklistValues>
+            <masterLabel>In Person</masterLabel>
+            <translation><!-- In Person --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online</masterLabel>
+            <translation><!-- Online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Monday --></label>
+        <name>Monday__c</name>
+    </fields><fields>
+        <help><!-- Select &quot;Only Once&quot; to create slots for a single day.
+Select &quot;Daily&quot; to create slots every day of a specified date range. Do not select specific days.
+Select &quot;Weekly&quot; to create slots for selected days of a specified date range. Select the specific days. --></help>
+        <label><!-- Repeat --></label>
+        <name>Repeat__c</name>
+        <picklistValues>
+            <masterLabel>Daily</masterLabel>
+            <translation><!-- Daily --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Only Once</masterLabel>
+            <translation><!-- Only Once --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation><!-- Weekly --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Start Date Time --></label>
+        <name>Start_Date_Time__c</name>
+    </fields><fields>
+        <label><!-- Center --></label>
+        <name>Success_Center__c</name>
+        <relationshipLabel><!-- Availability (Center) --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Thursday --></label>
+        <name>Thursday__c</name>
+    </fields><fields>
+        <label><!-- Time Slot Duration (LWC) --></label>
+        <name>TimeSlotDurationLWC__c</name>
+    </fields><fields>
+        <help><!-- Time in minutes --></help>
+        <label><!-- Time Slot Duration (min) --></label>
+        <name>TimeSlotDuration__c</name>
+    </fields><fields>
+        <label><!-- Tuesday --></label>
+        <name>Tuesday__c</name>
+    </fields><fields>
+        <label><!-- Wednesday --></label>
+        <name>Wednesday__c</name>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Availability</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Availability</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>CASA Layout</layout>
+        <sections>
+            <label><!-- Coach Details --></label>
+            <section>Coach Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date/Time and Duration --></label>
+            <section>Date/Time and Duration</section>
+        </sections>
+    </layouts><layouts>
+        <layout>LWC Layout</layout>
+        <sections>
+            <label><!-- Coach Details --></label>
+            <section>Coach Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts><recordTypes>
+        <label><!-- CASA Availability --></label>
+        <name>CASA_Availability</name>
+    </recordTypes><recordTypes>
+        <label><!-- LWC Availabilty --></label>
+        <name>LWC_Availabilty</name>
+    </recordTypes><validationRules>
+        <errorMessage><!-- You cannot change Appointment type. --></errorMessage>
+        <name>Cannot_Edit_Appointment_Type</name>
+    </validationRules><validationRules>
+        <errorMessage><!-- You cannot update Center for an existing Availability. --></errorMessage>
+        <name>Cannot_edit_Center_for_an_Availability</name>
+    </validationRules><validationRules>
+        <errorMessage><!-- For CASA maximum number of students should be one --></errorMessage>
+        <name>Capacity_1_for_CASA</name>
+    </validationRules><validationRules>
+        <errorMessage><!-- Maximum number of students should not be greater than one --></errorMessage>
+        <name>Capacity_1_for_Writing_Speaking</name>
+    </validationRules><validationRules>
+        <errorMessage><!-- Max No of Students should be at least 1 --></errorMessage>
+        <name>MaxNoofStudentsshouldbemorethan0</name>
+    </validationRules><validationRules>
+        <errorMessage><!-- Days of the Week selection valid for Repeat Weekly only. --></errorMessage>
+        <name>Repeat_Weekly_selection</name>
+    </validationRules><validationRules>
+        <errorMessage><!-- The End Date must be the same as the Start Date when selecting the &apos;Only Once&apos; repeat option. --></errorMessage>
+        <name>Same_Day_Check</name>
+    </validationRules><validationRules>
+        <errorMessage><!-- The End Date Time must be greater than the Start Date Time --></errorMessage>
+        <name>Start_End_Time_Min_Gap</name>
+    </validationRules></CustomObjectTranslation>

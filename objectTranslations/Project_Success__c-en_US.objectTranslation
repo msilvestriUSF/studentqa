@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- No of PS Meeting Minutes --></label>
+        <name>No_of_PS_Meeting_Minutes__c</name>
+    </fields><fields>
+        <label><!-- Referrer Email --></label>
+        <name>Referrer_Email__c</name>
+    </fields><fields>
+        <label><!-- Referrer --></label>
+        <name>Referrer__c</name>
+        <relationshipLabel><!-- Project Success Referrals --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Confirmed</masterLabel>
+            <translation><!-- Confirmed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Student CWID --></label>
+        <name>Student_CWID__c</name>
+    </fields><fields>
+        <label><!-- Student Email --></label>
+        <name>Student_Email__c</name>
+    </fields><fields>
+        <label><!-- Student Phone --></label>
+        <name>Student_Phone__c</name>
+    </fields><fields>
+        <label><!-- Student --></label>
+        <name>Student__c</name>
+        <relationshipLabel><!-- Project Success Pairing --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+        <relationshipLabel><!-- Project Sucess --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Tutor Email --></label>
+        <name>Tutor_Email__c</name>
+    </fields><fields>
+        <label><!-- Tutor --></label>
+        <name>Tutor__c</name>
+        <relationshipLabel><!-- Project Success Pairing --></relationshipLabel>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Project Success</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Project Success</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>Project Success Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts></CustomObjectTranslation>

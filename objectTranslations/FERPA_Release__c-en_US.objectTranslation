@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields><fields>
+        <label><!-- Birth Date --></label>
+        <name>Birth_Date__c</name>
+    </fields><fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- FERPA Releases --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields><fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields><fields>
+        <label><!-- First Name --></label>
+        <name>First_Name__c</name>
+    </fields><fields>
+        <label><!-- Last Name --></label>
+        <name>Last_Name__c</name>
+    </fields><fields>
+        <label><!-- Maiden Name --></label>
+        <name>Maiden_Name__c</name>
+    </fields><fields>
+        <label><!-- Relationship --></label>
+        <name>Relationship__c</name>
+    </fields><fields>
+        <label><!-- Release Academic Record --></label>
+        <name>Release_Academic_Record__c</name>
+    </fields><fields>
+        <label><!-- Release Financial Aid --></label>
+        <name>Release_Financial_Aid__c</name>
+    </fields><fields>
+        <label><!-- Release House Record --></label>
+        <name>Release_House_Record__c</name>
+    </fields><fields>
+        <label><!-- Release Tuition Bill --></label>
+        <name>Release_Tuition_Bill__c</name>
+    </fields><fields>
+        <label><!-- Sequence Number --></label>
+        <name>Sequence_Number__c</name>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>FERPA Release</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>FERPA Releases</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>CASA Staff</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts><layouts>
+        <layout>FERPA Release Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts><layouts>
+        <layout>LWC Staff</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts></CustomObjectTranslation>

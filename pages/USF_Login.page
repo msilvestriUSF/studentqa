@@ -1,0 +1,232 @@
+<apex:page controller="USF_LoginController"  showHeader="false" sidebar="false" standardStylesheets="false" cache="false" docType="html-5.0" language="en-US" applyHTMLTag="false">
+  <html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Bootstrap Theme-->
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'flaticon.css')}" rel="stylesheet"/>
+
+<apex:includeScript value="{!URLFOR($Resource.MomentJs)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+<style type="text/css">
+            .loginError {
+            color: #CF4F43;
+            margin-bottom: 14px;
+            font-size: 13px;
+            } 
+    .container{
+        text-align: center;
+        color:#333;
+        margin-top: 60px;
+        font-size: 1.5rem;
+    }
+    .heading-text {
+        margin-bottom: 100px;
+    }
+    .login-form{
+        width: 35%;
+        margin: 55px auto 0;
+    }
+    .login-form input{
+        margin: 20px 0 15px 0;
+        border-radius: 0;
+    }
+    .login-form input[type="submit"]{
+        margin-top: 0;
+    }
+    .submit-but{
+        width: 100%;
+        background-color: #fff;
+        outline: none;
+        border: 1px  solid #000;
+        padding: 5px;       
+    }
+    input[type="submit"].submit-but:active{
+        background-color: #ccc;
+    }
+    .login-form .row a, .showInline {
+        display: block;
+        text-align: left;
+        margin-bottom: 5px;
+        font-family: QuattrocentoSans;
+        font-size: 14px;
+        color: #00543C;
+        letter-spacing: 0px;
+        text-decoration: underline;
+     }
+    .login-form .row .forgot-link a{
+        text-align: right;
+    }
+    
+    body{
+    padding: 20px;
+    background: #F8F7F0;;
+}
+
+.heading{
+    font-family: QuattrocentoSans-Bold;
+    font-size: 30px;
+    color: #00543C;
+    margin:20px 0;
+}
+
+.subHeading {
+    font-family: Whitney-Bold;
+    font-size: 14px;
+    color: #2A2A2A;
+    letter-spacing: 0px;
+    padding-left: 0;
+}
+
+.content {
+    font-family: QuattrocentoSans;
+    font-size: 18px;
+    color: #2A2A2A;
+    line-height: 22px;
+    margin-bottom: 50px;
+    font-weight: normal;
+    width:60%;
+margin:0 auto;
+}
+
+.primaryBtn, .primaryBtn:hover {
+    background: #00543C;
+    border-radius: 4px;
+    font-family: QuattrocentoSans-Bold;
+    font-size: 14px;
+    color: #FFFFFF !important;
+    letter-spacing: 0px;
+    padding: 12px 54px;
+    font-weight: normal;
+    text-shadow: none;
+    border: 1px solid #00543C;
+    margin-top: 15px !important;
+}
+
+.customInput{
+    background: #FFFFFF;
+    border: 1px solid #919194;
+    border-radius: 0;
+    box-shadow: none;
+    height: 45px;
+    font-family: QuattrocentoSans;
+    font-size: 16px;
+}
+
+.noMarginB{
+    margin-bottom: 0 !important;
+}
+
+.glyph-icon:before {
+      font-size: 18px;
+    font-family: flaticon;
+    color: #919194;
+    margin-left: 0;
+    padding-right: 17px !important;
+    float: right;
+    position: relative;
+    bottom: 35px;
+}
+
+.glyphicon-user{
+    float: right;
+    font-size: 18px;
+    top: 32px;
+    color: #919194;
+    padding-right: 20px;
+}    
+
+.showInline{
+    text-decoration: none !important;
+}
+
+.showInline a{
+    display: inline !important;
+    margin: 0 5px 0 0;
+}
+
+.showInline a.forgotPass{
+    margin: 0 0 0 5px;
+}
+
+/*Mobile phone media queries*/
+@media only screen and (max-width: 544px){
+    .container {
+        max-width: 440px;
+    }
+    
+    .login-form{
+        width: 100% !important;
+    }
+    
+    br{
+        display: none;
+    }
+    
+    .content{
+       width: 89% !important;
+       font-size: 12px !important;
+    }
+    
+    .heading{
+        font-size: 25px;
+    }
+}
+
+/*Tablet Media queries*/
+@media only screen and (max-width: 768px){
+    .container {
+        max-width: 708px;
+    }
+    
+    .login-form{
+        width: 60%;
+    }
+    
+    .content{
+       width: 95%;
+       font-size: 16px;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Welcome to the University of San Franscisco</h1>
+        <p class="content">Log in to make an appointment with the Center for Academic and Student Achievement (CASA) or the Learning, Writing, and Speaking Centers.</p>
+        <div class="login-form">
+            <apex:form >
+                <apex:messages id="msg" styleClass="loginError"/>
+            <div id="loginId">
+                <!--<input type="text" placeholder="User Name" class="form-control"/> -->
+                <!--<input type="Password" placeholder="Password" class="form-control" /> -->
+                <span class="glyphicon glyphicon-user"></span>
+                <apex:inputText value="{!strUsername}" id="username" styleClass="form-control customInput" html-placeholder="User Name"/> 
+                <apex:inputSecret id="pwd" value="{!strPassword}" styleClass="form-control customInput noMarginB" html-placeholder="Password"/><span class="glyph-icon flaticon-vintage-key-outline"></span>
+                <apex:commandButton action="{!login}" styleClass="submit-but primaryBtn" value="LOGIN"/>
+                
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <!--<a href="javascript:void(0);">Set New/Forgot Password?</a> -->
+                    <span class="showInline"><apex:commandLink action="{!forgotPassword}" value="Set New" /> | <apex:commandLink action="{!forgotPassword}" value="Forgot Password?" styleClass="forgotPass"/></span>
+                    <a href="havascript:void(0);">Change Password</a>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 forgot-link">
+                    <a href="javascript:void(0);">Forgot USF ID?</a>
+                </div>
+            </div>
+            </apex:form>
+
+        </div>      
+    </div>
+</body>
+
+</html>
+</apex:page>

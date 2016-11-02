@@ -1,0 +1,6 @@
+To {!Contact.Name}, 
+
+On behalf of {!AppointmentContact__c.Contact__c}, we would like to inform you that they have attended a {!AppointmentContact__c.Center__c} appointment for {!AppointmentContact__c.00N2C000000LAPD} on {!AppointmentContact__c.Start_Date__c}. If you have any questions or concerns please contact us at 415-422-6713 or email us at lwc@usfca.edu. We deeply appreciate your support. Have a wonderful day. 
+
+Sincerely, 
+The Learning & Writing Center

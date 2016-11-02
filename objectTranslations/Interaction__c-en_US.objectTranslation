@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <help><!-- Multiple reasons can be chosen --></help>
+        <label><!-- Academic Form Processing --></label>
+        <name>Academic_Form_Processing__c</name>
+        <picklistValues>
+            <masterLabel>Add/Drop Form</masterLabel>
+            <translation><!-- Add/Drop Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OPT/CPT</masterLabel>
+            <translation><!-- OPT/CPT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PEAI</masterLabel>
+            <translation><!-- PEAI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transfer Verification</masterLabel>
+            <translation><!-- Transfer Verification --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Interactions --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Appointment --></label>
+        <name>Appointment_Contact__c</name>
+        <relationshipLabel><!-- Interactions --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Appointment Date --></label>
+        <name>Appointment_Date__c</name>
+    </fields><fields>
+        <label><!-- Appointment Time --></label>
+        <name>Appointment_Time__c</name>
+    </fields><fields>
+        <label><!-- CWID --></label>
+        <name>CWID__c</name>
+    </fields><fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Interactions --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Interaction Date --></label>
+        <name>Interaction_Date__c</name>
+    </fields><fields>
+        <help><!-- Select the type of interaction --></help>
+        <label><!-- Interaction Origin --></label>
+        <name>Interaction_Origin__c</name>
+        <picklistValues>
+            <masterLabel>Drop-In</masterLabel>
+            <translation><!-- Drop-In --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visit -Scheduled appointment</masterLabel>
+            <translation><!-- Visit -Scheduled appointment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WebTrack</masterLabel>
+            <translation><!-- WebTrack --></translation>
+        </picklistValues>
+    </fields><fields>
+        <help><!-- Meeting notes to be shared with the student. --></help>
+        <label><!-- Meeting Note Summary --></label>
+        <name>Meeting_Note_Summary__c</name>
+    </fields><fields>
+        <help><!-- Notes for CASA Staff only --></help>
+        <label><!-- Notes (Internal) --></label>
+        <name>Notes_Internal__c</name>
+    </fields><fields>
+        <label><!-- Phone --></label>
+        <name>Phone__c</name>
+    </fields><fields>
+        <label><!-- Primary ASC Reason --></label>
+        <name>Primary_ASC_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Academic Coaching</masterLabel>
+            <translation><!-- Academic Coaching --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Academic Disqualification</masterLabel>
+            <translation><!-- Academic Disqualification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Academic Form Processing</masterLabel>
+            <translation><!-- Academic Form Processing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Academic Integrity</masterLabel>
+            <translation><!-- Academic Integrity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Academic Probation</masterLabel>
+            <translation><!-- Academic Probation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Appointment Information</masterLabel>
+            <translation><!-- Appointment Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CMBIT</masterLabel>
+            <translation><!-- CMBIT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dean's Letter / Tuition Adjustment</masterLabel>
+            <translation><!-- Dean&apos;s Letter / Tuition Adjustment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disability Related Issues</masterLabel>
+            <translation><!-- Disability Related Issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disruptive Behavior / Disciplinary Action</masterLabel>
+            <translation><!-- Disruptive Behavior / Disciplinary Action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Early Alert</masterLabel>
+            <translation><!-- Early Alert --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Faculty Notification</masterLabel>
+            <translation><!-- Faculty Notification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Faculty/Student Complaint</masterLabel>
+            <translation><!-- Faculty/Student Complaint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Needs</masterLabel>
+            <translation><!-- Financial Needs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grade Appeal / Grade Change</masterLabel>
+            <translation><!-- Grade Appeal / Grade Change --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Graduation</masterLabel>
+            <translation><!-- Graduation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Homesickness</masterLabel>
+            <translation><!-- Homesickness --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Housing / Residence Hall</masterLabel>
+            <translation><!-- Housing / Residence Hall --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leave of Absence/Withdrawal from USF</masterLabel>
+            <translation><!-- Leave of Absence/Withdrawal from USF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loss / Grief</masterLabel>
+            <translation><!-- Loss / Grief --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major / Minor Exploration</masterLabel>
+            <translation><!-- Major / Minor Exploration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Health</masterLabel>
+            <translation><!-- Medical Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mental Health</masterLabel>
+            <translation><!-- Mental Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Student Survey</masterLabel>
+            <translation><!-- New Student Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Referral</masterLabel>
+            <translation><!-- Referral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registration Assistance</masterLabel>
+            <translation><!-- Registration Assistance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SOM Waitlist</masterLabel>
+            <translation><!-- SOM Waitlist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Study Abroad</masterLabel>
+            <translation><!-- Study Abroad --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Substance Abuse</masterLabel>
+            <translation><!-- Substance Abuse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Underenrolled</masterLabel>
+            <translation><!-- Underenrolled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Webtrack</masterLabel>
+            <translation><!-- Webtrack --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawal from Class</masterLabel>
+            <translation><!-- Withdrawal from Class --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Referred By Email --></label>
+        <name>Referred_By_Email__c</name>
+    </fields><fields>
+        <label><!-- Referred By --></label>
+        <name>Referred_By__c</name>
+    </fields><fields>
+        <label><!-- Secondary ASC Reasons --></label>
+        <name>Secondary_ASC_Reasons__c</name>
+        <picklistValues>
+            <masterLabel>Academic Coaching</masterLabel>
+            <translation><!-- Academic Coaching --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Academic Disqualification</masterLabel>
+            <translation><!-- Academic Disqualification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Academic Form Processing</masterLabel>
+            <translation><!-- Academic Form Processing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Academic Integrity</masterLabel>
+            <translation><!-- Academic Integrity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Academic Probation</masterLabel>
+            <translation><!-- Academic Probation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CMBIT</masterLabel>
+            <translation><!-- CMBIT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dean's Letter / Tuition Adjustment</masterLabel>
+            <translation><!-- Dean&apos;s Letter / Tuition Adjustment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disability Related Issues</masterLabel>
+            <translation><!-- Disability Related Issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disruptive Behavior / Disciplinary Action</masterLabel>
+            <translation><!-- Disruptive Behavior / Disciplinary Action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Early Alert</masterLabel>
+            <translation><!-- Early Alert --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Faculty Notification</masterLabel>
+            <translation><!-- Faculty Notification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Faculty/Student Complaint</masterLabel>
+            <translation><!-- Faculty/Student Complaint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Needs</masterLabel>
+            <translation><!-- Financial Needs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grade Appeal / Grade Change</masterLabel>
+            <translation><!-- Grade Appeal / Grade Change --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Graduation</masterLabel>
+            <translation><!-- Graduation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Homesickness</masterLabel>
+            <translation><!-- Homesickness --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Housing / Residence Hall</masterLabel>
+            <translation><!-- Housing / Residence Hall --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leave of Absence/Withdrawal from USF</masterLabel>
+            <translation><!-- Leave of Absence/Withdrawal from USF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loss / Grief</masterLabel>
+            <translation><!-- Loss / Grief --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major / Minor Exploration</masterLabel>
+            <translation><!-- Major / Minor Exploration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Health</masterLabel>
+            <translation><!-- Medical Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mental Health</masterLabel>
+            <translation><!-- Mental Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Student Survey</masterLabel>
+            <translation><!-- New Student Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registration Assistance</masterLabel>
+            <translation><!-- Registration Assistance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SOM Waitlist</masterLabel>
+            <translation><!-- SOM Waitlist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Study Abroad</masterLabel>
+            <translation><!-- Study Abroad --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Substance Abuse</masterLabel>
+            <translation><!-- Substance Abuse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Underenrolled</masterLabel>
+            <translation><!-- Underenrolled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Webtrack</masterLabel>
+            <translation><!-- Webtrack --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawal from Class</masterLabel>
+            <translation><!-- Withdrawal from Class --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Staff --></label>
+        <lookupFilter>
+            <errorMessage><!-- We could not find a CASA Coach with this name. Please make sure that the CASA Staff flag is checked on the coach&apos;s contact record. --></errorMessage>
+        </lookupFilter>
+        <name>Staff__c</name>
+        <relationshipLabel><!-- Interactions (Staff) --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Standard Action Items --></label>
+        <name>Standard_Action_Items__c</name>
+        <picklistValues>
+            <masterLabel>Complete a degree projection with your faculty advisor</masterLabel>
+            <translation><!-- Complete a degree projection with your faculty advisor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resolve the hold(s) on your account</masterLabel>
+            <translation><!-- Resolve the hold(s) on your account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retrieve the appropriate signatures on your paperwork</masterLabel>
+            <translation><!-- Retrieve the appropriate signatures on your paperwork --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Schedule a follow-up appointment with your ASC</masterLabel>
+            <translation><!-- Schedule a follow-up appointment with your ASC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submit a written summary of your request</masterLabel>
+            <translation><!-- Submit a written summary of your request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Talk to your professor</masterLabel>
+            <translation><!-- Talk to your professor --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Student Email --></label>
+        <name>Student_Email__c</name>
+    </fields><fields>
+        <label><!-- Student --></label>
+        <name>Student__c</name>
+        <relationshipLabel><!-- Interactions --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Study Abroad --></label>
+        <name>Study_Abroad_ASC__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Denied</masterLabel>
+            <translation><!-- Denied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Interaction</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Interactions</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>Interaction Layout</layout>
+        <sections>
+            <label><!-- Appointment Details --></label>
+            <section>Appointment Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Interaction Reasons --></label>
+            <section>Interaction Reasons</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Summary --></label>
+            <section>Meeting Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Outcome --></label>
+            <section>Outcome</section>
+        </sections>
+        <sections>
+            <label><!-- Student Appointment Reasons --></label>
+            <section>Student Appointment Reasons</section>
+        </sections>
+    </layouts><recordTypes>
+        <label><!-- Master --></label>
+        <name>Master</name>
+    </recordTypes><webLinks>
+        <label><!-- New_Interaction --></label>
+        <name>New_Interaction</name>
+    </webLinks></CustomObjectTranslation>

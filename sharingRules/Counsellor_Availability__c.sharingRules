@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>LWC_Admin</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>LWC Admin</label>
+        <sharedTo>
+            <role>LWC_Admin</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Center_Text__c</field>
+            <operation>equals</operation>
+            <value>Writing Center</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_with_CASA_staff</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share with CASA staff</label>
+        <sharedTo>
+            <role>CASA_Staff</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Center_Text__c</field>
+            <operation>equals</operation>
+            <value>Center for Academic Student Achievement (CASA)</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_with_Learning_Lead</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share with Learning Lead</label>
+        <sharedTo>
+            <role>LWC_Learning_Lead</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Center_Text__c</field>
+            <operation>contains</operation>
+            <value>Learning</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_with_Speaking_Lead</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share with Speaking Lead</label>
+        <sharedTo>
+            <role>LWC_Speaking_Lead</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Center_Text__c</field>
+            <operation>equals</operation>
+            <value>Speaking Center</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_with_Writing_Lead</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share with Writing Lead</label>
+        <sharedTo>
+            <role>LWC_Writing_Lead</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Center_Text__c</field>
+            <operation>equals</operation>
+            <value>Writing Center</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

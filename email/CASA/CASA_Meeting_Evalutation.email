@@ -1,0 +1,13 @@
+Dear {!AppointmentContact__c.Contact__c},
+
+Thank you for visiting CASA today. As we are always looking to hear from our students, we would like to invite you to provide us with important feedback. Please use the following link to let us know how well we met your needs regarding the purpose of your visit: {!AppointmentContact__c.Reason_for_Meeting__c}
+
+We value your input and look forward to seeing you again!
+
+Thank you,
+
+Center for Academic and Student Achievement (CASA)
+University of San Francisco | UC 3rd Floor
+2130 Fulton St., San Francisco, CA  94117-1080
+T: 415.422.5050 | F: 415.422.2133 | Email: casa@usfca.edu
+Office Hours:  9:00 AM - 5:00 PM

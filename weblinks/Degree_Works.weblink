@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPageWebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <availability>online</availability>
+    <displayType>link</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Degree Works</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>window.open(&quot;https://aphrodite01.usfca.edu:8010/ssomanager/c/SSB?pkg=https://iris2.usfca.edu/prod/DW_Faculty.P_SignOn&quot;)</url>
+</CustomPageWebLink>

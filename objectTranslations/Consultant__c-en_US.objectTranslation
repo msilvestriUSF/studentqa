@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields><fields>
+        <label><!-- Subject Tutoring Hours --></label>
+        <name>Appointments_completed_in_Learning_Ctr__c</name>
+    </fields><fields>
+        <label><!-- Center --></label>
+        <name>Center__c</name>
+        <relationshipLabel><!-- Consultants --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Consultant Terms --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields><fields>
+        <label><!-- Hire Date --></label>
+        <name>Hire_Date__c</name>
+    </fields><fields>
+        <label><!-- Pay Rate --></label>
+        <name>Pay_Rate__c</name>
+    </fields><fields>
+        <label><!-- Preferred Phone --></label>
+        <name>Preferred_Phone__c</name>
+    </fields><fields>
+        <label><!-- Prior Term Cumulative GPA --></label>
+        <name>Prior_Term_Cumulative_GPA__c</name>
+    </fields><fields>
+        <label><!-- Program --></label>
+        <name>Program__c</name>
+        <picklistValues>
+            <masterLabel>PLTL</masterLabel>
+            <translation><!-- PLTL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PS</masterLabel>
+            <translation><!-- PS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Peer Tutoring</masterLabel>
+            <translation><!-- Peer Tutoring --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SI</masterLabel>
+            <translation><!-- SI --></translation>
+        </picklistValues>
+    </fields><fields>
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+        <relationshipLabel><!-- Consultants --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Termination Date --></label>
+        <name>Termination_Date__c</name>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Consultant</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Consultants</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>Consultant Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts><layouts>
+        <layout>LWC</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- Pay Information --></label>
+            <section>Pay Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts><layouts>
+        <layout>Pay Rate Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- Pay Information --></label>
+            <section>Pay Information</section>
+        </sections>
+    </layouts></CustomObjectTranslation>

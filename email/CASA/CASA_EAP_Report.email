@@ -1,0 +1,18 @@
+To {!Case.Contact},
+
+An Early Alert Progress Report for as been submitted for {!Case.Course_Name__c} was submitted by {!Case.Faculty__c}.  
+
+The general areas for improvement are:
+{!Case.Areas_for_improvement__c}
+
+The areas of improvement for work are:
+{!Case.Work__c}
+
+The recommendations are:
+{!Case.Recommendations__c}
+
+The current estimated grade is: {!Case.Estimated_Grade__c}
+
+Sincerely,
+
+EAP Workflow

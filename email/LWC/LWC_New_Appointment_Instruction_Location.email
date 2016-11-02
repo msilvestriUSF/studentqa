@@ -1,0 +1,11 @@
+To {!Contact.Full_Name__c}, 
+
+Your scheduled tutoring appointment location on {!AppointmentContact__c.Start_Date__c} at {!AppointmentContact__c.00N2C000000KzR8} with {!AppointmentContact__c.Staff__c} for {!AppointmentContact__c.00N2C000000LAPD} has been changed. 
+
+You will now be meeting your tutor at/in {!AppointmentContact__c.00N2C000000LAPN}. Be sure to contact your tutor if you need further details. 
+
+If you have any additional questions, call us at 415-422-6713. 
+
+Have a wonderful day, 
+
+The Learning & Writing Center

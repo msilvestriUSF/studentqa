@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"><fields>
+        <label><!-- Course Enrollment --></label>
+        <name>Course_Enrollment__c</name>
+        <relationshipLabel><!-- Learning Program Attendees --></relationshipLabel>
+    </fields><fields>
+        <label><!-- LP Attendee Hours --></label>
+        <name>LP_Attendee_Hours__c</name>
+    </fields><fields>
+        <label><!-- LP Session Hours --></label>
+        <name>LP_Session_Hours__c</name>
+    </fields><fields>
+        <label><!-- Learning Program --></label>
+        <name>Learning_Program__c</name>
+        <relationshipLabel><!-- Learning Program Attendees --></relationshipLabel>
+    </fields><fields>
+        <label><!-- Student --></label>
+        <name>Student__c</name>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Learning Program Attendee</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Learning Program Attendees</value>
+    </caseValues><startsWith>Consonant</startsWith><layouts>
+        <layout>SI Attendee Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- SI Session Information --></label>
+            <section>SI Session Information</section>
+        </sections>
+    </layouts></CustomObjectTranslation>

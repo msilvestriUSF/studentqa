@@ -1,0 +1,1252 @@
+<!--
+//************************************************************************************
+// Name             : USF_ModifyLWCAppointment
+// Description      : Visualforce page to display Slot details
+// Created By       : Mohan Kalagatla
+// Created Date     : 08/25/2016 
+// ************************Version Updates********************************************
+// Date             Developer           Description
+// -----------------------------------------------------------------------------------
+// 08/25/2016        Mohan Kalagatla       Created
+// ************************************************************************************
+-->
+<apex:page showHeader="false" StandardController="AppointmentContact__c" extensions="USF_ModifyLWCAppointmentExtn"
+ sidebar="false" standardStylesheets="false" cache="false" docType="html-5.0" language="en-US" applyHTMLTag="false">
+<apex:form >
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Modify LWC appointment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Bootstrap Theme-->
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+</head>
+<body>
+<link href="{!URLFOR($Resource.BootStrap, 'css/bootstrap-theme.min.css')}" rel="stylesheet" />
+<link href="{!URLFOR($Resource.BootStrapDateTimePickerMin)}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'stylesheet.css')}" rel="stylesheet"/>
+<link href="{!URLFOR($Resource.USF_Fonts, 'flaticon.css')}" rel="stylesheet"/>
+
+<apex:includeScript value="{!URLFOR($Resource.MomentJs)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.Jquerymin)}" /> 
+<apex:includeScript value="{!URLFOR($Resource.BootStrap, 'js/bootstrap.min.js')}" />
+<apex:includeScript value="{!URLFOR($Resource.DateTimePickerJS)}"/>
+<apex:includeScript value="{!URLFOR($Resource.UploadAttachments)}"/>
+
+<style type="text/css">
+   /* @media only screen and (min-device-width: 768px) {
+        #tophead {
+            background: white;
+        }
+        ul.list-group {
+            border: 1px solid #18453b;
+            border-radius: 0px !important;
+        }
+        .bootstrap-datetimepicker-widget table thead tr:first-child th,
+        .bootstrap-datetimepicker-widget table thead tr:first-child th:hover,
+        .bootstrap-datetimepicker-widget table td span:hover {
+            background: none !important;
+            text-transform: uppercase;
+        }
+        .bootstrap-datetimepicker-widget table td span.active {
+            color: #18453b !important;
+            background-color: white !important;
+        }
+        .list-group-item:last-child {
+            margin-bottom: 0px !important;
+        }
+        li.list-group-item {
+            background-color: white;
+        }
+        .center-block {
+            margin-top: 0.5%;
+            margin-left: 1%;
+        }
+        .picker-switch {
+            color: #18453b !important;
+        }
+        .page-header {
+            border-bottom: none !important;
+            margin: 10px 0 10px;
+            padding-bottom: 0px;
+        }
+        .dow {
+            color: #696D6F !important;
+        }
+        .bootstrap-datetimepicker-widget table td.day,
+        .bootstrap-datetimepicker-widget table td.day.new,
+        .datetimepicker-widget table td.active {
+            color: #18453b !important;
+            font-weight: bold !important;
+            padding: 3.5% 3.5%;
+        }
+        .bootstrap-datetimepicker-widget table td.day.old,
+        .bootstrap-datetimepicker-widget table td.day.new {
+            color: #89A19C !important;
+            font-weight: bold !important;
+        }
+        li.picker-switch.accordion-toggle {
+            display: none;
+        }
+        .bootstrap-datetimepicker-widget table tr.hover {
+            background: none;
+        }
+        .bootstrap-datetimepicker-widget table td.day:hover,
+        .bootstrap-datetimepicker-widget table td.active,
+        .bootstrap-datetimepicker-widget table td.active:hover {
+            color: white !important;
+            background-color: #308A76;
+            border-radius: 50%;
+        }
+        .bootstrap-datetimepicker-widget table td.today:before {
+            content: none !important;
+        }
+        #hd {
+            margin-left: -1.3%;
+            font-family: Arial;
+            font-size: 20px;
+            color: #18453b;
+        }
+        #element2 {
+            border-color: #2E7767;
+            font-size: 12px;
+            font-family: Arial;
+            font-style: Normal;
+            border-radius: 0px !important;
+        }
+        #ele1,
+        #ele2,
+        #ele3,
+        #ele4,
+        #ele5,
+        #ele6,
+        #ele7 {
+            background-color: #18453b;
+            border-color: #2E7767;
+            color: white;
+            font-family: Arial;
+            font-style: Normal;
+            border-radius: 0px !important;
+            border: none !important;
+        }
+        #inpt2,
+        #inpt3 {
+            color: black;
+            width: 93%;
+            border-left: none !important;
+            border-top: none !important;
+            border-right: none !important;
+            border-bottom: 1px solid #2E7767 !important;
+            border-color: #18453b;
+            background: #FFFFE0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        #elementCASA,
+        #elementLWC,
+        #ele0 {
+            font-family: Arial;
+            font-style: Normal;
+            color: #18453b;
+            border-right: 1px solid #18453b;
+            border-top: 1px solid #18453b;
+            border-bottom: 1px solid #18453b;
+            border-radius: 0px !important;
+        }
+        .green,
+        .green:hover,
+        button.green,
+        button.green:hover,
+        button.green:focus,
+        button.green:active,
+        .btn-default:active:hover,
+        .btn-default.active:hover,
+        .open>.dropdown-toggle.btn-default:hover,
+        .btn-default:active:focus,
+        .btn-default.active:focus,
+        .open>.dropdown-toggle.btn-default:focus,
+        .btn-default:active.focus,
+        .btn-default.active.focus,
+        .open>.dropdown-toggle.btn-default.focus {
+            border: 2px solid #00543C;
+            background: #00543C;
+            font-family: Whitney-Semibold;
+            font-size: 14px;
+            color: #fff;
+            letter-spacing: 0px;
+            padding: 2px 20px;
+            text-shadow: none;
+            border-radius: 4px;
+        }
+        #regbuttn {
+            background: #fff;
+            color: grey;
+            float: right;
+            margin-right: 0px;
+            font-family: Arial;
+            border: 1px solid #999;
+        }
+        .activeBtn {
+            background: #308A76 !important;
+            color: #fff !important;
+            border: 1px solid #308A76 !important;
+        }
+        #subbuttn {
+            background: #117864;
+            color: #76D7C4;
+            font-family: Arial;
+            font-style: Normal;
+            margin-left: 38%;
+            margin-top: -10%;
+        }
+        #closeicon {
+            float: right;
+            color: #18453b;
+        }
+        #successicon {
+            color: #18453b;
+            font-size: 50px;
+            margin-left: 40%;
+        }
+        .vertical-alignment-helper {
+            display: table;
+            height: 100%;
+            width: 100%;
+        }
+        #attch {
+            color: #76D7C4;
+            background: #18453b;
+            border: none;
+            height: 30px;
+        }
+        #showtime {
+            float: right !important;
+            margin-top: -2.5% !important;
+        }
+        input:focus,
+        input:active {
+            outline-color: #18453b !important;
+            background-color: none !important;
+        }
+        #subbuttn:focus,
+        #regbuttn:focus {
+            outline-color: #18453b !important;
+        }
+        #slotDetails,
+        #appDetails {
+            padding: 0;
+        }
+        hr {
+            border: 1px solid #E6E6E6;
+        }
+        .modal-content {
+            border-radius: 0px !important;
+            margin-top: 25%;
+            margin-left: 25%;
+            width: 500px;
+            height: 200px;
+        }
+        .fileUpload {
+            position: relative;
+            overflow: hidden;
+            margin-top: -2px;
+            border: 1px solid #2E7767;
+            border-radius: 0px;
+            margin-left: 3%;
+            width: 60%;
+        }
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+    }
+    @media only screen and (min-device-width: 320px)and (max-device-width: 480px) {
+        #tophead {
+            background: white;
+        }
+        .container {
+            padding: 0 !important;
+        }
+        .list-group {
+            padding: 0;
+            border-bottom: 1px solid #18453b;
+            border-radius: 0px !important;
+        }
+        .center-block {
+            margin-top: 1.5%;
+        }
+        .bootstrap-datetimepicker-widget table thead tr:first-child th,
+        .bootstrap-datetimepicker-widget table thead tr:first-child th:hover,
+        .bootstrap-datetimepicker-widget table td span:hover {
+            background: none !important;
+            text-transform: uppercase;
+        }
+        .bootstrap-datetimepicker-widget table td span.active {
+            color: #18453b !important;
+            background-color: white !important;
+        }
+        li.list-group-item {
+            background-color: white;
+        }
+        .picker-switch {
+            color: #18453b !important;
+        }
+        .page-header {
+            border-bottom: none !important;
+            margin: 0.5% 0 0.5% !important;
+            padding-bottom: 0px;
+            text-align: center;
+            font-family: 12px;
+        }
+        .dow {
+            color: #696D6F !important;
+        }
+        .bootstrap-datetimepicker-widget table td.day,
+        .bootstrap-datetimepicker-widget table td.day.new,
+        .datetimepicker-widget table td.active {
+            color: #18453b !important;
+            font-weight: bold !important;
+            padding: 3.5% 3.5%;
+        }
+        .bootstrap-datetimepicker-widget table td.day.old,
+        .bootstrap-datetimepicker-widget table td.day.new {
+            color: #89A19C !important;
+            font-weight: bold !important;
+        }
+        li.picker-switch.accordion-toggle {
+            display: none;
+        }
+        .bootstrap-datetimepicker-widget table tr.hover {
+            background: none;
+        }
+        .bootstrap-datetimepicker-widget table td.day:hover,
+        .bootstrap-datetimepicker-widget table td.active,
+        .bootstrap-datetimepicker-widget table td.active:hover {
+            color: white !important;
+            background-color: #308A76;
+            border-radius: 50%;
+        }
+        .bootstrap-datetimepicker-widget table td.today:before {
+            content: none !important;
+        }
+        #hd {
+            font-family: Arial;
+            font-size: 15px;
+            color: #18453b;
+        }
+        #calLi {
+            border: none;
+            margin-top: -2%;
+        }
+        #element2 {
+            background-color: #18453b;
+            border-color: #2E7767;
+            color: white;
+            font-size: 12px;
+            font-family: Arial;
+            font-style: Normal;
+            border-radius: 0px !important;
+        }
+        #ele1,
+        #ele2,
+        #ele3,
+        #ele4,
+        #ele5,
+        #ele6,
+        #ele7 {
+            background-color: #18453b;
+            border-color: #2E7767;
+            color: white;
+            font-family: Arial;
+            font-style: Normal;
+            border-radius: 0px !important;
+            border: none !important;
+        }
+        #inpt2,
+        #inpt3,
+        #inpt4CASA,
+        #inpt4LWC,
+        #inpt6CASA,
+        #inpt6LWC {
+            color: black;
+            width: 93%;
+            border-left: none !important;
+            border-top: none !important;
+            border-right: none !important;
+            border-bottom: 1px solid #2E7767 !important;
+            border-color: #18453b;
+            background: #FFFFE0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        #elementLWC,
+        #elementCASA,
+        #ele0 {
+            font-family: Arial;
+            font-style: Normal;
+            color: #18453b;
+            border-left: none !important;
+            border-bottom: 1px solid #18453b;
+            border-radius: 0px !important;
+            text-align: center;
+            border: none;
+        }
+        #regbuttn {
+            background: #117864;
+            color: #76D7C4;
+            float: right;
+            margin-right: 0px;
+            font-family: Arial;
+        }
+        #subbuttn {
+            background: #117864;
+            color: #76D7C4;
+            font-family: Arial;
+            font-style: Normal;
+            margin-left: 3%;
+            margin-top: -25%;
+            width: 93%;
+        }
+        #closeicon {
+            margin-right: 2%;
+            float: right;
+            color: #18453b;
+        }
+        #successicon {
+            color: #18453b;
+            font-size: 50px;
+            margin-left: 40%;
+        }
+        .vertical-alignment-helper {
+            display: table;
+            height: 100%;
+            width: 100%;
+        }
+        #attch {
+            color: #76D7C4;
+            background: #18453b;
+            border: none;
+            height: 30px;
+        }
+        input:focus,
+        input:active {
+            outline-color: #18453b !important;
+            background-color: none !important;
+        }
+        #subbuttn:focus,
+        #regbuttn:focus {
+            outline-color: #18453b !important;
+        }
+        #slotDetails,
+        #appDetails {
+            padding: 0;
+            margin-top: -10px;
+        }
+        hr {
+            border: 1px solid #18453b;
+        }
+        .modal-content {
+            border-radius: 0px !important;
+            margin-top: 25%;
+            margin-left: 25%;
+            width: 500px;
+            height: 200px;
+        }
+        .fileUpload {
+            position: relative;
+            overflow: hidden;
+            margin-top: -2px;
+            border: 1px solid #2E7767;
+            border-radius: 0px;
+            margin-left: 3%;
+            width: 93%;
+        }
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+    }
+    */
+    .green,
+        .green:hover,
+        button.green,
+        button.green:hover,
+        button.green:focus,
+        button.green:active,
+        .btn-default:active:hover,
+        .btn-default.active:hover,
+        .open>.dropdown-toggle.btn-default:hover,
+        .btn-default:active:focus,
+        .btn-default.active:focus,
+        .open>.dropdown-toggle.btn-default:focus,
+        .btn-default:active.focus,
+        .btn-default.active.focus,
+        .open>.dropdown-toggle.btn-default.focus {
+            border: 2px solid #00543C;
+            background: #00543C;
+            font-family: Whitney-Semibold;
+            font-size: 14px;
+            color: #fff;
+            letter-spacing: 0px;
+            padding: 2px 20px;
+            text-shadow: none;
+            border-radius: 4px;
+        }
+        
+    .appointmentListWrap {
+        height: 277px;
+        overflow: auto;
+    }
+    #apptDetails,
+    #apptDetailsLWC {
+        text-align: left;
+    }
+    .nav-tabs>li.active>a,
+    .nav-tabs>li.active>a:hover,
+    .nav-tabs>li.active>a:focus {
+        font-weight: bold;
+        font-size: 20px;
+        border: 0;
+        border-bottom: 3px solid blue;
+    }
+    .nav>li>a {
+        font-size: 20px;
+        color: #999;
+    }
+    .nav-tabs>li {
+        width: 50%;
+    }
+    .nav-tabs>li>a {
+        text-align: center;
+        padding: 25px 15px;
+    }
+    .tabsWrap {
+        border: 1px solid #ececec;
+        float: left;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .tab-content {
+        padding: 20px;
+    }
+    .underline {
+        border-bottom: 1px solid #999;
+        padding-bottom: 10px;
+    }
+    .uploadFileWrap {
+        margin-top: 17px;
+        padding: 20px 0;
+        border-radius: 5px;
+        width: 100%;
+        margin-left: 3px;
+    }
+    .uploadFileWrap p {
+        margin: 0;
+        font-size: 22px;
+    }
+    .uploadFileWrap p:nth-child(2) {
+        font-size: 15px;
+    }
+    .uploadFileWrap span {
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    .buttonWrap button {
+        background: white;
+        font-size: 18px;
+        padding: 10px 50px;
+        margin: 22px;
+    }
+   
+    .dropdowns {
+        font-size: 21px;
+        color: #999;
+    }
+    .radio input[type="radio"] {
+        margin-top: 8px;
+    }
+    #learning select.form-control {} .courseContent p {
+        font-size: 14px !important;
+        padding: 0px 18px 0 0px;
+        margin: 0;
+    }
+    .courseContent p:first-child {
+        margin-bottom: 12px;
+    }
+    .row.courseContent {
+        margin: 20px 0;
+    }
+    .loading-icon {
+        position: fixed;
+        z-index: 999;
+        background-color: #000 !important;
+        width: 100%;
+        height: 100%;
+        opacity: 0.55;
+    }
+    table.makeRows {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+    }
+    table.makeRows tr td label {
+        margin-left: 10px;
+        font-weight: normal;
+    }
+    .phoneNoWrap {
+        margin-top: 20px;
+    }
+    .fileWrap {
+        margin-top: 30px;
+    }
+   
+    h2 {
+        color: #000;
+    }
+    .underline {
+        border-bottom: 1px solid #999;
+        padding-bottom: 15px;
+    }
+    .info {
+        font-style: italic;
+    }
+    .formWrap {
+        border: 1px solid #999;
+        padding: 20px 40px;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 3px;
+    }
+    .formWrap p {
+        font-size: 20px;
+        color: #999;
+    }
+    .radio label {
+        font-size: 14px;
+        color: #2A2A2A;
+    }
+    input[type="radio"] {
+        margin-top: 8px;
+    }
+    .formWrap .row {
+        margin: 13px 0;
+    }
+    .topMargin {
+        margin-top: 35px;
+    }
+    .required:after {
+        content: " *";
+        color: red;
+    }
+    textarea {
+        height: 80px !important;
+        resize: none;
+    }
+    .buttonWrap button {
+        background: white;
+        font-size: 18px;
+        padding: 10px 50px;
+        margin: 22px;
+    }
+    ul.bulletPoints li {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .checkbox label {
+        font-size: 18px;
+    }
+    input[type="checkbox"] {
+        margin-top: 5px;
+    }
+    .row-margin {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .tab-pane {
+        padding: 25px;
+        background: #fff;
+        border-radius: 5px;
+        margin-top: 25px;
+    }
+    input[type="file"] {
+        display: none;
+    }
+    span.filesList {
+        border: 1px solid #e6e6e6;
+        padding: 5px 30px;
+        border-radius: 30px;
+        font-family: Whitney-Semibold;
+        font-size: 14px;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+    .glyphicon-remove {
+        margin-left: 10px;
+        font-weight: normal;
+        color: red;
+        top: 2px;
+        left: 10px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    /*VD starts here*/
+    
+    .bodyClass {
+        font-size: 14px;
+        font-family: Whitney-Book;
+        background: #F8F7F0;
+        color: #2a2a2a;
+    }
+    
+    h2.headerClass {
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        color: #00543C;
+    }
+    h2.headerClass span {
+        font-family: Whitney-Black;
+        font-size: 22px;
+    }
+    h2.headerClass i.glyphicon {
+        font-size: 15px;
+        cursor: pointer;
+    }
+    .title-text {
+        font-family: Whitney-Semibold;
+    }
+    .btn-default {
+        background: white;
+        padding: 10px 38px;
+        margin: 0 15px;
+        background-color: #00543C;
+        color: #fff;
+        border-radius: 4px;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        text-shadow: none;
+        box-shadow: none;
+    }
+    .btn-default:hover,
+    .btn-default:focus {
+        background-color: #73973F;
+        color: #fff;
+        border: none;
+        outline: none;
+        text-shadow: none;
+        box-shadow: none;
+    }
+    .btn-default:active {
+        background-color: #73973F;
+        color: #fff;
+        border: none;
+        outline: none;
+        text-shadow: none;
+        box-shadow: none;
+    }
+    input[type=radio],
+    input[type=checkbox] {
+        /* Hide original inputs */
+        
+        visibility: hidden;
+        position: absolute;
+    }
+    input[type=radio] + label:before {
+        height: 12px;
+        width: 12px;
+        margin-right: 2px;
+        content: " ";
+        display: inline-block;
+        vertical-align: baseline;
+        border: 2px solid #00543C;
+        margin-right: 5px;
+    }
+    input[type=checkbox] + label:before {
+        height: 12px;
+        width: 12px;
+        margin-right: 2px;
+        content: "✔";
+        display: inline-block;
+        vertical-align: baseline;
+        border: 2px solid #00543C;
+    }
+    input[type=radio]:checked + label:before,
+    input[type=checkbox]:checked + label:before {
+        background: #00543C;
+        background-clip: content-box;
+        border: 2px solid #00543C;
+        padding: 1px;
+    }
+    /* CUSTOM RADIO AND CHECKBOX STYLES */
+    
+    input[type=radio] + label:before {
+        border-radius: 50%;
+    }
+    input[type=checkbox] + label:before {
+        border-radius: 2px;
+    }
+    .radio label,
+    .checkbox label {
+        padding-left: 0px;
+    }
+    .slot-details {
+        padding-top: 25px;
+    }
+    .slot-details .glyphicon {
+        margin-right: 20px;
+    }
+    #appointmentRegistrationLWC .title-text {
+        margin-bottom: 20px;
+    }
+    .attachment {
+        padding: 7px 45px;
+        border-radius: 100px;
+        border: 1px solid #000;
+        width: 300px;
+        margin: 20px 0;
+    }
+    hr {} .glyph-icon:before {
+        font-size: 14px;
+        font-family: flaticon;
+        color: #00543C;
+        margin-left: 0;
+        margin-right: 20px;
+    }
+    .selectDD {
+        padding: 0px 0 0 15px;
+        font-size: 14px !important;
+        height: 30px !important;
+        line-height: 0;
+        letter-spacing: 0;
+        font-family: Whitney-Book;
+        font-size: 14px;
+        color: #2A2A2A;
+        box-shadow: none;
+        border: 1px solid #e6e6e6;
+        background: #fff !important;
+    }
+    .customInput {
+        background: #FFFFFF;
+        border: 1px solid #919194;
+        border-radius: 0;
+        box-shadow: none;
+        height: 45px;
+        font-family: Whitney-Book;
+        font-size: 14px;
+    }
+    .textHeading {
+        font-family: QuattrocentoSans-Bold;
+        font-size: 14px;
+        color: #2A2A2A;
+        letter-spacing: 0px;
+    }
+    
+    .welcomeDesc {
+        padding: 10px;
+        background: #E5FAF8;
+        width: 100%;
+    }
+    
+    .text-normal{
+        font-weight: normal;
+    }
+    
+    input[type=radio]:checked + label {
+        font-weight: BOLD;
+    }
+    
+    .primaryBtn, .primaryBtn:hover {
+        background: #00543C;
+        border-radius: 4px;
+        font-family: Whitney-Semibold;
+        font-size: 14px;
+        color: #FFFFFF !important;
+        letter-spacing: 0px;
+        padding: 12px 54px;
+        font-weight: normal;
+        text-shadow: none;
+        border: 1px solid #00543C;
+        margin-top: 20px;
+    }
+    .primaryBtnSec, .primaryBtnSec:hover {
+        background: #5F7E32 !important;
+        margin-right: 10px;
+    }
+    
+    .greenHeading{
+        font-family: Whitney-Black;
+        color: #00543C;
+        font-size: 14px;
+    }
+    
+    @media only screen and (max-width: 544px) {
+        .container {
+            max-width: 440px;
+        }
+        
+        .btn-default{
+            padding: 10px 20px;
+        }
+        
+        h2.headerClass span{
+            font-size: 20px;
+        }
+        
+        .marginSmallInMob{
+            margin-bottom: 10px;
+        }
+        
+        .welcomeDesc{
+            width: 100%;
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        .container {
+            max-width: 708px;
+        }
+        
+        h2.headerClass span{
+        font-size: 20px;
+        }
+    }
+</style>
+<body class="bodyClass">
+<c:USF_Header />
+    <div class="container">    
+    <apex:pagemessages />
+                <h2 class="headerClass">
+                    <i class="glyphicon glyphicon-chevron-left" onClick="backToDashboard();"></i>
+                    <apex:actionFunction action="/apex/USF_StudentDashboard" name="backToDashboard"/>
+                    <span>Modify an Appointment</span>
+                </h2>
+                <!--Learning Tab content starts here-->
+                <div role="tabpanel" class="tab-pane" id="learning">
+                    <apex:actionRegion >                        
+                        <div class="row">
+                            <!--<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                                <div class="radio">
+                                  <input type="radio" id="learningCenter" name="optradio" value="Learning" disabled="disabled"/><label for="learningCenter">Subject Tutoring</label>
+                                </div>                            
+                            </div>
+                            
+                            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                                <div class="radio">
+                                  <input type="radio" id="writingCenter" name="optradio" value="Writing" disabled="disabled"/><label for="writingCenter">Writing Center</label>
+                                </div>                            
+                            </div>
+                            
+                            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                                <div class="radio">
+                                  <input type="radio" id="speakingCenter" name="optradio" value="Speaking" disabled="disabled"/><label for="speakingCenter">Speaking Center</label>
+                                </div>                            
+                            </div>-->
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 greenHeading">
+                                {!if(CONTAINS(appDTO.appointment.Center__c,'Learning'),'Subject Tutoring',appDTO.appointment.Center__c)}
+                            </div>
+                        </div>
+
+                            <!--<apex:selectRadio value="{!appointment.Center__c}" styleClass="radio" readonly="true">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-4">
+                                    <apex:selectOption itemValue="LWC - Learning Center" itemlabel="Learning Center    "/>
+                                </div>  
+                                <div class="col-xs-12 col-md-4">
+                                    <apex:selectOption itemValue="LWC - Writing Center" itemlabel="Writing Center      "/>
+                                </div>  
+                                <div class=" col-xs-12col-md-4">
+                                    <apex:selectOption itemValue="LWC - Speaking Center" itemlabel="Speaking Center"/>
+                                </div>
+                            </div>  
+                            </apex:selectRadio> -->                                 
+                                          
+                    </apex:actionRegion>
+
+                     <div id="learningCourse" class="row courseContent" style="display:none;">
+                            <p class="title-text">Welcome to the Subject Tutoring.</p>
+                            <div class="welcomeDesc">
+                            <p>Use this system to schedule individual and group appointments for your currently enrolled courses.<br/>
+                            You will receive a confirmation email with more appointment details.<br/>
+                            Cancel or reschedule an appointment at least 24 hours in advance to avoid penalties.<br/>
+                            If you have additional questions, call 415-422-6713.</p>
+                            </div>
+                        </div>                        
+                        <div id="writingCourse" class="row courseContent" style="display:none;">
+                            <p class="title-text">Welcome to the Writing Center.</p>
+                            <div class="welcomeDesc">
+                            <p>Use this system to schedule individual and group appointments for your currently enrolled courses.</p>
+                            <p>You will receive a confirmation email with more appointment details.</p>
+                            <p>Cancel or reschedule an appointment at least 24 hours in advance to avoid penalties.</p>
+                            <p>If you have additional questions, call 415-422-6713.</p>
+                            </div>
+                        </div>
+                        <div id="speakingCourse" class="row courseContent" style="display:none;">
+                            <p class="title-text">Welcome to the Speaking Center.</p>
+                            <div class="welcomeDesc">
+                            <p>Use this system to schedule individual and group appointments for your currently enrolled courses.</p>
+                            <p>You will receive a confirmation email with more appointment details.</p>
+                            <p>Cancel or reschedule an appointment at least 24 hours in advance to avoid penalties.</p>
+                            <p>If you have additional questions, call 415-422-6713.</p>
+                            </div>
+                        </div>    
+                    <hr/>                      
+                    
+                    <div><span class="title-text">Slot Selected</span></div> 
+                    <div class="row slot-details">
+                        <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 marginSmallInMob">
+                            <span class="title-text greenHeading">{!appDTO.startdate}</span>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                            <span class="title-text">{!appDTO.starttime}</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            <div>
+                                <span class="glyph-icon flaticon-cursor content"></span>
+                                <span></span>
+                                <span>{!appDTO.appointment.AppointmentSlot__r.Location__c} &nbsp; | &nbsp; {!appDTO.appointment.AppointmentSlot__r.Type__c}</span>
+                            </div>
+                            <div>
+                                <span class="glyphicon glyphicon-user" style="color: #FCBB30;"></span>
+                                <span>{!appDTO.appointment.AppointmentSlot__r.Coach_Full_Name__c}</span>
+                                
+                            </div> 
+                        </div>
+                    </div>  
+
+                    <!--<div id="courseContainer" class="row row-margin" style="display:none;">
+                        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">                            
+                            <apex:selectList Styleclass="form-control selectDD " label="Course" id="course" size="1" value="{!appDTO.appointment.SelectedCourse__r.Name}" readonly="true" disabled="true">  
+                                <apex:selectOption itemLabel="{!appDTO.appointment.SelectedCourse__r.Name}" itemValue="{!appDTO.appointment.SelectedCourse__r.Name}"/>
+                          </apex:selectList>                             
+                        </div>
+                    </div>
+
+                    <div id="specialityContainer" class="row row-margin" style="display:none;">
+                        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">                            
+                            <apex:selectList Styleclass="form-control selectDD " label="Speciality" id="speciality" size="1" value="{!appDTO.appointment.Coach_Specialty__r.Name}" readonly="true" disabled="true">  
+                                <apex:selectOption itemLabel="{!appDTO.appointment.Coach_Specialty__r.Name}" itemValue="{!appDTO.appointment.Coach_Specialty__r.Name}"/>
+                          </apex:selectList>                             
+                        </div>
+                    </div>-->
+
+                    <div class="row row-margin" style="display:{!IF(isSpeaking,'none','block')}">
+                        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4"> 
+                            <p class="title-text">Meeting Type</p>                           
+                        <apex:selectList styleclass="form-control selectDD" label="Type" id="apptType" size="1" value="{!newType}" readonly="{!isSpeaking}" disabled="{!isSpeaking}">  
+                                <apex:selectOptions value="{!type}"/>
+                          </apex:selectList>
+                         <!--  <apex:inputField styleclass="form-control" value="{!appDTO.appointment.Type__c}" />  -->
+                        </div>
+                    </div>  
+
+                    <hr/>
+
+                    <div id="appointmentRegistrationLWC" class="row-margin">
+                        <div class="title-text"><span>Appointment Details</span></div>                        
+                        <div class="row">
+                            <!-- <div class="col-xs-12 col-md-5">
+                                <p>What is your learning style or preference?</p>                                
+                                <apex:outputText id="notes" styleClass="form-control" value="{!appDTO.appointment.LWC_LearningStyles__c}"/>
+                            </div>  -->
+                             <div class="col-xs-12 col-sm-5 col-md-6 col-lg-6">
+                             <span id="errmsgLWC" style="color:red; display:none;"> </span>
+                                <label class="text-normal required">Preferred Phone Number</label>
+                                <apex:inputText id="phoneNo" styleClass="form-control customInput" value="{!newPhone}"/> 
+                            </div>
+                        </div>
+                         <div class="row row-margin">                            
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <label class="text-normal marginB">Additional Notes</label>
+                                   <!-- <textarea class="form-control customInput" disabled="true">{!appDTO.appointment.Notes__c}</textarea> -->
+                                     <apex:inputTextarea styleClass="form-control customInput" html-maxlength="255" id="newNotes" value="{!newNotes}" disabled="{!disableNotes}"/>
+
+                                </div>
+                            </div>
+                    </div>
+                    <hr/>
+                    <div class="row row-margin">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                           <!-- <div class="title-text">Upload your documents/assignment</div>
+                            <apex:inputFile styleClass="file-uploaderLWC" id="fileToUpload" value="{!fileBody}" filename="{!fileName}" />-->
+                             <!--<div class="attachment">
+                                <span></span>
+                                  <span>Assignment.pdf</span>
+                                <span class="glyphicon glyphicon-remove pull-right" style="color:red;">
+                                </span>
+                                <div><button class="btn btn-default" type="button">Browse</button></div>                               
+                               
+                                <div class="attachment">
+                                   <apex:inputFile id="fileToUpload" value="{!fileBody}" filename="{!fileName}" />
+                                </div>
+                              -->  
+                             <h4 class="textHeading">Upload your document or assignment to review during your appointment</h4>
+                             <apex:repeat value="{!allCurrentAttachments}" var="currentAttachment">
+                                <span class="filesList">{!currentAttachment.name}<span class="glyphicon glyphicon-remove" onclick="removeAttachment('{!currentAttachment.Id}',$(this));"></span></span>
+                             </apex:repeat>
+                                <div class="fileName"></div>
+                                <label for="file-upload" class="custom-file-upload green">Browse</label>
+                                 <input type="file" value="{!attachment.body}" name="{!attachment.name}" class="file-uploaderLWC" id="file-upload" multiple="true" accept=".pdf,.jpeg,.png,.docx,.doc,.ppt,.pptx" size="5"/>
+                                 <apex:inputHidden id="selAttachmentIdHidden" value="{!attachmentIdsToBeRemoved}"/>
+                                 <span id="errmsgLWCBrowse" style="color:red; display:none;">You cannot upload more than 5 attachments.</span>
+                           </div>                        
+                    </div>
+
+                    <div class="text-center" id="appointmentRequestBtnLWC">    
+                        <button class="btn btn-default primaryBtn primaryBtnSec" type="button" onClick="addCaseAttachment('{!appDTO.appointment.Id}');">Save</button>
+                        <apex:actionFunction action="{!modifyAppointment}" name="modifyAppointment"/>                                                      
+                        <button class="btn btn-default primaryBtn" type="button" onClick="cancelAppointment();">Cancel</button>
+                        <apex:actionFunction action="/apex/USF_StudentDashboard" name="cancelAppointment"/>   
+                        
+                    </div>
+                </div>                       
+    </div>
+</body>
+<script type="text/javascript">
+    var center = "{!appDTO.appointment.Center__c}";
+    var learning = "Learning";
+    var writing = "Writing";
+    var speaking = "Speaking";
+    var filesToBeInserted = [];
+    var totalAttachmentSize = {!allCurrentAttachments.size};
+    
+     if(center.includes(learning)){
+        //$("#learningCenter").prop("checked", true);
+        $("#learningCourse").show();
+        $("#courseContainer").show();
+    }else if(center.includes(writing)){
+        //$("#writingCenter").prop("checked", true);
+        $("#writingCourse").show();  
+        $("#specialityContainer").show();      
+    }else if(center.includes(speaking)){
+        //$("#speakingCenter").prop("checked", true);
+        $("#speakingCourse").show();
+    }
+    
+     $("#file-upload:file").on("change",function(){
+        var file = $(".file-uploaderLWC")[0].files;
+        //alert($("#file-upload:file").val().split('\\').pop());
+        //var fileNames = $("#file-upload:file").val().split('\\').pop();
+        //$( "<span class='filesList'>"+fileNames+"<span class='glyphicon glyphicon-remove'></span></span>" ).prependTo( ".fileName" );
+        for(var l=0; l<file.length; l++){
+            console.log(file[l].name);
+            console.log('totalAttachmentSize:'+totalAttachmentSize);
+            if(totalAttachmentSize < 5){
+                filesToBeInserted.push(file[l]);
+                $( "<span class='filesList'>"+file[l].name+"<span class='glyphicon glyphicon-remove'></span></span>" ).prependTo( ".fileName" );
+                document.getElementById("errmsgLWCBrowse").style.display = "none";
+                totalAttachmentSize = totalAttachmentSize + 1;
+            }else{
+                document.getElementById("errmsgLWCBrowse").style.display = "block";
+                break;
+            }
+        }
+        $(".filesList .glyphicon-remove").on("click", function(){
+            var currentFileName = $(this).parent().text();
+            $(this).parent().remove();
+            $("#file-upload").val("");
+            for (var i = 0; i < filesToBeInserted.length; i++){
+                // removing the file from files to be inserted
+                if(currentFileName == filesToBeInserted[i].name){
+                    filesToBeInserted.splice(i,1);
+                    totalAttachmentSize = totalAttachmentSize - 1;
+                    break;
+                }       
+            }
+        });
+    });
+          
+       function addCaseAttachment(parentID) {
+        //alert('attaching...');
+        var client = new forcetk.Client();
+        var instanceUrl = '{!$Site.BaseUrl}';
+        client.setSessionToken('{!$Api.Session_ID}', 'v35.0', instanceUrl);
+        client.proxyUrl = null;
+        client.instanceUrl = instanceUrl;
+        //var file = $(".file-uploaderLWC")[0].files;
+        var file = filesToBeInserted;
+       /* var file=[];
+        $('.file-uploaderLWC').live('change', function (){
+                for (var i = 0; i < this.files.length; i++){
+                    file.push(this.files[i].body);
+                }
+                console.log(file);
+            });
+        }); */
+        console.log('file: '+file);
+        //alert('file: '+file.length);
+        try {
+        for (var i = 0; i < file.length; i++){
+            var filename = file[i].name;
+            //alert('filename:'+filename);
+            // removing the special characters so that a valid id can be assigned to div
+            filename = filename.replace(/[\s!#$%&()*+,.:;<=>?@[\]^{|}~]/g, '');
+            client.createBlob('Attachment', {
+                ParentId: parentID,
+                Name: file[i].name,
+                Description: $('.file-description').val()
+            }, file[i].name, 'Body', file[i], '','', false);            
+        }
+        var phone = $('[id$=phoneNo]').val();
+        if(phone ==""){
+            $("#resid").text(''); 
+            var nameEmSkMiss = '{!$Label.Interview_Error_Name_Email_SkypeId_Missing}';
+            document.getElementById("errmsgLWC").style.display="block";
+            $("#errmsgLWC").text(nameEmSkMiss);   
+        }
+        else if(!phonenumber(phone)) {
+            $("#resid").text(''); 
+            var nameEmSkMiss = 'Please enter the phone number in a valid format XXX-XXX-XXXX or XXX.XXX.XXXX or XXX XXX XXXX';
+            document.getElementById("errmsgLWC").style.display="block";
+            $("#errmsgLWC").text(nameEmSkMiss); 
+        }
+        else {
+            modifyAppointment();
+        }
+        
+        } catch (err) {
+            console.log(err);
+        }
+        
+       }
+
+       function phonenumber(inputtxt) {
+        console.log('phonenumber: '+inputtxt);  
+          var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;  
+          if(inputtxt.match(phoneno)) {  
+              return true;  
+          }  
+          else {  
+            return false;  
+          } 
+          return null; 
+        }
+       
+       function removeAttachment(attachmentId,element){
+            var attachments = $('[id$="selAttachmentIdHidden"]').val();
+            attachments = attachments + attachmentId + ';';
+            $('[id$="selAttachmentIdHidden"]').val(attachments);
+            totalAttachmentSize = totalAttachmentSize-1;
+            console.log('totalAttachmentSize:'+totalAttachmentSize);
+            element.parent().remove();
+        }  
+</script>
+</body>
+</html>
+</apex:form>
+<c:USF_Footer />
+</apex:page>

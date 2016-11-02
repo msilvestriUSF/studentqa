@@ -1,0 +1,24 @@
+Hello {!Project_Success__c.Student__c},
+
+I have been asked by {!Project_Success__c.Referrer__c} to provide you with a Project Success Graduate Assistant to support you in your academic endeavors while you are at USF. 
+
+Your Graduate Assistant’s name is {!Project_Success__c.Tutor__c}.
+
+{!Project_Success__c.Tutor__c}'s contact information is as follows: 
+email: {!Project_Success__c.Tutor_Email__c}
+
+Please contact your Graduate Assistant at your earliest convenience and schedule a meeting to get the remainder of your semester up and running. 
+
+Please be proactive; Graduate Assistants are meant to support you throughout the semester, not be on call for you only when you think you need it. You should expect to check in with your Graduate Assistant on a weekly basis. Your activity with {!Project_Success__c.Tutor__c} will be monitored by myself and {!Project_Success__c.Referrer__c}.
+
+According to the information on your student records, your contact information is:
+Email: {!Project_Success__c.Student_Email__c}
+Phone number: {!Project_Success__c.Student_Phone__c}
+
+Please contact your Graduate Assistant if you wish to change your means of communication. 
+
+If you have any questions regarding your tutoring needs or Project Success, please do not hesitate to contact {!Project_Success__c.Referrer__c} at {!Project_Success__c.Referrer_Email__c} or myself at: kdrutledge@usfca.edu or 415-422-2842. A copy of this letter has been sent to {!Project_Success__c.Referrer__c}. Please keep this letter for your records.
+
+Thank you and good luck with semester,
+
+Kim

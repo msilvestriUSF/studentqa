@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"><actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides><fields>
+        <fullName>Appointment_Date__c</fullName>
+        <description>Date of the Appointment related to the interaction.</description>
+        <externalId>false</externalId>
+        <formula>Interaction__r.Appointment_Date__c</formula>
+        <label>Appointment Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields><fields>
+        <fullName>CWID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Student__r.CWID__c</formula>
+        <label>CWID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Campus_Resource__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Campus Resource</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.CASA_Referral__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Referrals</relationshipLabel>
+        <relationshipName>Referrals</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Referrals</relationshipLabel>
+        <relationshipName>Referrals</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Formula_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Other_Resource__c = null,  Campus_Resource__r.Name  ,  Other_Resource__c )</formula>
+        <label>Formula Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Interaction_Staff__c</fullName>
+        <externalId>false</externalId>
+        <formula>Interaction__r.Staff__r.Full_Name__c</formula>
+        <label>Interaction Staff</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Interaction__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Interaction</label>
+        <referenceTo>Interaction__c</referenceTo>
+        <relationshipLabel>Referrals</relationshipLabel>
+        <relationshipName>Referrals</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Other_Resource_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Resource Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Other_Resource__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Resource</label>
+        <length>175</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Referral_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Referral Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields><fields>
+        <fullName>Referred_To_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Referred_To__r.Email</formula>
+        <label>Referred To Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Referred_To__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Referred To</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Referrals (To)</relationshipLabel>
+        <relationshipName>Referrals_To</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Resource_Email_Workflow__c</fullName>
+        <description>Supports referral email workflow</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Do not show on a page layout.  System field.</inlineHelpText>
+        <label>Resource Email Workflow</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Resource_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Campus_Resource__r.Email__c</formula>
+        <label>Resource Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Student__c</fullName>
+        <externalId>false</externalId>
+        <label>Student</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.Student__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Referrals</relationshipLabel>
+        <relationshipName>Referrals</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields><allowInChatterGroups>true</allowInChatterGroups><compactLayoutAssignment>SYSTEM</compactLayoutAssignment><deploymentStatus>Deployed</deploymentStatus><description>Primarily used by CASA and linked to the Interaction and Case object</description><enableActivities>true</enableActivities><enableBulkApi>true</enableBulkApi><enableFeeds>false</enableFeeds><enableHistory>true</enableHistory><enableReports>true</enableReports><enableSearch>true</enableSearch><enableSharing>true</enableSharing><enableStreamingApi>true</enableStreamingApi><label>Referral</label><nameField>
+        <label>Referral Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField><pluralLabel>Referrals</pluralLabel><searchLayouts /><sharingModel>ControlledByParent</sharingModel><listViews>
+        <fullName>All</fullName>
+        <columns>Student__c</columns>
+        <columns>CWID__c</columns>
+        <columns>Referral_Date__c</columns>
+        <columns>NAME</columns>
+        <columns>Referred_To__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews><validationRules>
+        <fullName>All_resources_NULL</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Campus_Resource__c = NULL, Other_Resource__c = NULL)</errorConditionFormula>
+        <errorDisplayField>Campus_Resource__c</errorDisplayField>
+        <errorMessage>Please enter either a Campus Resource or Other Resource</errorMessage>
+    </validationRules><validationRules>
+        <fullName>One_Resource_per_Referral</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Campus_Resource__c  &lt;&gt; NULL, Other_Resource__c  &lt;&gt; NULL)</errorConditionFormula>
+        <errorMessage>If you select a Campus Resource, leave Other Resource blank</errorMessage>
+    </validationRules><webLinks>
+        <fullName>New_Referral</fullName>
+        <availability>online</availability>
+        <description>Implemented for defect DFCT0010982</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Referral</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/37.0/connection.js")} 
+
+var result = sforce.connection.query("Select Id,contactid,contact.FirstName,contact.LastName From case where id ='{!Case.Id}'"); 
+
+var records = result.getArray("records"); 
+
+if (records.length &gt; 0){ 
+if(records[0] &amp;&amp; records[0].Contact){ 
+
+var contactName=records[0].Contact.LastName+','+records[0].Contact.FirstName;; 
+var contactId=records[0].ContactId; 
+
+window.parent.location.href="{! urlFor($Action.Referral__c.New)}&amp;{!$Label.Referral_Case_ID}={!Case.CaseNumber}&amp;{!$Label.Referral_Case_ID}+_lkid={!Case.Id}&amp;{!$Label.Referral_Contact_Field_ID}="+contactName+"&amp;{!$Label.Referral_Contact_Field_ID}+_lkid="+contactId+"" 
+
+} 
+}</url>
+    </webLinks><webLinks>
+        <fullName>New_Referral_From_Interaction</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Referral</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/37.0/connection.js")} 
+
+var result = sforce.connection.query("SELECT Id, Student__c, Student__r.FirstName,Student__r.LastName FROM Interaction__c where id ='{!Interaction__c.Id}'"); 
+
+var records = result.getArray("records"); 
+
+if (records.length &gt; 0){ 
+if(records[0] &amp;&amp; records[0].Student__r){ 
+
+var contactName=records[0].Student__r.LastName+','+records[0].Student__r.FirstName; 
+var contactId=records[0].Student__c; 
+
+window.parent.location.href="{! urlFor($Action.Referral__c.New)}&amp;{!$Label.Referral_Contact_Field_ID}="+contactName+"&amp;{!$Label.Referral_Contact_Field_ID}+_lkid="+contactId+"" 
+
+} 
+}</url>
+    </webLinks></CustomObject>

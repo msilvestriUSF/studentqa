@@ -1,0 +1,14 @@
+To {!AppointmentContact__c.00N2C000000KxDE}, 
+
+This is a reminder that you have a Learning and Writing Center Appointment today.  Arrive at your appointment 5 minutes before it starts.  Please see below for the appointment details:
+
+Appointment  Start Time:  {!AppointmentContact__c.Start_Time__c} 
+Consultant: {!AppointmentContact__c.00N2C000000KxDE}
+Course: {!AppointmentContact__c.00N2C000000LAPD}.  
+Appointment Location:  (Appointment Location)
+
+Log in to the student portal to modify or see additional details about this appointment.
+
+Have a wonderful day, 
+
+The Learning & Writing Center

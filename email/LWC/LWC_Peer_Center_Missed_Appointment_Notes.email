@@ -1,0 +1,15 @@
+To {!AppointmentContact__c.Staff__c},
+
+According to our records you have an appointment that did not receive notes.  The appointment status has been changed to "missed by Consultant".  If you feel you received this notification in error please contact the Learning and Writing Center.  The appointment details are below:
+
+Appointment Date:  {!AppointmentContact__c.Start_Date__c}
+Appointment  Start Time:  {!AppointmentContact__c.Start_Time__c} 
+Student: {!AppointmentContact__c.00N2C000000KxDE}
+Course: {!AppointmentContact__c.00N2C000000LAPD}.  
+Appointment Location:  (Appointment Location)
+
+Log in to the student portal and submit your notes for the appointment right away. 
+
+Sincerely,
+
+The Learning & Writing Center

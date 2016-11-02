@@ -1,0 +1,1800 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"><actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides><fields>
+        <fullName>Active_Term__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Active Term</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>AppointmentSlot__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Appointment Slot</label>
+        <referenceTo>Counsellor_Availability__c</referenceTo>
+        <relationshipLabel>Appointments</relationshipLabel>
+        <relationshipName>Appointment_Contacts</relationshipName>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>AppointmentType__c</fullName>
+        <externalId>false</externalId>
+        <formula>AppointmentSlot__r.AppointmentType__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Appointment Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Appointment_Week__c</fullName>
+        <externalId>false</externalId>
+        <formula>MOD(FLOOR( (DATEVALUE(Date_Time__c) -DATEVALUE("2016-07-31" ))/7),52)+1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Appointment Week</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>CASA_48_hr_Trigger__c</fullName>
+        <externalId>false</externalId>
+        <formula>Start_Date__c &gt; (TODAY() + 2)</formula>
+        <label>CASA 48 hr Trigger</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>CASA_Appointment__c</fullName>
+        <description>Tag CASA Appointments</description>
+        <externalId>false</externalId>
+        <formula>AppointmentSlot__r.CASA_Appointment__c</formula>
+        <label>CASA Appointment</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>CASA_Staff__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(  RecordType.Name  = "CASA Appointment"  , AppointmentSlot__r.Coach_Full_Name__c , "Not a CASA Appointment")</formula>
+        <label>CASA Staff</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>CWID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.CWID__c</formula>
+        <label>CWID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Canceled_Date_Time__c</fullName>
+        <description>Captures time stamp when the appointment has been cancelled</description>
+        <externalId>false</externalId>
+        <label>Canceled Date/Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields><fields>
+        <fullName>Center__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will get updated by the workflow on creation of the appointment</inlineHelpText>
+        <label>Center</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CheckInTime__c</fullName>
+        <externalId>false</externalId>
+        <label>Check In Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields><fields>
+        <fullName>CheckOutTime__c</fullName>
+        <externalId>false</externalId>
+        <label>Check Out Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Checked_In__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Checked In</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Coach_Specialty__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Coach Specialty</label>
+        <referenceTo>Specialty__c</referenceTo>
+        <relationshipLabel>Appointments</relationshipLabel>
+        <relationshipName>Appointments</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Consultant_Email__c</fullName>
+        <description>DFCT0011067 - Send the same template that is sent to the student to the Consultant - used in email templates</description>
+        <externalId>false</externalId>
+        <label>Consultant Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Consultant__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This is in addition to Slot lookup so that Consultant  can be given access to the Appointment to take actions. This need to be autopopulated using automation</description>
+        <externalId>false</externalId>
+        <label>Consultant</label>
+        <referenceTo>Consultant__c</referenceTo>
+        <relationshipLabel>Appointments</relationshipLabel>
+        <relationshipName>Appointments</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Contact_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Full_Name__c</formula>
+        <label>Contact Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Appointments</relationshipLabel>
+        <relationshipName>Appointment_Contacts</relationshipName>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Contacts_To_Notify__c</fullName>
+        <description>STRY0012151: Captures the contact Ids(semicolon separated) who should be notified once the appointment status is changed to completed.</description>
+        <externalId>false</externalId>
+        <label>Contacts To Notify</label>
+        <length>131072</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields><fields>
+        <fullName>Date_Time__c</fullName>
+        <externalId>false</externalId>
+        <formula>AppointmentSlot__r.Start_Time__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields><fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields><fields>
+        <fullName>DropInUsedTime__c</fullName>
+        <externalId>false</externalId>
+        <formula>( CheckOutTime__c -  CheckInTime__c )* 24*60</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Drop In Used Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Duration__c</fullName>
+        <externalId>false</externalId>
+        <label>Duration</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Email</formula>
+        <label>Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>End_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>End Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields><fields>
+        <fullName>FirstLanguage__c</fullName>
+        <externalId>false</externalId>
+        <label>First Language</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Group_Assignment__c</fullName>
+        <externalId>false</externalId>
+        <label>Group Assignment</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Half_Hour_After_Start_Time__c</fullName>
+        <externalId>false</externalId>
+        <formula>Date_Time__c + 30/1440</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Half Hour After Start Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields><fields>
+        <fullName>LWC_AcademicSkills__c</fullName>
+        <externalId>false</externalId>
+        <label>Academic Skills To Work on</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Class preparation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test taking</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Note taking</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Time management</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reading</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Study strategies</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test preparation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Organization</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>LWC_ContributeToPerformance__c</fullName>
+        <externalId>false</externalId>
+        <label>Contribute to Performance</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Missing class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Poor time management</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lack of foundation knowledge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Over involved/Work/Too many credits</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Difficulty with instructor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-native speaker</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Missing course material</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>None of these</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>LWC_CurrentGradeofCourse__c</fullName>
+        <externalId>false</externalId>
+        <label>Current Grade/Score of Course</label>
+        <picklist>
+            <picklistValues>
+                <fullName>A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>B</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>D</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>F</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>LWC_HESITutee__c</fullName>
+        <externalId>false</externalId>
+        <label>HESI/Tutee</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Professor calculation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Guesstimate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My own calculation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Don't know</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>LWC_HourStudy__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Hour Preparation</label>
+        <picklist>
+            <picklistValues>
+                <fullName>1-2 hours</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3-4 hours</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5-8 hours</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9&gt; hours</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Never</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>LWC_LearningStyles__c</fullName>
+        <externalId>false</externalId>
+        <label>Learning Styles</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Visual</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kinesthetic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Auditory</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Read/Write</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>LWC_MethodOfStudy__c</fullName>
+        <externalId>false</externalId>
+        <label>Method Of Study</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Reading</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Take/Review notes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Creating study guides</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Flash cards</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Practice problems</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Review class handouts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pneumonia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nothing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>LWC_TutorTuteeExpectation__c</fullName>
+        <externalId>false</externalId>
+        <label>Tutor Tutee Expectation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields><fields>
+        <fullName>LWC_TutorTutee__c</fullName>
+        <externalId>false</externalId>
+        <label>Interaction with professor</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Once</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A few times</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regularly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Don't know</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Location_Change__c</fullName>
+        <externalId>false</externalId>
+        <label>Location Change</label>
+        <length>175</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <length>175</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Notes__c</fullName>
+        <description>Notes provided by the student during appointment scheduling (LWC)</description>
+        <externalId>false</externalId>
+        <label>Background Notes (Visible to Students)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields><fields>
+        <fullName>Phone__c</fullName>
+        <description>Student Phone from Banner</description>
+        <externalId>false</externalId>
+        <formula>Contact__r.Phone</formula>
+        <inlineHelpText>Student Phone from Banner</inlineHelpText>
+        <label>Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Preferred_Phone__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Phone received from the student when booking an appointment</inlineHelpText>
+        <label>Preferred Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields><fields>
+        <fullName>Reason_for_Meeting__c</fullName>
+        <externalId>false</externalId>
+        <label>Appointment Reasons</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Academic Coaching</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Academic Probation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financial Concerns</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Housing / Residence Hall</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leave of Absence / Withdrawal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal Concerns</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Major / Minor Exploration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registration Assistance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Study Abroad</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Student Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields><fields>
+        <fullName>Referred_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Referred By</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Faculty</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Staff</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parent / Guardian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields><fields>
+        <fullName>Referrer_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Referrer Name</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields><fields>
+        <fullName>SelectedCourse__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Course</label>
+        <referenceTo>hed__Course_Offering__c</referenceTo>
+        <relationshipLabel>Appointments</relationshipLabel>
+        <relationshipName>Appointments</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>Self_Reported_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Self-Reported Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Staff_Email__c</fullName>
+        <description>Supports CASA appointment confirmation email functionality</description>
+        <externalId>false</externalId>
+        <formula>AppointmentSlot__r.Availability__r.Coach__r.Email</formula>
+        <label>Staff Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Staff__c</fullName>
+        <description>Supports the email template functionality (CASA and LWCl)</description>
+        <externalId>false</externalId>
+        <formula>AppointmentSlot__r.Coach_Full_Name__c</formula>
+        <label>Staff</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>AppointmentSlot__r.StartDate__c</formula>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields><fields>
+        <fullName>Start_Time__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+  OR(
+    VALUE( MID( TEXT( AppointmentSlot__r.Start_Time__c - 7), 12, 2 ) ) = 0,
+    VALUE( MID( TEXT( AppointmentSlot__r.Start_Time__c - 7), 12, 2 ) ) = 12
+  ),
+  "12",
+  TEXT( VALUE( MID( TEXT( AppointmentSlot__r.Start_Time__c - 7), 12, 2 ) ) 
+   -
+   IF( 
+     VALUE( MID( TEXT( AppointmentSlot__r.Start_Time__c - 7), 12, 2 ) ) &lt; 12, 
+     0, 
+     12 
+   ) 
+  )
+)
+&amp; ":" &amp;
+MID( TEXT( AppointmentSlot__r.Start_Time__c - 7), 15, 2 )
+&amp; " " &amp;
+IF(
+  VALUE( MID( TEXT( AppointmentSlot__r.Start_Time__c - 7), 12, 2 ) ) &lt; 12,
+  "AM",
+  "PM"
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Start Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Checked-In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Student Checked-In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Missed by Student</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled by Student</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled by Consultant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>All Appointments</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Denied</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Needs Notes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Strike__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Strike</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields><fields>
+        <fullName>Term__c</fullName>
+        <externalId>false</externalId>
+        <label>Term</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Time_Trigger_15__c</fullName>
+        <description>This field will be used for Missed Appointment By Student Workflow Rule. Should not be displayed on pagelayouts</description>
+        <externalId>false</externalId>
+        <formula>Date_Time__c - 0.03109</formula>
+        <label>Time Trigger 15</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone/Online</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>Zoom__c</fullName>
+        <externalId>false</externalId>
+        <formula>AppointmentSlot__r.Availability__r.Coach__r.Contact.hed__WorkPhone__c</formula>
+        <label>Zoom</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><allowInChatterGroups>true</allowInChatterGroups><compactLayoutAssignment>SYSTEM</compactLayoutAssignment><deploymentStatus>Deployed</deploymentStatus><enableActivities>true</enableActivities><enableBulkApi>true</enableBulkApi><enableFeeds>true</enableFeeds><enableHistory>true</enableHistory><enableReports>true</enableReports><enableSearch>true</enableSearch><enableSharing>true</enableSharing><enableStreamingApi>true</enableStreamingApi><label>Appointment</label><nameField>
+        <displayFormat>AC-{0000}</displayFormat>
+        <label>ID</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField><pluralLabel>Appointments</pluralLabel><recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory><recordTypeTrackHistory>false</recordTypeTrackHistory><searchLayouts>
+        <customTabListAdditionalFields>Date_Time__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CWID__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Email__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+    </searchLayouts><sharingModel>Private</sharingModel><listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Contact_Name__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Status__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>Start_Time__c</columns>
+        <columns>SelectedCourse__c</columns>
+        <columns>Strike__c</columns>
+        <columns>Center__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews><listViews>
+        <fullName>All_LWC_Appointments</fullName>
+        <columns>NAME</columns>
+        <columns>AppointmentType__c</columns>
+        <columns>Center__c</columns>
+        <columns>SelectedCourse__c</columns>
+        <columns>Location__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>Staff__c</columns>
+        <columns>Status__c</columns>
+        <columns>Contact__c</columns>
+        <columns>Strike__c</columns>
+        <columns>Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>AppointmentContact__c.LWC_Appointment</value>
+        </filters>
+        <label>All LWC Appointments</label>
+        <sharedTo>
+            <role>ITS_Staff</role>
+            <role>LWC_Admin</role>
+            <role>LWC_Front_Desk</role>
+            <role>LWC_Learning_Lead</role>
+            <role>LWC_Speaking_Lead</role>
+            <role>LWC_Writing_Lead</role>
+        </sharedTo>
+    </listViews><listViews>
+        <fullName>Needs_Notes</fullName>
+        <columns>NAME</columns>
+        <columns>Staff__c</columns>
+        <columns>Status__c</columns>
+        <columns>Contact__c</columns>
+        <columns>CWID__c</columns>
+        <columns>Date_Time__c</columns>
+        <columns>Reason_for_Meeting__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Needs Notes</value>
+        </filters>
+        <label>Needs Notes</label>
+        <sharedTo>
+            <role>CASA_Staff</role>
+            <role>ITS_Staff</role>
+        </sharedTo>
+    </listViews><listViews>
+        <fullName>Pending_Appointment</fullName>
+        <columns>NAME</columns>
+        <columns>Staff__c</columns>
+        <columns>Status__c</columns>
+        <columns>Contact__c</columns>
+        <columns>CWID__c</columns>
+        <columns>Date_Time__c</columns>
+        <columns>Reason_for_Meeting__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Pending</value>
+        </filters>
+        <label>Pending Appointment</label>
+        <sharedTo>
+            <role>CASA_Staff</role>
+            <role>ITS_Staff</role>
+        </sharedTo>
+    </listViews><recordTypes>
+        <fullName>CASA_Appointment</fullName>
+        <active>true</active>
+        <label>CASA Appointment</label>
+        <picklistValues>
+            <picklist>FirstLanguage__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Group_Assignment__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_AcademicSkills__c</picklist>
+            <values>
+                <fullName>Class preparation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Note taking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reading</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Study strategies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test preparation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test taking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Time management</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_ContributeToPerformance__c</picklist>
+            <values>
+                <fullName>Difficulty with instructor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of foundation knowledge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missing class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missing course material</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-native speaker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None of these</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Over involved%2FWork%2FToo many credits</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poor time management</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_CurrentGradeofCourse__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_HESITutee__c</picklist>
+            <values>
+                <fullName>Don%27t know</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guesstimate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My own calculation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professor calculation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_HourStudy__c</picklist>
+            <values>
+                <fullName>1-2 hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3-4 hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5-8 hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3E hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Never</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_LearningStyles__c</picklist>
+            <values>
+                <fullName>Auditory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kinesthetic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Read%2FWrite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visual</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_MethodOfStudy__c</picklist>
+            <values>
+                <fullName>Creating study guides</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flash cards</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nothing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pneumonia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Practice problems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reading</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review class handouts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Take%2FReview notes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_TutorTutee__c</picklist>
+            <values>
+                <fullName>A few times</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Don%27t know</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Once</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regularly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason_for_Meeting__c</picklist>
+            <values>
+                <fullName>Academic Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Probation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Concerns</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing %2F Residence Hall</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leave of Absence %2F Withdrawal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major %2F Minor Exploration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Student Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Concerns</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Study Abroad</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Referred_By__c</picklist>
+            <values>
+                <fullName>Faculty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent %2F Guardian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Staff</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Checked-In</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Denied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Needs Notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student Checked-In</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone%2FOnline</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes><recordTypes>
+        <fullName>LWC_Appointment</fullName>
+        <active>true</active>
+        <label>LWC Appointment</label>
+        <picklistValues>
+            <picklist>FirstLanguage__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Group_Assignment__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_AcademicSkills__c</picklist>
+            <values>
+                <fullName>Class preparation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Note taking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reading</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Study strategies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test preparation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test taking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Time management</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_ContributeToPerformance__c</picklist>
+            <values>
+                <fullName>Difficulty with instructor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of foundation knowledge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missing class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missing course material</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-native speaker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None of these</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Over involved%2FWork%2FToo many credits</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poor time management</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_CurrentGradeofCourse__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_HESITutee__c</picklist>
+            <values>
+                <fullName>Don%27t know</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guesstimate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My own calculation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professor calculation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_HourStudy__c</picklist>
+            <values>
+                <fullName>1-2 hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3-4 hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5-8 hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3E hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Never</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_LearningStyles__c</picklist>
+            <values>
+                <fullName>Auditory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kinesthetic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Read%2FWrite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visual</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_MethodOfStudy__c</picklist>
+            <values>
+                <fullName>Creating study guides</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flash cards</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nothing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pneumonia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Practice problems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reading</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review class handouts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Take%2FReview notes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LWC_TutorTutee__c</picklist>
+            <values>
+                <fullName>A few times</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Don%27t know</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Once</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regularly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason_for_Meeting__c</picklist>
+            <values>
+                <fullName>Academic Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Academic Probation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Concerns</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing %2F Residence Hall</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leave of Absence %2F Withdrawal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major %2F Minor Exploration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Student Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Concerns</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Study Abroad</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Referred_By__c</picklist>
+            <values>
+                <fullName>Faculty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent %2F Guardian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Staff</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled by Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled by Student</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Checked-In</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Missed by Student</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Needs Notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student Checked-In</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone%2FOnline</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes></CustomObject>

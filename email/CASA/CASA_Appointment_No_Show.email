@@ -1,0 +1,17 @@
+Dear {!AppointmentContact__c.Contact__c},
+
+Our records indicate that you were scheduled to meet with {!AppointmentContact__c.Staff__c} in CASA on {!AppointmentContact__c.Start_Date__c} at {!AppointmentContact__c.Start_Time__c}, and did not show up for your appointment. 
+
+We understand that sometimes these situations are unavoidable; however, it is important that you connect with us in advance so that we can offer your appointment time to another student in need.
+
+To schedule a new appointment, please follow this link: {!$Label.USF_Student_Book_Appointment_page}
+We look forward to seeing you at another time.
+
+
+Thank you,
+
+Center for Academic and Student Achievement (CASA)
+University of San Francisco | UC 3rd Floor
+2130 Fulton St., San Francisco, CA  94117-1080
+T: 415.422.5050 | F: 415.422.2133 | Email: casa@usfca.edu
+Office Hours:  9:00 AM - 5:00 PM

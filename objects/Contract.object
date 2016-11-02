@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"><actionOverrides>
+        <actionName>Activate</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>ChangeStatus</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>Terminate</actionName>
+        <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>AccountId</fullName>
+        
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>ActivatedById</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields><fields>
+        <fullName>ActivatedDate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>BillingAddress</fullName>
+        
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CompanySignedDate</fullName>
+        
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CompanySignedId</fullName>
+        
+        <type>Lookup</type>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>ContractTerm</fullName>
+        
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CustomerSignedDate</fullName>
+        
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CustomerSignedId</fullName>
+        
+        <type>Lookup</type>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CustomerSignedTitle</fullName>
+        
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Description</fullName>
+        
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>EndDate</fullName>
+        
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Name</fullName>
+        
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>OwnerExpirationNotice</fullName>
+        
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>OwnerId</fullName>
+        
+        <type>Lookup</type>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Pricebook2Id</fullName>
+        
+        <type>Lookup</type>
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>ShippingAddress</fullName>
+        
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SpecialTerms</fullName>
+        
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>StartDate</fullName>
+        
+    </fields><fields xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Status</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>In Approval Process</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        
+        <type>Picklist</type>
+    </fields><compactLayoutAssignment>SYSTEM</compactLayoutAssignment><enableFeeds>false</enableFeeds><searchLayouts>
+        <customTabListAdditionalFields>CONTRACT.CONTRACT_NUMBER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CONTRACT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SALES.ACCOUNT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CONTRACT.STATUS</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>CONTRACT.CONTRACT_NUMBER</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CONTRACT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CORE.USERS.ALIAS</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTRACT.CONTRACT_NUMBER</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTRACT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>CONTRACT.CONTRACT_NUMBER</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTRACT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SALES.ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTRACT.STATUS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTRACT.START_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTRACT.END_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTRACT_TERM</searchResultsAdditionalFields>
+    </searchLayouts><sharingModel>Private</sharingModel><listViews>
+        <fullName>AllActivatedContracts</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTRACT.STATUS_CODE</field>
+            <operation>equals</operation>
+            <value>A</value>
+        </filters>
+        <label>All Activated Contracts</label>
+    </listViews><listViews>
+        <fullName>AllContracts</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All Contracts</label>
+    </listViews><listViews>
+        <fullName>AllDraftContracts</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTRACT.STATUS_CODE</field>
+            <operation>equals</operation>
+            <value>D</value>
+        </filters>
+        <label>All Draft Contracts</label>
+    </listViews><listViews>
+        <fullName>AllInApprovalContracts</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTRACT.STATUS_CODE</field>
+            <operation>equals</operation>
+            <value>P</value>
+        </filters>
+        <label>All In Approval Contracts</label>
+    </listViews><listViews>
+        <fullName>MyActivatedContracts</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CONTRACT.STATUS_CODE</field>
+            <operation>equals</operation>
+            <value>A</value>
+        </filters>
+        <label>My Activated Contracts</label>
+    </listViews><listViews>
+        <fullName>MyDraftContracts</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CONTRACT.STATUS_CODE</field>
+            <operation>equals</operation>
+            <value>D</value>
+        </filters>
+        <label>My Draft Contracts</label>
+    </listViews><listViews>
+        <fullName>MyInApprovalContracts</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CONTRACT.STATUS_CODE</field>
+            <operation>equals</operation>
+            <value>P</value>
+        </filters>
+        <label>My In Approval Contracts</label>
+    </listViews></CustomObject>
